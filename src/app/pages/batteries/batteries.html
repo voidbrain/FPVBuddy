@@ -1,0 +1,142 @@
+<app-header
+  title="Battery Management"
+  subtitle="Overview of all batteries and their statuses"
+></app-header>
+
+<main class="pt-20 pb-64 px-4 max-w-2xl mx-auto overflow-y-auto" style="max-height: calc(100vh - 80px);">
+
+
+  <div class="space-y-10">
+    <!-- Group: Charged -->
+    <section>
+      <div class="flex items-center gap-3 mb-4 px-2">
+        <div class="h-[2px] flex-grow bg-gradient-to-r from-secondary/40 to-transparent"></div>
+        <h2 class="font-headline text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">
+          Status: Charged
+        </h2>
+      </div>
+      <div class="space-y-3">
+        <!-- Battery Card -->
+        <div
+          class="relative bg-surface-container-high overflow-hidden rounded-lg group active:scale-[0.98] transition-transform"
+        >
+          <div class="status-rail bg-secondary"></div>
+          <div class="p-4 pl-6 flex justify-between items-center">
+            <div>
+              <p class="font-headline text-lg font-bold text-on-surface leading-tight">
+                Battery #1
+              </p>
+              <p class="font-body text-xs text-on-surface-variant">Tattu R-Line 4S 1300mAh</p>
+            </div>
+            <span
+              class="material-symbols-outlined text-on-surface-variant opacity-30 group-hover:opacity-100 transition-opacity"
+              data-icon="chevron_right"
+              >chevron_right</span
+            >
+          </div>
+        </div>
+        <!-- Battery Card -->
+        <div
+          class="relative bg-surface-container-high overflow-hidden rounded-lg group active:scale-[0.98] transition-transform"
+        >
+          <div class="status-rail bg-secondary"></div>
+          <div class="p-4 pl-6 flex justify-between items-center">
+            <div>
+              <p class="font-headline text-lg font-bold text-on-surface leading-tight">
+                Battery #2
+              </p>
+              <p class="font-body text-xs text-on-surface-variant">Tattu R-Line 4S 1300mAh</p>
+            </div>
+            <span
+              class="material-symbols-outlined text-on-surface-variant opacity-30 group-hover:opacity-100 transition-opacity"
+              data-icon="chevron_right"
+              >chevron_right</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Group: Stored -->
+    <section>
+      <div class="flex items-center gap-3 mb-4 px-2">
+        <div
+          class="h-[2px] flex-grow bg-gradient-to-r from-primary-container/40 to-transparent"
+        ></div>
+        <h2
+          class="font-headline text-[10px] font-bold uppercase tracking-[0.2em] text-primary-container"
+        >
+          Status: Stored
+        </h2>
+      </div>
+      <div class="space-y-3">
+        <div
+          class="relative bg-surface-container-high overflow-hidden rounded-lg group active:scale-[0.98] transition-transform"
+        >
+          <div class="status-rail bg-primary-container"></div>
+          <div class="p-4 pl-6 flex justify-between items-center">
+            <div>
+              <p class="font-headline text-lg font-bold text-on-surface leading-tight">
+                Battery #15
+              </p>
+              <p class="font-body text-xs text-on-surface-variant">GNB 6S 1100mAh 120C</p>
+            </div>
+            <span
+              class="material-symbols-outlined text-on-surface-variant opacity-30 group-hover:opacity-100 transition-opacity"
+              data-icon="chevron_right"
+              >chevron_right</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Group: Discharged -->
+    <section>
+      <div class="flex items-center gap-3 mb-4 px-2">
+        <div class="h-[2px] flex-grow bg-gradient-to-r from-tertiary/40 to-transparent"></div>
+        <h2 class="font-headline text-[10px] font-bold uppercase tracking-[0.2em] text-tertiary">
+          Status: Discharged
+        </h2>
+      </div>
+      <div class="space-y-3">
+        <div
+          class="relative bg-surface-container-high overflow-hidden rounded-lg group active:scale-[0.98] transition-transform"
+        >
+          <div class="status-rail bg-tertiary"></div>
+          <div class="p-4 pl-6 flex justify-between items-center">
+            <div>
+              <p class="font-headline text-lg font-bold text-on-surface leading-tight">
+                Battery #9
+              </p>
+              <p class="font-body text-xs text-on-surface-variant">Lumenier Indestructible 4S</p>
+            </div>
+            <span
+              class="material-symbols-outlined text-on-surface-variant opacity-30 group-hover:opacity-100 transition-opacity"
+              data-icon="chevron_right"
+              >chevron_right</span
+            >
+          </div>
+        </div>
+        <!-- Dismissed State -->
+        <div
+          class="relative bg-surface-container opacity-40 overflow-hidden rounded-lg group grayscale pointer-events-none"
+        >
+          <div class="status-rail bg-outline"></div>
+          <div class="p-4 pl-6 flex justify-between items-center">
+            <div>
+              <p class="font-headline text-lg font-bold text-on-surface leading-tight">
+                Battery #6
+              </p>
+              <p class="font-body text-xs text-on-surface-variant">Puff-Pack 3S (Retired)</p>
+            </div>
+            <span class="material-symbols-outlined text-on-surface-variant" data-icon="block"
+              >block</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <app-footer></app-footer>
+</main>
+

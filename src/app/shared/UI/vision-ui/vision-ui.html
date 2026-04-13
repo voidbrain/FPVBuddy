@@ -1,0 +1,99 @@
+<div id="vision" class="max-w-2xl mx-auto space-y-4">
+  @if (isModelLoading()) {
+    <div class="glass-panel p-4 rounded-xl text-center">
+      <span class="material-symbols-outlined animate-spin">progress_activity</span>
+      <p class="text-sm text-on-surface-variant mt-2">{{ modelStatus() }}</p>
+      @if (downloadProgress() !== null) {
+        <div class="w-full bg-surface-container-high rounded-full h-2 mt-3">
+          <div
+            class="bg-primary h-2 rounded-full transition-all duration-300"
+            [style.width.%]="(downloadProgress() || 0) * 100"
+          ></div>
+        </div>
+        <p class="text-xs text-on-surface-variant mt-1">{{ ((downloadProgress() || 0) * 100).toFixed(0) }}%</p>
+      }
+    </div>
+  } @else {
+    <!-- Video preview -->
+    <div class="vision-camera glass-panel rounded-xl overflow-hidden">
+      @if (!cameraActive()) {
+        <div class="empty-state p-8 text-center">
+          <h3 class="text-lg font-bold">📷 Camera Preview</h3>
+          <p class="text-sm text-on-surface-variant mt-2">Tap below to start the camera</p>
+        </div>
+      }
+      <div #videoMountRef></div>
+    </div>
+
+    <!-- Prompt input -->
+    <input
+      class="w-full p-3 bg-surface-container-low rounded-lg border border-outline-variant text-on-surface placeholder:text-on-surface-variant"
+      type="text"
+      placeholder="What do you want to know about the image?"
+      [value]="prompt()"
+      (input)="updatePrompt($event)"
+      [disabled]="liveMode()"
+    />
+
+    <!-- Action buttons -->
+    <div class="vision-actions flex gap-2">
+      @if (!cameraActive()) {
+        <button
+          class="flex-1 py-4 bg-primary text-on-primary font-headline font-bold uppercase tracking-tighter rounded-lg active:scale-95 transition-transform"
+          (click)="startCamera()"
+        >
+          Start Camera
+        </button>
+      } @else {
+        <button
+          class="flex-1 py-4 bg-primary text-on-primary font-headline font-bold uppercase tracking-tighter rounded-lg active:scale-95 transition-transform disabled:opacity-50"
+          (click)="describeSingle()"
+          [disabled]="processing() || liveMode()"
+        >
+          @if (processing() && !liveMode()) {
+            <span class="material-symbols-outlined animate-spin">progress_activity</span>
+            Analyzing...
+          } @else {
+            <span class="material-symbols-outlined">photo_camera</span>
+          }
+        </button>
+        <button
+          class="py-4 px-6 rounded-lg active:scale-95 transition-transform font-headline font-bold uppercase tracking-tighter"
+          [class.bg-error]="liveMode()"
+          [class.text-on-error]="liveMode()"
+          [class.bg-surface-container-high]="!liveMode()"
+          [class.text-on-surface]="!liveMode()"
+          (click)="toggleLive()"
+          [disabled]="processing() && !liveMode()"
+        >
+          @if (liveMode()) {
+            ⏹ Stop Live
+          } @else {
+            ▶ Live
+          }
+        </button>
+      }
+    </div>
+
+    <!-- Error display -->
+    @if (error()) {
+      <div class="vision-result glass-panel p-4 rounded-xl">
+        <span class="text-error">Error: {{ error() }}</span>
+      </div>
+    }
+
+    <!-- Result display -->
+    @if (result()) {
+      <div class="vision-result glass-panel p-4 rounded-xl">
+        @if (liveMode()) {
+          <span class="inline-block px-2 py-1 bg-error text-on-error text-xs font-bold rounded mb-2">LIVE</span>
+        }
+        <h4 class="font-bold mb-2">Result</h4>
+        <p class="text-sm text-on-surface whitespace-pre-wrap">{{ result()?.text }}</p>
+        @if (result()?.totalMs && result()!.totalMs > 0) {
+          <div class="text-xs text-on-surface-variant mt-2">{{ (result()!.totalMs / 1000).toFixed(1) }}s</div>
+        }
+      </div>
+    }
+  }
+</div>
