@@ -11,7 +11,7 @@ interface ModelState {
 
 @Injectable({ providedIn: 'root' })
 export class ModelService {
-  private modelStates = signal<Map<string, ModelState>>(new Map());
+  private readonly modelStates = signal<Map<string, ModelState>>(new Map());
   private downloadPromises = new Map<string, Promise<void>>();
 
   async getModel(modelId: string): Promise<CompactModelDef | null> {
