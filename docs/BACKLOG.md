@@ -34,7 +34,7 @@
 
 | | |
 |---|---|
-| PR / evidence | `harness/agent-harness` (PR pending) |
+| PR / evidence | [PR #1](https://github.com/voidbrain/FPVBuddy/pull/1) |
 | Opened | 2026-11-22 |
 | Verification | `check:harness`, `check:backlog`, `check:rules`, `check:tooling`, `check:conventions`, `impact-map`, `npm run build` |
 | Reviewed | 2026-11-22 |
