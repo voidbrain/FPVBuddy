@@ -6,14 +6,7 @@ import { VisionUi } from '../vision-ui/vision-ui';
 
 @Component({
   selector: 'app-footer',
-  imports: [
-    ActionsBar,
-    Nav,
-    LlmUi,
-    VisionUi
-  ],
+  imports: [ActionsBar, Nav, LlmUi, VisionUi],
   templateUrl: './footer.html',
 })
-export class Footer {
-
-}
+export class Footer {}

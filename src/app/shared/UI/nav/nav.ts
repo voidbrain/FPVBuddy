@@ -2,10 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
-  imports: [
-  ],
+  imports: [],
   templateUrl: './nav.html',
 })
-export class Nav {
-
-}
+export class Nav {}

@@ -1,13 +1,21 @@
 import { Component, OnInit, signal, inject } from '@angular/core';
-import { TextGeneration, ToolCalling, type ToolDefinition, type ToolParameter, type ToolValue, getStringArg, getNumberArg } from '@runanywhere/web-llamacpp'
-import { initSDK } from '../../../services/runanywhere'
-import { ModelService } from '../../../services/model.service'
+import {
+  TextGeneration,
+  ToolCalling,
+  type ToolDefinition,
+  type ToolParameter,
+  type ToolValue,
+  getStringArg,
+  getNumberArg,
+} from '@runanywhere/web-llamacpp';
+import { initSDK } from '../../../services/runanywhere';
+import { ModelService } from '../../../services/model.service';
 
 interface TextGenerationResult {
-  text: string
-  tokensUsed: number
-  tokensPerSecond: number
-  latencyMs: number
+  text: string;
+  tokensUsed: number;
+  tokensPerSecond: number;
+  latencyMs: number;
 }
 
 @Component({
@@ -24,68 +32,108 @@ export class LlmUi implements OnInit {
   protected isGenerating = signal(false);
   protected isModelLoading = signal(true);
 
-  private allowedKeywords = ['battery', 'charge', 'discharge', 'store', 'voltage', 'cell', 'pack', 'series', 'fpv'];
+  private allowedKeywords = [
+    'battery',
+    'charge',
+    'discharge',
+    'store',
+    'voltage',
+    'cell',
+    'pack',
+    'series',
+    'fpv',
+  ];
 
   private isAllowed(input: string): boolean {
-    return this.allowedKeywords.some(k => input.toLowerCase().includes(k));
+    return this.allowedKeywords.some((k) => input.toLowerCase().includes(k));
   }
 
   // Define available functions for the LLM
   private functions: ToolDefinition[] = [
     {
-      name: "chargeBattery",
-      description: "Charge an FPV battery",
+      name: 'chargeBattery',
+      description: 'Charge an FPV battery',
       parameters: [
-        { name: "battery_id", type: "number", description: "The ID of the battery to charge", required: true },
-        { name: "series", type: "string", description: "Battery series (e.g., '4S', '6S')", required: false }
-      ]
+        {
+          name: 'battery_id',
+          type: 'number',
+          description: 'The ID of the battery to charge',
+          required: true,
+        },
+        {
+          name: 'series',
+          type: 'string',
+          description: "Battery series (e.g., '4S', '6S')",
+          required: false,
+        },
+      ],
     },
     {
-      name: "dischargeBattery",
-      description: "Discharge an FPV battery",
+      name: 'dischargeBattery',
+      description: 'Discharge an FPV battery',
       parameters: [
-        { name: "battery_id", type: "number", description: "The ID of the battery to discharge", required: true },
-        { name: "series", type: "string", description: "Battery series (e.g., '4S', '6S')", required: false }
-      ]
+        {
+          name: 'battery_id',
+          type: 'number',
+          description: 'The ID of the battery to discharge',
+          required: true,
+        },
+        {
+          name: 'series',
+          type: 'string',
+          description: "Battery series (e.g., '4S', '6S')",
+          required: false,
+        },
+      ],
     },
     {
-      name: "storeBattery",
-      description: "Store an FPV battery at storage voltage",
+      name: 'storeBattery',
+      description: 'Store an FPV battery at storage voltage',
       parameters: [
-        { name: "battery_id", type: "number", description: "The ID of the battery to store", required: true },
-        { name: "series", type: "string", description: "Battery series (e.g., '4S', '6S')", required: false }
-      ]
-    }
+        {
+          name: 'battery_id',
+          type: 'number',
+          description: 'The ID of the battery to store',
+          required: true,
+        },
+        {
+          name: 'series',
+          type: 'string',
+          description: "Battery series (e.g., '4S', '6S')",
+          required: false,
+        },
+      ],
+    },
   ];
 
   private registerTools() {
     // Register each tool with its executor
-    ToolCalling.registerTool(
-      this.functions[0],
-      async (args) => {
-        console.log('Charging battery:', args);
-        const batteryId = getNumberArg(args, 'battery_id');
-        return { success: { type: 'boolean', value: true }, message: { type: 'string', value: `Charging battery ${batteryId}` } };
-      }
-    );
+    ToolCalling.registerTool(this.functions[0], async (args) => {
+      console.log('Charging battery:', args);
+      const batteryId = getNumberArg(args, 'battery_id');
+      return {
+        success: { type: 'boolean', value: true },
+        message: { type: 'string', value: `Charging battery ${batteryId}` },
+      };
+    });
 
-    ToolCalling.registerTool(
-      this.functions[1],
-      async (args) => {
-        console.log('Discharging battery:', args);
-        const batteryId = getNumberArg(args, 'battery_id');
-        return { success: { type: 'boolean', value: true }, message: { type: 'string', value: `Discharging battery ${batteryId}` } };
-      }
-    );
+    ToolCalling.registerTool(this.functions[1], async (args) => {
+      console.log('Discharging battery:', args);
+      const batteryId = getNumberArg(args, 'battery_id');
+      return {
+        success: { type: 'boolean', value: true },
+        message: { type: 'string', value: `Discharging battery ${batteryId}` },
+      };
+    });
 
-    ToolCalling.registerTool(
-      this.functions[2],
-      async (args) => {
-        console.log('Storing battery:', args);
-        const batteryId = getNumberArg(args, 'battery_id');
-        return { success: { type: 'boolean', value: true }, message: { type: 'string', value: `Storing battery ${batteryId}` } };
-      }
-    );
+    ToolCalling.registerTool(this.functions[2], async (args) => {
+      console.log('Storing battery:', args);
+      const batteryId = getNumberArg(args, 'battery_id');
+      return {
+        success: { type: 'boolean', value: true },
+        message: { type: 'string', value: `Storing battery ${batteryId}` },
+      };
+    });
   }
 
   async ngOnInit() {
@@ -117,10 +165,10 @@ export class LlmUi implements OnInit {
       }
 
       // Use tool calling to execute functions
-      const result = await ToolCalling.generateWithTools(
-        this.inputText(),
-        { maxTokens: 200, temperature: 0.3 }
-      );
+      const result = await ToolCalling.generateWithTools(this.inputText(), {
+        maxTokens: 200,
+        temperature: 0.3,
+      });
 
       // Check if any tools were called
       if (result.toolCalls && result.toolCalls.length > 0) {

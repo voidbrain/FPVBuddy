@@ -1,4 +1,13 @@
-import { Component, OnInit, OnDestroy, signal, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  signal,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  inject,
+} from '@angular/core';
 import { initSDK } from '../../../services/runanywhere';
 import { ModelService } from '../../../services/model.service';
 import { VLMWorkerBridge } from '@runanywhere/web-llamacpp';
@@ -85,7 +94,7 @@ export class VisionUi implements OnInit, OnDestroy, AfterViewInit {
     }
 
     if (this.stream) {
-      this.stream.getTracks().forEach(track => track.stop());
+      this.stream.getTracks().forEach((track) => track.stop());
       this.stream = null;
     }
   }
@@ -100,12 +109,12 @@ export class VisionUi implements OnInit, OnDestroy, AfterViewInit {
       try {
         this.stream = await navigator.mediaDevices.getUserMedia({
           video: { facingMode: 'environment' },
-          audio: false
+          audio: false,
         });
       } catch (backCameraError) {
         this.stream = await navigator.mediaDevices.getUserMedia({
           video: true,
-          audio: false
+          audio: false,
         });
       }
 
@@ -121,7 +130,7 @@ export class VisionUi implements OnInit, OnDestroy, AfterViewInit {
       this.captureRef = {
         videoElement: video,
         isCapturing: true,
-        captureFrame: (dim: number) => this.captureFrame(video, dim)
+        captureFrame: (dim: number) => this.captureFrame(video, dim),
       };
 
       // Mount video element
@@ -149,7 +158,10 @@ export class VisionUi implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  private captureFrame(video: HTMLVideoElement, dim: number): { rgbPixels: Uint8Array; width: number; height: number } | null {
+  private captureFrame(
+    video: HTMLVideoElement,
+    dim: number,
+  ): { rgbPixels: Uint8Array; width: number; height: number } | null {
     if (!video.videoWidth || !video.videoHeight) return null;
 
     const canvas = document.createElement('canvas');
@@ -165,7 +177,7 @@ export class VisionUi implements OnInit, OnDestroy, AfterViewInit {
     return {
       rgbPixels: new Uint8Array(imageData.data.buffer),
       width: dim,
-      height: dim
+      height: dim,
     };
   }
 
@@ -190,16 +202,19 @@ export class VisionUi implements OnInit, OnDestroy, AfterViewInit {
         frame.width,
         frame.height,
         this.prompt(),
-        { maxTokens }
+        { maxTokens },
       );
       this.result.set({ text: result.text, totalMs: performance.now() - t0 });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
-      const isWasmCrash = msg.includes('memory access out of bounds')
-        || msg.includes('RuntimeError');
+      const isWasmCrash =
+        msg.includes('memory access out of bounds') || msg.includes('RuntimeError');
 
       if (isWasmCrash) {
-        this.result.set({ text: 'Recovering from memory error... next frame will retry.', totalMs: 0 });
+        this.result.set({
+          text: 'Recovering from memory error... next frame will retry.',
+          totalMs: 0,
+        });
       } else {
         this.error.set(msg);
         if (this.liveModeRef) this.stopLive();

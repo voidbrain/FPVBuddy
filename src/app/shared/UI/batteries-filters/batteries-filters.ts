@@ -2,10 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-batteries-filters',
-  imports: [
-  ],
+  imports: [],
   templateUrl: './batteries-filters.html',
 })
-export class BatteriesFilters {
-
-}
+export class BatteriesFilters {}

@@ -5,13 +5,13 @@ import {
   ModelCategory,
   LLMFramework,
   type CompactModelDef,
-} from '@runanywhere/web'
-import { LlamaCPP, VLMWorkerBridge, TextGeneration } from '@runanywhere/web-llamacpp'
+} from '@runanywhere/web';
+import { LlamaCPP, VLMWorkerBridge, TextGeneration } from '@runanywhere/web-llamacpp';
 
-import { SDKLogger, LogLevel } from '@runanywhere/web'
+import { SDKLogger, LogLevel } from '@runanywhere/web';
 
 // Enable debug logging to see what's happening
-SDKLogger.level = LogLevel.Debug
+SDKLogger.level = LogLevel.Debug;
 
 // Define your model catalog
 const MODELS: CompactModelDef[] = [
@@ -33,42 +33,42 @@ const MODELS: CompactModelDef[] = [
     memoryRequirement: 105_000_000,
     artifactType: 'archive' as const,
   },
-]
+];
 
-let _initPromise: Promise<void> | null = null
+let _initPromise: Promise<void> | null = null;
 
 export async function initSDK(): Promise<void> {
-  if (_initPromise) return _initPromise
+  if (_initPromise) return _initPromise;
 
   _initPromise = (async () => {
     // 1. Initialize core SDK
     await RunAnywhere.initialize({
       environment: SDKEnvironment.Development,
       debug: false,
-    })
+    });
 
     // 2. Register the LlamaCpp backend with correct WASM path
     await LlamaCPP.register({
       wasmUrl: '/wasm/racommons-llamacpp.js',
-      webgpuWasmUrl: '/wasm/racommons-llamacpp-webgpu.js'
-    })
+      webgpuWasmUrl: '/wasm/racommons-llamacpp-webgpu.js',
+    });
 
     // 3. Register model catalog
-    RunAnywhere.registerModels(MODELS)
+    RunAnywhere.registerModels(MODELS);
 
     // 4. Register model loaders with ModelManager
     // TextGeneration implements LLMModelLoader (has loadModelFromData)
-    ModelManager.setLLMLoader(TextGeneration)
+    ModelManager.setLLMLoader(TextGeneration);
 
     // VLMWorkerBridge implements VLMLoader (has init, isInitialized, loadModel, unloadModel)
     // Use the pre-bundled worker from public/workers/ so all @runanywhere imports resolve correctly.
-    VLMWorkerBridge.shared.workerUrl = new URL('/workers/vlm-worker.js', window.location.origin)
-    ModelManager.setVLMLoader(VLMWorkerBridge.shared)
+    VLMWorkerBridge.shared.workerUrl = new URL('/workers/vlm-worker.js', window.location.origin);
+    ModelManager.setVLMLoader(VLMWorkerBridge.shared);
 
-    console.log('[SDK] SDK initialization complete - LLM and VLM loaders registered')
-  })()
+    console.log('[SDK] SDK initialization complete - LLM and VLM loaders registered');
+  })();
 
-  return _initPromise
+  return _initPromise;
 }
 
-export { RunAnywhere, ModelManager, ModelCategory }
+export { RunAnywhere, ModelManager, ModelCategory };
