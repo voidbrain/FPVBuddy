@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-> Last updated 2026-11-23 against main `e5b8fe9`. Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
+> Last updated 2026-11-23 against main `2cedf90`. Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
 
 ## Lifecycle
 
@@ -9,7 +9,6 @@
 | 🟡 | **Implemented** | Code & tests exist; awaiting CI or owner confirmation |
 | 🔵 | **Closed** | Verified and closed |
 | 🔴 | **Open** | Accepted work not yet started |
-| ⚪ | **Proposed** | Needs owner decision or triage |
 
 ## Open & active items
 
@@ -39,8 +38,8 @@
 | Verification | `check:harness`, `check:backlog`, `check:rules`, `check:tooling`, `check:conventions`, `impact-map`, `npm run build` |
 | Reviewed | 2026-11-22 |
 
-**Estimates:** `🟢 Small` — implementation complete on `harness/agent-harness`; only PR CI verification and merge remain.
-**Next action / closure evidence:** 2026-11-22: Adopted `project-harness v10.2.0` (`core` + `angular`) on `harness/agent-harness`; `check:harness`, `check:backlog`, `check:rules`, `check:tooling`, `check:conventions`, `impact-map`, and `npm run build` pass. CI runs baseline-failing checks (`B-001`–`B-004`) with `continue-on-error: true` until fixed.
+**Estimates:** `🟢 Small` — implementation complete and merged in PR #1.
+**Next action / closure evidence:** Closed 2026-11-23 ([PR #1](https://github.com/voidbrain/FPVBuddy/pull/1)).
 
 </details>
 
@@ -52,9 +51,9 @@
 
 | Signal | Priority | Status | Effort |
 |:---:|---|---|---|
-| 🔴 | 🔺 P1 | Open | 🟢 Small |
+| 🟡 | 🔺 P1 | Implemented | 🟢 Small |
 
-💻 **→ Human action required: No**<br />Next: update `src/app/app.spec.ts` or `src/app/app.html` so the title test matches shipped UI, and remove `continue-on-error` from `.github/workflows/ci.yml`.
+💻 **→ Human action required: No**<br />Next: merge PR once CI passes.
 
 | | |
 |---|---|
@@ -67,13 +66,13 @@
 
 | | |
 |---|---|
-| PR / evidence | Baseline audit 2026-11-22 (`6b75548`) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
 | Opened | 2026-11-22 |
-| Verification | Pending fix |
-| Reviewed | 2026-11-22 |
+| Verification | `npm test -- --watch=false` (2/2 passed) |
+| Reviewed | 2026-11-23 |
 
-**Estimates:** `🟢 Small` — single test assertion/template update in `src/app/app.spec.ts` / `src/app/app.html` and removing `continue-on-error` in CI.
-**Next action / closure evidence:** Fix `App > should render title` test against current UI and re-run `npm test -- --watch=false`.
+**Estimates:** `🟢 Small` — updated `src/app/app.spec.ts` to assert `<router-outlet>` matching `src/app/app.html` and removed `continue-on-error` in CI.
+**Next action / closure evidence:** Updated `src/app/app.spec.ts` and enabled strict CI check.
 
 </details>
 
@@ -85,9 +84,9 @@
 
 | Signal | Priority | Status | Effort |
 |:---:|---|---|---|
-| 🔴 | 🔶 P2 | Open | 🟢 Small |
+| 🟡 | 🔶 P2 | Implemented | 🟢 Small |
 
-💻 **→ Human action required: No**<br />Next: remove unused imports/interface in `src/app/pages/batteries/batteries.ts` and `src/app/shared/UI/llm-ui/llm-ui.ts`, and remove `continue-on-error` from `.github/workflows/ci.yml`.
+💻 **→ Human action required: No**<br />Next: merge PR once CI passes.
 
 | | |
 |---|---|
@@ -100,13 +99,13 @@
 
 | | |
 |---|---|
-| PR / evidence | Baseline audit 2026-11-22 (`6b75548`) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
 | Opened | 2026-11-22 |
-| Verification | Pending fix |
-| Reviewed | 2026-11-22 |
+| Verification | `npm run typecheck` passed (0 errors) |
+| Reviewed | 2026-11-23 |
 
-**Estimates:** `🟢 Small` — remove 7 unused imports/types across 2 files and remove `continue-on-error` in CI.
-**Next action / closure evidence:** Remove unused symbols and verify `npm run typecheck` passes.
+**Estimates:** `🟢 Small` — removed unused symbols and `continue-on-error` in CI.
+**Next action / closure evidence:** Removed unused imports/types across `batteries.ts` and `llm-ui.ts`; `npm run typecheck` passes.
 
 </details>
 
@@ -118,9 +117,9 @@
 
 | Signal | Priority | Status | Effort |
 |:---:|---|---|---|
-| 🟡 | 🔶 P2 | Implemented | 🟢 Small |
+| 🔵 | ◻️ P2 | Closed | 🟢 Small |
 
-💻 **→ Human action required: No**<br />Next: merge PR once CI passes.
+💻 **→ Human action required: No**<br />Closed 2026-11-23 ([PR #2](https://github.com/voidbrain/FPVBuddy/pull/2) merged on green CI).
 
 | | |
 |---|---|
@@ -133,13 +132,13 @@
 
 | | |
 |---|---|
-| PR / evidence | Baseline audit 2026-11-22 (`6b75548`) |
+| PR / evidence | [PR #2](https://github.com/voidbrain/FPVBuddy/pull/2) · No test: mechanical Prettier formatting only |
 | Opened | 2026-11-22 |
-| Verification | Pending fix |
-| Reviewed | 2026-11-22 |
+| Verification | `npm run format:check` passed in PR #2 CI |
+| Reviewed | 2026-11-23 |
 
-**Estimates:** `🟢 Small` — mechanical `npm run format` PR with no behaviour changes.
-**Next action / closure evidence:** Run `npm run format` in its own PR and remove `continue-on-error` in CI.
+**Estimates:** `🟢 Small` — mechanical `npm run format` PR merged in PR #2.
+**Next action / closure evidence:** Closed 2026-11-23 ([PR #2](https://github.com/voidbrain/FPVBuddy/pull/2)).
 
 </details>
 
@@ -151,9 +150,9 @@
 
 | Signal | Priority | Status | Effort |
 |:---:|---|---|---|
-| 🔴 | 🔶 P2 | Open | 🟡 Medium |
+| 🟡 | 🔶 P2 | Implemented | 🟢 Small |
 
-💻 **→ Human action required: No**<br />Next: fix or suppress baseline `npm run lint` findings and remove `continue-on-error` from `.github/workflows/ci.yml`.
+💻 **→ Human action required: No**<br />Next: merge PR once CI passes.
 
 | | |
 |---|---|
@@ -166,13 +165,13 @@
 
 | | |
 |---|---|
-| PR / evidence | Baseline audit 2026-11-22 (`6b75548`) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
 | Opened | 2026-11-22 |
-| Verification | Pending fix |
-| Reviewed | 2026-11-22 |
+| Verification | `npm run lint` passed (0 errors, 0 warnings) |
+| Reviewed | 2026-11-23 |
 
-**Estimates:** `🟡 Medium` — resolve or configure baseline ESLint/accessibility findings across existing components/templates.
-**Next action / closure evidence:** Run `npm run lint`, fix findings, and remove `continue-on-error` in CI.
+**Estimates:** `🟢 Small` — resolved all 38 baseline findings and ignored vendored `public/wasm/**`.
+**Next action / closure evidence:** Fixed signal `readonly`, `viewChild()`, `header.html` button label, `public/sw.js` globals, and removed `continue-on-error` in CI.
 
 </details>
 
@@ -190,7 +189,7 @@
 
 | | |
 |---|---|
-| **Issue** | `package.json` lists `react` and `@types/react` in an Angular v21 project. |
+| **Issue** | `package.json` lists `react` and `@types/react` in an Angular v21 project (neither `src/` nor `@runanywhere/web/package.json` references `react`). |
 | **Reproduce** | Inspect `package.json` and search `src/` for `react`. |
 | **Check** | Dependencies either documented in `docs/agents/areas.md` or removed cleanly with `npm run build` passing. |
 
@@ -217,9 +216,9 @@
 
 | Signal | Priority | Status | Effort |
 |:---:|---|---|---|
-| 🔴 | 🔶 P2 | Open | 🟢 Small |
+| 🟡 | 🔶 P2 | Implemented | 🟢 Small |
 
-💻 **→ Human action required: No**<br />Next: replace `CommonModule` in `src/app/pages/batteries/batteries.ts` and `any` in `src/app/shared/UI/vision-ui/vision-ui.ts:38`, and remove `continue-on-error` from `.github/workflows/ci.yml`.
+💻 **→ Human action required: No**<br />Next: merge PR once CI passes.
 
 | | |
 |---|---|
@@ -232,13 +231,13 @@
 
 | | |
 |---|---|
-| PR / evidence | Baseline audit 2026-11-22 (`6b75548`) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
 | Opened | 2026-11-22 |
-| Verification | Pending fix |
-| Reviewed | 2026-11-22 |
+| Verification | `npm run check:conventions` passed (25 files, 0 issues) |
+| Reviewed | 2026-11-23 |
 
-**Estimates:** `🟢 Small` — 2 small cleanups in `batteries.ts` and `vision-ui.ts`.
-**Next action / closure evidence:** Fix the 3 findings and verify `npm run check:conventions` exits 0.
+**Estimates:** `🟢 Small` — removed unused `CommonModule` in `batteries.ts` and replaced `any` with `CaptureHandle` in `vision-ui.ts`.
+**Next action / closure evidence:** `npm run check:conventions` exits 0 and `continue-on-error` removed in CI.
 
 </details>
 

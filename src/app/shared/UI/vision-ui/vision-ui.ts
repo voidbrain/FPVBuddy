@@ -4,7 +4,7 @@ import {
   OnDestroy,
   signal,
   ElementRef,
-  ViewChild,
+  viewChild,
   AfterViewInit,
   inject,
 } from '@angular/core';
@@ -22,29 +22,36 @@ interface VisionResult {
   totalMs: number;
 }
 
+interface CaptureHandle {
+  videoElement: HTMLVideoElement;
+  isCapturing: boolean;
+  captureFrame: (dim: number) => { rgbPixels: Uint8Array; width: number; height: number } | null;
+  stop?: () => void;
+}
+
 @Component({
   selector: 'app-vision-ui',
   imports: [],
   templateUrl: './vision-ui.html',
 })
 export class VisionUi implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChild('videoMountRef', { static: false }) videoMountRef!: ElementRef<HTMLDivElement>;
+  private readonly videoMountRef = viewChild<ElementRef<HTMLDivElement>>('videoMountRef');
 
   private modelService = inject(ModelService);
   private readonly MODEL_ID = 'lfm2-vl-450m-q4_0';
 
-  protected cameraActive = signal(false);
-  protected processing = signal(false);
-  protected liveMode = signal(false);
-  protected result = signal<VisionResult | null>(null);
-  protected error = signal<string | null>(null);
-  protected prompt = signal('Describe what you see briefly.');
-  protected isModelLoading = signal(true);
-  protected modelReady = signal(false);
-  protected downloadProgress = signal<number | null>(null);
-  protected modelStatus = signal<string>('Initializing...');
+  protected readonly cameraActive = signal(false);
+  protected readonly processing = signal(false);
+  protected readonly liveMode = signal(false);
+  protected readonly result = signal<VisionResult | null>(null);
+  protected readonly error = signal<string | null>(null);
+  protected readonly prompt = signal('Describe what you see briefly.');
+  protected readonly isModelLoading = signal(true);
+  protected readonly modelReady = signal(false);
+  protected readonly downloadProgress = signal<number | null>(null);
+  protected readonly modelStatus = signal<string>('Initializing...');
 
-  private captureRef: any = null;
+  private captureRef: CaptureHandle | null = null;
   private processingRef = false;
   private liveIntervalRef: ReturnType<typeof setInterval> | null = null;
   private liveModeRef = false;
@@ -111,7 +118,7 @@ export class VisionUi implements OnInit, OnDestroy, AfterViewInit {
           video: { facingMode: 'environment' },
           audio: false,
         });
-      } catch (backCameraError) {
+      } catch {
         this.stream = await navigator.mediaDevices.getUserMedia({
           video: true,
           audio: false,
@@ -134,7 +141,7 @@ export class VisionUi implements OnInit, OnDestroy, AfterViewInit {
       };
 
       // Mount video element
-      const mount = this.videoMountRef?.nativeElement;
+      const mount = this.videoMountRef()?.nativeElement;
       if (mount) {
         mount.innerHTML = '';
         mount.appendChild(video);

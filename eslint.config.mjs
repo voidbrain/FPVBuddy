@@ -20,12 +20,24 @@ export default tseslint.config(
       'playwright-report/**',
       'test-results/**',
       'public/workers/**',
+      'public/wasm/**',
       'tools/**',
     ],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...angularEslint.configs.tsRecommended,
+  {
+    files: ['public/sw.js'],
+    languageOptions: {
+      globals: {
+        self: 'readonly',
+        caches: 'readonly',
+        fetch: 'readonly',
+        console: 'readonly',
+      },
+    },
+  },
   {
     files: ['**/*.ts'],
     rules: {

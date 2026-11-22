@@ -1,22 +1,7 @@
 import { Component, OnInit, signal, inject } from '@angular/core';
-import {
-  TextGeneration,
-  ToolCalling,
-  type ToolDefinition,
-  type ToolParameter,
-  type ToolValue,
-  getStringArg,
-  getNumberArg,
-} from '@runanywhere/web-llamacpp';
+import { ToolCalling, type ToolDefinition, getNumberArg } from '@runanywhere/web-llamacpp';
 import { initSDK } from '../../../services/runanywhere';
 import { ModelService } from '../../../services/model.service';
-
-interface TextGenerationResult {
-  text: string;
-  tokensUsed: number;
-  tokensPerSecond: number;
-  latencyMs: number;
-}
 
 @Component({
   selector: 'app-llm-ui',
@@ -27,10 +12,10 @@ export class LlmUi implements OnInit {
   private modelService = inject(ModelService);
   private readonly MODEL_ID = 'lfm2-vl-450m-q4_0';
 
-  protected inputText = signal('');
-  protected response = signal('');
-  protected isGenerating = signal(false);
-  protected isModelLoading = signal(true);
+  protected readonly inputText = signal('');
+  protected readonly response = signal('');
+  protected readonly isGenerating = signal(false);
+  protected readonly isModelLoading = signal(true);
 
   private allowedKeywords = [
     'battery',
