@@ -66,7 +66,7 @@
 
 | | |
 |---|---|
-| PR / evidence | `fix/backlog-cleanup` (PR pending) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
 | Opened | 2026-11-22 |
 | Verification | `npm test -- --watch=false` (2/2 passed) |
 | Reviewed | 2026-11-23 |
@@ -99,7 +99,7 @@
 
 | | |
 |---|---|
-| PR / evidence | `fix/backlog-cleanup` (PR pending) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
 | Opened | 2026-11-22 |
 | Verification | `npm run typecheck` passed (0 errors) |
 | Reviewed | 2026-11-23 |
@@ -132,7 +132,7 @@
 
 | | |
 |---|---|
-| PR / evidence | [PR #2](https://github.com/voidbrain/FPVBuddy/pull/2) |
+| PR / evidence | [PR #2](https://github.com/voidbrain/FPVBuddy/pull/2) · No test: mechanical Prettier formatting only |
 | Opened | 2026-11-22 |
 | Verification | `npm run format:check` passed in PR #2 CI |
 | Reviewed | 2026-11-23 |
@@ -165,7 +165,7 @@
 
 | | |
 |---|---|
-| PR / evidence | `fix/backlog-cleanup` (PR pending) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
 | Opened | 2026-11-22 |
 | Verification | `npm run lint` passed (0 errors, 0 warnings) |
 | Reviewed | 2026-11-23 |
@@ -231,7 +231,7 @@
 
 | | |
 |---|---|
-| PR / evidence | `fix/backlog-cleanup` (PR pending) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
 | Opened | 2026-11-22 |
 | Verification | `npm run check:conventions` passed (25 files, 0 issues) |
 | Reviewed | 2026-11-23 |
