@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "kind": "full",
+  "reviewed": "2026-11-22T22:07:00.000Z",
+  "baseline": "6b755488f89e055dd82cbb1be670264817aa3946",
+  "report": "docs/audits/2026-11-22-baseline.md",
+  "areas": {
+    "code": {
+      "result": "checked",
+      "evidence": "npm run build passed; tsc --noUnusedLocals found 7 errors (B-002); Prettier found 20 unformatted files (B-003); ESLint added (B-004).",
+      "limits": "Baseline lint/typecheck failures recorded as B-002..B-004 without edits."
+    },
+    "logic": {
+      "result": "checked",
+      "evidence": "Inspected src/app/services/ and src/workers/vlm-worker.ts; build:worker impact row recorded.",
+      "limits": "Runtime VLM inference not executed in headless CI."
+    },
+    "tests": {
+      "result": "checked",
+      "evidence": "npm test -- --watch=false ran 2 specs: 1 passed, 1 failed (App > should render title, B-001).",
+      "limits": "No E2E browser suite configured."
+    },
+    "documentation": {
+      "result": "checked",
+      "evidence": "AGENTS.md, docs/STYLE-GUIDE.md, docs/agents/areas.md, README.md, and docs/BACKLOG.md aligned with src/.",
+      "limits": "Initial baseline documentation."
+    },
+    "harness": {
+      "result": "checked",
+      "evidence": "Adopted project-harness v10.2.0 (core + angular); check:harness, check:rules, check:tooling, check:backlog pass.",
+      "limits": "First adoption PR; branch freshness warnings clear on merge."
+    },
+    "security": {
+      "result": "checked",
+      "evidence": "CI generates CycloneDX SBOM; COOP/COEP headers verified in angular.json; B-005 flags unused react packages.",
+      "limits": "No automated SAST beyond npm audit / ESLint."
+    },
+    "delivery": {
+      "result": "checked",
+      "evidence": "Added .github/workflows/ci.yml with PR and push:main triggers; baseline-failing steps marked continue-on-error with backlog IDs.",
+      "limits": "CI workflow not yet run on GitHub Actions until PR opens."
+    },
+    "backlog": {
+      "result": "checked",
+      "evidence": "docs/BACKLOG.md seeded with F-001 and B-001..B-006; npm run check:backlog passes.",
+      "limits": "Initial seed against 6b75548."
+    }
+  }
+}
