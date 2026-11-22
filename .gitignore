@@ -42,3 +42,24 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# harness: merge into .gitignore. Shared agents and commands in .claude/ are versioned; only local state is ignored.
+.claude/settings.local.json
+.claude/worktrees/
+.DS_Store
+
+# Angular / Node (angular/)
+node_modules
+dist/
+.angular/
+playwright-report/
+test-results/
+
+# Optional local friction measurements; never automatic telemetry.
+.harness/friction.jsonl
+
+.harness/friction-session.json
+.harness/review-outcomes.json
+
+# The complete test report the quiet reporter pairs with (tools/quiet-reporter.mjs).
+.test-report.txt

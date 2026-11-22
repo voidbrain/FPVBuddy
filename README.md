@@ -57,3 +57,11 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Working on it
+
+- Agent instructions and workflows: [AGENTS.md](AGENTS.md)
+- Backlog and open issues: [docs/BACKLOG.md](docs/BACKLOG.md)
+- Visual tokens and typography: [docs/STYLE-GUIDE.md](docs/STYLE-GUIDE.md)
+- Build VLM worker bundle: `npm run build:worker`
+- Harness checks: `npm run check:freshness`, `npm run check:backlog`, `npm run check:tooling`
