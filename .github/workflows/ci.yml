@@ -80,7 +80,6 @@ jobs:
         run: npm run lint
 
       - name: Formatter check, and that formatter and linter are enforced
-        continue-on-error: true # B-003: mechanical Prettier PR tracked separately
         run: npm run format:check && npm run check:tooling
 
       - name: Test, with coverage

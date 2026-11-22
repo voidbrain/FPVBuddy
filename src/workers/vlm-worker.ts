@@ -5,6 +5,6 @@
  * bundler (Vite) resolves all transitive deps from the package barrel export
  * instead of using the raw npm workers/ file (which has unresolved relative imports).
  */
-import { startVLMWorkerRuntime } from '@runanywhere/web-llamacpp'
+import { startVLMWorkerRuntime } from '@runanywhere/web-llamacpp';
 
-startVLMWorkerRuntime()
+startVLMWorkerRuntime();

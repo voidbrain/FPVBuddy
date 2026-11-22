@@ -2,10 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-actions-bar',
-  imports: [
-  ],
+  imports: [],
   templateUrl: './actions-bar.html',
 })
-export class ActionsBar {
-
-}
+export class ActionsBar {}

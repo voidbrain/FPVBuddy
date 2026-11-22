@@ -10,7 +10,9 @@
             [style.width.%]="(downloadProgress() || 0) * 100"
           ></div>
         </div>
-        <p class="text-xs text-on-surface-variant mt-1">{{ ((downloadProgress() || 0) * 100).toFixed(0) }}%</p>
+        <p class="text-xs text-on-surface-variant mt-1">
+          {{ ((downloadProgress() || 0) * 100).toFixed(0) }}%
+        </p>
       }
     </div>
   } @else {
@@ -86,12 +88,16 @@
     @if (result()) {
       <div class="vision-result glass-panel p-4 rounded-xl">
         @if (liveMode()) {
-          <span class="inline-block px-2 py-1 bg-error text-on-error text-xs font-bold rounded mb-2">LIVE</span>
+          <span class="inline-block px-2 py-1 bg-error text-on-error text-xs font-bold rounded mb-2"
+            >LIVE</span
+          >
         }
         <h4 class="font-bold mb-2">Result</h4>
         <p class="text-sm text-on-surface whitespace-pre-wrap">{{ result()?.text }}</p>
         @if (result()?.totalMs && result()!.totalMs > 0) {
-          <div class="text-xs text-on-surface-variant mt-2">{{ (result()!.totalMs / 1000).toFixed(1) }}s</div>
+          <div class="text-xs text-on-surface-variant mt-2">
+            {{ (result()!.totalMs / 1000).toFixed(1) }}s
+          </div>
         }
       </div>
     }

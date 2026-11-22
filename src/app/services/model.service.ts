@@ -15,7 +15,7 @@ export class ModelService {
   private downloadPromises = new Map<string, Promise<void>>();
 
   async getModel(modelId: string): Promise<CompactModelDef | null> {
-    const models = ModelManager.getModels().filter(m => m.id === modelId);
+    const models = ModelManager.getModels().filter((m) => m.id === modelId);
     return models[0] || null;
   }
 
@@ -103,7 +103,7 @@ export class ModelService {
     modelId: string,
     status: ModelState['status'],
     progress: number,
-    error?: string
+    error?: string,
   ) {
     const newState = new Map(this.modelStates());
     newState.set(modelId, { id: modelId, status, progress, error });

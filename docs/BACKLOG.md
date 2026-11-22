@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-> Last updated 2026-11-22 against main `6b75548`. Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
+> Last updated 2026-11-23 against main `e5b8fe9`. Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
 
 ## Lifecycle
 
@@ -19,9 +19,9 @@
 
 | Signal | Priority | Status | Effort |
 |:---:|---|---|---|
-| 🟡 | 🔶 P2 | Implemented | 🟢 Small |
+| 🔵 | ◻️ P2 | Closed | 🟢 Small |
 
-💻 **→ Human action required: No**<br />Next: merge PR once CI passes.
+💻 **→ Human action required: No**<br />Closed 2026-11-23 ([PR #1](https://github.com/voidbrain/FPVBuddy/pull/1) merged on green CI).
 
 | | |
 |---|---|
@@ -118,9 +118,9 @@
 
 | Signal | Priority | Status | Effort |
 |:---:|---|---|---|
-| 🔴 | 🔶 P2 | Open | 🟢 Small |
+| 🟡 | 🔶 P2 | Implemented | 🟢 Small |
 
-💻 **→ Human action required: No**<br />Next: run `npm run format` in a mechanical-only PR and remove `continue-on-error` from `.github/workflows/ci.yml`.
+💻 **→ Human action required: No**<br />Next: merge PR once CI passes.
 
 | | |
 |---|---|
