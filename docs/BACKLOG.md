@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-> Last updated 2026-11-23 against main `2cedf90`. Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
+> Last updated 2026-11-23 against main `e202554`. Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
 
 ## Lifecycle
 
@@ -51,9 +51,9 @@
 
 | Signal | Priority | Status | Effort |
 |:---:|---|---|---|
-| 🟡 | 🔺 P1 | Implemented | 🟢 Small |
+| 🔵 | ◻️ P1 | Closed | 🟢 Small |
 
-💻 **→ Human action required: No**<br />Next: merge PR once CI passes.
+💻 **→ Human action required: No**<br />Closed 2026-11-23 ([PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) merged on green CI).
 
 | | |
 |---|---|
@@ -66,7 +66,7 @@
 
 | | |
 |---|---|
-| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) · Test: `src/app/app.spec.ts` (`npm test -- --watch=false`, failed on baseline before fix) · No review: single-line baseline spec alignment |
 | Opened | 2026-11-22 |
 | Verification | `npm test -- --watch=false` (2/2 passed) |
 | Reviewed | 2026-11-23 |
@@ -84,9 +84,9 @@
 
 | Signal | Priority | Status | Effort |
 |:---:|---|---|---|
-| 🟡 | 🔶 P2 | Implemented | 🟢 Small |
+| 🔵 | ◻️ P2 | Closed | 🟢 Small |
 
-💻 **→ Human action required: No**<br />Next: merge PR once CI passes.
+💻 **→ Human action required: No**<br />Closed 2026-11-23 ([PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) merged on green CI).
 
 | | |
 |---|---|
@@ -99,7 +99,7 @@
 
 | | |
 |---|---|
-| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) · No test: static `--noUnusedLocals` compiler cleanup only |
 | Opened | 2026-11-22 |
 | Verification | `npm run typecheck` passed (0 errors) |
 | Reviewed | 2026-11-23 |
@@ -150,9 +150,9 @@
 
 | Signal | Priority | Status | Effort |
 |:---:|---|---|---|
-| 🟡 | 🔶 P2 | Implemented | 🟢 Small |
+| 🔵 | ◻️ P2 | Closed | 🟢 Small |
 
-💻 **→ Human action required: No**<br />Next: merge PR once CI passes.
+💻 **→ Human action required: No**<br />Closed 2026-11-23 ([PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) merged on green CI).
 
 | | |
 |---|---|
@@ -165,7 +165,7 @@
 
 | | |
 |---|---|
-| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) · No test: static ESLint rule cleanup only |
 | Opened | 2026-11-22 |
 | Verification | `npm run lint` passed (0 errors, 0 warnings) |
 | Reviewed | 2026-11-23 |
@@ -216,9 +216,9 @@
 
 | Signal | Priority | Status | Effort |
 |:---:|---|---|---|
-| 🟡 | 🔶 P2 | Implemented | 🟢 Small |
+| 🔵 | ◻️ P2 | Closed | 🟢 Small |
 
-💻 **→ Human action required: No**<br />Next: merge PR once CI passes.
+💻 **→ Human action required: No**<br />Closed 2026-11-23 ([PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) merged on green CI).
 
 | | |
 |---|---|
@@ -231,7 +231,7 @@
 
 | | |
 |---|---|
-| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) |
+| PR / evidence | [PR #3](https://github.com/voidbrain/FPVBuddy/pull/3) · No test: static Angular convention cleanup only |
 | Opened | 2026-11-22 |
 | Verification | `npm run check:conventions` passed (25 files, 0 issues) |
 | Reviewed | 2026-11-23 |
