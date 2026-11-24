@@ -35,6 +35,7 @@ Before you open, update or merge a PR, read [pull requests](docs/agents/pull-req
 
 ```bash
 npm run check:freshness   # first, at session start: backlog behind main, merged branches, audit age
+npm run check:fast        # single pre-push bundle: format, lint, typecheck, backlog, work, rules, rule-load, tooling, maintenance <!-- project -->
 npm run lint              # ESLint + angular-eslint + template accessibility <!-- project -->
 npm test -- --watch=false # Vitest unit tests <!-- project -->
 npm run build             # Angular production build (dist/FPVBuddy) <!-- project -->
@@ -74,11 +75,17 @@ Each procedure is binding when its trigger applies: read it before the task; a s
 | switch tasks or hand off context | [task context](docs/agents/task-context.md) |
 | work in parallel: claimed tasks, branches, model assignments | [parallel work](docs/agents/parallel-work.md) (claims inside) |
 | reassess architecture or decisions | [architecture review](docs/agents/architecture-review.md) |
+| set up the project or change its stack or workflow (capability assessment) | [MCP guidance](docs/agents/mcp.md), "In short" |
 | add, configure or rely on an MCP connection, or edit MCP selections | [MCP guidance](docs/agents/mcp.md) (commands inside) |
+| work across repositories of a solution | [solution profile](docs/agents/solution-profile.md) (refresh inside) |
 | add or use a shared skill | [skills](docs/agents/skills.md) |
 | adopt or reconcile the harness, or review maintenance evidence | [maintenance](docs/agents/maintenance.md) |
 | change AGENTS.md, CLAUDE.md, BACKLOG-RULES or `docs/backlog/`; measure friction; consolidate rules | [rule review](docs/agents/rule-review.md) (agent-behaviour checks when a runner is set) |
 | run an audit, or record its findings or an improvement proposal | [audit](docs/agents/audit.md) ([findings](docs/agents/audit-findings.md)) |
+
+### Testing the joins
+
+- A change that touches how two parts meet gets a test across both, not one per side. Unit tests on each part did not catch the bugs that reached users.
 
 ## Area notes
 

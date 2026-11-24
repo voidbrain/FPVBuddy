@@ -37,6 +37,7 @@
     "verification:plan": "node tools/verification.mjs",
     "work:build": "node tools/work-items.mjs build",
     "check:work": "node tools/work-items.mjs check",
+    "check:fast": "npm run -s format:check && npm run -s lint && npm run -s typecheck && npm run -s check:backlog && npm run -s check:work && npm run -s check:rules && npm run -s check:rule-load && npm run -s check:tooling && npm run -s check:maintenance",
     "work:tasks": "node tools/work-items.mjs tasks",
     "work:next": "node tools/work-items.mjs next",
     "work:close": "node tools/work-items.mjs close",

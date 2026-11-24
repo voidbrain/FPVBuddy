@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "id": "F-004-T03",
+  "parent": "F-004",
+  "title": "Owner confirms or amends milestone M1",
+  "goal": "The next milestone is agreed before any record is planned from it",
+  "status": "planned",
+  "acceptance": [
+    "Owner picks option A, B or C in docs/ROADMAP.md",
+    "The roadmap row's Status becomes Agreed (or the page is amended) in the same change that plans its records"
+  ],
+  "dependsOn": [
+    "F-004-T04"
+  ],
+  "resources": [
+    "docs/ROADMAP.md"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Instructions and docs only; no personal data.",
+  "validation": [
+    "The owner's reply (option A, B or C, with any amendment) is recorded on F-004 with its date"
+  ],
+  "escalation": [
+    "None: the owner's decision is the step"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0 h remaining",
+    "basis": "Owner decision; about a quarter hour of reading.",
+    "reviewed": "2026-11-24",
+    "agentHours": 0,
+    "baselineAgentHours": 0,
+    "estimateAgentHours": 0,
+    "ownerKind": "decision",
+    "ownerHours": 0.25
+  },
+  "ownerLink": "docs/ROADMAP.md#proposed-next-milestone-owner-to-confirm"
+}

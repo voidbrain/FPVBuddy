@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-Current work ledger, reviewed 24 November 2026 against main `3fd0e15` ([PR #6](https://github.com/voidbrain/FPVBuddy/pull/6) merged on green CI; F-002 closed and archived). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
+Current work ledger, reviewed 24 November 2026 against main `d435eda` ([PR #7](https://github.com/voidbrain/FPVBuddy/pull/7) merged on green CI; F-003 closed and archived). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
 
 ## Lifecycle
 
@@ -14,40 +14,42 @@ Current work ledger, reviewed 24 November 2026 against main `3fd0e15` ([PR #6](h
 
 ---
 
-### <a id="f-003"></a>[✨ F-003](#top)
+### <a id="f-004"></a>[✨ F-004](#top)
 
-**Adopt source-owned records and upfront feature plans**
+**Owner follow-ups 2026-11-24: restored rules, push guard, roadmap, check:fast**
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🟡 Implemented | 🔶 P2 | 🟢 Small | 0.5 h | — | — | 🤖 | — | — |
+| 🟡 Implemented | 🔶 P2 | 🟢 Small | 0.5 h agent + 0.25 h owner | — | — | 🤖 | — | 🤔 |
 
-💻 **→** Next: F-003-T01 — Enable source-owned records and upfront feature plans (Implemented; verification pending).
+🧑 **→** Owner decision pending: confirm or amend roadmap milestone M1 ([options A/B/C](ROADMAP.md#proposed-next-milestone-owner-to-confirm)); PR #8 review and landing (F-004-T04) go first.
 
 | | |
 |---|---|
-| **Issue** | Owner decision 2026-11-24: FPVBuddy plans its work in small steps like the other harnessed projects (`workItems.featurePlans`, task files under `docs/work/tasks` with `dependsOn`). |
-| **Reproduce** | `.harness.json` on `main` at `e8bbff6`: `workItems.enabled` and `featurePlans` are false; `docs/BACKLOG.md` is edited by hand. |
-| **Check** | `workItems.enabled` and `featurePlans` true; every open record has steps with estimates, actors and `dependsOn`; `npm run work:build` regenerates `docs/BACKLOG.md`; `check:work` and `check:backlog` pass; CI green. |
+| **Issue** | Owner answered the F-002 open questions 2026-11-24 ("ok to all"): restore the template AGENTS rules left out at adoption, install the push guard, start a roadmap with a proposed next milestone, add a `check:fast` bundle. |
+| **Reproduce** | `AGENTS.md` on `main` at `d435eda`: no "Testing the joins", no capability-assessment or solution-profile rows; `docs/ROADMAP.md` missing (`check:freshness` 🤔 owner-decision finding); no `check:fast` script; `check:freshness` reports the push guard not installed. |
+| **Check** | The restored rules are in AGENTS and `docs/backlog/documentation.md`; `npm run check:fast` passes and AGENTS names it; `check:freshness` no longer reports the guard or the missing roadmap; the owner confirms or amends the proposed milestone in `docs/ROADMAP.md`. |
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
-|---|---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-003-t01"></a>F-003-T01 — Enable source-owned records and upfront feature plans | 1 h | 0 h | 0 h | Implemented; verification pending | — | [F-003-T02](#f-003-t02) | [PR #7](https://github.com/voidbrain/FPVBuddy/pull/7) enable feature plans |
-| 🟢 Small | <a id="f-003-t02"></a>F-003-T02 — Independent review and landing of PR #7 | 0.5 h | 0 h | 0.5 h | Planned | [F-003-T01](#f-003-t01) | — | — |
-| 🟢 Small | **Total** | 1.5 h | 0 h (0 of 2 steps recorded) | 0.5 h | 0 of 2 completed | | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
+|---|---|---|---|---|---|---|---|:---:|---|
+| 🟢 Small | <a id="f-004-t01"></a>F-004-T01 — Restore omitted AGENTS rules, add check:fast, install the push guard | 0.5 h | 0 h | 0 h | Implemented; verification pending | — | [F-004-T04](#f-004-t04) | 🤖 | [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) rules and check:fast |
+| 🟢 Small | <a id="f-004-t02"></a>F-004-T02 — Draft the roadmap with a proposed next milestone | 0.5 h | 0 h | 0 h | Implemented; verification pending | — | [F-004-T04](#f-004-t04) | 🤖 | [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) roadmap draft |
+| 🟢 Small | <a id="f-004-t04"></a>F-004-T04 — Independent review and landing of PR #8 | 0.5 h | 0 h | 0.5 h | Planned | [F-004-T01](#f-004-t01), [F-004-T02](#f-004-t02) | [F-004-T03](#f-004-t03) | ⏳ 🤖 | — |
+| 🟢 Small | <a id="f-004-t03"></a>F-004-T03 — Owner confirms or amends milestone M1 | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-004-T04](#f-004-t04) | — | ⏳ 🤔 | — |
+| 🟢 Small | **Total** | 1.5 h | 0 h (0 of 4 steps recorded) | 0.5 h agent + 0.25 h owner | 0 of 4 completed | | | | |
 
 <details>
 <summary>Next action, estimates and evidence</summary>
 
-[Full notes & evidence](work/records/F-003.md)
+[Full notes & evidence](work/records/F-004.md)
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-003-T01: [PR #7](https://github.com/voidbrain/FPVBuddy/pull/7) enable feature plans · F-003-T02: step review: independent design review (coordinator session, 2026-11-24), clean to land; minors fixed. [PR #7](https://github.com/voidbrain/FPVBuddy/pull/7) · No test: backlog settings and generated views only · Review: independent design review (coordinator session, 2026-11-24), clean to land; minors fixed (`check:work` CI step noted as project-only; neutral cross-repository example in AGENTS) |
+| PR / evidence | Steps: F-004-T01: [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) rules and check:fast · F-004-T02: [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) roadmap draft · F-004-T04: step review: independent design review (coordinator session, 2026-11-24), clean to land; minors fixed. [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) · No test: instructions, docs and a script alias only · Review: independent design review (coordinator session, 2026-11-24), clean to land; minors fixed (human-action cue, F-004-T03 decision text, rule-load in the AGENTS check:fast list) |
 | Opened | 2026-11-24 |
-| Verification | Local checks on the branch (see PR); CI pending |
+| Verification | Script: check:fast, check:freshness (local, 2026-11-24); Pending: CI, owner decision on M1 |
 | Reviewed | 2026-11-24 |
 
 </details>
