@@ -35,13 +35,13 @@ Before you open, update or merge a PR, read [pull requests](docs/agents/pull-req
 
 ```bash
 npm run check:freshness   # first, at session start: backlog behind main, merged branches, audit age
-npm run lint              # ESLint + angular-eslint + template accessibility
-npm test -- --watch=false # Vitest unit tests
-npm run build             # Angular production build (dist/FPVBuddy)
-npm run typecheck         # strict tsc check with noUnusedLocals / noUnusedParameters
+npm run lint              # ESLint + angular-eslint + template accessibility <!-- project -->
+npm test -- --watch=false # Vitest unit tests <!-- project -->
+npm run build             # Angular production build (dist/FPVBuddy) <!-- project -->
+npm run typecheck         # strict tsc check with noUnusedLocals / noUnusedParameters <!-- project -->
 npm run check:backlog     # active record layout and lifecycle cues
-npm run check:conventions # stack conventions (docs/agents/angular.md) and unused exports
-npm run format:check      # Prettier check on src/**/*.{ts,css,html}; `npm run format` fixes it
+npm run check:conventions # stack conventions (docs/agents/angular.md) and unused exports <!-- project -->
+npm run format:check      # Prettier check on src/**/*.{ts,css,html}; `npm run format` fixes it <!-- project -->
 npm run check:tooling     # a formatter check and a linter exist and run in CI (required for every stack)
 npm run code:map -- <path> # exports with line ranges: read those lines, not the whole file
 ```
@@ -66,10 +66,10 @@ Each procedure is binding when its trigger applies: read it before the task; a s
 |---|---|
 | start a session | [session start](docs/agents/session-start.md) |
 | open, update or merge a PR | [pull requests](docs/agents/pull-requests.md) |
-| change Angular code (`src/app/`) | [Angular rules](docs/agents/angular.md) |
+| change Angular code (`src/app/`) | [Angular rules](docs/agents/angular.md) <!-- project --> |
 | update or close a backlog record | [backlog rules](docs/BACKLOG-RULES.md) (it names the one file a change needs) |
 | write or change documentation | [documentation](docs/backlog/documentation.md) |
-| change something an output is derived from (`src/workers/vlm-worker.ts`) | [change impact](docs/agents/change-impact.md); do each row `check:freshness` lists, or record why not |
+| change something an output is derived from (`src/workers/vlm-worker.ts`) | [change impact](docs/agents/change-impact.md); do each row `check:freshness` lists, or record why not <!-- project --> |
 | change tests or coverage | [coverage guide](docs/agents/coverage-guide.md) |
 | switch tasks or hand off context | [task context](docs/agents/task-context.md) |
 | work in parallel: claimed tasks, branches, model assignments | [parallel work](docs/agents/parallel-work.md) (claims inside) |
