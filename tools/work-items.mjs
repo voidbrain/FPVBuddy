@@ -1,5 +1,14 @@
 // Optional record sources and bounded executable tasks. No models or commands are executed.
-import { existsSync, readFileSync, readdirSync, mkdirSync, writeFileSync, lstatSync, realpathSync } from 'node:fs';
+import {
+  existsSync,
+  readFileSync,
+  readdirSync,
+  mkdirSync,
+  writeFileSync,
+  lstatSync,
+  realpathSync,
+  unlinkSync,
+} from 'node:fs';
 import { resolve, join, relative, isAbsolute, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
@@ -1353,62 +1362,309 @@ export function checkWorkItems(root = process.cwd()) {
     ...(proseBlockers.length ? { proseBlockers } : {}),
   };
 }
+// F-091: close a record whose checks passed, in one step: its steps closed with nothing remaining, the record moved
+// into the year's archive under its closing day, the weekly index regenerated, the ledger rebuilt. A release tag, when
+// named, must already be on GitHub. The reconcile log entry and the ledger header stay with the agent.
+const CLOSE_READY = new Set(['implemented', 'verified', 'closed']);
+const remoteTagExists = (root, tag) => {
+  const result = spawnSync('git', ['ls-remote', '--tags', 'origin', `refs/tags/${tag}`], {
+    cwd: root,
+    encoding: 'utf8',
+  });
+  if (result.status !== 0) throw Error(`Cannot read tags from origin: ${(result.stderr || '').trim()}`);
+  return result.stdout.trim() !== '';
+};
+const localDate = (now) => {
+  const d = new Date(now);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
+export async function closeRecord(
+  root,
+  config,
+  id,
+  { evidence, release, verification, date, now = Date.now(), tagExists = remoteTagExists } = {},
+) {
+  if (!/^[BF]-\d{3}$/.test(id ?? '')) throw Error('Name the record to close, as in B-049 or F-091');
+  if (!evidence?.trim()) throw Error('Give the closure evidence: --evidence="<merged PR, CI, check that passed>"');
+  if (/[\n|]/.test(evidence) || (verification && /[\n|]/.test(verification)))
+    throw Error('Evidence and verification are one line without "|"');
+  const day = date ?? localDate(now);
+  const realDay = (d) =>
+    /^\d{4}-\d{2}-\d{2}$/.test(d) && Number.isFinite(Date.parse(d)) && new Date(d).toISOString().startsWith(d);
+  if (!realDay(day)) throw Error('Use --date=YYYY-MM-DD, a real day');
+  if (release !== undefined) {
+    if (!/^v\d+\.\d+\.\d+$/.test(release)) throw Error('A release is a tag like v1.2.3');
+    if (!tagExists(root, release)) throw Error(`${release} is not on origin: tag and publish it first`);
+  }
+  const recordFile = local(root, `${config.records}/${id}.md`);
+  if (!existsSync(recordFile)) throw Error(`No active record ${id} in ${config.records}`);
+  const archiveRel = `docs/archive/backlog-${day.slice(0, 4)}.md`;
+  const archiveFile = local(root, archiveRel);
+  let text = readFileSync(recordFile, 'utf8');
+  // Only a record whose cue says no human action is waiting may close (cues: No, Procedure, Decision, Both).
+  // A reopened record closes again: the archive keeps every closed copy, it only grows.
+  const cue = /^.*Human action required:.*$/m.exec(text)?.[0] ?? '';
+  if (!/Human action required: No\*\*<br \/>/.test(cue)) throw Error(`${id} still waits on a human action`);
+  const tasksDir = local(root, config.tasks);
+  if (config.featurePlans && !existsSync(tasksDir))
+    throw Error(`${id}: featurePlans is on but ${config.tasks} is missing`);
+  // Git keeps no empty folder: a project without task files (featurePlans off) has no tasks folder on a fresh clone.
+  const steps = (existsSync(tasksDir) ? readdirSync(tasksDir) : [])
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => ({ file: join(tasksDir, f), task: readJSON(join(tasksDir, f)) }))
+    .filter(({ task }) => task.parent === id);
+  const open = steps.filter(({ task }) => !CLOSE_READY.has(task.status)).map(({ task }) => task.id);
+  if (open.length) throw Error(`${id} has steps that are not done: ${open.join(', ')}`);
+
+  const summary = /^\|\s*([^|]*?)\s*\|\s*[^|]*?(P\d)\s*\|\s*[^|]*?\s*\|\s*([^|]*?)\s*\|$/m;
+  const header = text.indexOf('| Signal | Priority | Status | Effort |');
+  if (header < 0) throw Error(`${id}: no summary table to close`);
+  const rowStart = text.indexOf('\n', text.indexOf('\n', header) + 1) + 1;
+  const rowEnd = text.indexOf('\n', rowStart);
+  const row = summary.exec(text.slice(rowStart, rowEnd));
+  if (!row) throw Error(`${id}: unexpected summary row`);
+  text = text.slice(0, rowStart) + `| 🔵 | ◻️ ${row[2]} | Closed | ${row[3]} |` + text.slice(rowEnd);
+  // Function replacers: evidence is text, never a replacement pattern ($&, $1, $' would corrupt archive lines).
+  const said = release ? `released in ${release}` : evidence.trim().replace(/\.$/, '');
+  text = text.replace(/(Human action required: No\*\*<br \/>)[^\n]*/, (_, cue) => `${cue}Closed ${day}: ${said}.`);
+  const closure = `Closed ${day}: ${evidence.trim().replace(/\.$/, '')}${release ? `; released in ${release}` : ''}.`;
+  if (!/\*\*Next action \/ closure evidence:\*\* /.test(text)) throw Error(`${id}: no closure evidence line`);
+  text = text.replace(/\*\*Next action \/ closure evidence:\*\* /, (lead) => `${lead}${closure} `);
+  text = text.replace(/\*\*Estimates:\*\*[^\n]*/, () => '**Estimates:** No remaining effort.');
+  if (verification) {
+    if (!/^\| Verification \|[^\n]*\|$/m.test(text)) throw Error(`${id}: no Verification row for --verification`);
+    text = text.replace(/^\| Verification \|[^\n]*\|$/m, () => `| Verification | ${verification} |`);
+  }
+
+  mkdirSync(dirname(archiveFile), { recursive: true });
+  let archive = existsSync(archiveFile)
+    ? readFileSync(archiveFile, 'utf8')
+    : `# Closed backlog — ${day.slice(0, 4)}\n\nClosed records, moved from the [active backlog](../BACKLOG.md) with their full history. Dated evidence, not current status.\n`;
+  const lastDay = [...archive.matchAll(/^## Closed (\d{4}-\d\d-\d\d)\s*$/gm)].at(-1)?.[1];
+  if (lastDay && day < lastDay) throw Error(`${archiveRel} already closes ${lastDay}; a record cannot close before it`);
+  const moved = relocateLinks(text, recordFile, archiveFile).trimEnd();
+  archive = archive.trimEnd() + '\n\n' + (lastDay === day ? '' : `## Closed ${day}\n\n`) + moved + '\n';
+  const recapTool = new URL('./archive-recap.mjs', import.meta.url);
+  if (archive.includes('<!-- archive-recap:start -->') && existsSync(fileURLToPath(recapTool)))
+    archive = (await import(recapTool.href)).archiveRecap(archive);
+
+  for (const { file, task } of steps) {
+    if (task.status === 'closed') continue;
+    const e = { ...task.effort };
+    for (const key of ['agentHours', 'ownerHours', 'days']) if (key in e) e[key] = 0;
+    e.estimate = '0 remaining';
+    e.basis = `${e.basis.trim()} Closed ${day}.`.slice(0, 2000);
+    writeFileSync(file, JSON.stringify({ ...task, status: 'closed', effort: e }, null, 2) + '\n');
+  }
+  // Steps first (a rerun skips closed ones), then the archive, then the active record; the ledger is derived.
+  writeFileSync(archiveFile, archive);
+  unlinkSync(recordFile);
+  try {
+    writeFileSync(join(root, 'docs/BACKLOG.md'), renderLedger(root, config));
+  } catch (e) {
+    throw Error(`${id} is archived, but the ledger did not rebuild: fix it and run npm run work:build (${e.message})`);
+  }
+  return { id, archive: archiveRel, steps: steps.map(({ task }) => task.id), day };
+}
+// F-094: name the PR in its records before it exists, so opening a PR needs no follow-up commit. GitHub numbers
+// issues, pull requests and discussions from one sequence, so the next PR is usually the newest of the three plus one
+// (a transferred or deleted item can shift it). The records are edited and pushed with that number, then the PR is
+// opened; if the number was taken meanwhile, the records are renamed to the real one in a follow-up commit.
+const PR_PLACEHOLDER = /(?<!["“`'])\bthis PR\b(?!["”`'])/gi;
+const REPOSITORY = /^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/;
+const prLinkText = (repository, number) => `[#${number}](https://github.com/${repository}/pull/${number})`;
+// `stale`: numbers an earlier run on this branch wrote but never opened; their links become the new one.
+export function nameRecordPr(root, config, ids, number, repository, stale = []) {
+  if (!Number.isSafeInteger(number) || number < 1) throw Error('A PR number is a positive integer');
+  if (!repository || !REPOSITORY.test(repository)) throw Error('Repository is owner/name');
+  const link = prLinkText(repository, number);
+  const changed = [];
+  for (const id of ids) {
+    if (!/^[BF]-\d{3}$/.test(id)) throw Error(`Name records as B-049 or F-091, not ${id}`);
+    const file = local(root, `${config.records}/${id}.md`);
+    if (!existsSync(file)) throw Error(`No active record ${id} in ${config.records}`);
+    const before = readFileSync(file, 'utf8');
+    let text = before.replace(PR_PLACEHOLDER, () => link);
+    for (const old of stale) if (old !== number) text = text.split(prLinkText(repository, old)).join(link);
+    const row = /^\| PR \/ evidence \|\s*(.*?)\s*\|$/m.exec(text);
+    if (!row) throw Error(`${id}: no PR / evidence row`);
+    let value = row[1];
+    // A swapped stale link can leave the new one twice in the row: keep the first.
+    const parts = value.split('; ');
+    value = parts.filter((part, i) => part !== link || parts.indexOf(link) === i).join('; ');
+    if (!new RegExp(`#${number}\\b`).test(value)) value = value === '—' || value === '' ? link : `${value}; ${link}`;
+    text = text.replace(row[0], () => `| PR / evidence | ${value} |`);
+    if (text !== before) {
+      writeFileSync(file, text);
+      changed.push(`${config.records}/${id}.md`);
+    }
+  }
+  return { link, changed };
+}
+const run = (root, cmd, args) => {
+  const r = spawnSync(cmd, args, { cwd: root, encoding: 'utf8' });
+  if (r.status !== 0) throw Error(`${cmd} ${args[0]} failed: ${(r.stderr || r.stdout || '').trim()}`);
+  return r.stdout.trim();
+};
+const NEWEST = 'first:1,orderBy:{field:CREATED_AT,direction:DESC}';
+const NEXT_NUMBER_QUERY = `query($o:String!,$n:String!){repository(owner:$o,name:$n){issues(${NEWEST}){nodes{number}} pullRequests(${NEWEST}){nodes{number}} discussions(${NEWEST}){nodes{number}}}}`;
+export function nextNumber(root, repository, gh = (args) => run(root, 'gh', args)) {
+  if (!REPOSITORY.test(repository ?? '')) throw Error('Repository is owner/name');
+  const [owner, name] = repository.split('/');
+  // -f sends raw strings: -F would turn an all-digit name into a number and read "@file".
+  const data = JSON.parse(
+    gh(['api', 'graphql', '-f', `query=${NEXT_NUMBER_QUERY}`, '-f', `o=${owner}`, '-f', `n=${name}`]),
+  );
+  const repo = data?.data?.repository;
+  if (!repo) throw Error(`Cannot read ${repository} from GitHub`);
+  const numbers = ['issues', 'pullRequests', 'discussions'].map((k) => repo[k]?.nodes?.[0]?.number ?? 0);
+  return Math.max(...numbers) + 1;
+}
+// Options that change which repository or branch the PR opens from, or that print no PR URL, are refused.
+// Short flags may be clustered after gh's boolean ones (-d draft, -f fill): -dw, -fdR.
+const FOREIGN_PR_OPTION = /^(--head|--repo|--web|--dry-run)(=|$)|^-[df]*[wRH]/;
+export async function openPr(
+  root,
+  config,
+  ids,
+  ghArgs,
+  { gh = (args) => run(root, 'gh', args), git = (args) => run(root, 'git', args), env = process.env } = {},
+) {
+  if (!ids.length)
+    throw Error('Name the records this PR touches: work-items.mjs pr F-091[,B-049] -- <gh pr create options>');
+  const foreign = ghArgs.find((a) => FOREIGN_PR_OPTION.test(a));
+  if (foreign)
+    throw Error(`The PR opens from the current branch and repository, with its URL printed: drop ${foreign}`);
+  if (env.GH_REPO) throw Error('Unset GH_REPO: the PR opens in this checkout’s repository');
+  const view = JSON.parse(
+    gh(['repo', 'view', ...(config.repository ? [config.repository] : []), '--json', 'nameWithOwner,defaultBranchRef']),
+  );
+  const repository = config.repository ?? view.nameWithOwner;
+  const defaultBranch = view.defaultBranchRef?.name;
+  if (!REPOSITORY.test(repository ?? '') || !defaultBranch)
+    throw Error('Cannot read the repository and its default branch');
+  const branch = git(['rev-parse', '--abbrev-ref', 'HEAD']);
+  if (branch === 'HEAD' || branch === defaultBranch) throw Error(`Open a PR from a work branch, not ${branch}`);
+  if (git(['status', '--porcelain']))
+    throw Error('Commit or set aside your changes first: the helper commits only the records');
+  const open = JSON.parse(gh(['pr', 'list', '--head', branch, '--state', 'open', '--json', 'number']) || '[]');
+  if (open.length) throw Error(`${branch} already has PR #${open[0].number}: name that number in the records instead`);
+  // A rerun after gh pr create failed: this branch's earlier "name PR #N" commits wrote numbers no PR took.
+  git(['fetch', '--quiet', 'origin', defaultBranch]);
+  const subjects = git(['log', '--format=%s', `origin/${defaultBranch}..HEAD`]);
+  const stale = [...subjects.matchAll(/^docs\([^)]*\): name PR #(\d+)$/gm)].map((m) => Number(m[1]));
+  const label = ids.join(', ');
+  const commit = (paths, message) => {
+    writeFileSync(join(root, 'docs/BACKLOG.md'), renderLedger(root, config));
+    if (!git(['status', '--porcelain'])) return false;
+    git(['add', '--', ...paths, 'docs/BACKLOG.md']);
+    git(['commit', '-m', message]);
+    return true;
+  };
+  const predicted = nextNumber(root, repository, gh);
+  const { changed } = nameRecordPr(root, config, ids, predicted, repository, stale);
+  commit(changed, `docs(${label}): name PR #${predicted}`);
+  git(['push', '-u', 'origin', branch]);
+  const url = gh(['pr', 'create', '--head', branch, ...ghArgs])
+    .split('\n')
+    .at(-1)
+    .trim();
+  const actual = Number(/\/pull\/(\d+)\s*$/.exec(url)?.[1]);
+  if (!actual) throw Error(`The PR may have opened, but its number is not in gh's output (${url}): check the records`);
+  if (actual === predicted) return { number: actual, url, predicted, followUp: false };
+  // Something took the predicted number: rename it in the records and push once more.
+  const renamed = nameRecordPr(root, config, ids, actual, repository, [predicted]).changed;
+  if (commit(renamed, `docs(${label}): the PR is #${actual}, not #${predicted}`)) git(['push']);
+  return { number: actual, url, predicted, followUp: true };
+}
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     const [command, ...extra] = process.argv.slice(2);
-    const limit = command === 'next' && extra.length === 1 ? /^--limit=([1-9]\d{0,3})$/.exec(extra[0])?.[1] : undefined;
-    if (
-      (extra.length && limit === undefined) ||
-      !['migrate', 'build', 'check', 'tasks', 'calibrate', 'next'].includes(command)
-    )
-      throw Error('Use work-items.mjs migrate|build|check|tasks|calibrate|next [--limit=N]');
-    const root = process.cwd(),
-      config = settings(root);
-    if (!config) {
-      console.log('Work items not adopted');
-    } else if (command === 'migrate')
-      console.log('Migrated ' + migrateLedger(root, config) + ' records without changing the ledger');
-    else if (command === 'next') console.log(nextSteps(root, config, limit ? Number(limit) : undefined).join('\n'));
-    else if (command === 'build') writeFileSync(join(root, 'docs/BACKLOG.md'), renderLedger(root, config));
-    else if (command === 'calibrate')
-      console.log(JSON.stringify(calibrate(taskCatalog(root, config).tasks, config.estimation), null, 2));
-    else {
-      const result = command === 'check' ? checkWorkItems(root) : taskCatalog(root, config);
-      console.log(JSON.stringify(result, null, 2));
-      if (result.staleEstimates)
-        console.warn(
-          `! ${result.staleEstimates.length} open step(s) have more actual plus remaining agent hours than the estimate they show: set effort.estimateAgentHours with the re-estimate: ${result.staleEstimates.slice(0, 10).join(', ')}${result.staleEstimates.length > 10 ? ` and ${result.staleEstimates.length - 10} more` : ''}`,
-        );
-      if (result.withoutDays)
-        console.warn(
-          `! ${result.withoutDays.length} open step(s) have no remaining estimate (effort.agentHours/ownerHours, or days), so totals count them as unknown: ${result.withoutDays.slice(0, 10).join(', ')}${result.withoutDays.length > 10 ? ` and ${result.withoutDays.length - 10} more` : ''}`,
-        );
-      if (result.ownerStepsWithoutLink) {
-        console.error(
-          `✗ ${result.ownerStepsWithoutLink.length} owner step(s) whose turn it is have no ownerLink to the procedure or decision page: ${result.ownerStepsWithoutLink.join(', ')}`,
-        );
-        process.exitCode = 1;
+    if (command === 'pr') {
+      const root = process.cwd(),
+        config = settings(root);
+      if (!config) throw Error('Work items not adopted');
+      const dash = extra.indexOf('--');
+      const ids = (dash < 0 ? extra : extra.slice(0, dash)).flatMap((a) => a.split(',')).filter(Boolean);
+      const done = await openPr(root, config, ids, dash < 0 ? [] : extra.slice(dash + 1));
+      console.log(
+        done.followUp
+          ? `Opened ${done.url}. #${done.predicted} was taken meanwhile: the records now name #${done.number} in a follow-up commit.`
+          : `Opened ${done.url}; the records already name #${done.number}: no follow-up commit.`,
+      );
+    } else if (command === 'close') {
+      const root = process.cwd(),
+        config = settings(root);
+      if (!config) throw Error('Work items not adopted');
+      const [id, ...flags] = extra,
+        options = {};
+      for (const flag of flags) {
+        const m = /^--(evidence|release|verification|date)=(.*)$/s.exec(flag);
+        if (!m || m[1] in options) throw Error(`Unknown or repeated option: ${flag}`);
+        options[m[1]] = m[2];
       }
-      if (result.ownerStepsWithoutKind)
-        console.warn(
-          `! ${result.ownerStepsWithoutKind.length} open step(s) whose turn it is owe ownerHours without effort.ownerKind (and so have no page); classify with ownerKind or split: ${result.ownerStepsWithoutKind.join(', ')}`,
+      const done = await closeRecord(root, config, id, options);
+      console.log(
+        `Closed ${done.id} on ${done.day}: ${done.steps.length} step(s) closed, record moved to ${done.archive}, docs/BACKLOG.md rebuilt.\nNext: npm run reconcile:draft for the log entry, then move the ledger header to the current main.`,
+      );
+    } else {
+      const limit =
+        command === 'next' && extra.length === 1 ? /^--limit=([1-9]\d{0,3})$/.exec(extra[0])?.[1] : undefined;
+      if (
+        (extra.length && limit === undefined) ||
+        !['migrate', 'build', 'check', 'tasks', 'calibrate', 'next'].includes(command)
+      )
+        throw Error(
+          'Use work-items.mjs migrate|build|check|tasks|calibrate|next [--limit=N] | close <ID> --evidence=… [--release=vX.Y.Z] | pr <ID>[,<ID>] -- <gh pr create options>',
         );
-      if (result.mixedSteps)
-        console.warn(
-          `! ${result.mixedSteps.length} open step(s) have more than one actor (agent hours on an owner step, or ownerKind both); split each into consecutive steps with one actor: ${result.mixedSteps.join(', ')}`,
-        );
-      if (result.recordLevelDependencies)
-        console.warn(
-          `! ${result.recordLevelDependencies.length} record-level dependencies name no step; where one step is enough, make the waiting step depend on it (dependsOn) and drop the row: ${result.recordLevelDependencies.join(', ')}`,
-        );
-      if (result.proseBlockers)
-        console.warn(
-          `! ${result.proseBlockers.length} record(s) name a blocker in their Next action or Check that no open step depends on; if it is one, add the blocking step to the waiting step's dependsOn: ${result.proseBlockers.join(', ')}`,
-        );
-      if (result.allStepsClosed)
-        console.warn(
-          `! ${result.allStepsClosed.length} non-closed record(s) have all steps closed; reconcile scope and close or add remaining steps: ${result.allStepsClosed.join(', ')}`,
-        );
+      const root = process.cwd(),
+        config = settings(root);
+      if (!config) {
+        console.log('Work items not adopted');
+      } else if (command === 'migrate')
+        console.log('Migrated ' + migrateLedger(root, config) + ' records without changing the ledger');
+      else if (command === 'next') console.log(nextSteps(root, config, limit ? Number(limit) : undefined).join('\n'));
+      else if (command === 'build') writeFileSync(join(root, 'docs/BACKLOG.md'), renderLedger(root, config));
+      else if (command === 'calibrate')
+        console.log(JSON.stringify(calibrate(taskCatalog(root, config).tasks, config.estimation), null, 2));
+      else {
+        const result = command === 'check' ? checkWorkItems(root) : taskCatalog(root, config);
+        console.log(JSON.stringify(result, null, 2));
+        if (result.staleEstimates)
+          console.warn(
+            `! ${result.staleEstimates.length} open step(s) have more actual plus remaining agent hours than the estimate they show: set effort.estimateAgentHours with the re-estimate: ${result.staleEstimates.slice(0, 10).join(', ')}${result.staleEstimates.length > 10 ? ` and ${result.staleEstimates.length - 10} more` : ''}`,
+          );
+        if (result.withoutDays)
+          console.warn(
+            `! ${result.withoutDays.length} open step(s) have no remaining estimate (effort.agentHours/ownerHours, or days), so totals count them as unknown: ${result.withoutDays.slice(0, 10).join(', ')}${result.withoutDays.length > 10 ? ` and ${result.withoutDays.length - 10} more` : ''}`,
+          );
+        if (result.ownerStepsWithoutLink) {
+          console.error(
+            `✗ ${result.ownerStepsWithoutLink.length} owner step(s) whose turn it is have no ownerLink to the procedure or decision page: ${result.ownerStepsWithoutLink.join(', ')}`,
+          );
+          process.exitCode = 1;
+        }
+        if (result.ownerStepsWithoutKind)
+          console.warn(
+            `! ${result.ownerStepsWithoutKind.length} open step(s) whose turn it is owe ownerHours without effort.ownerKind (and so have no page); classify with ownerKind or split: ${result.ownerStepsWithoutKind.join(', ')}`,
+          );
+        if (result.mixedSteps)
+          console.warn(
+            `! ${result.mixedSteps.length} open step(s) have more than one actor (agent hours on an owner step, or ownerKind both); split each into consecutive steps with one actor: ${result.mixedSteps.join(', ')}`,
+          );
+        if (result.recordLevelDependencies)
+          console.warn(
+            `! ${result.recordLevelDependencies.length} record-level dependencies name no step; where one step is enough, make the waiting step depend on it (dependsOn) and drop the row: ${result.recordLevelDependencies.join(', ')}`,
+          );
+        if (result.proseBlockers)
+          console.warn(
+            `! ${result.proseBlockers.length} record(s) name a blocker in their Next action or Check that no open step depends on; if it is one, add the blocking step to the waiting step's dependsOn: ${result.proseBlockers.join(', ')}`,
+          );
+        if (result.allStepsClosed)
+          console.warn(
+            `! ${result.allStepsClosed.length} non-closed record(s) have all steps closed; reconcile scope and close or add remaining steps: ${result.allStepsClosed.join(', ')}`,
+          );
+      }
     }
   } catch (e) {
     console.error(e.message);

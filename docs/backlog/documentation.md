@@ -16,3 +16,10 @@ For **every modification**, including a backlog-only edit, check README, AGENTS 
 On every change or review, actively reassess whether each affected status, next action, human dependency, blocker, verification result/date and PR evidence can advance. When the next action is authorized and feasible, perform it; do not merely rewrite an “Agent can…” reminder or stop at a review. Pause only for an actual dependency or missing required human evidence, record it explicitly, and continue independent authorized work. Never advance a state without the required evidence.
 
 Run `npm run check:backlog` after every ledger edit. CI validates active signal widths, remaining-effort colours, words and rationale, visible titles, human cues and all three recap rows on every record, collapsed next actions and metadata, dates, unique IDs, status/priority cues and balanced details. Historical archives remain outside this active-layout schema.
+
+## Top-level documents
+
+Moved from AGENTS.md ("Documentation") in 10.5.0, unchanged in substance.
+
+- Keep top-level docs (`README.md`, `docs/STYLE-GUIDE.md`) concise (~150–200 lines max) and clearly structured as entry points. <!-- project -->
+- Keep docs current and free of backlog IDs or "not yet shipped / planned" lists; document shipped behavior and point to [docs/BACKLOG.md](../BACKLOG.md) where needed. <!-- project -->
