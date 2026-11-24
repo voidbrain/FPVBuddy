@@ -35,7 +35,7 @@ Before you open, update or merge a PR, read [pull requests](docs/agents/pull-req
 
 ```bash
 npm run check:freshness   # first, at session start: backlog behind main, merged branches, audit age
-npm run check:fast        # single pre-push bundle: format, lint, typecheck, backlog, work, rules, tooling, maintenance <!-- project -->
+npm run check:fast        # single pre-push bundle: format, lint, typecheck, backlog, work, rules, rule-load, tooling, maintenance <!-- project -->
 npm run lint              # ESLint + angular-eslint + template accessibility <!-- project -->
 npm test -- --watch=false # Vitest unit tests <!-- project -->
 npm run build             # Angular production build (dist/FPVBuddy) <!-- project -->

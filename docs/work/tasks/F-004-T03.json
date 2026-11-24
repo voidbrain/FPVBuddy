@@ -20,11 +20,10 @@
   ],
   "privacy": "Instructions and docs only; no personal data.",
   "validation": [
-    "npm run check:fast",
-    "npm run check:freshness"
+    "The owner's reply (option A, B or C, with any amendment) is recorded on F-004 with its date"
   ],
   "escalation": [
-    "A rule whose project-vs-template placement is unclear goes to the owner before editing"
+    "None: the owner's decision is the step"
   ],
   "effort": {
     "size": "small",

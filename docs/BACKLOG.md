@@ -20,9 +20,9 @@ Current work ledger, reviewed 24 November 2026 against main `d435eda` ([PR #7](h
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🟡 Implemented | 🔶 P2 | 🟢 Small | 0.5 h agent + 0.25 h owner | — | — | 🤖 | — | — |
+| 🟡 Implemented | 🔶 P2 | 🟢 Small | 0.5 h agent + 0.25 h owner | — | — | 🤖 | — | 🤔 |
 
-💻 **→** Next: F-004-T01 — Restore omitted AGENTS rules, add check:fast, install the push guard (Implemented; verification pending).
+🧑 **→** Owner decision pending: confirm or amend roadmap milestone M1 ([options A/B/C](ROADMAP.md#proposed-next-milestone-owner-to-confirm)); PR #8 review and landing (F-004-T04) go first.
 
 | | |
 |---|---|
@@ -47,7 +47,7 @@ Current work ledger, reviewed 24 November 2026 against main `d435eda` ([PR #7](h
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-004-T01: [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) rules and check:fast · F-004-T02: [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) roadmap draft. [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) · No test: instructions, docs and a script alias only |
+| PR / evidence | Steps: F-004-T01: [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) rules and check:fast · F-004-T02: [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) roadmap draft · F-004-T04: step review: independent design review (coordinator session, 2026-11-24), clean to land; minors fixed. [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) · No test: instructions, docs and a script alias only · Review: independent design review (coordinator session, 2026-11-24), clean to land; minors fixed (human-action cue, F-004-T03 decision text, rule-load in the AGENTS check:fast list) |
 | Opened | 2026-11-24 |
 | Verification | Script: check:fast, check:freshness (local, 2026-11-24); Pending: CI, owner decision on M1 |
 | Reviewed | 2026-11-24 |
