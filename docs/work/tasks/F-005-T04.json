@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "id": "F-005-T04",
+  "parent": "F-005",
+  "title": "Install check without the FPVBuddy app",
+  "goal": "CI proves a consumer can install and import the core without the app",
+  "status": "planned",
+  "acceptance": [
+    "CI packs the package and installs it into a throwaway consumer that imports the public API",
+    "The check fails if the package pulls in Angular or app code"
+  ],
+  "dependsOn": [
+    "F-005-T02"
+  ],
+  "resources": [
+    ".github/workflows/ci.yml"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Battery test data is invented; no pilot or personal data.",
+  "validation": [
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "A package layout or publishing choice that changes how NERV consumes the core goes to the owner first"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h remaining",
+    "basis": "Estimated 2026-11-24: pack-and-install job at agent speed.",
+    "reviewed": "2026-11-24",
+    "agentHours": 1,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  }
+}

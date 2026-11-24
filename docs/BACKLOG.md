@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-Current work ledger, reviewed 24 November 2026 against main `d435eda` ([PR #7](https://github.com/voidbrain/FPVBuddy/pull/7) merged on green CI; F-003 closed and archived). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
+Current work ledger, reviewed 24 November 2026 against main `065fa1d` ([PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) merged on green CI; F-004 closed and archived). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
 
 ## Lifecycle
 
@@ -14,42 +14,42 @@ Current work ledger, reviewed 24 November 2026 against main `d435eda` ([PR #7](h
 
 ---
 
-### <a id="f-004"></a>[✨ F-004](#top)
+### <a id="f-005"></a>[✨ F-005](#top)
 
-**Owner follow-ups 2026-11-24: restored rules, push guard, roadmap, check:fast**
+**M1 — FPV battery core package**
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🟡 Implemented | 🔶 P2 | 🟢 Small | 0.5 h agent + 0.25 h owner | — | — | 🤖 | — | 🤔 |
+| 🔴 Open | 🔶 P2 | 🟡 Medium | 4 h | — | — | 🤖 | — | — |
 
-🧑 **→** Owner decision pending: confirm or amend roadmap milestone M1 ([options A/B/C](ROADMAP.md#proposed-next-milestone-owner-to-confirm)); PR #8 review and landing (F-004-T04) go first.
+💻 **→** Next: F-005-T01 — Package boundary for the FPV core (Planned).
 
 | | |
 |---|---|
-| **Issue** | Owner answered the F-002 open questions 2026-11-24 ("ok to all"): restore the template AGENTS rules left out at adoption, install the push guard, start a roadmap with a proposed next milestone, add a `check:fast` bundle. |
-| **Reproduce** | `AGENTS.md` on `main` at `d435eda`: no "Testing the joins", no capability-assessment or solution-profile rows; `docs/ROADMAP.md` missing (`check:freshness` 🤔 owner-decision finding); no `check:fast` script; `check:freshness` reports the push guard not installed. |
-| **Check** | The restored rules are in AGENTS and `docs/backlog/documentation.md`; `npm run check:fast` passes and AGENTS names it; `check:freshness` no longer reports the guard or the missing roadmap; the owner confirms or amends the proposed milestone in `docs/ROADMAP.md`. |
+| **Issue** | Roadmap milestone M1, agreed by the owner 2026-11-24 (F-004-T03, option A): FPVBuddy hosts the FPV battery-manager core (logging charge state and internal resistance) as a plain TypeScript package with its own tests, so other projects consume it instead of keeping their own copy. |
+| **Reproduce** | Look for a battery-core package in this repository: there is none; the core exists only inside NERV today. |
+| **Check** | The core builds and is tested in this repository's CI; its public API is documented; a consumer can install it without the FPVBuddy app ([roadmap M1](ROADMAP.md#milestones)). |
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
-|---|---|---|---|---|---|---|---|:---:|---|
-| 🟢 Small | <a id="f-004-t01"></a>F-004-T01 — Restore omitted AGENTS rules, add check:fast, install the push guard | 0.5 h | 0 h | 0 h | Implemented; verification pending | — | [F-004-T04](#f-004-t04) | 🤖 | [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) rules and check:fast |
-| 🟢 Small | <a id="f-004-t02"></a>F-004-T02 — Draft the roadmap with a proposed next milestone | 0.5 h | 0 h | 0 h | Implemented; verification pending | — | [F-004-T04](#f-004-t04) | 🤖 | [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) roadmap draft |
-| 🟢 Small | <a id="f-004-t04"></a>F-004-T04 — Independent review and landing of PR #8 | 0.5 h | 0 h | 0.5 h | Planned | [F-004-T01](#f-004-t01), [F-004-T02](#f-004-t02) | [F-004-T03](#f-004-t03) | ⏳ 🤖 | — |
-| 🟢 Small | <a id="f-004-t03"></a>F-004-T03 — Owner confirms or amends milestone M1 | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-004-T04](#f-004-t04) | — | ⏳ 🤔 | — |
-| 🟢 Small | **Total** | 1.5 h | 0 h (0 of 4 steps recorded) | 0.5 h agent + 0.25 h owner | 0 of 4 completed | | | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
+|---|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-005-t01"></a>F-005-T01 — Package boundary for the FPV core | 1 h | 0 h | 1 h | Planned | — | [F-005-T02](#f-005-t02) |
+| 🟡 Medium | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 1.5 h | Planned | [F-005-T01](#f-005-t01) | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04) |
+| 🟢 Small | <a id="f-005-t03"></a>F-005-T03 — Document the core's public API | 0.5 h | 0 h | 0.5 h | Planned | [F-005-T02](#f-005-t02) | — |
+| 🟢 Small | <a id="f-005-t04"></a>F-005-T04 — Install check without the FPVBuddy app | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | — |
+| 🟡 Medium | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 4 h | 0 of 4 completed | | |
 
 <details>
 <summary>Next action, estimates and evidence</summary>
 
-[Full notes & evidence](work/records/F-004.md)
+[Full notes & evidence](work/records/F-005.md)
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-004-T01: [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) rules and check:fast · F-004-T02: [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) roadmap draft · F-004-T04: step review: independent design review (coordinator session, 2026-11-24), clean to land; minors fixed. [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) · No test: instructions, docs and a script alias only · Review: independent design review (coordinator session, 2026-11-24), clean to land; minors fixed (human-action cue, F-004-T03 decision text, rule-load in the AGENTS check:fast list) |
+| PR / evidence | — |
 | Opened | 2026-11-24 |
-| Verification | Script: check:fast, check:freshness (local, 2026-11-24); Pending: CI, owner decision on M1 |
+| Verification | Pending: CI, package install check |
 | Reviewed | 2026-11-24 |
 
 </details>

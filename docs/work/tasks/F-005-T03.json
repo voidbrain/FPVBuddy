@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "id": "F-005-T03",
+  "parent": "F-005",
+  "title": "Document the core's public API",
+  "goal": "A consumer can use the core from its documentation alone",
+  "status": "planned",
+  "acceptance": [
+    "A topic page under docs/ describes the exported API with a short example",
+    "README links it"
+  ],
+  "dependsOn": [
+    "F-005-T02"
+  ],
+  "resources": [
+    "README.md"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Battery test data is invented; no pilot or personal data.",
+  "validation": [
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "A package layout or publishing choice that changes how NERV consumes the core goes to the owner first"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h remaining",
+    "basis": "Estimated 2026-11-24: one topic page at agent speed.",
+    "reviewed": "2026-11-24",
+    "agentHours": 0.5,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5
+  }
+}

@@ -4,7 +4,7 @@
   "parent": "F-004",
   "title": "Restore omitted AGENTS rules, add check:fast, install the push guard",
   "goal": "AGENTS carries the template rules FPVBuddy left out, and one command runs the fast checks",
-  "status": "implemented",
+  "status": "closed",
   "acceptance": [
     "Testing the joins, capability-assessment and solution-profile rows and the topic-files documentation rule present",
     "npm run check:fast passes and AGENTS names it",
@@ -30,7 +30,7 @@
   "effort": {
     "size": "small",
     "estimate": "0 h remaining",
-    "basis": "Estimated and implemented 2026-11-24 at agent speed.",
+    "basis": "Estimated and implemented 2026-11-24 at agent speed. Closed 2026-11-24: PR #8 merged on green CI.",
     "reviewed": "2026-11-24",
     "agentHours": 0,
     "baselineAgentHours": 0.5,

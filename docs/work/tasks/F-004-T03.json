@@ -4,7 +4,7 @@
   "parent": "F-004",
   "title": "Owner confirms or amends milestone M1",
   "goal": "The next milestone is agreed before any record is planned from it",
-  "status": "planned",
+  "status": "closed",
   "acceptance": [
     "Owner picks option A, B or C in docs/ROADMAP.md",
     "The roadmap row's Status becomes Agreed (or the page is amended) in the same change that plans its records"
@@ -27,14 +27,14 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "0 h remaining",
-    "basis": "Owner decision; about a quarter hour of reading.",
+    "estimate": "0 remaining",
+    "basis": "Owner decision 2026-11-24, owner's words: \"F-004-T03: A\" (confirm milestone M1 \"FPV battery core\"). Owner time not measured. Closed 2026-11-24.",
     "reviewed": "2026-11-24",
     "agentHours": 0,
     "baselineAgentHours": 0,
     "estimateAgentHours": 0,
     "ownerKind": "decision",
-    "ownerHours": 0.25
+    "ownerHours": 0
   },
   "ownerLink": "docs/ROADMAP.md#proposed-next-milestone-owner-to-confirm"
 }

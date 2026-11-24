@@ -302,3 +302,37 @@ Closed records moved from [docs/BACKLOG.md](../BACKLOG.md).
 </details>
 
 ---
+
+### F-004
+
+**Owner follow-ups 2026-11-24: restored rules, push guard, roadmap, check:fast**
+
+| Signal | Priority | Status | Effort |
+|:---:|---|---|---|
+| 🔵 | ◻️ P2 | Closed | 🟢 Small |
+
+💻 **→ Human action required: No**<br />Closed 2026-11-24: PR #8 merged 2026-11-24 on green CI after independent review; owner chose option A on F-004-T03 (2026-11-24).
+
+| | |
+|---|---|
+| **Issue** | Owner answered the F-002 open questions 2026-11-24 ("ok to all"): restore the template AGENTS rules left out at adoption, install the push guard, start a roadmap with a proposed next milestone, add a `check:fast` bundle. |
+| **Reproduce** | `AGENTS.md` on `main` at `d435eda`: no "Testing the joins", no capability-assessment or solution-profile rows; `docs/ROADMAP.md` missing (`check:freshness` 🤔 owner-decision finding); no `check:fast` script; `check:freshness` reports the push guard not installed. |
+| **Check** | The restored rules are in AGENTS and `docs/backlog/documentation.md`; `npm run check:fast` passes and AGENTS names it; `check:freshness` no longer reports the guard or the missing roadmap; the owner confirms or amends the proposed milestone in `docs/ROADMAP.md`. |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+**Next action / closure evidence:** Closed 2026-11-24: PR #8 merged 2026-11-24 on green CI after independent review; owner chose option A on F-004-T03 (2026-11-24). 2026-11-24: owner decision on F-004-T03, owner's words: "F-004-T03: A" — milestone M1 "FPV battery core" agreed; planned as F-005. Earlier, 2026-11-24: restored "Testing the joins", the capability-assessment and solution-profile procedure rows (MCP commands are already inside the MCP row since the 10.5.0 merge), and the documentation rule on topic files under `docs/<topic>/` (template text, unmarked); `check:fast` added (format, lint, typecheck, backlog, work, rules, rule-load, tooling, maintenance) and named in AGENTS with a project line; push guard installed in the primary clone with `node tools/guard.mjs install` (local git hooks, not a repository change); `docs/ROADMAP.md` drafted with milestone M1 marked **Proposed** for the owner's decision (F-004-T03). The NERV wait is written in text (`depends on nerv:F-101-T04`), not as a `dependsOn`.
+
+**Estimates:** No remaining effort.
+
+| Field | Value |
+|---|---|
+| PR / evidence | [PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) · No test: instructions, docs and a script alias only · Review: independent design review (coordinator session, 2026-11-24), clean to land; minors fixed (human-action cue, F-004-T03 decision text, rule-load in the AGENTS check:fast list) |
+| Opened | 2026-11-24 |
+| Verification | Script: check:fast, check:freshness (local, 2026-11-24); CI: PR #8 `check` job passed (2026-11-24); Owner: M1 confirmed (option A, 2026-11-24) |
+| Reviewed | 2026-11-24 |
+
+</details>
+
+---
