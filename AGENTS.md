@@ -98,6 +98,7 @@ Before changing an area, read its section in [docs/agents/areas.md](docs/agents/
 
 **At the start of every session, before other work, run `npm run check:freshness`** and do what it lists, as [session start](docs/agents/session-start.md) says.
 
+- Backlog records are source-owned: edit `docs/work/records/<ID>.md` and the step files `docs/work/tasks/<ID>-Tnn.json` (small steps with an estimate, one actor and `dependsOn`), then `npm run work:build` regenerates `docs/BACKLOG.md`; never edit the generated ledger by hand. A wait on another repository's step is written in the record text (`depends on <repo>:<STEP-ID>`). <!-- project -->
 - This backlog owns only this repository's work: reject foreign next actions and closure conditions; a master never waits on what derives from it (BACKLOG-RULES, "One repository, one backlog").
 - Keep a confirmed bug, a candidate fix, an unimplemented feature and a completed check distinct: a merge is not verification, a unit test is not a visual, pointer or device check, a green CI run proves only the checks it ran. Archives and audits are dated evidence, not current status.
 - A plan or promise given to the user becomes backlog records in the same change, and the reply names them. Nothing promised lives only in the conversation.

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "id": "F-003-T02",
+  "parent": "F-003",
+  "title": "Independent review and landing of PR #7",
+  "goal": "PR #7 lands on green CI after #6 and a fresh-context review",
+  "status": "planned",
+  "acceptance": [
+    "PR #7 rebased on main after PR #6 lands, views regenerated",
+    "A fresh-context reviewer reads the diff; findings fixed or answered",
+    "PR #7 merged on green CI; F-003 verified and closed"
+  ],
+  "dependsOn": [
+    "F-003-T01",
+    "F-002-T02"
+  ],
+  "resources": [
+    "docs/work/records/F-003.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Harness documentation and settings only; no personal data.",
+  "validation": [
+    "npm run check:freshness",
+    "npm run check:backlog",
+    "npm run check:work",
+    "npm run check:rules"
+  ],
+  "escalation": [
+    "A rule that conflicts with a project override, or a project-vs-template doubt, goes to the owner before editing"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h remaining",
+    "basis": "Estimated 2026-11-24: rebase after #6, one review pass and landing at agent speed.",
+    "reviewed": "2026-11-24",
+    "agentHours": 0.5,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5
+  },
+  "review": "independent design review (coordinator session, 2026-11-24), clean to land; minors fixed"
+}

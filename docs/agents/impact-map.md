@@ -9,6 +9,7 @@ What must follow a change, and what must run again after it (docs/agents/change-
 | Id | When these change | Made of (content) | This must follow | Command | Runs again after | Checked by |
 |---|---|---|---|---|---|---|
 | vlm-worker-bundle | `src/workers/vlm-worker.ts` | `src/workers/vlm-worker.ts` | public/workers/vlm-worker.js | `npm run build:worker` |  | CI build |
+| work-items | `docs/work/**`, `docs/agents/model-profiles.json`, `tools/work-items.mjs` | `docs/work/**`, `docs/agents/model-profiles.json`, `tools/work-items.mjs` | docs/BACKLOG.md | `node tools/work-items.mjs build && node tools/work-items.mjs check` |  | npm run check:work in CI |
 
 ## Content dependencies
 
@@ -17,6 +18,7 @@ What each output is made of, besides code: change one of these and the output is
 | Output | Made of | Redo with |
 |---|---|---|
 | public/workers/vlm-worker.js | `src/workers/vlm-worker.ts` | `npm run build:worker` |
+| docs/BACKLOG.md | `docs/work/**`, `docs/agents/model-profiles.json`, `tools/work-items.mjs` | `node tools/work-items.mjs build && node tools/work-items.mjs check` |
 
 ## Value couplings
 
