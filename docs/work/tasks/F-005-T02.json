@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "id": "F-005-T02",
+  "parent": "F-005",
+  "title": "Bring the battery core and its tests into the package",
+  "goal": "The battery-manager core (charge state and internal resistance logs) lives in the package with its tests passing",
+  "status": "planned",
+  "acceptance": [
+    "Core source and its unit tests are in the package; tests pass in CI",
+    "Invented test data only",
+    "Text dependency recorded: waits on nerv:F-101-T04 (NERV's side of the move)"
+  ],
+  "dependsOn": [
+    "F-005-T01"
+  ],
+  "resources": [
+    "package.json"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Battery test data is invented; no pilot or personal data.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false"
+  ],
+  "escalation": [
+    "A package layout or publishing choice that changes how NERV consumes the core goes to the owner first"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1.5 h remaining",
+    "basis": "Estimated 2026-11-24; uncertain until nerv:F-101-T04 names the core's files and size.",
+    "reviewed": "2026-11-24",
+    "agentHours": 1.5,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}

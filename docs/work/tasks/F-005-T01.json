@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "id": "F-005-T01",
+  "parent": "F-005",
+  "title": "Package boundary for the FPV core",
+  "goal": "A framework-free TypeScript package folder that builds and tests on its own, in CI",
+  "status": "planned",
+  "acceptance": [
+    "A package folder with its own package.json, tsconfig and exports, no Angular imports",
+    "A placeholder unit test runs in CI",
+    "Lint, format and conventions cover it"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "package.json",
+    ".github/workflows/ci.yml",
+    "eslint.config.mjs"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Battery test data is invented; no pilot or personal data.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false"
+  ],
+  "escalation": [
+    "A package layout or publishing choice that changes how NERV consumes the core goes to the owner first"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h remaining",
+    "basis": "Estimated 2026-11-24: scaffold, CI wiring and one test at agent speed.",
+    "reviewed": "2026-11-24",
+    "agentHours": 1,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  }
+}

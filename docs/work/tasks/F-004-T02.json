@@ -4,7 +4,7 @@
   "parent": "F-004",
   "title": "Draft the roadmap with a proposed next milestone",
   "goal": "docs/ROADMAP.md proposes M1 from open work and the NERV dependency, marked for the owner",
-  "status": "implemented",
+  "status": "closed",
   "acceptance": [
     "docs/ROADMAP.md exists with M1 marked Proposed and options A/B/C",
     "The NERV wait is written in text, not as a dependsOn"
@@ -27,7 +27,7 @@
   "effort": {
     "size": "small",
     "estimate": "0 h remaining",
-    "basis": "Estimated and implemented 2026-11-24 at agent speed.",
+    "basis": "Estimated and implemented 2026-11-24 at agent speed. Closed 2026-11-24: PR #8 merged on green CI.",
     "reviewed": "2026-11-24",
     "agentHours": 0,
     "baselineAgentHours": 0.5,
