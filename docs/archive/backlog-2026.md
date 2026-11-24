@@ -234,3 +234,38 @@ Closed records moved from [docs/BACKLOG.md](../BACKLOG.md).
 </details>
 
 ---
+
+## Closed 2026-11-24
+
+### F-002
+
+**Reconcile project-harness v10.3.0 → v10.9.0**
+
+| Signal | Priority | Status | Effort |
+|:---:|---|---|---|
+| 🔵 | ◻️ P2 | Closed | 🟢 Small |
+
+💻 **→ Human action required: No**<br />Closed 2026-11-24: PR #6 merged 2026-11-24 on green CI (check job); independent design review clean; check-harness --strict matched v10.9.0.
+
+| | |
+|---|---|
+| **Issue** | `.harness.json` named v10.3.0 while the template released v10.3.1–v10.9.0 (`check:freshness` listed 9 copied files to update and 8 adapted files to reconcile). |
+| **Reproduce** | `npm run check:freshness` on `main` at `e8bbff6`. |
+| **Check** | `check:freshness` reports no harness update; `check:fast`-equivalent checks (format, lint, typecheck, backlog, rules, rule-load, maintenance), tests and build pass; CI on the PR is green. |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+| Field | Value |
+|---|---|
+| PR / evidence | [PR #6](https://github.com/voidbrain/FPVBuddy/pull/6) · No test: documentation and copied-tool reconcile, no app code · Review: independent design review (coordinator session, 2026-11-24), clean to land; minors fixed (`<!-- project -->` on AGENTS project lines, this Verification line, maintenance note) |
+| Opened | 2026-11-24 |
+| Verification | Script: check:freshness, check:backlog, check:rules, check:rule-load, check:tooling, check:audits, check:maintenance, check-harness --strict, format:check, lint, typecheck, check:conventions, tests 2/2, build (2026-11-24, local); CI: PR #6 `check` job passed (2026-11-24) |
+| Reviewed | 2026-11-24 |
+
+**Estimates:** No remaining effort.
+**Next action / closure evidence:** Closed 2026-11-24: PR #6 merged 2026-11-24 on green CI (check job); independent design review clean; check-harness --strict matched v10.9.0. Copied from v10.9.0: `tools/{friction,check-rules,work-items}.mjs`, `docs/agents/{skills,skills-discovery,parallel-work,procedures,work-usage,work-usage-launch,claims,rule-review}.md`. Adapted (reconciled from the template diff): `AGENTS.md` (landing-queue safety line, lean procedures table, Documentation section moved to `docs/backlog/documentation.md` "Top-level documents" with this project's two bullets marked `<!-- project -->`), `docs/BACKLOG-RULES.md`, `docs/backlog/{closure,documentation,estimates,records,review}.md`, `docs/agents/pull-requests.md`; new `docs/backlog/{human-action,ledger-header}.md`. `docs/agents/maintenance-review.json` is re-recorded: `maintenance.mjs review` writes only the outcomes of the review it records (by design), so the v10.2.0 adoption and v10.3.0 reconcile outcomes stay in git history (commit `ece389c`), not in the new receipt. Skipped: the optional `work:close` and `work:pr` scripts (10.7.0, 10.9.0) because `workItems.enabled` is false.
+
+</details>
+
+---

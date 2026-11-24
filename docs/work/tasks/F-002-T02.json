@@ -4,7 +4,7 @@
   "parent": "F-002",
   "title": "Independent review and landing of PR #6",
   "goal": "PR #6 lands on green CI after a fresh-context review",
-  "status": "planned",
+  "status": "closed",
   "acceptance": [
     "A fresh-context reviewer (design-reviewer for the adapted files) reads the diff; findings fixed or answered on the PR",
     "F-002 cites Review: <how, outcome>",
@@ -32,11 +32,18 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "0.5 h remaining",
-    "basis": "Estimated 2026-11-24: one review pass plus landing at agent speed.",
+    "estimate": "0 remaining",
+    "basis": "Estimated 2026-11-24: one review pass plus landing. Closed 2026-11-24: PR #6 merged on green CI after review.",
     "reviewed": "2026-11-24",
-    "agentHours": 0.5,
+    "agentHours": 0,
     "baselineAgentHours": 0.5,
     "estimateAgentHours": 0.5
-  }
+  },
+  "review": "independent design review (coordinator session, 2026-11-24), clean to land; minors fixed",
+  "prs": [
+    {
+      "pr": 6,
+      "note": "review minors and landing"
+    }
+  ]
 }

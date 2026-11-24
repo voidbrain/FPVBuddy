@@ -35,13 +35,13 @@ Before you open, update or merge a PR, read [pull requests](docs/agents/pull-req
 
 ```bash
 npm run check:freshness   # first, at session start: backlog behind main, merged branches, audit age
-npm run lint              # ESLint + angular-eslint + template accessibility
-npm test -- --watch=false # Vitest unit tests
-npm run build             # Angular production build (dist/FPVBuddy)
-npm run typecheck         # strict tsc check with noUnusedLocals / noUnusedParameters
+npm run lint              # ESLint + angular-eslint + template accessibility <!-- project -->
+npm test -- --watch=false # Vitest unit tests <!-- project -->
+npm run build             # Angular production build (dist/FPVBuddy) <!-- project -->
+npm run typecheck         # strict tsc check with noUnusedLocals / noUnusedParameters <!-- project -->
 npm run check:backlog     # active record layout and lifecycle cues
-npm run check:conventions # stack conventions (docs/agents/angular.md) and unused exports
-npm run format:check      # Prettier check on src/**/*.{ts,css,html}; `npm run format` fixes it
+npm run check:conventions # stack conventions (docs/agents/angular.md) and unused exports <!-- project -->
+npm run format:check      # Prettier check on src/**/*.{ts,css,html}; `npm run format` fixes it <!-- project -->
 npm run check:tooling     # a formatter check and a linter exist and run in CI (required for every stack)
 npm run code:map -- <path> # exports with line ranges: read those lines, not the whole file
 ```
@@ -66,10 +66,10 @@ Each procedure is binding when its trigger applies: read it before the task; a s
 |---|---|
 | start a session | [session start](docs/agents/session-start.md) |
 | open, update or merge a PR | [pull requests](docs/agents/pull-requests.md) |
-| change Angular code (`src/app/`) | [Angular rules](docs/agents/angular.md) |
+| change Angular code (`src/app/`) | [Angular rules](docs/agents/angular.md) <!-- project --> |
 | update or close a backlog record | [backlog rules](docs/BACKLOG-RULES.md) (it names the one file a change needs) |
 | write or change documentation | [documentation](docs/backlog/documentation.md) |
-| change something an output is derived from (`src/workers/vlm-worker.ts`) | [change impact](docs/agents/change-impact.md); do each row `check:freshness` lists, or record why not |
+| change something an output is derived from (`src/workers/vlm-worker.ts`) | [change impact](docs/agents/change-impact.md); do each row `check:freshness` lists, or record why not <!-- project --> |
 | change tests or coverage | [coverage guide](docs/agents/coverage-guide.md) |
 | switch tasks or hand off context | [task context](docs/agents/task-context.md) |
 | work in parallel: claimed tasks, branches, model assignments | [parallel work](docs/agents/parallel-work.md) (claims inside) |
@@ -98,7 +98,7 @@ Before changing an area, read its section in [docs/agents/areas.md](docs/agents/
 
 **At the start of every session, before other work, run `npm run check:freshness`** and do what it lists, as [session start](docs/agents/session-start.md) says.
 
-- Backlog records are source-owned: edit `docs/work/records/<ID>.md` and the step files `docs/work/tasks/<ID>-Tnn.json` (small steps with an estimate, one actor and `dependsOn`), then `npm run work:build` regenerates `docs/BACKLOG.md`; never edit the generated ledger by hand. A wait on another repository's step is written in the record text (`depends on nerv:F-101-T04`). <!-- project -->
+- Backlog records are source-owned: edit `docs/work/records/<ID>.md` and the step files `docs/work/tasks/<ID>-Tnn.json` (small steps with an estimate, one actor and `dependsOn`), then `npm run work:build` regenerates `docs/BACKLOG.md`; never edit the generated ledger by hand. A wait on another repository's step is written in the record text (`depends on <repo>:<STEP-ID>`). <!-- project -->
 - This backlog owns only this repository's work: reject foreign next actions and closure conditions; a master never waits on what derives from it (BACKLOG-RULES, "One repository, one backlog").
 - Keep a confirmed bug, a candidate fix, an unimplemented feature and a completed check distinct: a merge is not verification, a unit test is not a visual, pointer or device check, a green CI run proves only the checks it ran. Archives and audits are dated evidence, not current status.
 - A plan or promise given to the user becomes backlog records in the same change, and the reply names them. Nothing promised lives only in the conversation.
