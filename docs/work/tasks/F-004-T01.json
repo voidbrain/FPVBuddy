@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "id": "F-004-T01",
+  "parent": "F-004",
+  "title": "Restore omitted AGENTS rules, add check:fast, install the push guard",
+  "goal": "AGENTS carries the template rules FPVBuddy left out, and one command runs the fast checks",
+  "status": "implemented",
+  "acceptance": [
+    "Testing the joins, capability-assessment and solution-profile rows and the topic-files documentation rule present",
+    "npm run check:fast passes and AGENTS names it",
+    "check:freshness no longer reports the push guard"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "AGENTS.md",
+    "docs/backlog/documentation.md",
+    "package.json"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Instructions and docs only; no personal data.",
+  "validation": [
+    "npm run check:fast",
+    "npm run check:freshness"
+  ],
+  "escalation": [
+    "A rule whose project-vs-template placement is unclear goes to the owner before editing"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0 h remaining",
+    "basis": "Estimated and implemented 2026-11-24 at agent speed.",
+    "reviewed": "2026-11-24",
+    "agentHours": 0,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5
+  },
+  "prs": [
+    {
+      "pr": 8,
+      "note": "rules and check:fast"
+    }
+  ]
+}

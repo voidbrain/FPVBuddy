@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "id": "F-004-T04",
+  "parent": "F-004",
+  "title": "Independent review and landing of PR #8",
+  "goal": "PR #8 lands on green CI after a fresh-context review",
+  "status": "planned",
+  "acceptance": [
+    "A fresh-context reviewer reads the diff (adapted AGENTS and documentation); findings fixed or answered",
+    "F-004 cites Review: <how, outcome>",
+    "PR #8 merged on green CI"
+  ],
+  "dependsOn": [
+    "F-004-T01",
+    "F-004-T02"
+  ],
+  "resources": [
+    "docs/work/records/F-004.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Instructions and docs only; no personal data.",
+  "validation": [
+    "npm run check:fast",
+    "npm run check:freshness"
+  ],
+  "escalation": [
+    "A rule whose project-vs-template placement is unclear goes to the owner before editing"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h remaining",
+    "basis": "Estimated 2026-11-24: one review pass plus landing.",
+    "reviewed": "2026-11-24",
+    "agentHours": 0.5,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5
+  }
+}

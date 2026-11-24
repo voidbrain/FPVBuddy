@@ -269,3 +269,36 @@ Closed records moved from [docs/BACKLOG.md](../BACKLOG.md).
 </details>
 
 ---
+
+### F-003
+
+**Adopt source-owned records and upfront feature plans**
+
+| Signal | Priority | Status | Effort |
+|:---:|---|---|---|
+| 🔵 | ◻️ P2 | Closed | 🟢 Small |
+
+💻 **→ Human action required: No**<br />Closed 2026-11-24: PR #7 merged 2026-11-24 on green CI (check job); independent design review clean, minors fixed.
+
+| | |
+|---|---|
+| **Issue** | Owner decision 2026-11-24: FPVBuddy plans its work in small steps like the other harnessed projects (`workItems.featurePlans`, task files under `docs/work/tasks` with `dependsOn`). |
+| **Reproduce** | `.harness.json` on `main` at `e8bbff6`: `workItems.enabled` and `featurePlans` are false; `docs/BACKLOG.md` is edited by hand. |
+| **Check** | `workItems.enabled` and `featurePlans` true; every open record has steps with estimates, actors and `dependsOn`; `npm run work:build` regenerates `docs/BACKLOG.md`; `check:work` and `check:backlog` pass; CI green. |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+| Field | Value |
+|---|---|
+| PR / evidence | [PR #7](https://github.com/voidbrain/FPVBuddy/pull/7) · No test: backlog settings and generated views only · Review: independent design review (coordinator session, 2026-11-24), clean to land; minors fixed (`check:work` CI step noted as project-only; neutral cross-repository example in AGENTS) |
+| Opened | 2026-11-24 |
+| Verification | Local checks on the branch (see PR); CI pending |
+| Reviewed | 2026-11-24 |
+
+**Estimates:** No remaining effort.
+**Next action / closure evidence:** Closed 2026-11-24: PR #7 merged 2026-11-24 on green CI (check job); independent design review clean, minors fixed. `node tools/work-items.mjs migrate` kept `docs/BACKLOG.md` byte-identical; open records F-002 and F-003 got task files. Added the `work:close` and `work:pr` scripts (skipped in F-002 while `workItems` was off), the `check:work` CI step (project-only: `.github/workflows/ci.yml` is YAML and cannot carry a `<!-- project -->` marker, so a reconcile of that adapted file must keep this step by hand), a `work-items` impact row and a project line in AGENTS naming the record sources. Cross-repository waits are written in record text for now (form `depends on <repo>:<STEP-ID>`) until the template defines a cross-repository `dependsOn`. PR #6 landed 2026-11-24; this branch was updated from `main` and the views regenerated.
+
+</details>
+
+---

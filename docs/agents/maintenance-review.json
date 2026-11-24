@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "reviewed": "2026-11-24T22:25:11.175Z",
+  "reviewed": "2026-11-24T22:28:34.799Z",
   "policy": "c9570a34ab0c7e4f1274fe37802a6eff8e7edfb8266c98f0cec7119533729b2b",
   "inputs": {
-    "AGENTS.md": "59e5ecc1f9cb1610721e042a678d7831891ed7990a991c9eb52a6d023f09fecc",
+    "AGENTS.md": "5b5a933483cc0b3768d2bc39f1911049548ee06ca594a5f469c7879fae2a43c3",
     "docs/BACKLOG-RULES.md": "6532f1eb56de83659a76600b0ebf39484596e0497076bca0f56e47bf75964afb",
     "docs/agents/architecture-review.md": "5d967314854912b1a5f1446aeab309763b14f9856bceb3c82df5c6c25c166526",
     "docs/agents/areas.md": "10210007029b708a769798ea94dbc3b50db5a804d34451802e2dc9a93593ffde",
@@ -24,7 +24,7 @@
     "docs/agents/work-usage-launch.md": "3225858b8b840322d2bb073f30659c376826eea3d1f772df8582fb37eef74465",
     "docs/agents/work-usage.md": "9a4c574e6cd2b0af3ddd1cb5a70560dc84c962c991d42567b7829b9a25cae3be",
     "docs/backlog/closure.md": "621d7de170f1cf91b1fdbcbe5024f298a1c72f8fb754af8bae3a1c282d5a3ce1",
-    "docs/backlog/documentation.md": "2193e8e2ae9e2da3d4340cecf36651fba97b35ff9fbd60cfca11861e6016bf0d",
+    "docs/backlog/documentation.md": "f301481245444ee444299a360eb7636d129fbf8afc936c7bf50f0eda07cf9bcb",
     "docs/backlog/estimates.md": "464a51ccad0db3958a2afa36caa2ffd79e780c49fe66cab01d1a7d0793411912",
     "docs/backlog/evaluations.md": "7540bf69b6b5d40dc09dc9ce82138218525733c5f602945bdaa58d5c3a743f37",
     "docs/backlog/feature-plans.md": "f2377140ce4f2f38b449516498dd5ff6ba58ca04287aa92381a1029f7416f85b",
@@ -98,13 +98,13 @@
       "kind": "rule",
       "disposition": "implemented",
       "target": "AGENTS.md",
-      "evidence": "F-002 closed: project-harness v10.3.0 -> v10.9.0 reconcile merged in PR #6 on green CI after independent review."
+      "evidence": "Owner 2026-11-24 'ok to all': restored template rules (Testing the joins, capability-assessment and solution-profile rows, topic-files documentation rule) and check:fast; F-003 closed after PR #7 merged on green CI."
     },
     {
       "kind": "rule",
       "disposition": "backlog",
-      "target": "F-003",
-      "evidence": "Owner decision 2026-11-24: source-owned records and upfront feature plans enabled; AGENTS project line names docs/work as the record source; check:work in CI (project-only step). Review clean; landing in PR #7."
+      "target": "F-004",
+      "evidence": "Roadmap M1 proposed for the owner's decision (F-004-T03); push guard installed locally; review and landing pending (F-004-T04)."
     }
   ]
 }
