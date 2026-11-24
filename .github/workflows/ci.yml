@@ -54,6 +54,9 @@ jobs:
       - name: Backlog records and layout
         run: npm run check:backlog
 
+      - name: Source-owned records and explicit tasks
+        run: npm run check:work
+
       - name: Harness template, for the release check below
         # check-harness compares this project with the template's release tags; the template is public, so no token.
         run: |

@@ -14,15 +14,15 @@ Current work ledger, reviewed 24 November 2026 against main `e8bbff6` ([PR #5](h
 
 ---
 
-### F-002
+### <a id="f-002"></a>[✨ F-002](#top)
 
 **Reconcile project-harness v10.3.0 → v10.9.0**
 
-| Signal | Priority | Status | Effort |
-|:---:|---|---|---|
-| 🟡 | 🔶 P2 | Implemented | 🟢 Small |
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🟡 Implemented | 🔶 P2 | 🟢 Small | 0.5 h | — | [F-003-T02](#f-003-t02) | 🤖 | — | — |
 
-💻 **→ Human action required: No**<br />Next: independent review of [PR #6](https://github.com/voidbrain/FPVBuddy/pull/6), then land it on green CI and close this record.
+💻 **→** Next: F-002-T01 — Reconcile harness files v10.3.0 -&gt; v10.9.0 (Implemented; verification pending).
 
 | | |
 |---|---|
@@ -30,18 +30,64 @@ Current work ledger, reviewed 24 November 2026 against main `e8bbff6` ([PR #5](h
 | **Reproduce** | `npm run check:freshness` on `main` at `e8bbff6`. |
 | **Check** | `check:freshness` reports no harness update; `check:fast`-equivalent checks (format, lint, typecheck, backlog, rules, rule-load, maintenance), tests and build pass; CI on the PR is green. |
 
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-002-t01"></a>F-002-T01 — Reconcile harness files v10.3.0 -&gt; v10.9.0 | 1 h | 0 h | 0 h | Implemented; verification pending | — | [F-002-T02](#f-002-t02) | [PR #6](https://github.com/voidbrain/FPVBuddy/pull/6) reconcile |
+| 🟢 Small | <a id="f-002-t02"></a>F-002-T02 — Independent review and landing of PR #6 | 0.5 h | 0 h | 0.5 h | Planned | [F-002-T01](#f-002-t01) | [F-003-T02](#f-003-t02) | — |
+| 🟢 Small | **Total** | 1.5 h | 0 h (0 of 2 steps recorded) | 0.5 h | 0 of 2 completed | | | |
+
 <details>
 <summary>Next action, estimates and evidence</summary>
 
-| | |
+[Full notes & evidence](work/records/F-002.md)
+
+| Field | Value |
 |---|---|
-| PR / evidence | [PR #6](https://github.com/voidbrain/FPVBuddy/pull/6) · No test: documentation and copied-tool reconcile, no app code |
+| PR / evidence | Steps: F-002-T01: [PR #6](https://github.com/voidbrain/FPVBuddy/pull/6) reconcile. [PR #6](https://github.com/voidbrain/FPVBuddy/pull/6) · No test: documentation and copied-tool reconcile, no app code |
 | Opened | 2026-11-24 |
 | Verification | Local checks on the branch (see PR); CI pending |
 | Reviewed | 2026-11-24 |
 
-**Estimates:** `🟢 Small` — copied files from the tag, adapted files by three-way merge, AGENTS re-adapted from the leaner 10.5.0 template.
-**Next action / closure evidence:** Copied from v10.9.0: `tools/{friction,check-rules,work-items}.mjs`, `docs/agents/{skills,skills-discovery,parallel-work,procedures,work-usage,work-usage-launch,claims,rule-review}.md`. Adapted (reconciled from the template diff): `AGENTS.md` (landing-queue safety line, lean procedures table, Documentation section moved to `docs/backlog/documentation.md` "Top-level documents" with this project's two bullets marked `<!-- project -->`), `docs/BACKLOG-RULES.md`, `docs/backlog/{closure,documentation,estimates,records,review}.md`, `docs/agents/pull-requests.md`; new `docs/backlog/{human-action,ledger-header}.md`. Skipped: the optional `work:close` and `work:pr` scripts (10.7.0, 10.9.0) because `workItems.enabled` is false.
+</details>
+
+---
+### <a id="f-003"></a>[✨ F-003](#top)
+
+**Adopt source-owned records and upfront feature plans**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🟡 Implemented | 🔶 P2 | 🟢 Small | 0.5 h | [F-002-T02](#f-002-t02) | — | 🤖 | — | — |
+
+💻 **→** Next: F-003-T01 — Enable source-owned records and upfront feature plans (Implemented; verification pending).
+
+| | |
+|---|---|
+| **Issue** | Owner decision 2026-11-24: FPVBuddy plans its work in small steps like the other harnessed projects (`workItems.featurePlans`, task files under `docs/work/tasks` with `dependsOn`). |
+| **Reproduce** | `.harness.json` on `main` at `e8bbff6`: `workItems.enabled` and `featurePlans` are false; `docs/BACKLOG.md` is edited by hand. |
+| **Check** | `workItems.enabled` and `featurePlans` true; every open record has steps with estimates, actors and `dependsOn`; `npm run work:build` regenerates `docs/BACKLOG.md`; `check:work` and `check:backlog` pass; CI green. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-003-t01"></a>F-003-T01 — Enable source-owned records and upfront feature plans | 1 h | 0 h | 0 h | Implemented; verification pending | — | [F-003-T02](#f-003-t02) | [PR #7](https://github.com/voidbrain/FPVBuddy/pull/7) enable feature plans |
+| 🟢 Small | <a id="f-003-t02"></a>F-003-T02 — Independent review and landing of PR #7 | 0.5 h | 0 h | 0.5 h | Planned | [F-003-T01](#f-003-t01), [F-002-T02](#f-002-t02) | — | — |
+| 🟢 Small | **Total** | 1.5 h | 0 h (0 of 2 steps recorded) | 0.5 h | 0 of 2 completed | | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-003.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-003-T01: [PR #7](https://github.com/voidbrain/FPVBuddy/pull/7) enable feature plans. [PR #7](https://github.com/voidbrain/FPVBuddy/pull/7) · No test: backlog settings and generated views only |
+| Opened | 2026-11-24 |
+| Verification | Local checks on the branch (see PR); CI pending |
+| Reviewed | 2026-11-24 |
 
 </details>
 

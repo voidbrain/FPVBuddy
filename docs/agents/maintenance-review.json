@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "reviewed": "2026-11-24T21:35:12.937Z",
+  "reviewed": "2026-11-24T21:38:49.174Z",
   "policy": "c9570a34ab0c7e4f1274fe37802a6eff8e7edfb8266c98f0cec7119533729b2b",
   "inputs": {
-    "AGENTS.md": "a1bd0f47d2b4b69be98b320ae2a9c5b1d05ec404f5ed196def04a4eaa3377776",
+    "AGENTS.md": "b9a1202a1ab13d47d618344cb13d990df25a0c7403eb08bf88e252fba4e3a752",
     "docs/BACKLOG-RULES.md": "6532f1eb56de83659a76600b0ebf39484596e0497076bca0f56e47bf75964afb",
     "docs/agents/architecture-review.md": "5d967314854912b1a5f1446aeab309763b14f9856bceb3c82df5c6c25c166526",
     "docs/agents/areas.md": "10210007029b708a769798ea94dbc3b50db5a804d34451802e2dc9a93593ffde",
@@ -98,7 +98,13 @@
       "kind": "rule",
       "disposition": "backlog",
       "target": "F-002",
-      "evidence": "Reconciled project-harness v10.3.0 -> v10.9.0: copied tools/{friction,check-rules,work-items}.mjs and docs/agents/{skills,skills-discovery,parallel-work,procedures,work-usage,work-usage-launch,claims,rule-review}.md; re-adapted AGENTS.md (landing queue, lean procedures table, Documentation moved to docs/backlog/documentation.md) and the backlog children (human-action, ledger-header). check:backlog, check:rules, check:rule-load, check:tooling, check-harness --strict, format:check, lint, typecheck, check:conventions, tests and build pass locally; independent review pending on the PR."
+      "evidence": "Reconciled project-harness v10.3.0 -> v10.9.0 (PR #6); independent review pending (F-002-T02)."
+    },
+    {
+      "kind": "rule",
+      "disposition": "backlog",
+      "target": "F-003",
+      "evidence": "Owner decision 2026-11-24: source-owned records and upfront feature plans enabled (workItems.enabled, featurePlans); AGENTS project line names docs/work as the record source; check:work in CI. check:work, check:backlog, check:rules, check:rule-load pass; review pending (F-003-T02)."
     }
   ]
 }

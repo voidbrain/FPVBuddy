@@ -91,6 +91,24 @@
       ],
       "couplings": [],
       "outside": []
+    },
+    {
+      "id": "work-items",
+      "when": [
+        "docs/work/**",
+        "docs/agents/model-profiles.json",
+        "tools/work-items.mjs"
+      ],
+      "then": "docs/BACKLOG.md",
+      "run": "node tools/work-items.mjs build && node tools/work-items.mjs check",
+      "checked": "npm run check:work in CI",
+      "inputs": [
+        "docs/work/**",
+        "docs/agents/model-profiles.json",
+        "tools/work-items.mjs"
+      ],
+      "couplings": [],
+      "outside": []
     }
   ],
   "couplings": [],
@@ -210,8 +228,13 @@
     "enabled": false
   },
   "workItems": {
-    "enabled": false,
-    "featurePlans": false
+    "enabled": true,
+    "layout": "docs/work/layout.json",
+    "records": "docs/work/records",
+    "tasks": "docs/work/tasks",
+    "profiles": "docs/agents/model-profiles.json",
+    "featurePlans": true,
+    "repository": "voidbrain/FPVBuddy"
   },
   "workUsage": {
     "enabled": false,

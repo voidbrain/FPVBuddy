@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "id": "F-003-T01",
+  "parent": "F-003",
+  "title": "Enable source-owned records and upfront feature plans",
+  "goal": "Every open record has small planned steps with estimates, actors and dependsOn",
+  "status": "implemented",
+  "acceptance": [
+    "workItems.enabled and featurePlans true; migrate kept the ledger byte-identical",
+    "Every open record has task files; work:build regenerates docs/BACKLOG.md",
+    "check:work and check:backlog pass"
+  ],
+  "dependsOn": [],
+  "resources": [
+    ".harness.json",
+    "docs/work/**",
+    "docs/agents/model-profiles.json",
+    "docs/BACKLOG.md",
+    "package.json",
+    "AGENTS.md"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Harness documentation and settings only; no personal data.",
+  "validation": [
+    "npm run check:freshness",
+    "npm run check:backlog",
+    "npm run check:work",
+    "npm run check:rules"
+  ],
+  "escalation": [
+    "A rule that conflicts with a project override, or a project-vs-template doubt, goes to the owner before editing"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0 h remaining",
+    "basis": "Estimated and implemented 2026-11-24 at agent speed; review and landing are F-003-T02.",
+    "reviewed": "2026-11-24",
+    "agentHours": 0,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  },
+  "prs": [
+    {
+      "pr": 7,
+      "note": "enable feature plans"
+    }
+  ]
+}
