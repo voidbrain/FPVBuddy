@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-Current work ledger, reviewed 25 November 2026 against main `383242f` ([PR #9](https://github.com/voidbrain/FPVBuddy/pull/9) merged on green CI; M1 planned as F-005). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
+Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](https://github.com/voidbrain/FPVBuddy/pull/10) merged on green CI; F-005-T01 closed). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
 
 ## Lifecycle
 
@@ -22,7 +22,7 @@ Current work ledger, reviewed 25 November 2026 against main `383242f` ([PR #9](h
 |---|---|---|---|---|---|:---:|:---:|:---:|
 | 🔴 Open | 🔶 P2 | 🟡 Medium | 3 h | — | — | 🤖 | — | — |
 
-💻 **→** Next: F-005-T01 — Package boundary for the FPV core (Implemented; verification pending).
+💻 **→** Next: F-005-T02 — Bring the battery core and its tests into the package (Planned).
 
 | | |
 |---|---|
@@ -32,13 +32,20 @@ Current work ledger, reviewed 25 November 2026 against main `383242f` ([PR #9](h
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
-|---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-005-t01"></a>F-005-T01 — Package boundary for the FPV core | 1 h | 0 h | 0 h | Implemented; verification pending | — | [F-005-T02](#f-005-t02) |
-| 🟡 Medium | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 1.5 h | Planned | [F-005-T01](#f-005-t01) | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04) |
-| 🟢 Small | <a id="f-005-t03"></a>F-005-T03 — Document the core's public API | 0.5 h | 0 h | 0.5 h | Planned | [F-005-T02](#f-005-t02) | — |
-| 🟢 Small | <a id="f-005-t04"></a>F-005-T04 — Install check without the FPVBuddy app | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | — |
-| 🟡 Medium | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 3 h | 0 of 4 completed | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 1.5 h | Planned | — | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04) | — |
+| 🟢 Small | <a id="f-005-t03"></a>F-005-T03 — Document the core's public API | 0.5 h | 0 h | 0.5 h | Planned | [F-005-T02](#f-005-t02) | — | — |
+| 🟢 Small | <a id="f-005-t04"></a>F-005-T04 — Install check without the FPVBuddy app | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | — | — |
+| 🟡 Medium | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 3 h | 1 of 4 completed | | | |
+
+<details><summary>Done steps (1)</summary>
+
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| — | <a id="f-005-t01"></a>F-005-T01 — Package boundary for the FPV core | 1 h | 0 h | Completed | [PR #10](https://github.com/voidbrain/FPVBuddy/pull/10) package boundary |
+
+</details>
 
 <details>
 <summary>Next action, estimates and evidence</summary>
@@ -47,9 +54,47 @@ Current work ledger, reviewed 25 November 2026 against main `383242f` ([PR #9](h
 
 | Field | Value |
 |---|---|
-| PR / evidence | [#10](https://github.com/voidbrain/FPVBuddy/pull/10) |
+| PR / evidence | Steps: F-005-T01: [PR #10](https://github.com/voidbrain/FPVBuddy/pull/10) package boundary. [#10](https://github.com/voidbrain/FPVBuddy/pull/10) |
 | Opened | 2026-11-24 |
-| Verification | Pending: CI, package install check |
+| Verification | F-005-T01: green CI on PR #10 (2026-11-25). Pending: package install check (F-005-T04) |
+| Reviewed | 2026-11-25 |
+
+</details>
+
+---
+### <a id="f-006"></a>[✨ F-006](#top)
+
+**Reconcile project-harness v10.9.0 → v10.20.0**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟢 Small | 0 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-006-T01 — Reconcile harness files v10.9.0 -&gt; v10.20.0 (Implemented; verification pending).
+
+| | |
+|---|---|
+| **Issue** | `.harness.json` named v10.9.0 while the template released v10.10.0–v10.20.0 (`check:freshness` listed 17 copied files to update and 6 adapted files to reconcile). Owner approved the reconcile on 2026-11-25. |
+| **Reproduce** | Run `npm run check:freshness` on `main` at `e15d5f7`: it reports the harness template v10.20.0 and the files above. |
+| **Check** | `check:freshness` reports no harness update; `check:fast`, tests and build pass; CI on the PR is green. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status |
+|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-006-t01"></a>F-006-T01 — Reconcile harness files v10.9.0 -&gt; v10.20.0 | 1 h | 0 h | 0 h | Implemented; verification pending |
+| 🟢 Small | **Total** | 1 h | 0 h (0 of 1 steps recorded) | 0 h | 0 of 1 completed |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-006.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Pending PR |
+| Opened | 2026-11-25 |
+| Verification | Pending: CI on the PR |
 | Reviewed | 2026-11-25 |
 
 </details>

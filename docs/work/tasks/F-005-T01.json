@@ -4,7 +4,7 @@
   "parent": "F-005",
   "title": "Package boundary for the FPV core",
   "goal": "A framework-free TypeScript package folder that builds and tests on its own, in CI",
-  "status": "implemented",
+  "status": "closed",
   "acceptance": [
     "A package folder with its own package.json, tsconfig and exports, no Angular imports",
     "A placeholder unit test runs in CI",
@@ -30,10 +30,16 @@
   "effort": {
     "size": "small",
     "estimate": "0 h remaining",
-    "basis": "Estimated 2026-11-24 at agent speed; implemented 2026-11-25: package folder src/fpv-core (own package.json, tsconfig, exports), placeholder test, lint/conventions purity guard, CI step. Verification pending: CI on the PR.",
+    "basis": "Estimated 2026-11-24 at agent speed; implemented 2026-11-25: package folder src/fpv-core (own package.json, tsconfig, exports), placeholder test, lint/conventions purity guard, CI step. Closed 2026-11-25: PR #10 merged on green CI (check job), main CI green on e15d5f7.",
     "reviewed": "2026-11-25",
     "agentHours": 0,
     "baselineAgentHours": 1,
     "estimateAgentHours": 1
-  }
+  },
+  "prs": [
+    {
+      "pr": 10,
+      "note": "package boundary"
+    }
+  ]
 }
