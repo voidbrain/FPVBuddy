@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "id": "F-010-T04",
+  "parent": "F-010",
+  "title": "Fleet import in the core",
+  "goal": "A whole fleet file loads in one transaction as NERV's fleet import does",
+  "status": "planned",
+  "acceptance": [
+    "parseFleetImport (unknown fields refused) and importFleet move into src/fpv-core for drones, parts and spares: missing drones and slots created, existing drones kept, each component model gets a spares row at 0 new and 0 used unless one exists, a report of what changed",
+    "Printed-part and print-job fields stay out (see F-010's scope); a file carrying them is refused or ignored as the record decides, with a test",
+    "Tests carried over or rewritten from NERV's test/fleet-import.test.ts with an invented fleet file"
+  ],
+  "dependsOn": [
+    "F-010-T01",
+    "F-010-T02"
+  ],
+  "resources": [
+    "src/fpv-core/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm run core:test",
+    "npm run core:build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A behaviour difference from NERV's FPV pack is recorded and goes to the owner before it lands"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-25: about 200 lines of parse and import code; separating out the printed-part fields carries the uncertainty. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

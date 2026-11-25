@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "id": "F-011-T07",
+  "parent": "F-011",
+  "title": "Owner: see drones, warehouse and a logged crash in NERV",
+  "goal": "The owner sees the fleet cards and screens in NERV and logs a crash with approval",
+  "status": "planned",
+  "acceptance": [
+    "The owner says the drones, spares and crash cards, the two full screens and the approved crash log work in NERV, or lists what differs; differences become steps or records in the repository that owns them"
+  ],
+  "dependsOn": [
+    "F-011-T03",
+    "F-011-T05",
+    "F-011-T06"
+  ],
+  "resources": [
+    "docs/work/records/F-011.md"
+  ],
+  "capabilities": [
+    "evidence-review"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "Owner check, recorded in F-011"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A surface type or page bricks lacks goes to bricks as a proposal, never a local copy in NERV"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h owner",
+    "basis": "Estimated 2026-11-25: one check in NERV once its consumer side exists; its page is written by the step that makes it runnable. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 0,
+    "ownerHours": 0.5,
+    "baselineAgentHours": 0,
+    "estimateAgentHours": 0,
+    "ownerKind": "procedure"
+  }
+}

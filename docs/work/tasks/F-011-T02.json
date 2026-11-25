@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "id": "F-011-T02",
+  "parent": "F-011",
+  "title": "Read-only MCP tools: spares by category and recent crashes",
+  "goal": "NERV can answer \"spare motors left\" and show recent crashes",
+  "status": "planned",
+  "acceptance": [
+    "A read-only tool returns spares for a category (or all) with new and used counts per component model and the category totals, so \"spare motors left\" is one call",
+    "A read-only tool returns recent crashes (newest first, a bounded count, optional drone filter) with drone, part, damage and spare used",
+    "Specs with invented data; the tool table lists them"
+  ],
+  "dependsOn": [
+    "F-011-T01",
+    "F-010-T02",
+    "F-010-T03"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A surface type or page bricks lacks goes to bricks as a proposal, never a local copy in NERV"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h",
+    "basis": "Estimated 2026-11-25: two tools on the server from F-011-T01. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 1.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}

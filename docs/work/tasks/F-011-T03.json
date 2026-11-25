@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-011-T03",
+  "parent": "F-011",
+  "title": "Fleet tools return surface-typed data for bricks surface cards",
+  "goal": "NERV renders drones, spares and crashes as 🧱 bricks surface cards in chat",
+  "status": "planned",
+  "acceptance": [
+    "Each read-only fleet tool returns structured data with a surface type from the bricks genUI catalogue (the same contract as F-009-T03), validated by a spec against that schema",
+    "A surface type bricks lacks is a bricks proposal, named here"
+  ],
+  "dependsOn": [
+    "F-011-T02",
+    "F-009-T03"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A surface type or page bricks lacks goes to bricks as a proposal, never a local copy in NERV"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-25: mapping four tools to existing surface types, following the battery tools. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

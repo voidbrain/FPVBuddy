@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "id": "F-011-T06",
+  "parent": "F-011",
+  "title": "Write tool: log a crash, gated as an action needing approval",
+  "goal": "NERV can log a crash through FPVBuddy only after the owner approves it",
+  "status": "planned",
+  "acceptance": [
+    "An MCP tool logs a crash through the F-010 core (drone, category, position, damage, optional new or used spare); it is annotated as a write (not read-only, not idempotent) so NERV gates it as an action needing approval; invalid input is refused with the core's errors",
+    "Specs cover the annotation, a logged crash, a spent spare and a refused input; the tool table marks it as a write"
+  ],
+  "dependsOn": [
+    "F-011-T02",
+    "F-010-T03"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A surface type or page bricks lacks goes to bricks as a proposal, never a local copy in NERV"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-25: one write tool on the core's recordCrash; the approval annotation NERV reads carries the uncertainty. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}
