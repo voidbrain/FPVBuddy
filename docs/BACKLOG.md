@@ -358,7 +358,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Opened in PR_PLACEHOLDER |
+| PR / evidence | Opened in [#16](https://github.com/voidbrain/FPVBuddy/pull/16) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
