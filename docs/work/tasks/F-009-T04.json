@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "id": "F-009-T04",
+  "parent": "F-009",
+  "title": "Full battery screen for NERV: MCP Apps page or link",
+  "goal": "NERV can open FPVBuddy's full battery screen without a copy of it",
+  "status": "planned",
+  "acceptance": [
+    "FPVBuddy's MCP server provides an MCP Apps UI page for the battery view, or, if MCP Apps does not fit, a stable link to FPVBuddy's own page; the choice and reason are in the record"
+  ],
+  "dependsOn": [
+    "F-009-T02",
+    "F-008-T05"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A surface type or page bricks lacks goes to bricks as a proposal, never a local copy in NERV"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-25: one page on the bricks battery view. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

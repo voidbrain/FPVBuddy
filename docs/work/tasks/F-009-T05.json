@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "id": "F-009-T05",
+  "parent": "F-009",
+  "title": "Owner: see FPVBuddy's battery card and full screen in NERV",
+  "goal": "The owner sees the surface card in NERV's chat and opens the full screen",
+  "status": "planned",
+  "acceptance": [
+    "The owner says the card and the full screen work in NERV, or lists what differs; differences become steps or records in the repository that owns them"
+  ],
+  "dependsOn": [
+    "F-009-T03",
+    "F-009-T04"
+  ],
+  "resources": [
+    "docs/work/records/F-009.md"
+  ],
+  "capabilities": [
+    "evidence-review"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "Owner check, recorded in F-009"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A surface type or page bricks lacks goes to bricks as a proposal, never a local copy in NERV"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h owner",
+    "basis": "Estimated 2026-11-25: one check in NERV once its consumer side exists; its page is written by the step that makes it runnable.",
+    "reviewed": "2026-11-25",
+    "agentHours": 0,
+    "ownerHours": 0.5,
+    "baselineAgentHours": 0,
+    "estimateAgentHours": 0,
+    "ownerKind": "procedure"
+  }
+}
