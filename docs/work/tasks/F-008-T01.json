@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "id": "F-008-T01",
+  "parent": "F-008",
+  "title": "Check the bricks mapping against its first release",
+  "goal": "The inventory and map in F-008 are checked against the published @voidbrain/bricks API and written into docs/STYLE-GUIDE.md",
+  "status": "planned",
+  "acceptance": [
+    "Waits on bricks' first release (none on 2026-11-25); once bricks has records, its release step joins dependsOn as bricks:<STEP-ID>",
+    "docs/STYLE-GUIDE.md has a table: each piece, its bricks token, component or pattern by exported name, or FPVBuddy-only with the reason",
+    "Pieces bricks lacks are listed for F-008-T06"
+  ],
+  "dependsOn": [
+    "F-007-T03"
+  ],
+  "resources": [
+    "docs/STYLE-GUIDE.md",
+    "docs/work/records/F-008.md"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A bricks component that cannot take FPVBuddy's look through the theme goes to bricks as a proposal, never a local override"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h",
+    "basis": "Estimated 2026-11-25: the inventory is in the record; read bricks' exports and write one table. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 1,
+    "ownerHours": 0,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  }
+}

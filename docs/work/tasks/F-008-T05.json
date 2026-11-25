@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "id": "F-008-T05",
+  "parent": "F-008",
+  "title": "Batteries page: status rows, filters and empty state",
+  "goal": "The batteries page uses bricks status row or list row, the filters pattern and empty state",
+  "status": "planned",
+  "acceptance": [
+    "Battery rows with the status rail use status row or list row with a tone per state; sections keep their headings",
+    "Filters use the filters pattern; an empty list shows the empty state",
+    "Specs pass"
+  ],
+  "dependsOn": [
+    "F-008-T04"
+  ],
+  "resources": [
+    "src/app/pages/batteries/**",
+    "src/app/shared/UI/batteries-filters/**",
+    "docs/STYLE-GUIDE.md",
+    "docs/work/records/F-008.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A bricks component that cannot take FPVBuddy's look through the theme goes to bricks as a proposal, never a local override"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-25: one 142-line page and one filter bar. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

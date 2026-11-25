@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "id": "F-008-T03",
+  "parent": "F-008",
+  "title": "Primitives: buttons, input, filter toggles and badges",
+  "goal": "Buttons, the LLM input, the filter checkboxes and state labels use bricks primitives",
+  "status": "planned",
+  "acceptance": [
+    "Action-bar, vision and LLM buttons use the bricks button; the LLM input uses input; filters use toggle or tag; state labels use badge",
+    "No local override of a bricks component; specs pass"
+  ],
+  "dependsOn": [
+    "F-008-T02"
+  ],
+  "resources": [
+    "package.json",
+    "package-lock.json",
+    "src/**",
+    "docs/STYLE-GUIDE.md",
+    "docs/work/records/F-008.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A bricks component that cannot take FPVBuddy's look through the theme goes to bricks as a proposal, never a local override"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-25: five templates, about ten controls, utility classes removed. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

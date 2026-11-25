@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "id": "F-007-T02",
+  "parent": "F-007",
+  "title": "Run ng update to 22 and apply its migrations",
+  "goal": "Every @angular/* package and angular-eslint is on 22",
+  "status": "planned",
+  "acceptance": [
+    "`npx ng update @angular/core@22 @angular/cli@22` and `angular-eslint@22` run, their migrations committed apart from manual fixes",
+    "TypeScript and the other dependencies moved to the versions F-007-T01 found",
+    "check:fast, npm test, core:test and npm run build pass locally"
+  ],
+  "dependsOn": [
+    "F-007-T01"
+  ],
+  "resources": [
+    "package.json",
+    "package-lock.json",
+    "angular.json",
+    "src/**",
+    "eslint.config.mjs",
+    "docs/work/records/F-007.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run core:test",
+    "npm run build"
+  ],
+  "escalation": [
+    "A dependency with no Angular 22 support, or a material effort increase, goes to the owner before the upgrade continues"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h",
+    "basis": "Estimated 2026-11-25: a small app (eight components, one route); the migrations do most of it. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 1.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}

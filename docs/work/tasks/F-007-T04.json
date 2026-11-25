@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "id": "F-007-T04",
+  "parent": "F-007",
+  "title": "Owner: open the upgraded app on the phone",
+  "goal": "The owner checks camera, model load and the batteries page in the installed app",
+  "status": "planned",
+  "acceptance": [
+    "The owner says it works, or lists what broke; breakages become B- records"
+  ],
+  "dependsOn": [
+    "F-007-T03"
+  ],
+  "resources": [
+    "package.json",
+    "package-lock.json",
+    "angular.json",
+    "src/**",
+    "eslint.config.mjs",
+    "docs/work/records/F-007.md"
+  ],
+  "capabilities": [
+    "evidence-review"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "Owner check, recorded in F-007"
+  ],
+  "escalation": [
+    "A dependency with no Angular 22 support, or a material effort increase, goes to the owner before the upgrade continues"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.25 h owner",
+    "basis": "Estimated 2026-11-25: fifteen minutes; its page is written by F-007-T03.",
+    "reviewed": "2026-11-25",
+    "agentHours": 0,
+    "ownerHours": 0.25,
+    "baselineAgentHours": 0,
+    "estimateAgentHours": 0,
+    "ownerKind": "procedure"
+  }
+}

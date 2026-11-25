@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "id": "F-008-T02",
+  "parent": "F-008",
+  "title": "Pin @voidbrain/bricks and adopt its tokens with an FPVBuddy theme",
+  "goal": "FPVBuddy takes bricks' tokens and foundations; its dark palette and local fonts are a theme and Tailwind utilities read bricks tokens",
+  "status": "planned",
+  "acceptance": [
+    "One @voidbrain/bricks release pinned",
+    "An FPVBuddy theme sets bricks semantic tokens to today's palette, fonts (local woff2) and radii; Tailwind @theme maps its colour, font and radius names to bricks tokens instead of literals",
+    "Screens look unchanged: before/after screenshots of the batteries page in the PR; offline build still has no CDN link"
+  ],
+  "dependsOn": [
+    "F-008-T01"
+  ],
+  "resources": [
+    "package.json",
+    "package-lock.json",
+    "src/**",
+    "docs/STYLE-GUIDE.md",
+    "docs/work/records/F-008.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A bricks component that cannot take FPVBuddy's look through the theme goes to bricks as a proposal, never a local override"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2.5 h",
+    "basis": "Estimated 2026-11-25: about 45 colour tokens to map to fewer semantic ones, plus Tailwind wiring. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 2.5,
+    "estimateAgentHours": 2.5
+  }
+}

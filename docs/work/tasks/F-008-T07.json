@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "id": "F-008-T07",
+  "parent": "F-008",
+  "title": "Owner: battery and fleet views as a bricks pattern or a shared domain package",
+  "goal": "The owner chooses where the shared battery and fleet views live",
+  "status": "planned",
+  "acceptance": [
+    "The decision is recorded in F-008 and proposed to the coordinator (solution:F-012) as a gap; any follow-up work is a new record in the repository that owns it"
+  ],
+  "dependsOn": [
+    "F-008-T06"
+  ],
+  "resources": [
+    "package.json",
+    "package-lock.json",
+    "src/**",
+    "docs/STYLE-GUIDE.md",
+    "docs/work/records/F-008.md"
+  ],
+  "capabilities": [
+    "evidence-review"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "Owner decision, recorded in F-008"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A bricks component that cannot take FPVBuddy's look through the theme goes to bricks as a proposal, never a local override"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.25 h owner",
+    "basis": "Estimated 2026-11-25: one decision on the options F-008-T06 writes.",
+    "reviewed": "2026-11-25",
+    "agentHours": 0,
+    "ownerHours": 0.25,
+    "baselineAgentHours": 0,
+    "estimateAgentHours": 0,
+    "ownerKind": "decision"
+  }
+}
