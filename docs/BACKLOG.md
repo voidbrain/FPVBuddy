@@ -54,7 +54,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-005-T01: [PR #10](https://github.com/voidbrain/FPVBuddy/pull/10) package boundary. [#10](https://github.com/voidbrain/FPVBuddy/pull/10) |
+| PR / evidence | Steps: F-005-T01: [PR #10](https://github.com/voidbrain/FPVBuddy/pull/10) package boundary. [#10](https://github.com/voidbrain/FPVBuddy/pull/10); [#11](https://github.com/voidbrain/FPVBuddy/pull/11) |
 | Opened | 2026-11-24 |
 | Verification | F-005-T01: green CI on PR #10 (2026-11-25). Pending: package install check (F-005-T04) |
 | Reviewed | 2026-11-25 |
@@ -92,7 +92,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Pending PR |
+| PR / evidence | Pending PR; [#11](https://github.com/voidbrain/FPVBuddy/pull/11) |
 | Opened | 2026-11-25 |
 | Verification | Pending: CI on the PR |
 | Reviewed | 2026-11-25 |
