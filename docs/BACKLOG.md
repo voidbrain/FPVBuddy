@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-Current work ledger, reviewed 24 November 2026 against main `065fa1d` ([PR #8](https://github.com/voidbrain/FPVBuddy/pull/8) merged on green CI; F-004 closed and archived). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
+Current work ledger, reviewed 25 November 2026 against main `383242f` ([PR #9](https://github.com/voidbrain/FPVBuddy/pull/9) merged on green CI; M1 planned as F-005). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
 
 ## Lifecycle
 
@@ -20,9 +20,9 @@ Current work ledger, reviewed 24 November 2026 against main `065fa1d` ([PR #8](h
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟡 Medium | 4 h | — | — | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟡 Medium | 3 h | — | — | 🤖 | — | — |
 
-💻 **→** Next: F-005-T01 — Package boundary for the FPV core (Planned).
+💻 **→** Next: F-005-T01 — Package boundary for the FPV core (Implemented; verification pending).
 
 | | |
 |---|---|
@@ -34,11 +34,11 @@ Current work ledger, reviewed 24 November 2026 against main `065fa1d` ([PR #8](h
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-005-t01"></a>F-005-T01 — Package boundary for the FPV core | 1 h | 0 h | 1 h | Planned | — | [F-005-T02](#f-005-t02) |
+| 🟢 Small | <a id="f-005-t01"></a>F-005-T01 — Package boundary for the FPV core | 1 h | 0 h | 0 h | Implemented; verification pending | — | [F-005-T02](#f-005-t02) |
 | 🟡 Medium | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 1.5 h | Planned | [F-005-T01](#f-005-t01) | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04) |
 | 🟢 Small | <a id="f-005-t03"></a>F-005-T03 — Document the core's public API | 0.5 h | 0 h | 0.5 h | Planned | [F-005-T02](#f-005-t02) | — |
 | 🟢 Small | <a id="f-005-t04"></a>F-005-T04 — Install check without the FPVBuddy app | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | — |
-| 🟡 Medium | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 4 h | 0 of 4 completed | | |
+| 🟡 Medium | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 3 h | 0 of 4 completed | | |
 
 <details>
 <summary>Next action, estimates and evidence</summary>
@@ -50,7 +50,7 @@ Current work ledger, reviewed 24 November 2026 against main `065fa1d` ([PR #8](h
 | PR / evidence | — |
 | Opened | 2026-11-24 |
 | Verification | Pending: CI, package install check |
-| Reviewed | 2026-11-24 |
+| Reviewed | 2026-11-25 |
 
 </details>
 

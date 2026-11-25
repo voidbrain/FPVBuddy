@@ -95,3 +95,7 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      # project: the framework-free FPV core package (F-005) builds and tests on its own, without the Angular app
+      - name: FPV core package builds and tests on its own
+        run: npm run core:build && npm run core:test
