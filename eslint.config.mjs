@@ -22,7 +22,7 @@ export default tseslint.config(
       'public/workers/**',
       'public/wasm/**',
       'tools/**',
-      // build output of the framework-free FPV core package (npm run core:build)
+      // project: build output of the framework-free FPV core package (npm run core:build)
       'src/fpv-core/dist/**',
     ],
   },
@@ -65,6 +65,10 @@ export default tseslint.config(
               {
                 patterns: [
                   { group: ['@angular/*'], message: 'This layer must stay framework-free.' },
+                  {
+                    group: ['**/app/**', '**/workers/**'],
+                    message: 'The core must not import app code.',
+                  },
                 ],
               },
             ],
