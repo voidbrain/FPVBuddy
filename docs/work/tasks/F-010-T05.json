@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "id": "F-010-T05",
+  "parent": "F-010",
+  "title": "Document the fleet, spares and crash API",
+  "goal": "Consumers know the core's fleet, spares and crash operations",
+  "status": "planned",
+  "acceptance": [
+    "The core's public API document (F-005-T03) gains the fleet, spares, crash, damage-link and import operations, with the data shapes and errors"
+  ],
+  "dependsOn": [
+    "F-010-T03",
+    "F-010-T04",
+    "F-005-T03"
+  ],
+  "resources": [
+    "src/fpv-core/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A behaviour difference from NERV's FPV pack is recorded and goes to the owner before it lands"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h",
+    "basis": "Estimated 2026-11-25: one section added to an existing API document. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 0.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5
+  }
+}

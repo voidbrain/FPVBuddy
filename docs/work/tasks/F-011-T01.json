@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "id": "F-011-T01",
+  "parent": "F-011",
+  "title": "Read-only MCP tools: list drones and drone detail",
+  "goal": "NERV can list FPVBuddy's drones and read one drone's parts",
+  "status": "planned",
+  "acceptance": [
+    "FPVBuddy's MCP server (F-009-T02) exposes read-only tools to list drones and to show one drone with its part slots and their status, on the F-010 core, with specs",
+    "The tool table for consumers lists them"
+  ],
+  "dependsOn": [
+    "F-009-T02",
+    "F-010-T01"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A surface type or page bricks lacks goes to bricks as a proposal, never a local copy in NERV"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-25: two tools on an existing server and core. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

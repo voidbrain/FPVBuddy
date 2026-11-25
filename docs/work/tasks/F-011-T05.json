@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "id": "F-011-T05",
+  "parent": "F-011",
+  "title": "Full drones and warehouse screens for NERV: MCP Apps page or link",
+  "goal": "NERV's \"Show drones\" and \"Show warehouse\" open FPVBuddy's screens without a copy",
+  "status": "planned",
+  "acceptance": [
+    "FPVBuddy's MCP server provides the drones and warehouse screens the same way F-009-T04 chose for batteries (MCP Apps UI page, or a stable link to FPVBuddy's own page), so NERV's quick buttons (nerv:F-131) can open them"
+  ],
+  "dependsOn": [
+    "F-011-T04",
+    "F-009-T04"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A surface type or page bricks lacks goes to bricks as a proposal, never a local copy in NERV"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h",
+    "basis": "Estimated 2026-11-25: two more pages on the mechanism F-009-T04 builds. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 1.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}
