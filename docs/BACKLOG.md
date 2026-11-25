@@ -328,3 +328,41 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 </details>
 
 ---
+### <a id="f-102"></a>[✨ F-102](#top)
+
+**Reconcile project-harness v10.20.0 → v10.21.3**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟢 Small | 1 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-102-T01 — Reconcile harness files v10.20.0 -&gt; v10.21.3 (Planned).
+
+| | |
+|---|---|
+| **Issue** | `.harness.json` names v10.20.0 while the template has released up to v10.21.3. Coordinator gap review 2026-11-26, proposal 13 ("Behind the harness"), accepted by the owner. |
+| **Reproduce** | `npm run check:freshness` on `main`: it reports the harness template v10.21.3 and the files to update or reconcile. |
+| **Check** | `.harness.json` names v10.21.3; `check:freshness` reports no harness update; `check:fast` and CI on the PR pass. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status |
+|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-102-t01"></a>F-102-T01 — Reconcile harness files v10.20.0 -&gt; v10.21.3 | 1 h | 0 h | 1 h | Planned |
+| 🟢 Small | **Total** | 1 h | 0 h (0 of 1 steps recorded) | 1 h | 0 of 1 completed |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-102.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Opened in PR_PLACEHOLDER |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
