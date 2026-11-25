@@ -47,7 +47,7 @@ Current work ledger, reviewed 25 November 2026 against main `383242f` ([PR #9](h
 
 | Field | Value |
 |---|---|
-| PR / evidence | — |
+| PR / evidence | [#10](https://github.com/voidbrain/FPVBuddy/pull/10) |
 | Opened | 2026-11-24 |
 | Verification | Pending: CI, package install check |
 | Reviewed | 2026-11-25 |
