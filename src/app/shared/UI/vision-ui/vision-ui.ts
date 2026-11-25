@@ -7,7 +7,6 @@ import {
   viewChild,
   AfterViewInit,
   inject,
-  ChangeDetectionStrategy,
 } from '@angular/core';
 import { initSDK } from '../../../services/runanywhere';
 import { ModelService } from '../../../services/model.service';
@@ -33,7 +32,6 @@ interface CaptureHandle {
 @Component({
   selector: 'app-vision-ui',
   imports: [],
-  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './vision-ui.html',
 })
 export class VisionUi implements OnInit, OnDestroy, AfterViewInit {
