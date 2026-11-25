@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "id": "F-009-T01",
+  "parent": "F-009",
+  "title": "Plan FPVBuddy's MCP server: where it runs, its data and tools",
+  "goal": "Where the MCP server runs and what it reads are known before code",
+  "status": "planned",
+  "acceptance": [
+    "The record names where the server runs (FPVBuddy is an offline PWA today), how it reads the battery core (F-005) and data, and the read-only tools it exposes; a choice that needs a new host or the owner's hardware goes to the owner first"
+  ],
+  "dependsOn": [
+    "F-005-T02"
+  ],
+  "resources": [
+    "docs/work/records/F-009.md"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A surface type or page bricks lacks goes to bricks as a proposal, never a local copy in NERV"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h",
+    "basis": "Estimated 2026-11-25: a read of the core and NERV's MCP client, then a short write-up. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 1,
+    "ownerHours": 0,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  }
+}

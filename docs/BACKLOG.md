@@ -20,7 +20,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟡 Medium | 3 h | — | — | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟡 Medium | 3 h | — | [F-009-T01](#f-009-t01) | 🤖 | — | — |
 
 💻 **→** Next: F-005-T02 — Bring the battery core and its tests into the package (Planned).
 
@@ -34,7 +34,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
 |---|---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 1.5 h | Planned | — | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04) | — |
+| 🟡 Medium | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 1.5 h | Planned | — | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04), [F-009-T01](#f-009-t01) | — |
 | 🟢 Small | <a id="f-005-t03"></a>F-005-T03 — Document the core's public API | 0.5 h | 0 h | 0.5 h | Planned | [F-005-T02](#f-005-t02) | — | — |
 | 🟢 Small | <a id="f-005-t04"></a>F-005-T04 — Install check without the FPVBuddy app | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | — | — |
 | 🟡 Medium | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 3 h | 1 of 4 completed | | | |
@@ -147,13 +147,13 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟣 Very large | 13.5 h agent + 0.75 h owner | [F-007-T03](#f-007-t03), `nerv:F-130-T09` | — | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🟣 Very large | 12.5 h agent + 0.5 h owner | [F-007-T03](#f-007-t03) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04) | ⏳ | — | — |
 
 💻 **→** Next: F-008-T01 — Check the bricks mapping against its first release (Planned).
 
 | | |
 |---|---|
-| **Issue** | FPVBuddy styles every screen with Tailwind utilities over its own Material-3-like palette in `src/styles.css` `@theme`. The solution's shared Angular UI library 🧱 bricks (`voidbrain/bricks`, package `@voidbrain/bricks`: tokens primitive → semantic → component, themes base, plain and eva, foundations, components, patterns, genUI surfaces, a live-view helper) is being built (coordinator [solution:F-012](https://github.com/voidbrain/coordinator/blob/main/docs/BACKLOG.md#f-012)). Owner request 2026-11-25. Rules: FPVBuddy restyles by theme, never by overriding a bricks component; a component joins bricks only once a project needs it; one-offs stay here. The battery views (and a fleet view, which FPVBuddy does not have yet) are shared with NERV's FPV pack ([nerv:F-101](https://github.com/voidbrain/nerv/blob/main/docs/BACKLOG.md#f-101), whose battery core moves here in F-005), so they are candidates for a bricks pattern or a later shared domain package. |
+| **Issue** | FPVBuddy styles every screen with Tailwind utilities over its own Material-3-like palette in `src/styles.css` `@theme`. The solution's shared Angular UI library 🧱 bricks (`voidbrain/bricks`, package `@voidbrain/bricks`: tokens primitive → semantic → component, themes base, plain and eva, foundations, components, patterns, genUI surfaces, a live-view helper) is being built (coordinator [solution:F-012](https://github.com/voidbrain/coordinator/blob/main/docs/BACKLOG.md#f-012)). Owner request 2026-11-25. Rules: FPVBuddy restyles by theme, never by overriding a bricks component; a component joins bricks only once a project needs it; one-offs stay here. The battery views (and a fleet view, which FPVBuddy does not have yet) are shared with NERV's FPV pack ([nerv:F-101](https://github.com/voidbrain/nerv/blob/main/docs/BACKLOG.md#f-101), whose battery core moves here in F-005), so they were candidates for a bricks pattern or a later shared domain package; the owner decided on 2026-11-25 (F-008-T07) that they live in FPVBuddy and NERV's FPV pack views retire once the core moves (nerv:F-101-T04); NERV shows them over MCP (F-009). |
 | **Reproduce** | `src/styles.css` defines `--color-*`, fonts and radii in a Tailwind `@theme`; `package.json` has no `@voidbrain/bricks`. |
 | **Check** | Runs on Angular 22 (F-007); pins one `@voidbrain/bricks` release and takes its tokens with an FPVBuddy theme (today's dark palette, local fonts, offline PWA); each piece mapped below uses its bricks token, component or pattern with no local override; Tailwind utilities read bricks tokens; FPVBuddy-only pieces are listed in `docs/STYLE-GUIDE.md`; each generic piece bricks lacked is a merged bricks PR the app then uses; the owner's decision on the battery and fleet views is recorded; specs, build and CI pass; the owner's look on the phone. |
 
@@ -162,14 +162,21 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
 |---|---|---|---|---|---|---|---|:---:|
 | 🟢 Small | <a id="f-008-t01"></a>F-008-T01 — Check the bricks mapping against its first release | 1 h | 0 h | 1 h | Planned | [F-007-T03](#f-007-t03) | [F-008-T02](#f-008-t02) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-008-t02"></a>F-008-T02 — Pin @voidbrain/bricks and adopt its tokens with an FPVBuddy theme | 2.5 h | 0 h | 2.5 h | Planned | [F-008-T01](#f-008-t01) | [F-008-T03](#f-008-t03) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-008-t02"></a>F-008-T02 — Pin @voidbrain/bricks and adopt its tokens with an FPVBuddy theme | 2.5 h | 0 h | 2.5 h | Planned | [F-008-T01](#f-008-t01) | [F-008-T03](#f-008-t03), [F-009-T03](#f-009-t03) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-008-t03"></a>F-008-T03 — Primitives: buttons, input, filter toggles and badges | 2 h | 0 h | 2 h | Planned | [F-008-T02](#f-008-t02) | [F-008-T04](#f-008-t04) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-008-t04"></a>F-008-T04 — Shell: header, panels and bottom navigation | 2 h | 0 h | 2 h | Planned | [F-008-T03](#f-008-t03) | [F-008-T05](#f-008-t05) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-008-t05"></a>F-008-T05 — Batteries page: status rows, filters and empty state | 2 h | 0 h | 2 h | Planned | [F-008-T04](#f-008-t04) | [F-008-T06](#f-008-t06) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-008-t06"></a>F-008-T06 — Compare battery and fleet views with NERV; contribute missing generic pieces to bricks | 4 h | 0 h | 4 h | Planned | [F-008-T05](#f-008-t05), `nerv:F-130-T09` | [F-008-T07](#f-008-t07), [F-008-T08](#f-008-t08) | ⏳ 🤖 |
-| 🟢 Small | <a id="f-008-t07"></a>F-008-T07 — Owner: battery and fleet views as a bricks pattern or a shared domain package | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-008-T06](#f-008-t06) | — | ⏳ 🤔 |
+| 🟡 Medium | <a id="f-008-t05"></a>F-008-T05 — Batteries page: status rows, filters and empty state | 2 h | 0 h | 2 h | Planned | [F-008-T04](#f-008-t04) | [F-008-T06](#f-008-t06), [F-009-T04](#f-009-t04) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-008-t06"></a>F-008-T06 — Contribute missing generic pieces to bricks | 3 h | 0 h | 3 h | Planned | [F-008-T05](#f-008-t05) | [F-008-T08](#f-008-t08) | ⏳ 🤖 |
 | 🟢 Small | <a id="f-008-t08"></a>F-008-T08 — Owner: look at FPVBuddy on bricks on the phone | 0 h | 0 h | 0 h agent + 0.5 h owner | Planned | [F-008-T06](#f-008-t06) | — | ⏳ 🧑‍🔧 |
-| 🟣 Very large | **Total** | 13.5 h | 0 h (0 of 8 steps recorded) | 13.5 h agent + 0.75 h owner | 0 of 8 completed | | | |
+| 🟣 Very large | **Total** | 12.5 h | 0 h (0 of 8 steps recorded) | 12.5 h agent + 0.5 h owner | 1 of 8 completed | | | |
+
+<details><summary>Done steps (1)</summary>
+
+| Effort | Step | Estimate | Actual | Status |
+|---|---|---|---|---|
+| — | <a id="f-008-t07"></a>F-008-T07 — Owner: battery and fleet views as a bricks pattern or a shared domain package | 0 h | 0 h | Completed |
+
+</details>
 
 <details>
 <summary>Next action, estimates and evidence</summary>
@@ -179,6 +186,48 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 | Field | Value |
 |---|---|
 | PR / evidence | [#12](https://github.com/voidbrain/FPVBuddy/pull/12) (record) |
+| Opened | 2026-11-25 |
+| Verification | Pending |
+| Reviewed | 2026-11-25 |
+
+</details>
+
+---
+### <a id="f-009"></a>[✨ F-009](#top)
+
+**Show FPVBuddy's batteries in NERV over MCP**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h agent + 0.5 h owner | [F-005-T02](#f-005-t02), [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | — | ⏳ | — | — |
+
+💻 **→** Next: F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner decision 2026-11-25 (F-008-T07; coordinator rule in `docs/DOMAINS.md`, "The rule for screens", [coordinator PR #50](https://github.com/voidbrain/coordinator/pull/50)): each project owns its own screens, built with 🧱 bricks, and NERV keeps no copies. NERV shows another project's data as (a) compact genUI surface cards in chat, from the project's MCP tools returning structured data with a surface type, rendered by the matching bricks surface component in NERV's theme, and (b) full screens through MCP Apps (a UI page the project's MCP server provides) or a link to the project's own page. FPVBuddy has no MCP server today. NERV's FPV pack views retire once the battery core moves ([nerv:F-101](https://github.com/voidbrain/nerv/blob/main/docs/BACKLOG.md#f-101), F-101-T04); that retirement and NERV's consumer side stay in NERV's backlog. |
+| **Reproduce** | Search the repository for an MCP server or tool definitions: there are none. |
+| **Check** | An MCP server in this repository exposes read-only battery tools on the F-005 core; chat tools return surface-typed data validated against the bricks genUI contract; NERV can open the full battery screen through an MCP Apps page or a link; specs, build and CI pass; the owner sees the card and the full screen in NERV. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
+|---|---|---|---|---|---|---|---|:---:|
+| 🟢 Small | <a id="f-009-t01"></a>F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | [F-009-T02](#f-009-t02) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-009-t02"></a>F-009-T02 — MCP server with read-only battery tools | 3 h | 0 h | 3 h | Planned | [F-009-T01](#f-009-t01) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-009-t03"></a>F-009-T03 — Battery tools return surface-typed data for bricks surface cards | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T02](#f-008-t02) | [F-009-T05](#f-009-t05) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-009-t04"></a>F-009-T04 — Full battery screen for NERV: MCP Apps page or link | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T05](#f-008-t05) | [F-009-T05](#f-009-t05) | ⏳ 🤖 |
+| 🟢 Small | <a id="f-009-t05"></a>F-009-T05 — Owner: see FPVBuddy's battery card and full screen in NERV | 0 h | 0 h | 0 h agent + 0.5 h owner | Planned | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04) | — | ⏳ 🧑‍🔧 |
+| 🔴 Large | **Total** | 8 h | 0 h (0 of 5 steps recorded) | 8 h agent + 0.5 h owner | 0 of 5 completed | | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-009.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | — |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |

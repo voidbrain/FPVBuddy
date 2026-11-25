@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-009-T03",
+  "parent": "F-009",
+  "title": "Battery tools return surface-typed data for bricks surface cards",
+  "goal": "NERV renders FPVBuddy's battery data as a 🧱 bricks surface card in chat",
+  "status": "planned",
+  "acceptance": [
+    "Each tool meant for chat returns structured data with a surface type from the bricks genUI catalogue (nerv shared/surface.ts version 1 contract), validated by a spec against that schema",
+    "A surface type bricks lacks is a bricks proposal, named here"
+  ],
+  "dependsOn": [
+    "F-009-T02",
+    "F-008-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A surface type or page bricks lacks goes to bricks as a proposal, never a local copy in NERV"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-25: mapping two or three tools to existing surface types. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

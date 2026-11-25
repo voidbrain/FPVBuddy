@@ -2,16 +2,14 @@
   "version": 1,
   "id": "F-008-T06",
   "parent": "F-008",
-  "title": "Compare battery and fleet views with NERV; contribute missing generic pieces to bricks",
-  "goal": "Generic pieces bricks lacked are bricks PRs; the battery and fleet views are compared with NERV's FPV pack and the options written for the owner",
+  "title": "Contribute missing generic pieces to bricks",
+  "goal": "Generic pieces bricks lacked are bricks PRs FPVBuddy uses",
   "status": "planned",
   "acceptance": [
-    "Each missing generic piece (bottom navigation bar if tabs did not fit, any other from F-008-T01) is a merged PR in voidbrain/bricks under its own rules, named here by number, and FPVBuddy uses the release with it",
-    "The battery view is compared with NERV's battery tab (nerv:F-130-T09, nerv:F-101); the record lists the options: a bricks pattern (generic parts only) or a later shared domain package with F-005's core, with what each would hold; fleet views are listed as not in FPVBuddy yet"
+    "Each missing generic piece (bottom navigation bar if tabs did not fit, any other from F-008-T01) is a merged PR in voidbrain/bricks under its own rules, named here by number, and FPVBuddy uses the release with it"
   ],
   "dependsOn": [
-    "F-008-T05",
-    "nerv:F-130-T09"
+    "F-008-T05"
   ],
   "resources": [
     "package.json",
@@ -36,12 +34,12 @@
   ],
   "effort": {
     "size": "medium",
-    "estimate": "4 h",
-    "basis": "Estimated 2026-11-25: one or two small bricks components with review and release waits, plus a read of NERV's battery tab. Not a measurement.",
+    "estimate": "3 h",
+    "basis": "Re-estimated 2026-11-25 after the owner decision (F-008-T07): the comparison with NERV's battery tab is dropped, since the views stay FPVBuddy's own; one or two small bricks components with review and release waits remain. Not a measurement.",
     "reviewed": "2026-11-25",
-    "agentHours": 4,
+    "agentHours": 3,
     "ownerHours": 0,
     "baselineAgentHours": 4,
-    "estimateAgentHours": 4
+    "estimateAgentHours": 3
   }
 }

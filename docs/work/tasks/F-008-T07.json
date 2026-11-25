@@ -3,14 +3,12 @@
   "id": "F-008-T07",
   "parent": "F-008",
   "title": "Owner: battery and fleet views as a bricks pattern or a shared domain package",
-  "goal": "The owner chooses where the shared battery and fleet views live",
-  "status": "planned",
+  "goal": "The owner chooses where the battery and fleet views live",
+  "status": "closed",
   "acceptance": [
-    "The decision is recorded in F-008 and proposed to the coordinator (solution:F-012) as a gap; any follow-up work is a new record in the repository that owns it"
+    "The decision is recorded in F-008 and given to the coordinator; any follow-up work is a new record in the repository that owns it"
   ],
-  "dependsOn": [
-    "F-008-T06"
-  ],
+  "dependsOn": [],
   "resources": [
     "package.json",
     "package-lock.json",
@@ -31,11 +29,11 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "0.25 h owner",
-    "basis": "Estimated 2026-11-25: one decision on the options F-008-T06 writes.",
+    "estimate": "0 remaining",
+    "basis": "Closed 2026-11-25: Owner decision 2026-11-25: each project owns its own screens, built with 🧱 bricks; NERV keeps no copies and shows FPVBuddy's data as genUI surface cards in chat (MCP tools return surface-typed data, rendered by the matching bricks surface in NERV's theme) and as full screens through an MCP Apps page or a link to FPVBuddy's own page. The battery and fleet views live in FPVBuddy; NERV's FPV pack views retire once the core moves (nerv:F-101-T04). Coordinator rule: coordinator PR #50. FPVBuddy follow-up: F-009.",
     "reviewed": "2026-11-25",
     "agentHours": 0,
-    "ownerHours": 0.25,
+    "ownerHours": 0,
     "baselineAgentHours": 0,
     "estimateAgentHours": 0,
     "ownerKind": "decision"
