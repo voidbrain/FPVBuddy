@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-010-T01",
+  "parent": "F-010",
+  "title": "Fleet and parts in the core",
+  "goal": "The core records drones, their part slots and drone models as NERV does",
+  "status": "planned",
+  "acceptance": [
+    "The drones, drone_parts, drone_models and drone_model_links data and their operations (add, get by id or name, list drones; set, get and list parts; part categories, default quad positions, category and position normalisation, one live part per slot; add, list and link drone models) move from NERV's src/fleet.ts into src/fpv-core with no NERV imports, behaviour unchanged",
+    "NERV's test/fleet.test.ts cases for these areas are carried over or rewritten with invented drones; storage follows the battery core's choice (F-005-T02)"
+  ],
+  "dependsOn": [
+    "F-005-T02"
+  ],
+  "resources": [
+    "src/fpv-core/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm run core:test",
+    "npm run core:build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A behaviour difference from NERV's FPV pack is recorded and goes to the owner before it lands"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2.5 h",
+    "basis": "Estimated 2026-11-25: about 300 lines of store code and 160 lines of tests in NERV, ported next to the battery core. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 2.5,
+    "estimateAgentHours": 2.5
+  }
+}

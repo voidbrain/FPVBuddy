@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "id": "F-010-T03",
+  "parent": "F-010",
+  "title": "Crashes and the crash-to-battery-damage link in the core",
+  "goal": "A crash marks the part damaged, can spend a spare, and battery damage lands on the battery's record",
+  "status": "planned",
+  "acceptance": [
+    "The drone_crashes data and its operations (record a crash in one transaction: part marked damaged, a new or used spare spent when named, crash row written; get, list by drone, category or position, last crash for a part) move into src/fpv-core, behaviour unchanged",
+    "The battery-damage link (NERV's handleFleetChat battery branch: a damage note on the battery found by pack number and series, ambiguous or missing packs refused) becomes a plain core function on the F-005 battery core; NERV's chat phrase parsing stays in NERV",
+    "Tests cover the transaction rollback paths and the damage link with invented batteries and drones"
+  ],
+  "dependsOn": [
+    "F-010-T02",
+    "F-005-T02"
+  ],
+  "resources": [
+    "src/fpv-core/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm run core:test",
+    "npm run core:build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A behaviour difference from NERV's FPV pack is recorded and goes to the owner before it lands"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2.5 h",
+    "basis": "Estimated 2026-11-25: about 120 lines of crash code, the battery-note link and their cases from test/fleet.test.ts and test/fleet-chat.test.ts. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 2.5,
+    "estimateAgentHours": 2.5
+  }
+}

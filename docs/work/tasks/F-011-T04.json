@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "id": "F-011-T04",
+  "parent": "F-011",
+  "title": "Drones and warehouse screens in FPVBuddy, built with bricks",
+  "goal": "FPVBuddy has its own drones and warehouse (spares) screens for NERV to open",
+  "status": "planned",
+  "acceptance": [
+    "FPVBuddy gains a drones screen (drones, part slots and status, recent crashes) and a warehouse screen (spares by category, new and used counts) on the F-010 core, built with 🧱 bricks tokens, components and patterns from the start, with no local override",
+    "Pieces bricks lacks follow F-008's rule (a bricks PR, or listed as FPVBuddy-only in docs/STYLE-GUIDE.md); specs and build pass"
+  ],
+  "dependsOn": [
+    "F-010-T03",
+    "F-008-T05"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A surface type or page bricks lacks goes to bricks as a proposal, never a local copy in NERV"
+  ],
+  "effort": {
+    "size": "large",
+    "estimate": "3 h",
+    "basis": "Estimated 2026-11-25: two list screens on the battery view's bricks patterns. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 3,
+    "ownerHours": 0,
+    "baselineAgentHours": 3,
+    "estimateAgentHours": 3
+  }
+}
