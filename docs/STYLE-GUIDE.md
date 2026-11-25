@@ -1,6 +1,6 @@
 # FPVBuddy Style Guide
 
-All visual tokens live in `src/styles.css` inside Tailwind CSS `@theme` and local `@font-face` declarations. Keep fonts and assets local (offline PWA — no CDN links).
+All visual tokens live in `src/styles.css` inside Tailwind CSS 4 `@theme` and local `@font-face` declarations for the Angular 22 offline PWA (no CDN links).
 
 ## Colour tokens (`src/styles.css`)
 
