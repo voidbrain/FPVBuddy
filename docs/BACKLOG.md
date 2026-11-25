@@ -140,7 +140,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-007-T01: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) dependency compatibility matrix · F-007-T02: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) Angular 22 upgrade and migrations · F-007-T03: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) headless PWA/font verification, Angular 22 docs and T04 procedure. [#12](https://github.com/voidbrain/FPVBuddy/pull/12) (record); [#15](https://github.com/voidbrain/FPVBuddy/pull/15) (F-007-T01..T03); Test: `src/app/app.spec.ts` (`5fa9116`, failed on Angular 21 before upgrade); No review: pending independent review on PR #15 |
+| PR / evidence | Steps: F-007-T01: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) dependency compatibility matrix · F-007-T02: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) Angular 22 upgrade and migrations · F-007-T03: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) headless PWA/font verification, Angular 22 docs and T04 procedure. [#12](https://github.com/voidbrain/FPVBuddy/pull/12) (record); [#15](https://github.com/voidbrain/FPVBuddy/pull/15) (F-007-T01..T03); Test: `src/app/app.spec.ts` (`5fa9116`, failed on Angular 21 before upgrade); Review: independent review on PR #15 2026-11-25 (Claude Opus 5.5): migrations, versions, deprecated APIs and the Eager→OnPush switch checked; every template binding reads a signal; the phone check (F-007-T04) still covers it |
 | Opened | 2026-11-25 |
 | Verification | Pending CI on PR #15, merge, and owner phone check (F-007-T04) |
 | Reviewed | 2026-11-25 |
