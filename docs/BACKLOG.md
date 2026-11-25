@@ -133,7 +133,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Field | Value |
 |---|---|
-| PR / evidence | — |
+| PR / evidence | [#12](https://github.com/voidbrain/FPVBuddy/pull/12) (record) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
@@ -178,7 +178,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Field | Value |
 |---|---|
-| PR / evidence | — |
+| PR / evidence | [#12](https://github.com/voidbrain/FPVBuddy/pull/12) (record) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
