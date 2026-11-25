@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, inject } from '@angular/core';
+import { Component, OnInit, signal, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ToolCalling, type ToolDefinition, getNumberArg } from '@runanywhere/web-llamacpp';
 import { initSDK } from '../../../services/runanywhere';
 import { ModelService } from '../../../services/model.service';
@@ -6,6 +6,7 @@ import { ModelService } from '../../../services/model.service';
 @Component({
   selector: 'app-llm-ui',
   imports: [],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './llm-ui.html',
 })
 export class LlmUi implements OnInit {
