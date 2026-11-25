@@ -4,7 +4,7 @@
   "parent": "F-007",
   "title": "CI and offline build check on 22",
   "goal": "CI is green on Angular 22 and the PWA still builds and works offline",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "CI green on the PR and on main after merge, with the jobs that ran named",
     "The production build serves the batteries page and the service worker in a headless browser, fonts local",
@@ -35,14 +35,20 @@
   "escalation": [
     "A dependency with no Angular 22 support, or a material effort increase, goes to the owner before the upgrade continues"
   ],
+  "prs": [
+    {
+      "pr": 15,
+      "note": "headless PWA/font verification, Angular 22 docs and T04 procedure"
+    }
+  ],
   "effort": {
     "size": "small",
-    "estimate": "1 h",
-    "basis": "Estimated 2026-11-25: one CI round and one headless check. Not a measurement.",
+    "estimate": "0.25 h",
+    "basis": "Implemented 2026-11-25 in PR #15: headless Chromium verified batteries page, /sw.js and local woff2 fonts; 0.25 h agent remaining for CI on PR #15 and post-merge CI check.",
     "reviewed": "2026-11-25",
-    "agentHours": 1,
+    "agentHours": 0.25,
     "ownerHours": 0,
     "baselineAgentHours": 1,
-    "estimateAgentHours": 1
+    "estimateAgentHours": 0.5
   }
 }

@@ -106,9 +106,9 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟡 Medium | 3 h agent + 0.25 h owner | — | [F-008-T01](#f-008-t01) | 🤖 | — | — |
+| 🟡 Implemented | 🔹 P3 | 🟢 Small | 0.25 h agent + 0.25 h owner | — | [F-008-T01](#f-008-t01) | 🤖 | — | — |
 
-💻 **→** Next: F-007-T01 — Check every dependency against Angular 22 (Planned).
+💻 **→** Next: F-007-T02 — Run ng update to 22 and apply its migrations (Implemented; verification pending).
 
 | | |
 |---|---|
@@ -118,13 +118,20 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
-|---|---|---|---|---|---|---|---|:---:|
-| 🟢 Small | <a id="f-007-t01"></a>F-007-T01 — Check every dependency against Angular 22 | 0.5 h | 0 h | 0.5 h | Planned | — | [F-007-T02](#f-007-t02) | 🤖 |
-| 🟡 Medium | <a id="f-007-t02"></a>F-007-T02 — Run ng update to 22 and apply its migrations | 1.5 h | 0 h | 1.5 h | Planned | [F-007-T01](#f-007-t01) | [F-007-T03](#f-007-t03) | ⏳ 🤖 |
-| 🟢 Small | <a id="f-007-t03"></a>F-007-T03 — CI and offline build check on 22 | 1 h | 0 h | 1 h | Planned | [F-007-T02](#f-007-t02) | [F-007-T04](#f-007-t04), [F-008-T01](#f-008-t01) | ⏳ 🤖 |
-| 🟢 Small | <a id="f-007-t04"></a>F-007-T04 — Owner: open the upgraded app on the phone | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-007-T03](#f-007-t03) | — | ⏳ 🧑‍🔧 |
-| 🟡 Medium | **Total** | 3 h | 0 h (0 of 4 steps recorded) | 3 h agent + 0.25 h owner | 0 of 4 completed | | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
+|---|---|---|---|---|---|---|---|:---:|---|
+| 🟢 Small | <a id="f-007-t02"></a>F-007-T02 — Run ng update to 22 and apply its migrations | 0.5 h | 0 h | 0 h | Implemented; verification pending | — | [F-007-T03](#f-007-t03) | 🤖 | [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) Angular 22 upgrade and migrations |
+| 🟢 Small | <a id="f-007-t03"></a>F-007-T03 — CI and offline build check on 22 | 0.5 h | 0 h | 0.25 h | Implemented; verification pending | [F-007-T02](#f-007-t02) | [F-007-T04](#f-007-t04), [F-008-T01](#f-008-t01) | 🤖 | [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) headless PWA/font verification, Angular 22 docs and T04 procedure |
+| 🟢 Small | <a id="f-007-t04"></a>F-007-T04 — Owner: open the upgraded app on the phone | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-007-T03](#f-007-t03) | — | ⏳ 🧑‍🔧 | — |
+| 🟢 Small | **Total** | 1.25 h | 0 h (0 of 4 steps recorded) | 0.25 h agent + 0.25 h owner | 1 of 4 completed | | | | |
+
+<details><summary>Done steps (1)</summary>
+
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-007-t01"></a>F-007-T01 — Check every dependency against Angular 22 | 0.25 h | 0 h | Verified | [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) dependency compatibility matrix |
+
+</details>
 
 <details>
 <summary>Next action, estimates and evidence</summary>
@@ -133,9 +140,9 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Field | Value |
 |---|---|
-| PR / evidence | [#12](https://github.com/voidbrain/FPVBuddy/pull/12) (record) |
+| PR / evidence | Steps: F-007-T01: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) dependency compatibility matrix · F-007-T02: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) Angular 22 upgrade and migrations · F-007-T03: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) headless PWA/font verification, Angular 22 docs and T04 procedure. [#12](https://github.com/voidbrain/FPVBuddy/pull/12) (record); [#15](https://github.com/voidbrain/FPVBuddy/pull/15) (F-007-T01..T03); Test: `src/app/app.spec.ts` (`5fa9116`, failed on Angular 21 before upgrade); No review: pending independent review on PR #15 |
 | Opened | 2026-11-25 |
-| Verification | Pending |
+| Verification | Pending CI on PR #15, merge, and owner phone check (F-007-T04) |
 | Reviewed | 2026-11-25 |
 
 </details>
