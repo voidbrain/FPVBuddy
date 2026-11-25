@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "id": "F-007-T03",
+  "parent": "F-007",
+  "title": "CI and offline build check on 22",
+  "goal": "CI is green on Angular 22 and the PWA still builds and works offline",
+  "status": "planned",
+  "acceptance": [
+    "CI green on the PR and on main after merge, with the jobs that ran named",
+    "The production build serves the batteries page and the service worker in a headless browser, fonts local",
+    "docs/STYLE-GUIDE.md and README name Angular 22 where they named 21"
+  ],
+  "dependsOn": [
+    "F-007-T02"
+  ],
+  "resources": [
+    "package.json",
+    "package-lock.json",
+    "angular.json",
+    "src/**",
+    "eslint.config.mjs",
+    "docs/work/records/F-007.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run core:test",
+    "npm run build"
+  ],
+  "escalation": [
+    "A dependency with no Angular 22 support, or a material effort increase, goes to the owner before the upgrade continues"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h",
+    "basis": "Estimated 2026-11-25: one CI round and one headless check. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 1,
+    "ownerHours": 0,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  }
+}

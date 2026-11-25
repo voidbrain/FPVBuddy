@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "F-007-T01",
+  "parent": "F-007",
+  "title": "Check every dependency against Angular 22",
+  "goal": "Each dependency's Angular 22 support is known before the upgrade",
+  "status": "planned",
+  "acceptance": [
+    "The record lists, for TypeScript, @angular/build with Vitest and jsdom, angular-eslint, Tailwind 4 through PostCSS and @runanywhere/web*, the version that supports Angular 22 (from its peer dependencies) or that it has no Angular coupling",
+    "Any blocker goes to the owner before F-007-T02"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "docs/work/records/F-007.md"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "A dependency with no Angular 22 support, or a material effort increase, goes to the owner before the upgrade continues"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h",
+    "basis": "Estimated 2026-11-25: read peer dependencies with npm view; @runanywhere is the only unknown. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 0.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5
+  }
+}

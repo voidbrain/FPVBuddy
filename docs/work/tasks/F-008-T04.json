@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "id": "F-008-T04",
+  "parent": "F-008",
+  "title": "Shell: header, panels and bottom navigation",
+  "goal": "Header, LLM and vision panels use bricks card; the bottom nav uses bricks tabs if they fit",
+  "status": "planned",
+  "acceptance": [
+    "Header and panels are bricks cards; the vision viewfinder and LIVE overlay stay FPVBuddy-only",
+    "The bottom nav uses tabs, or is listed for a bricks PR in F-008-T06 with the reason",
+    "Specs pass"
+  ],
+  "dependsOn": [
+    "F-008-T03"
+  ],
+  "resources": [
+    "package.json",
+    "package-lock.json",
+    "src/**",
+    "docs/STYLE-GUIDE.md",
+    "docs/work/records/F-008.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "A bricks component that cannot take FPVBuddy's look through the theme goes to bricks as a proposal, never a local override"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-25: four shell components. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}
