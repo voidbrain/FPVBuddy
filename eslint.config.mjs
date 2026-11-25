@@ -7,7 +7,7 @@ import angularEslint from 'angular-eslint';
 import prettierConfig from 'eslint-config-prettier';
 
 // harness: the framework-free folders (same as PURE_DIRS in tools/check-conventions.mjs), or [] if there are none.
-const PURE_GLOBS = [];
+const PURE_GLOBS = ['src/fpv-core/**/*.ts'];
 
 export default tseslint.config(
   {
@@ -22,6 +22,8 @@ export default tseslint.config(
       'public/workers/**',
       'public/wasm/**',
       'tools/**',
+      // project: build output of the framework-free FPV core package (npm run core:build)
+      'src/fpv-core/dist/**',
     ],
   },
   eslint.configs.recommended,
@@ -63,6 +65,10 @@ export default tseslint.config(
               {
                 patterns: [
                   { group: ['@angular/*'], message: 'This layer must stay framework-free.' },
+                  {
+                    group: ['**/app/**', '**/workers/**'],
+                    message: 'The core must not import app code.',
+                  },
                 ],
               },
             ],

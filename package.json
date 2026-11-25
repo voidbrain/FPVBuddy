@@ -47,6 +47,8 @@
     "work:launch": "node tools/usage-launch.mjs",
     "rule-load": "node tools/rule-load.mjs",
     "check:rule-load": "node tools/rule-load.mjs --check",
+    "core:build": "npm --prefix src/fpv-core run build",
+    "core:test": "npm --prefix src/fpv-core test",
     "typecheck": "npx tsc -p tsconfig.app.json --noEmit --noUnusedLocals --noUnusedParameters"
   },
   "private": true,
