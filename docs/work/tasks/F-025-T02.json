@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "id": "F-025-T02",
+  "parent": "F-025",
+  "title": "Cycles per week (and flights, once recorded) as a bricks bar chart",
+  "goal": "The owner sees how much each pack is used",
+  "status": "planned",
+  "acceptance": [
+    "A bar chart of charge cycles per week across the fleet or per pack; flights per week only if FPVBuddy records flights by then, otherwise noted in the record",
+    "Unit test for the weekly grouping"
+  ],
+  "dependsOn": [
+    "F-025-T01"
+  ],
+  "resources": [
+    "src/fpv-core/batteries.ts",
+    "src/app/**",
+    "docs/work/records/F-025.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "CI"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h agent",
+    "basis": "One grouping and one chart. Estimated 2026-11-26. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  },
+  "prs": []
+}

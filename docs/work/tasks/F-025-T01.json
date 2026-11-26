@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "id": "F-025-T01",
+  "parent": "F-025",
+  "title": "Per-cell internal resistance over cycles as a bricks line chart",
+  "goal": "The owner sees a pack's cells drift apart before it must retire",
+  "status": "planned",
+  "acceptance": [
+    "The battery detail view shows each cell's resistance against cycle count from the existing history, with the retirement threshold from battery-health.ts as a band",
+    "Empty state for no_records; unit test for the series mapping in src/fpv-core",
+    "Uses the bricks release with the charts (bricks:F-014-T07)"
+  ],
+  "dependsOn": [
+    "F-008-T02"
+  ],
+  "resources": [
+    "src/fpv-core/battery-health.ts",
+    "src/app/**",
+    "docs/work/records/F-025.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "CI"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h agent",
+    "basis": "Data and thresholds exist; one chart and a mapping. Estimated 2026-11-26. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.5,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  },
+  "prs": []
+}
