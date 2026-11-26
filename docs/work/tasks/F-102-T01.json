@@ -4,7 +4,7 @@
   "parent": "F-102",
   "title": "Reconcile harness files v10.20.0 -> v10.21.4",
   "goal": "The project carries every harness change released after v10.20.0 up to v10.21.4",
-  "status": "planned",
+  "status": "closed",
   "acceptance": [
     "Copied files byte-identical to v10.21.4 (check-harness --strict)",
     "Adapted files reconciled from the template diff, project lines kept",
@@ -32,11 +32,17 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "1 h agent",
-    "basis": "Estimated 2026-11-26 from earlier reconciles of similar size at agent speed. Not a measurement.",
+    "estimate": "0 h remaining",
+    "basis": "Estimated 2026-11-26 from earlier reconciles of similar size at agent speed. Not a measurement. Closed 2026-11-26: PR #22 merged on green CI; check-harness --strict matches v10.21.4.",
     "reviewed": "2026-11-26",
-    "agentHours": 1,
+    "agentHours": 0,
     "baselineAgentHours": 1,
     "estimateAgentHours": 1
-  }
+  },
+  "prs": [
+    {
+      "pr": 22,
+      "note": "reconcile to v10.21.4"
+    }
+  ]
 }
