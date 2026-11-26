@@ -20,14 +20,14 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟢 Small | 0.5 h | — | [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03), [F-010-T05](#f-010-t05), [F-012-T01](#f-012-t01), [F-013-T01](#f-013-t01), [F-014-T01](#f-014-t01), [F-015-T02](#f-015-t02), [F-017-T01](#f-017-t01) | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟢 Small | 0 h | — | [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03), [F-010-T05](#f-010-t05), [F-012-T01](#f-012-t01), [F-013-T01](#f-013-t01), [F-014-T01](#f-014-t01), [F-015-T02](#f-015-t02), [F-017-T01](#f-017-t01) | 🤖 | — | — |
 
 💻 **→** Next: F-005-T02 — Bring the battery core and its tests into the package (Implemented; verification pending).
 
 | | |
 |---|---|
 | **Issue** | Roadmap milestone M1, agreed by the owner 2026-11-24 (F-004-T03, option A): FPVBuddy hosts the FPV battery-manager core (logging charge state and internal resistance) as a plain TypeScript package with its own tests, so other projects consume it instead of keeping their own copy. NERV is not one of them: NERV reaches FPVBuddy over MCP (owner decision 2026-11-26, nerv:F-101-T05 cancelled). |
-| **Reproduce** | Run `npm run core:build && npm run core:test && npm run core:pack-check` to build, test, pack, and install `@fpvbuddy/fpv-core` (`src/fpv-core/`) into an isolated throwaway consumer; public API documentation is in F-005-T03 ([#20](https://github.com/voidbrain/FPVBuddy/pull/20)). |
+| **Reproduce** | Run `npm run core:build && npm run core:test && npm run core:pack-check` to build, test, pack, and install `@fpvbuddy/fpv-core` (`src/fpv-core/`) into an isolated throwaway consumer; the public API is in [docs/architecture/fpv-core.md](architecture/fpv-core.md). |
 | **Check** | The core builds and is tested in this repository's CI; its public API is documented; a consumer can install it without the FPVBuddy app ([roadmap M1](ROADMAP.md#milestones)). |
 
 **Feature steps**
@@ -36,8 +36,8 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 |---|---|---|---|---|---|---|---|---|
 | 🟢 Small | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 0 h | Implemented; verification pending | — | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04), [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03), [F-012-T01](#f-012-t01), [F-013-T01](#f-013-t01), [F-014-T01](#f-014-t01), [F-015-T02](#f-015-t02), [F-017-T01](#f-017-t01) | [PR #17](https://github.com/voidbrain/FPVBuddy/pull/17) battery registry, portable storage adapter, resistance health evaluation and unit tests |
 | 🟢 Small | <a id="f-005-t04"></a>F-005-T04 — Install check without the FPVBuddy app | 1 h | 0 h | 0 h | Implemented; verification pending | [F-005-T02](#f-005-t02) | — | [PR #21](https://github.com/voidbrain/FPVBuddy/pull/21) standalone npm pack + throwaway consumer install check and Angular/app leak guard in CI |
-| 🟢 Small | <a id="f-005-t03"></a>F-005-T03 — Document the core's public API | 0.5 h | 0 h | 0.5 h | Planned | [F-005-T02](#f-005-t02) | [F-010-T05](#f-010-t05) | — |
-| 🟢 Small | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 0.5 h | 1 of 4 completed | | | |
+| 🟢 Small | <a id="f-005-t03"></a>F-005-T03 — Document the core's public API | 0.5 h | 0 h | 0 h | Implemented; verification pending | [F-005-T02](#f-005-t02) | [F-010-T05](#f-010-t05) | [PR #20](https://github.com/voidbrain/FPVBuddy/pull/20) public API reference in docs/architecture/fpv-core.md and README link |
+| 🟢 Small | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 0 h | 1 of 4 completed | | | |
 
 <details><summary>Done steps (1)</summary>
 

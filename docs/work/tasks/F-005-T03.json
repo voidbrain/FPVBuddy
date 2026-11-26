@@ -4,7 +4,7 @@
   "parent": "F-005",
   "title": "Document the core's public API",
   "goal": "A consumer can use the core from its documentation alone",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "A topic page under docs/ describes the exported API with a short example",
     "README links it"
@@ -25,12 +25,18 @@
   "escalation": [
     "A package layout or publishing choice that changes how consumers install the core goes to the owner first"
   ],
+  "prs": [
+    {
+      "pr": 20,
+      "note": "public API reference in docs/architecture/fpv-core.md and README link"
+    }
+  ],
   "effort": {
     "size": "small",
-    "estimate": "0.5 h remaining",
-    "basis": "Estimated 2026-11-24: one topic page at agent speed.",
-    "reviewed": "2026-11-24",
-    "agentHours": 0.5,
+    "estimate": "0 h remaining",
+    "basis": "Implemented 2026-11-26 in PR #20; verification is green CI on PR #20 and merge.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0,
     "baselineAgentHours": 0.5,
     "estimateAgentHours": 0.5
   }
