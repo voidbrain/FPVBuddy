@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-024-T05",
+  "parent": "F-024",
+  "title": "Owner: check fpv_preflight against the real fleet after the import",
+  "goal": "The owner confirms the verdicts match the real batteries and drones",
+  "status": "planned",
+  "acceptance": [
+    "Owner decision 2026-11-26 in chat: \"y\" to the pre-flight check plan (earlier: \"pre flight check, ok\" and \"real\" data).",
+    "After F-017-T03 has imported the owner's real data and nerv:F-101-T08 points NERV at FPVBuddy, the owner follows a copy-paste page (docs/acceptance/f024-preflight-<date>.md, written by the agent): (1) call fpv_preflight from the MCP client or ask NERV \"cosa devo preparare per sabato?\"; (2) compare the batteries listed as ready, needing storage charge or check due with the real packs on the bench; (3) compare the flagged drones and low spares with the real ones; (4) note any wrong verdict",
+    "The owner decides whether the thresholds are right; a wrong verdict becomes a B- record, not an edit to this step"
+  ],
+  "dependsOn": [
+    "F-024-T03",
+    "F-017-T03"
+  ],
+  "resources": [
+    "docs/work/records/F-024.md"
+  ],
+  "capabilities": [
+    "evidence-review"
+  ],
+  "privacy": "The owner's real data stays on their machine; the acceptance page holds invented examples only.",
+  "validation": [
+    "Owner check, recorded in F-024"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.25 h owner",
+    "basis": "Estimated 2026-11-26: read and compare a few lines of output. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0,
+    "ownerHours": 0.25,
+    "baselineAgentHours": 0,
+    "estimateAgentHours": 0,
+    "ownerKind": "procedure"
+  }
+}

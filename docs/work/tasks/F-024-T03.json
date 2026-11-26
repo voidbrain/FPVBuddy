@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "id": "F-024-T03",
+  "parent": "F-024",
+  "title": "MCP tool fpv_preflight, read-only",
+  "goal": "NERV and any MCP client can ask FPVBuddy for the pre-flight assessment",
+  "status": "planned",
+  "acceptance": [
+    "Owner decision 2026-11-26 in chat: \"y\" to the pre-flight check plan (earlier: \"pre flight check, ok\" and \"real\" data).",
+    "The F-009-T02 server exposes fpv_preflight, annotated read-only (it never changes data) and taking no required arguments (an optional date); its description and every field carry the Italian and English text fixed in F-024-T01",
+    "Specs cover the tool over the server's own test client: the read-only annotation, the Italian and the English description, an empty fleet and a fleet with one item of each verdict; an unknown argument is refused"
+  ],
+  "dependsOn": [
+    "F-024-T02",
+    "F-009-T02"
+  ],
+  "resources": [
+    "src/**",
+    "test/**",
+    "docs/work/records/F-024.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "api-contracts",
+    "regression-design"
+  ],
+  "privacy": "Invented data only (neutral drone, battery and spare names); no owner data, secrets or export files in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h",
+    "basis": "Estimated 2026-11-26: one tool on the server pattern of F-009-T02 over the F-024-T02 function. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}
