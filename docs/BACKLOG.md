@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](https://github.com/voidbrain/FPVBuddy/pull/10) merged on green CI; F-005-T01 closed). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
+Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](https://github.com/voidbrain/FPVBuddy/pull/21) merged on green CI; harness v10.21.4 reconciled, F-102). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
 
 ## Lifecycle
 
@@ -579,25 +579,25 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 ---
 ### <a id="f-102"></a>[✨ F-102](#top)
 
-**Reconcile project-harness v10.20.0 → v10.21.3**
+**Reconcile project-harness v10.20.0 → v10.21.4**
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
 | 🔴 Open | 🔹 P3 | 🟢 Small | 1 h | — | — | 🤖 | — | — |
 
-💻 **→** Next: F-102-T01 — Reconcile harness files v10.20.0 -&gt; v10.21.3 (Planned).
+💻 **→** Next: F-102-T01 — Reconcile harness files v10.20.0 -&gt; v10.21.4 (Planned).
 
 | | |
 |---|---|
-| **Issue** | `.harness.json` names v10.20.0 while the template has released up to v10.21.3. Coordinator gap review 2026-11-26, proposal 13 ("Behind the harness"), accepted by the owner. |
-| **Reproduce** | `npm run check:freshness` on `main`: it reports the harness template v10.21.3 and the files to update or reconcile. |
-| **Check** | `.harness.json` names v10.21.3; `check:freshness` reports no harness update; `check:fast` and CI on the PR pass. |
+| **Issue** | `.harness.json` names v10.20.0 while the template has released up to v10.21.4. Coordinator gap review 2026-11-26, proposal 13 ("Behind the harness"), accepted by the owner. |
+| **Reproduce** | `npm run check:freshness` on `main`: it reports the harness template v10.21.4 and the files to update or reconcile. |
+| **Check** | `.harness.json` names v10.21.4; `check:freshness` reports no harness update; `check:fast` and CI on the PR pass. |
 
 **Feature steps**
 
 | Effort | Step | Estimate | Actual | Remaining | Status |
 |---|---|---|---|---|---|
-| 🟢 Small | <a id="f-102-t01"></a>F-102-T01 — Reconcile harness files v10.20.0 -&gt; v10.21.3 | 1 h | 0 h | 1 h | Planned |
+| 🟢 Small | <a id="f-102-t01"></a>F-102-T01 — Reconcile harness files v10.20.0 -&gt; v10.21.4 | 1 h | 0 h | 1 h | Planned |
 | 🟢 Small | **Total** | 1 h | 0 h (0 of 1 steps recorded) | 1 h | 0 of 1 completed |
 
 <details>
