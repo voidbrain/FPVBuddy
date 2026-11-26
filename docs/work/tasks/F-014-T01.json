@@ -6,7 +6,8 @@
   "goal": "The core analyzes a blackbox log without storing it",
   "status": "planned",
   "acceptance": [
-    "The F-005 core parses a blackbox CSV and returns the vibration report (axis spectra, motor summary, candidates) with behaviour identical to NERV's src/blackbox.ts; it stores nothing; specs carried over from NERV's test/blackbox.test.ts with invented logs"
+    "Before porting, compare NERV's src/blackbox.ts analyser with openbando's existing Blackbox parser (voidbrain/openbando, src/app/core/flight/log-parser.ts and analysis.ts; checkout ~/Projects/openbando) and record the comparison in this step: reuse, or why not. Not a blocks case: neither project imports the other",
+    "The F-005 core parses a blackbox CSV and returns the vibration report (axis spectra, motor summary, candidates) with behaviour identical to NERV's src/blackbox.ts, unless the comparison names a difference to keep; it stores nothing; specs carried over from NERV's test/blackbox.test.ts with invented logs"
   ],
   "dependsOn": [
     "F-005-T02"
@@ -30,12 +31,12 @@
   ],
   "effort": {
     "size": "medium",
-    "estimate": "1.5 h",
-    "basis": "Estimated 2026-11-26: a 325-line pure module and its test, moved as is. Not a measurement.",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-26: a 325-line pure module and its test, moved as is; the comparison with openbando's parser added 2026-11-26 (cross-project audit proposal 15, accepted by the owner in chat 2026-11-26 (\"accept all 17 proposals\"); +0.5 h). Not a measurement.",
     "reviewed": "2026-11-26",
-    "agentHours": 1.5,
+    "agentHours": 2,
     "ownerHours": 0,
     "baselineAgentHours": 1.5,
-    "estimateAgentHours": 1.5
+    "estimateAgentHours": 2
   }
 }
