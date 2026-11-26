@@ -4,11 +4,12 @@
   "parent": "F-023",
   "title": "Owner decides: retire, make real, or keep as experiments",
   "goal": "The prototypes are no longer undecided",
-  "status": "planned",
+  "status": "closed",
   "acceptance": [
     "Owner decision 2026-11-26 in chat: \"ok to all\" (accepts proposals 1 to 3 of the shared-asset review, solution:F-016-T05); same message: \"nerv and all modules will need to work with Italian\".",
     "Human action: the owner decides in chat (docs/decisions/on-device-assistant.md); the answer is recorded in F-023 with its date",
-    "Human action: the owner decides in chat; the agent records the answer"
+    "Human action: the owner decides in chat; the agent records the answer",
+    "Owner decision 2026-11-26 in chat: \"A\" (retire the on-device assistant and the vision demo), with \"vision capabilities ideally on nerv too\"."
   ],
   "dependsOn": [],
   "resources": [
@@ -27,19 +28,23 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "0.25 h owner",
-    "basis": "A decision and its recording. Estimated 2026-11-26 at agent speed from the solution:F-016 shared-asset review. Not a measurement.",
+    "estimate": "0 remaining",
+    "basis": "Closed 2026-11-26. Owner decision 2026-11-26 in chat: \"A\" (retire the on-device assistant and the vision demo), with \"vision capabilities ideally on nerv too\". Owner time not measured.",
     "reviewed": "2026-11-26",
     "agentHours": 0,
     "baselineAgentHours": 0,
     "estimateAgentHours": 0,
-    "ownerHours": 0.25,
+    "ownerHours": 0,
     "ownerKind": "decision"
   },
   "prs": [
     {
       "pr": 31,
       "note": "plan"
+    },
+    {
+      "pr": 33,
+      "note": "decision A and removal plan"
     }
   ],
   "ownerLink": "docs/decisions/on-device-assistant.md"

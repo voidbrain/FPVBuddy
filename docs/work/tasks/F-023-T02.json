@@ -2,20 +2,22 @@
   "version": 1,
   "id": "F-023-T02",
   "parent": "F-023",
-  "title": "Apply the decision",
-  "goal": "The chosen option is carried out",
+  "title": "Remove the footer assistant and the vision demo from the UI",
+  "goal": "The footer no longer shows the assistant or the camera demo",
   "status": "planned",
   "acceptance": [
-    "Owner decision 2026-11-26 in chat: \"ok to all\" (accepts proposals 1 to 3 of the shared-asset review, solution:F-016-T05); same message: \"nerv and all modules will need to work with Italian\".",
-    "A: the footer assistant, vision demo, their services and worker are removed with their tests; B: a new record with Italian and English cases exists; C: the skip is recorded in the docs with its reason"
+    "Owner decision 2026-11-26 in chat: \"A\" (retire the on-device assistant and the vision demo), with \"vision capabilities ideally on nerv too\".",
+    "src/app/shared/UI/llm-ui/ and src/app/shared/UI/vision-ui/ are deleted with their templates; footer.ts and footer.html no longer import or render them",
+    "No other component references them; app.spec.ts still passes",
+    "Italian: the removed assistant had an English-only keyword gate; nothing Italian-facing remains in the footer, so no Italian case is owed (stated in F-023)"
   ],
   "dependsOn": [
     "F-023-T01"
   ],
   "resources": [
-    "src/app/shared/UI/**",
-    "src/workers/**",
-    "docs/**",
+    "src/app/shared/UI/llm-ui/**",
+    "src/app/shared/UI/vision-ui/**",
+    "src/app/shared/UI/footer/**",
     "docs/work/records/F-023.md",
     "generated:backlog-views"
   ],
@@ -25,15 +27,18 @@
   ],
   "privacy": "Neutral invented data only; no secrets, tokens or personal data in Git.",
   "validation": [
-    "npm run check:fast; final applicable CI"
+    "npm test",
+    "npm run build",
+    "npm run check:fast"
   ],
   "escalation": [
-    "Material scope growth or effort increase goes to the owner before adoption"
+    "Material scope growth or effort increase goes to the owner before adoption",
+    "Something outside the assistant and demo that still needs the runtime goes to the owner, not removed silently"
   ],
   "effort": {
     "size": "small",
     "estimate": "0.5 h agent",
-    "basis": "Removal or recording; option B only opens a record (its own estimate). Estimated 2026-11-26 at agent speed from the solution:F-016 shared-asset review. Not a measurement.",
+    "basis": "Two standalone components (about 600 lines) and a footer edit. Estimated 2026-11-26 at agent speed (single-PR removal near 0.25–0.5 h). Not a measurement.",
     "reviewed": "2026-11-26",
     "agentHours": 0.5,
     "baselineAgentHours": 0.5,
@@ -41,8 +46,8 @@
   },
   "prs": [
     {
-      "pr": 31,
-      "note": "plan"
+      "pr": 33,
+      "note": "decision A and removal plan"
     }
   ]
 }

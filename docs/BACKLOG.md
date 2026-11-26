@@ -765,27 +765,36 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 ---
 ### <a id="f-023"></a>[✨ F-023](#top)
 
-**Decide the on-device assistant and vision demo**
+**Retire the on-device assistant and vision demo**
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟢 Small | 0.5 h agent + 0.25 h owner | — | — | ⏳ | — | 🤔 |
+| 🔴 Open | 🔶 P2 | 🟡 Medium | 1.75 h | — | — | 🤖 | — | — |
 
-🧑 **→** F-023-T01: pick A, B or C for the footer assistant and vision demo ([options](https://github.com/voidbrain/FPVBuddy/blob/main/docs/decisions/on-device-assistant.md)).
+💻 **→** Next: F-023-T02 — Remove the footer assistant and the vision demo from the UI (Planned).
 
 | | |
 |---|---|
-| **Issue** | `src/app/shared/UI/llm-ui/llm-ui.ts` and `vision-ui/vision-ui.ts` put a 450M model (`lfm2-vl-450m-q4_0`) in the app footer on `main` with no record: an assistant that calls `chargeBattery`, `dischargeBattery` and `storeBattery` whose handlers only log, gated by an English-only keyword list (an Italian phrase such as "carica la batteria" is not let through), and a camera-frame description demo (`src/workers/vlm-worker.ts`). Neither has a Gauntlet case or a recorded skip. Options in plain words: [decision page](https://github.com/voidbrain/FPVBuddy/blob/main/docs/decisions/on-device-assistant.md). Owner decision 2026-11-26 in chat: "ok to all" (accepts proposals 1 to 3 of the shared-asset review, solution:F-016-T05); same message: "nerv and all modules will need to work with Italian". |
+| **Issue** | `src/app/shared/UI/llm-ui/llm-ui.ts` and `vision-ui/vision-ui.ts` put a 450M model (`lfm2-vl-450m-q4_0`) in the app footer on `main` with no record: an assistant that calls `chargeBattery`, `dischargeBattery` and `storeBattery` whose handlers only log, gated by an English-only keyword list (an Italian phrase such as "carica la batteria" is not let through), and a camera-frame description demo (`src/workers/vlm-worker.ts`). Neither has a Gauntlet case or a recorded skip. Options in plain words: [decision page](https://github.com/voidbrain/FPVBuddy/blob/main/docs/decisions/on-device-assistant.md). Owner decision 2026-11-26 in chat: "ok to all" (accepts proposals 1 to 3 of the shared-asset review, solution:F-016-T05); same message: "nerv and all modules will need to work with Italian". **Owner decision 2026-11-26 in chat: "A"** (retire the on-device assistant and the vision demo), with "vision capabilities ideally on nerv too" (nerv:F-142, Vision in chat). |
 | **Reproduce** | Open the app, the footer assistant answers "carica la batteria" with nothing (keyword gate) and "charge the battery" with a logged call only. |
-| **Check** | The owner's decision (A, B or C) is recorded with its date; A removes the prototypes and their services and worker; B opens a record with Italian and English cases; C records the skip. In every case the Italian behaviour is stated (owner 2026-11-26: all modules work with Italian). |
+| **Check** | Decision A (2026-11-26) is carried out with no dead code: the footer assistant and vision demo components (F-023-T02), `model.service.ts`, `runanywhere.ts`, the VLM worker, the `@runanywhere/*` dependencies, the wasm asset, `build:worker` and any stored model state (F-023-T03) are gone; docs no longer describe them and a browser check shows the app working without them (F-023-T04). Italian: the removed assistant had an English-only gate; no Italian-facing model feature remains in FPVBuddy, and image understanding moves to NERV (nerv:F-142). |
 
 **Feature steps**
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
 |---|---|---|---|---|---|---|---|:---:|---|
-| 🟢 Small | <a id="f-023-t01"></a>F-023-T01 — Owner decides: retire, make real, or keep as experiments | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | — | [F-023-T02](#f-023-t02) | [🤔](decisions/on-device-assistant.md) | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan |
-| 🟢 Small | <a id="f-023-t02"></a>F-023-T02 — Apply the decision | 0.5 h | 0 h | 0.5 h | Planned | [F-023-T01](#f-023-t01) | — | ⏳ 🤖 | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan |
-| 🟢 Small | **Total** | 0.5 h | 0 h (0 of 2 steps recorded) | 0.5 h agent + 0.25 h owner | 0 of 2 completed | | | | |
+| 🟢 Small | <a id="f-023-t02"></a>F-023-T02 — Remove the footer assistant and the vision demo from the UI | 0.5 h | 0 h | 0.5 h | Planned | — | [F-023-T03](#f-023-t03) | 🤖 | [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan |
+| 🟢 Small | <a id="f-023-t03"></a>F-023-T03 — Remove the model runtime, worker, dependencies and their state | 0.75 h | 0 h | 0.75 h | Planned | [F-023-T02](#f-023-t02) | [F-023-T04](#f-023-t04) | ⏳ 🤖 | [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan |
+| 🟢 Small | <a id="f-023-t04"></a>F-023-T04 — Update the docs and check the app in the browser | 0.5 h | 0 h | 0.5 h | Planned | [F-023-T03](#f-023-t03) | — | ⏳ 🤖 | [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan |
+| 🟡 Medium | **Total** | 1.75 h | 0 h (0 of 4 steps recorded) | 1.75 h | 1 of 4 completed | | | | |
+
+<details><summary>Done steps (1)</summary>
+
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| — | <a id="f-023-t01"></a>F-023-T01 — Owner decides: retire, make real, or keep as experiments | 0 h | 0 h | Completed | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan; [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan |
+
+</details>
 
 <details>
 <summary>Next action, estimates and evidence</summary>
@@ -794,7 +803,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-023-T01: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan · F-023-T02: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan. [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (plan); [review page](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-shared-assets/gauntlet-fpvbuddy.md); owner decision 2026-11-26 |
+| PR / evidence | Steps: F-023-T01: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan; [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T02: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T03: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T04: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan. [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (plan); decision A and removal plan: [#33](https://github.com/voidbrain/FPVBuddy/pull/33); [review page](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-shared-assets/gauntlet-fpvbuddy.md); owner decision 2026-11-26 |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
