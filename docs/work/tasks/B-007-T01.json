@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "id": "B-007-T01",
+  "parent": "B-007",
+  "title": "Type-check app and core specs",
+  "goal": "typecheck covers every spec",
+  "status": "implemented",
+  "acceptance": [
+    "`typecheck` runs `tsconfig.spec.json` and `src/fpv-core/tsconfig.spec.json`",
+    "CI's Type check runs `npm run typecheck`"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "package.json",
+    ".github/workflows/ci.yml",
+    "src/fpv-core/tsconfig.spec.json",
+    "docs/work/records/B-007.md"
+  ],
+  "capabilities": [
+    "bounded-edit",
+    "typescript"
+  ],
+  "privacy": "Neutral invented fixtures only; no personal data, credentials or private reports in Git.",
+  "validation": [
+    "npm run typecheck",
+    "CI"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-26 in one PR; no error found. Not timed.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0,
+    "ownerHours": 0,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5,
+    "days": 0,
+    "baselineDays": 0
+  },
+  "prs": [
+    {
+      "pr": 25
+    }
+  ]
+}
