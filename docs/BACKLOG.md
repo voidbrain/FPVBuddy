@@ -414,7 +414,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟡 Medium | 2.5 h | [F-005-T02](#f-005-t02), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 3 h | [F-005-T02](#f-005-t02), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
 
 💻 **→** Next: F-014-T01 — Blackbox vibration analyzer in the core (Planned).
 
@@ -428,9 +428,9 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-014-t01"></a>F-014-T01 — Blackbox vibration analyzer in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-005-T02](#f-005-t02) | [F-014-T02](#f-014-t02) |
+| 🟡 Medium | <a id="f-014-t01"></a>F-014-T01 — Blackbox vibration analyzer in the core | 2 h | 0 h | 2 h | Planned | [F-005-T02](#f-005-t02) | [F-014-T02](#f-014-t02) |
 | 🟢 Small | <a id="f-014-t02"></a>F-014-T02 — MCP tool: blackbox report | 1 h | 0 h | 1 h | Planned | [F-014-T01](#f-014-t01), [F-009-T02](#f-009-t02) | — |
-| 🟡 Medium | **Total** | 2.5 h | 0 h (0 of 2 steps recorded) | 2.5 h | 0 of 2 completed | | |
+| 🟡 Medium | **Total** | 3 h | 0 h (0 of 2 steps recorded) | 3 h | 0 of 2 completed | | |
 
 <details>
 <summary>Next action, estimates and evidence</summary>
@@ -570,6 +570,44 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 | Field | Value |
 |---|---|
 | PR / evidence | [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (record) |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-018"></a>[✨ F-018](#top)
+
+**Turn audit enforcement on**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟢 Small | 0 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-018-T01 — Turn audit.enforce on (Implemented; verification pending).
+
+| | |
+|---|---|
+| **Issue** | A full audit baseline exists (docs/audits/2026-11-20-full.md; 2026-11-22-baseline.md has manifest kind full) but `audit.enforce` was off, so a due audit only warned. The 2026-11-26 cross-project audit (coordinator, docs/audits/2026-11-26-cross-project.md, proposal 17) proposes turning it on. |
+| **Reproduce** | `.harness.json` had `"audit": {"days": 7, "enforce": false}`. |
+| **Check** | `audit.enforce` is true and `npm run check:audits` and `npm run check:freshness` pass. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | PRs |
+|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-018-t01"></a>F-018-T01 — Turn audit.enforce on | 0.25 h | 0 h | 0 h | Implemented; verification pending | [PR #24](https://github.com/voidbrain/FPVBuddy/pull/24) audit.enforce true |
+| 🟢 Small | **Total** | 0.25 h | 0 h (0 of 1 steps recorded) | 0 h | 0 of 1 completed | |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-018.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-018-T01: [PR #24](https://github.com/voidbrain/FPVBuddy/pull/24) audit.enforce true. [#24](https://github.com/voidbrain/FPVBuddy/pull/24) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
