@@ -1,6 +1,6 @@
 # Decision: the on-device assistant and vision demo (F-023)
 
-Asked of the owner on 2026-11-26. Nothing is changed until you answer; reply in chat with A, B or C.
+Asked of the owner on 2026-11-26. **Answered 2026-11-26 in chat: "A"** (retire both), with "vision capabilities ideally on nerv too" (nerv:F-142). Removal: F-023-T02 to F-023-T04.
 
 ## What exists on `main`
 
