@@ -4,7 +4,7 @@
   "parent": "F-015",
   "title": "Owner: confirm builds, manufacturer docs and wiring answers move to FPVBuddy",
   "goal": "The owner confirms or narrows this record's scope before any code",
-  "status": "planned",
+  "status": "closed",
   "acceptance": [
     "The owner chooses: (A) move builds, manufacturer docs, wiring answers and the DIYFPV build import to FPVBuddy as planned here; (B) move only some of them (named); (C) leave them in NERV or drop them, and this record is cancelled; the choice is recorded with its date"
   ],
@@ -25,11 +25,11 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "0.25 h owner",
-    "basis": "Estimated 2026-11-26: one decision. Not a measurement.",
+    "estimate": "0 remaining",
+    "basis": "Estimated 2026-11-26: one decision. Not a measurement. Closed 2026-11-26: the owner chose (A) in chat: \"Builds and manufacturer docs move too ok\" and \"new FPVBuddy records ok\". No actual recorded: a decision given in conversation, time not known.",
     "reviewed": "2026-11-26",
     "agentHours": 0,
-    "ownerHours": 0.25,
+    "ownerHours": 0,
     "baselineAgentHours": 0,
     "estimateAgentHours": 0,
     "ownerKind": "decision"
