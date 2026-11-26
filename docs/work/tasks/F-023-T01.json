@@ -41,5 +41,6 @@
       "pr": 31,
       "note": "plan"
     }
-  ]
+  ],
+  "ownerLink": "docs/decisions/on-device-assistant.md"
 }

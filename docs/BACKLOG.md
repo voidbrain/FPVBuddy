@@ -783,7 +783,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
 |---|---|---|---|---|---|---|---|:---:|---|
-| 🟢 Small | <a id="f-023-t01"></a>F-023-T01 — Owner decides: retire, make real, or keep as experiments | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | — | [F-023-T02](#f-023-t02) | 🤔 | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan |
+| 🟢 Small | <a id="f-023-t01"></a>F-023-T01 — Owner decides: retire, make real, or keep as experiments | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | — | [F-023-T02](#f-023-t02) | [🤔](decisions/on-device-assistant.md) | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan |
 | 🟢 Small | <a id="f-023-t02"></a>F-023-T02 — Apply the decision | 0.5 h | 0 h | 0.5 h | Planned | [F-023-T01](#f-023-t01) | — | ⏳ 🤖 | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan |
 | 🟢 Small | **Total** | 0.5 h | 0 h (0 of 2 steps recorded) | 0.5 h agent + 0.25 h owner | 0 of 2 completed | | | | |
 
