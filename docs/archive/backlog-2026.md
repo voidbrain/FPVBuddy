@@ -336,3 +336,39 @@ Closed records moved from [docs/BACKLOG.md](../BACKLOG.md).
 </details>
 
 ---
+
+## Closed 2026-11-26
+
+### F-102
+
+**Reconcile project-harness v10.20.0 → v10.21.4**
+
+| Signal | Priority | Status | Effort |
+|:---:|---|---|---|
+| 🔵 | ◻️ P3 | Closed | 🟢 Small |
+
+💻 **→ Human action required: No**<br />Closed 2026-11-26: PR #22 merged on green CI; check-harness --strict matches v10.21.4; check:fast passes; maintenance review recorded.
+
+| | |
+|---|---|
+| **Issue** | `.harness.json` names v10.20.0 while the template has released up to v10.21.4. Coordinator gap review 2026-11-26, proposal 13 ("Behind the harness"), accepted by the owner. |
+| **Reproduce** | `npm run check:freshness` on `main`: it reports the harness template v10.21.4 and the files to update or reconcile. |
+| **Check** | `.harness.json` names v10.21.4; `check:freshness` reports no harness update; `check:fast` and CI on the PR pass. |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+**Next action / closure evidence:** Closed 2026-11-26: PR #22 merged on green CI; check-harness --strict matches v10.21.4; check:fast passes; maintenance review recorded. Opened 2026-11-26 from the coordinator gap review (proposal 13, owner accepted all proposals). F-102-T01 does the reconcile in a session of this repository, under APPLY.md.
+
+**Estimates:** No remaining effort.
+
+| Field | Value |
+|---|---|
+| PR / evidence | Opened in [#16](https://github.com/voidbrain/FPVBuddy/pull/16); [#22](https://github.com/voidbrain/FPVBuddy/pull/22) |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
