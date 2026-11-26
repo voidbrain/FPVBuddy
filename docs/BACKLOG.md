@@ -872,11 +872,11 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
-|---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-025-t01"></a>F-025-T01 — Per-cell internal resistance over cycles as a bricks line chart | 1.5 h | 0 h | 1.5 h | Planned | [F-008-T02](#f-008-t02) | [F-025-T02](#f-025-t02) |
-| 🟢 Small | <a id="f-025-t02"></a>F-025-T02 — Cycles per week (and flights, once recorded) as a bricks bar chart | 1 h | 0 h | 1 h | Planned | [F-025-T01](#f-025-t01) | — |
-| 🟡 Medium | **Total** | 2.5 h | 0 h (0 of 2 steps recorded) | 2.5 h | 0 of 2 completed | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-025-t01"></a>F-025-T01 — Per-cell internal resistance over cycles as a bricks line chart | 1.5 h | 0 h | 1.5 h | Planned | [F-008-T02](#f-008-t02) | [F-025-T02](#f-025-t02) | [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan |
+| 🟢 Small | <a id="f-025-t02"></a>F-025-T02 — Cycles per week (and flights, once recorded) as a bricks bar chart | 1 h | 0 h | 1 h | Planned | [F-025-T01](#f-025-t01) | — | [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan |
+| 🟡 Medium | **Total** | 2.5 h | 0 h (0 of 2 steps recorded) | 2.5 h | 0 of 2 completed | | | |
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -885,7 +885,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | pending |
+| PR / evidence | Steps: F-025-T01: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan · F-025-T02: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan. Plan: [#37](https://github.com/voidbrain/FPVBuddy/pull/37) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
