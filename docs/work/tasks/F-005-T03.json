@@ -4,7 +4,7 @@
   "parent": "F-005",
   "title": "Document the core's public API",
   "goal": "A consumer can use the core from its documentation alone",
-  "status": "implemented",
+  "status": "closed",
   "acceptance": [
     "A topic page under docs/ describes the exported API with a short example",
     "README links it"
@@ -33,8 +33,8 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "0 h remaining",
-    "basis": "Implemented 2026-11-26 in PR #20; verification is green CI on PR #20 and merge.",
+    "estimate": "0 remaining",
+    "basis": "Implemented 2026-11-26 in PR #20; verification is green CI on PR #20 and merge. Closed 2026-11-26.",
     "reviewed": "2026-11-26",
     "agentHours": 0,
     "baselineAgentHours": 0.5,

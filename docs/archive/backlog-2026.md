@@ -372,3 +372,37 @@ Closed records moved from [docs/BACKLOG.md](../BACKLOG.md).
 </details>
 
 ---
+
+### F-005
+
+**M1 — FPV battery core package**
+
+| Signal | Priority | Status | Effort |
+|:---:|---|---|---|
+| 🔵 | ◻️ P2 | Closed | 🟢 Small |
+
+💻 **→ Human action required: No**<br />Closed 2026-11-26: PRs #10, #17, #20, #21 merged on green CI (npm run ci:status -- 17 20 21: 3 green). Verified on main 8816987 on 2026-11-26: core:build, core:test (10 passed) and core:pack-check (9 packed files, no Angular or app code) pass; docs/architecture/fpv-core.md covers every export of src/fpv-core; README links it; CI runs the core job.
+
+| | |
+|---|---|
+| **Issue** | Roadmap milestone M1, agreed by the owner 2026-11-24 (F-004-T03, option A): FPVBuddy hosts the FPV battery-manager core (logging charge state and internal resistance) as a plain TypeScript package with its own tests, so other projects consume it instead of keeping their own copy. NERV is not one of them: NERV reaches FPVBuddy over MCP (owner decision 2026-11-26, nerv:F-101-T05 cancelled). |
+| **Reproduce** | Run `npm run core:build && npm run core:test && npm run core:pack-check` to build, test, pack, and install `@fpvbuddy/fpv-core` (`src/fpv-core/`) into an isolated throwaway consumer; the public API is in [docs/architecture/fpv-core.md](../architecture/fpv-core.md). |
+| **Check** | The core builds and is tested in this repository's CI; its public API is documented; a consumer can install it without the FPVBuddy app ([roadmap M1](../ROADMAP.md#milestones)). |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+**Next action / closure evidence:** Closed 2026-11-26: PRs #10, #17, #20, #21 merged on green CI (npm run ci:status -- 17 20 21: 3 green). Verified on main 8816987 on 2026-11-26: core:build, core:test (10 passed) and core:pack-check (9 packed files, no Angular or app code) pass; docs/architecture/fpv-core.md covers every export of src/fpv-core; README links it; CI runs the core job. 2026-11-26: F-005-T04 implemented in [#21](https://github.com/voidbrain/FPVBuddy/pull/21) (`scripts/check-core-pack.mjs` and `scripts/check-core-pack.test.mjs`, wired into CI via `npm run core:pack-check`, packing `src/fpv-core` with `npm pack`, verifying no `@angular/*` or app/worker dependencies or imports are packed, installing the `.tgz` into an isolated throwaway consumer, and running an ESM smoke import against the public API; F-005-T03 is implemented in [#20](https://github.com/voidbrain/FPVBuddy/pull/20)). Review: fresh-context research subagent on the PR #21 diff (`.github/workflows/ci.yml`, `package.json`, `scripts/check-core-pack*.mjs`), no blockers; 4 minors fixed (`mkdirSync` without subprocess, import/require leak regexes, root `README`/`LICENSE` pack allowlist, `npm pack --ignore-scripts`). F-005-T02 merged in [#17](https://github.com/voidbrain/FPVBuddy/pull/17) (`BatteryRegistry`, `BatteryStorage` with `createInMemoryBatteryStorage`, per-cell resistance parsing/logging, due-check prompts, health evaluation, dashboard cards, `one-more-battery` import and Italian/English phrase helpers in `src/fpv-core/`, with invented-data unit specs); F-005-T02 is the FPVBuddy side of nerv:F-101-T04 and waits on nothing in NERV. Owner decision 2026-11-26: NERV never imports `@fpvbuddy/fpv-core` and reaches FPVBuddy over MCP only (nerv:F-101-T05 cancelled; NERV's FPV data moves to FPVBuddy later in a new nerv:F-101 step). The package ships no SQLite schema: when that data move happens it maps NERV's export format then. 2026-11-25: F-005-T01 closed: PR #10 merged on green CI (check job; main CI green on `e15d5f7`). F-005-T01 implemented: `src/fpv-core/` is a framework-free package (`@fpvbuddy/fpv-core`, private, unpublished: the publishing and install shape stay with F-005-T04) with its own package.json, tsconfig and exports; `npm run core:build` / `core:test` run it on its own and in CI; ESLint and `check:conventions` reject Angular imports there (probed). The folder sits under `src/` because the copied `check:conventions` walks only `src/`, `tools/` and `e2e/`; provisional until F-005-T04. Review: fresh-context design-reviewer (Opus) on the diff, no blockers; minors fixed (specs import `./index.js`, `dist` excluded from the spec tsconfig, ESLint also bars app imports, project marker on the ignore). 2026-11-24: planned from the agreed milestone (a 2026-11-24 note that F-005-T02 waits on nerv:F-101-T04 was withdrawn 2026-11-26: a master never waits on what derives from it).
+
+**Estimates:** No remaining effort.
+
+| Field | Value |
+|---|---|
+| PR / evidence | [#10](https://github.com/voidbrain/FPVBuddy/pull/10); [#11](https://github.com/voidbrain/FPVBuddy/pull/11); [#17](https://github.com/voidbrain/FPVBuddy/pull/17) (F-005-T02); Test: `src/fpv-core/batteries.spec.ts`, `src/fpv-core/battery-health.spec.ts` (`2296425`), `scripts/check-core-pack.test.mjs` (`22170b3`); [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (NERV reaches FPVBuddy over MCP); [#21](https://github.com/voidbrain/FPVBuddy/pull/21) (F-005-T04); Review: fresh-context research subagent on PR #21 diff, no blockers, 4 minors fixed (`9e26f8a`) |
+| Opened | 2026-11-24 |
+| Verification | Check met 2026-11-26: core builds and is tested in CI; public API documented; standalone pack and install into a throwaway consumer passes |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---

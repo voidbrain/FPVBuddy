@@ -4,7 +4,7 @@
   "parent": "F-005",
   "title": "Bring the battery core and its tests into the package",
   "goal": "The battery-manager core (charge state and internal resistance logs) lives in the package with its tests passing",
-  "status": "implemented",
+  "status": "closed",
   "acceptance": [
     "Core source and its unit tests are in the package; tests pass in CI",
     "Invented test data only",
@@ -35,8 +35,8 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "0 h remaining",
-    "basis": "Implemented 2026-11-26 in PR #17; verification is green CI on PR #17 and merge.",
+    "estimate": "0 remaining",
+    "basis": "Implemented 2026-11-26 in PR #17; verification is green CI on PR #17 and merge. Closed 2026-11-26.",
     "reviewed": "2026-11-26",
     "agentHours": 0,
     "baselineAgentHours": 1.5,
