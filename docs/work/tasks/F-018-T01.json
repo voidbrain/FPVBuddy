@@ -40,7 +40,7 @@
   },
   "prs": [
     {
-      "pr": 999,
+      "pr": 24,
       "note": "audit.enforce true"
     }
   ]

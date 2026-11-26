@@ -597,7 +597,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | PRs |
 |---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-018-t01"></a>F-018-T01 — Turn audit.enforce on | 0.25 h | 0 h | 0 h | Implemented; verification pending | [PR #999](https://github.com/voidbrain/FPVBuddy/pull/999) audit.enforce true |
+| 🟢 Small | <a id="f-018-t01"></a>F-018-T01 — Turn audit.enforce on | 0.25 h | 0 h | 0 h | Implemented; verification pending | [PR #24](https://github.com/voidbrain/FPVBuddy/pull/24) audit.enforce true |
 | 🟢 Small | **Total** | 0.25 h | 0 h (0 of 1 steps recorded) | 0 h | 0 of 1 completed | |
 
 <details>
@@ -607,7 +607,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-018-T01: [PR #999](https://github.com/voidbrain/FPVBuddy/pull/999) audit.enforce true. PRN |
+| PR / evidence | Steps: F-018-T01: [PR #24](https://github.com/voidbrain/FPVBuddy/pull/24) audit.enforce true. [#24](https://github.com/voidbrain/FPVBuddy/pull/24) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
