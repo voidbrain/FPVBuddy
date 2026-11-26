@@ -4,7 +4,7 @@
   "parent": "F-005",
   "title": "Install check without the FPVBuddy app",
   "goal": "CI proves a consumer can install and import the core without the app",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "CI packs the package and installs it into a throwaway consumer that imports the public API",
     "The check fails if the package pulls in Angular or app code"
@@ -25,12 +25,18 @@
   "escalation": [
     "A package layout or publishing choice that changes how consumers install the core goes to the owner first"
   ],
+  "prs": [
+    {
+      "pr": 21,
+      "note": "standalone npm pack + throwaway consumer install check and Angular/app leak guard in CI"
+    }
+  ],
   "effort": {
     "size": "small",
-    "estimate": "1 h remaining",
-    "basis": "Estimated 2026-11-24: pack-and-install job at agent speed.",
-    "reviewed": "2026-11-24",
-    "agentHours": 1,
+    "estimate": "0 h remaining",
+    "basis": "Implemented 2026-11-26 in PR #21; verification is green CI on PR #21 and merge.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0,
     "baselineAgentHours": 1,
     "estimateAgentHours": 1
   }
