@@ -465,19 +465,19 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
-|---|---|---|---|---|---|---|---|:---:|
-| 🟡 Medium | <a id="f-015-t02"></a>F-015-T02 — Builds, components and wiring in the core | 2 h | 0 h | 2 h | Planned | [F-005-T02](#f-005-t02) | [F-015-T03](#f-015-t03), [F-015-T04](#f-015-t04) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-015-t03"></a>F-015-T03 — Manufacturer docs and wiring answers in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-015-T02](#f-015-t02) | [F-015-T05](#f-015-t05) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-015-t04"></a>F-015-T04 — DIYFPV build import in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-015-T02](#f-015-t02) | [F-015-T05](#f-015-t05) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-015-t05"></a>F-015-T05 — MCP tools: import build, add doc, wiring answer | 2 h | 0 h | 2 h | Planned | [F-015-T03](#f-015-t03), [F-015-T04](#f-015-t04), [F-012-T01](#f-012-t01) | — | ⏳ 🤖 |
-| 🔴 Large | **Total** | 7 h | 0 h (0 of 5 steps recorded) | 7 h | 1 of 5 completed | | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
+|---|---|---|---|---|---|---|---|:---:|---|
+| 🟡 Medium | <a id="f-015-t02"></a>F-015-T02 — Builds, components and wiring in the core | 2 h | 0 h | 2 h | Planned | [F-005-T02](#f-005-t02) | [F-015-T03](#f-015-t03), [F-015-T04](#f-015-t04) | ⏳ 🤖 | — |
+| 🟡 Medium | <a id="f-015-t03"></a>F-015-T03 — Manufacturer docs and wiring answers in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-015-T02](#f-015-t02) | [F-015-T05](#f-015-t05) | ⏳ 🤖 | — |
+| 🟡 Medium | <a id="f-015-t04"></a>F-015-T04 — DIYFPV build import in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-015-T02](#f-015-t02) | [F-015-T05](#f-015-t05) | ⏳ 🤖 | — |
+| 🟡 Medium | <a id="f-015-t05"></a>F-015-T05 — MCP tools: import build, add doc, wiring answer | 2 h | 0 h | 2 h | Planned | [F-015-T03](#f-015-t03), [F-015-T04](#f-015-t04), [F-012-T01](#f-012-t01) | — | ⏳ 🤖 | — |
+| 🔴 Large | **Total** | 7 h | 0 h (0 of 5 steps recorded) | 7 h | 1 of 5 completed | | | | |
 
 <details><summary>Done steps (1)</summary>
 
-| Effort | Step | Estimate | Actual | Status |
-|---|---|---|---|---|
-| — | <a id="f-015-t01"></a>F-015-T01 — Owner: confirm builds, manufacturer docs and wiring answers move to FPVBuddy | 0 h | 0 h | Completed |
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| — | <a id="f-015-t01"></a>F-015-T01 — Owner: confirm builds, manufacturer docs and wiring answers move to FPVBuddy | 0 h | 0 h | Completed | [PR #19](https://github.com/voidbrain/FPVBuddy/pull/19) |
 
 </details>
 
@@ -488,7 +488,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Field | Value |
 |---|---|
-| PR / evidence | [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (record) |
+| PR / evidence | Steps: F-015-T01: [PR #19](https://github.com/voidbrain/FPVBuddy/pull/19). [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (record) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
