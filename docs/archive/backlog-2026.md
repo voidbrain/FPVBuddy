@@ -398,7 +398,7 @@ Closed records moved from [docs/BACKLOG.md](../BACKLOG.md).
 
 | Field | Value |
 |---|---|
-| PR / evidence | [#10](https://github.com/voidbrain/FPVBuddy/pull/10); [#11](https://github.com/voidbrain/FPVBuddy/pull/11); [#17](https://github.com/voidbrain/FPVBuddy/pull/17) (F-005-T02); Test: `src/fpv-core/batteries.spec.ts`, `src/fpv-core/battery-health.spec.ts` (`2296425`), `scripts/check-core-pack.test.mjs` (`22170b3`); [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (NERV reaches FPVBuddy over MCP); [#21](https://github.com/voidbrain/FPVBuddy/pull/21) (F-005-T04); Review: fresh-context research subagent on PR #21 diff, no blockers, 4 minors fixed (`9e26f8a`) |
+| PR / evidence | Closure: [#30](https://github.com/voidbrain/FPVBuddy/pull/30); [#10](https://github.com/voidbrain/FPVBuddy/pull/10); [#11](https://github.com/voidbrain/FPVBuddy/pull/11); [#17](https://github.com/voidbrain/FPVBuddy/pull/17) (F-005-T02); Test: `src/fpv-core/batteries.spec.ts`, `src/fpv-core/battery-health.spec.ts` (`2296425`), `scripts/check-core-pack.test.mjs` (`22170b3`); [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (NERV reaches FPVBuddy over MCP); [#21](https://github.com/voidbrain/FPVBuddy/pull/21) (F-005-T04); Review: fresh-context research subagent on PR #21 diff, no blockers, 4 minors fixed (`9e26f8a`) |
 | Opened | 2026-11-24 |
 | Verification | Check met 2026-11-26: core builds and is tested in CI; public API documented; standalone pack and install into a throwaway consumer passes |
 | Reviewed | 2026-11-26 |
