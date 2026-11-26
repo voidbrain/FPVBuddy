@@ -20,24 +20,24 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟡 Medium | 3 h | — | [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03), [F-010-T05](#f-010-t05) | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟡 Medium | 1.5 h | — | [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03), [F-010-T05](#f-010-t05) | 🤖 | — | — |
 
-💻 **→** Next: F-005-T02 — Bring the battery core and its tests into the package (Planned).
+💻 **→** Next: F-005-T02 — Bring the battery core and its tests into the package (Implemented; verification pending).
 
 | | |
 |---|---|
 | **Issue** | Roadmap milestone M1, agreed by the owner 2026-11-24 (F-004-T03, option A): FPVBuddy hosts the FPV battery-manager core (logging charge state and internal resistance) as a plain TypeScript package with its own tests, so other projects consume it instead of keeping their own copy. |
-| **Reproduce** | Look for a battery-core package in this repository: there is none; the core exists only inside NERV today. |
+| **Reproduce** | Run `npm run core:build && npm run core:test` to build and test `@fpvbuddy/fpv-core` (`src/fpv-core/`); public API documentation (F-005-T03) and standalone consumer install check (F-005-T04) remain. |
 | **Check** | The core builds and is tested in this repository's CI; its public API is documented; a consumer can install it without the FPVBuddy app ([roadmap M1](ROADMAP.md#milestones)). |
 
 **Feature steps**
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
 |---|---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 1.5 h | Planned | — | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04), [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03) | — |
+| 🟢 Small | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 0 h | Implemented; verification pending | — | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04), [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03) | [PR #17](https://github.com/voidbrain/FPVBuddy/pull/17) battery registry, portable storage adapter, resistance health evaluation and unit tests |
 | 🟢 Small | <a id="f-005-t03"></a>F-005-T03 — Document the core's public API | 0.5 h | 0 h | 0.5 h | Planned | [F-005-T02](#f-005-t02) | [F-010-T05](#f-010-t05) | — |
 | 🟢 Small | <a id="f-005-t04"></a>F-005-T04 — Install check without the FPVBuddy app | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | — | — |
-| 🟡 Medium | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 3 h | 1 of 4 completed | | | |
+| 🟡 Medium | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 1.5 h | 1 of 4 completed | | | |
 
 <details><summary>Done steps (1)</summary>
 
@@ -54,10 +54,10 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-005-T01: [PR #10](https://github.com/voidbrain/FPVBuddy/pull/10) package boundary. [#10](https://github.com/voidbrain/FPVBuddy/pull/10); [#11](https://github.com/voidbrain/FPVBuddy/pull/11) |
+| PR / evidence | Steps: F-005-T01: [PR #10](https://github.com/voidbrain/FPVBuddy/pull/10) package boundary · F-005-T02: [PR #17](https://github.com/voidbrain/FPVBuddy/pull/17) battery registry, portable storage adapter, resistance health evaluation and unit tests. [#10](https://github.com/voidbrain/FPVBuddy/pull/10); [#11](https://github.com/voidbrain/FPVBuddy/pull/11); [#17](https://github.com/voidbrain/FPVBuddy/pull/17) (F-005-T02); Test: `src/fpv-core/batteries.spec.ts`, `src/fpv-core/battery-health.spec.ts` (`2296425`) |
 | Opened | 2026-11-24 |
-| Verification | F-005-T01: green CI on PR #10 (2026-11-25). Pending: package install check (F-005-T04) |
-| Reviewed | 2026-11-25 |
+| Verification | F-005-T01: green CI on PR #10 (2026-11-25). Pending: F-005-T02 CI ([#17](https://github.com/voidbrain/FPVBuddy/pull/17)) and package install check (F-005-T04) |
+| Reviewed | 2026-11-26 |
 
 </details>
 
