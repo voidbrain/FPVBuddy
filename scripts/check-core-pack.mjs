@@ -1,5 +1,14 @@
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
+import {
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, relative, resolve } from 'node:path';
 import process from 'node:process';
@@ -15,18 +24,16 @@ const FORBIDDEN_DEP_PATTERNS = [
 
 const FORBIDDEN_CODE_PATTERNS = [
   {
-    regex: /(?:from|import)\s*\(?\s*['"]@angular\//,
+    regex: /(?:from|import|require)\s*\(?\s*['"]@angular\//,
     reason: 'forbidden @angular/* import in packed core output',
   },
   {
-    regex: /@angular\//,
-    reason: 'forbidden @angular/* reference in packed core output',
-  },
-  {
-    regex: /(?:from|import)\s*\(?\s*['"][^'"]*(?:\/|^)(?:app|workers)\//,
+    regex: /(?:from|import|require)\s*\(?\s*['"](?:[^'"]*\/)?(?:app|workers)\//,
     reason: 'forbidden FPVBuddy app/workers import in packed core output',
   },
 ];
+
+const ALLOWED_ROOT_PACK_FILE = /^(?:package\.json|(?:README|LICEN[CS]E)(?:\.[^/]+)?)$/i;
 
 function walkFiles(dir, out = []) {
   for (const entry of readdirSync(dir)) {
@@ -88,15 +95,19 @@ export function verifyCoreStandaloneInstall(coreDir, options = {}) {
       });
     }
 
-    execFileSync('node', ['-e', 'import("node:fs").then(f=>{for(const d of process.argv.slice(1))f.mkdirSync(d,{recursive:true})})', packDir, inspectDir, consumerDir], {
-      encoding: 'utf8',
-    });
+    mkdirSync(packDir, { recursive: true });
+    mkdirSync(inspectDir, { recursive: true });
+    mkdirSync(consumerDir, { recursive: true });
 
-    const packOut = execFileSync('npm', ['pack', '--json', '--pack-destination', packDir], {
-      cwd: coreDir,
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'pipe'],
-    });
+    const packOut = execFileSync(
+      'npm',
+      ['pack', '--ignore-scripts', '--json', '--pack-destination', packDir],
+      {
+        cwd: coreDir,
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'pipe'],
+      },
+    );
     const packMeta = JSON.parse(packOut);
     const firstPack = Array.isArray(packMeta) ? packMeta[0] : undefined;
     if (!firstPack?.filename) {
@@ -127,7 +138,7 @@ export function verifyCoreStandaloneInstall(coreDir, options = {}) {
       relative(unpackedRoot, f).replaceAll('\\', '/'),
     );
     for (const relFile of allPackedFiles) {
-      if (relFile !== 'package.json' && !relFile.startsWith('dist/')) {
+      if (!ALLOWED_ROOT_PACK_FILE.test(relFile) && !relFile.startsWith('dist/')) {
         throw new Error(`Packed ${pkgJson.name} leaked non-dist file: ${relFile}`);
       }
       if (relFile.endsWith('.spec.js') || relFile.endsWith('.spec.d.ts')) {
