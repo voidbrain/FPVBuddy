@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "id": "F-024-T02",
+  "parent": "F-024",
+  "title": "Pre-flight assessment in the core",
+  "goal": "The core answers whether the fleet is ready to fly, deterministically",
+  "status": "planned",
+  "acceptance": [
+    "Owner decision 2026-11-26 in chat: \"y\" to the pre-flight check plan (earlier: \"pre flight check, ok\" and \"real\" data).",
+    "A pure function in the core takes the fleet state and the clock and returns the F-024-T01 result: batteries ready, needing a storage charge, with a check due; drones flagged after a crash or with a damaged part; spares low; no randomness and no model call; the clock is a parameter",
+    "Specs with invented data cover each verdict, an empty fleet (empty sections, not an error), a battery both low and due a check, and the F-024-T01 failing test now passes"
+  ],
+  "dependsOn": [
+    "F-024-T01",
+    "F-010-T02",
+    "F-013-T02"
+  ],
+  "resources": [
+    "src/**",
+    "test/**",
+    "docs/**",
+    "docs/work/records/F-024.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "regression-design"
+  ],
+  "privacy": "Invented data only (neutral drone, battery and spare names); no owner data, secrets or export files in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-26: one pure function over the existing battery, fleet and spares operations, plus specs. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

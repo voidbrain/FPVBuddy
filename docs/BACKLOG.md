@@ -196,7 +196,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h agent + 0.5 h owner | [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T01](#f-016-t01), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02) | 🤖 | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h agent + 0.5 h owner | [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T01](#f-016-t01), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02), [F-024-T03](#f-024-t03) | 🤖 | — | — |
 
 💻 **→** Next: F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools (Planned).
 
@@ -211,7 +211,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
 |---|---|---|---|---|---|---|---|:---:|
 | 🟢 Small | <a id="f-009-t01"></a>F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools | 1 h | 0 h | 1 h | Planned | — | [F-009-T02](#f-009-t02), [F-016-T01](#f-016-t01) | 🤖 |
-| 🟡 Medium | <a id="f-009-t02"></a>F-009-T02 — MCP server with read-only battery tools | 3 h | 0 h | 3 h | Planned | [F-009-T01](#f-009-t01) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T01](#f-011-t01), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-009-t02"></a>F-009-T02 — MCP server with read-only battery tools | 3 h | 0 h | 3 h | Planned | [F-009-T01](#f-009-t01) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T01](#f-011-t01), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02), [F-024-T03](#f-024-t03) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-009-t03"></a>F-009-T03 — Battery tools return surface-typed data for bricks surface cards | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T02](#f-008-t02) | [F-009-T05](#f-009-t05), [F-011-T03](#f-011-t03) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-009-t04"></a>F-009-T04 — Full battery screen for NERV: MCP Apps page or link | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T05](#f-008-t05) | [F-009-T05](#f-009-t05), [F-011-T05](#f-011-t05) | ⏳ 🤖 |
 | 🟢 Small | <a id="f-009-t05"></a>F-009-T05 — Owner: see FPVBuddy's battery card and full screen in NERV | 0 h | 0 h | 0 h agent + 0.5 h owner | Planned | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04) | — | ⏳ 🧑‍🔧 |
@@ -238,7 +238,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟣 Very large | 9.5 h | — | [F-011-T01](#f-011-t01), [F-011-T02](#f-011-t02), [F-011-T04](#f-011-t04), [F-011-T06](#f-011-t06), [F-012-T03](#f-012-t03), [F-017-T01](#f-017-t01) | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟣 Very large | 9.5 h | — | [F-011-T01](#f-011-t01), [F-011-T02](#f-011-t02), [F-011-T04](#f-011-t04), [F-011-T06](#f-011-t06), [F-012-T03](#f-012-t03), [F-017-T01](#f-017-t01), [F-024-T01](#f-024-t01), [F-024-T02](#f-024-t02) | 🤖 | — | — |
 
 💻 **→** Next: F-010-T01 — Fleet and parts in the core (Planned).
 
@@ -253,8 +253,8 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
 | 🟡 Medium | <a id="f-010-t01"></a>F-010-T01 — Fleet and parts in the core | 2.5 h | 0 h | 2.5 h | Planned | — | [F-010-T02](#f-010-t02), [F-010-T04](#f-010-t04), [F-011-T01](#f-011-t01) |
-| 🟡 Medium | <a id="f-010-t02"></a>F-010-T02 — Spares and warehouse in the core | 2 h | 0 h | 2 h | Planned | [F-010-T01](#f-010-t01) | [F-010-T03](#f-010-t03), [F-010-T04](#f-010-t04), [F-011-T02](#f-011-t02), [F-012-T03](#f-012-t03) |
-| 🟡 Medium | <a id="f-010-t03"></a>F-010-T03 — Crashes and the crash-to-battery-damage link in the core | 2.5 h | 0 h | 2.5 h | Planned | [F-010-T02](#f-010-t02) | [F-010-T05](#f-010-t05), [F-011-T02](#f-011-t02), [F-011-T04](#f-011-t04), [F-011-T06](#f-011-t06) |
+| 🟡 Medium | <a id="f-010-t02"></a>F-010-T02 — Spares and warehouse in the core | 2 h | 0 h | 2 h | Planned | [F-010-T01](#f-010-t01) | [F-010-T03](#f-010-t03), [F-010-T04](#f-010-t04), [F-011-T02](#f-011-t02), [F-012-T03](#f-012-t03), [F-024-T02](#f-024-t02) |
+| 🟡 Medium | <a id="f-010-t03"></a>F-010-T03 — Crashes and the crash-to-battery-damage link in the core | 2.5 h | 0 h | 2.5 h | Planned | [F-010-T02](#f-010-t02) | [F-010-T05](#f-010-t05), [F-011-T02](#f-011-t02), [F-011-T04](#f-011-t04), [F-011-T06](#f-011-t06), [F-024-T01](#f-024-t01) |
 | 🟡 Medium | <a id="f-010-t04"></a>F-010-T04 — Fleet import in the core | 2 h | 0 h | 2 h | Planned | [F-010-T01](#f-010-t01), [F-010-T02](#f-010-t02) | [F-010-T05](#f-010-t05), [F-017-T01](#f-017-t01) |
 | 🟢 Small | <a id="f-010-t05"></a>F-010-T05 — Document the fleet, spares and crash API | 0.5 h | 0 h | 0.5 h | Planned | [F-010-T03](#f-010-t03), [F-010-T04](#f-010-t04) | — |
 | 🟣 Very large | **Total** | 9.5 h | 0 h (0 of 5 steps recorded) | 9.5 h | 0 of 5 completed | | |
@@ -364,7 +364,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 4.5 h | [F-009-T02](#f-009-t02) | — | 🤖 | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 4.5 h | [F-009-T02](#f-009-t02) | [F-024-T01](#f-024-t01), [F-024-T02](#f-024-t02) | 🤖 | — | — |
 
 💻 **→** Next: F-013-T01 — Plan storage alerts against NERV's alert contract (Planned).
 
@@ -378,8 +378,8 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-013-t01"></a>F-013-T01 — Plan storage alerts against NERV's alert contract | 1 h | 0 h | 1 h | Planned | — | [F-013-T02](#f-013-t02) |
-| 🟡 Medium | <a id="f-013-t02"></a>F-013-T02 — Storage alert rules in the core | 2 h | 0 h | 2 h | Planned | [F-013-T01](#f-013-t01) | [F-013-T03](#f-013-t03) |
+| 🟢 Small | <a id="f-013-t01"></a>F-013-T01 — Plan storage alerts against NERV's alert contract | 1 h | 0 h | 1 h | Planned | — | [F-013-T02](#f-013-t02), [F-024-T01](#f-024-t01) |
+| 🟡 Medium | <a id="f-013-t02"></a>F-013-T02 — Storage alert rules in the core | 2 h | 0 h | 2 h | Planned | [F-013-T01](#f-013-t01) | [F-013-T03](#f-013-t03), [F-024-T02](#f-024-t02) |
 | 🟡 Medium | <a id="f-013-t03"></a>F-013-T03 — MCP alerts tool for storage alerts | 1.5 h | 0 h | 1.5 h | Planned | [F-013-T02](#f-013-t02), [F-009-T02](#f-009-t02) | — |
 | 🔴 Large | **Total** | 4.5 h | 0 h (0 of 3 steps recorded) | 4.5 h | 0 of 3 completed | | |
 
@@ -534,7 +534,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🔴 Large | 6.5 h | [F-010-T04](#f-010-t04), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
+| 🔴 Open | 🔶 P2 | 🔴 Large | 6.5 h | [F-010-T04](#f-010-t04), [F-009-T02](#f-009-t02) | [F-024-T05](#f-024-t05) | ⏳ | — | — |
 
 💻 **→** Next: F-017-T01 — NERV export format and mapping into FPVBuddy (Planned).
 
@@ -550,7 +550,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 |---|---|---|---|---|---|---|---|
 | 🟡 Medium | <a id="f-017-t01"></a>F-017-T01 — NERV export format and mapping into FPVBuddy | 2 h | 0 h | 2 h | Planned | [F-010-T04](#f-010-t04) | [F-017-T02](#f-017-t02) |
 | 🟡 Medium | <a id="f-017-t02"></a>F-017-T02 — Import command with dry run, run-once guard and ID map | 3 h | 0 h | 3 h | Planned | [F-017-T01](#f-017-t01), [F-009-T02](#f-009-t02) | [F-017-T03](#f-017-t03) |
-| 🟡 Medium | <a id="f-017-t03"></a>F-017-T03 — Import report: counts and a field-by-field sample | 1.5 h | 0 h | 1.5 h | Planned | [F-017-T02](#f-017-t02) | — |
+| 🟡 Medium | <a id="f-017-t03"></a>F-017-T03 — Import report: counts and a field-by-field sample | 1.5 h | 0 h | 1.5 h | Planned | [F-017-T02](#f-017-t02) | [F-024-T05](#f-024-t05) |
 | 🔴 Large | **Total** | 6.5 h | 0 h (0 of 3 steps recorded) | 6.5 h | 0 of 3 completed | | |
 
 <details>
@@ -805,6 +805,48 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 | Field | Value |
 |---|---|
 | PR / evidence | Steps: F-023-T01: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan; [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T02: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T03: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T04: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T05: [PR #34](https://github.com/voidbrain/FPVBuddy/pull/34) plan. [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (plan); decision A and removal plan: [#33](https://github.com/voidbrain/FPVBuddy/pull/33); scaffold removal plan (T05): [#34](https://github.com/voidbrain/FPVBuddy/pull/34); [review page](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-shared-assets/gauntlet-fpvbuddy.md); owner decision 2026-11-26 |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-024"></a>[✨ F-024](#top)
+
+**fpv_preflight: a read-only pre-flight assessment over MCP**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔶 P2 | 🔴 Large | 5.5 h agent + 0.25 h owner | [F-010-T03](#f-010-t03), [F-013-T01](#f-013-t01), [F-010-T02](#f-010-t02), [F-013-T02](#f-013-t02), [F-009-T02](#f-009-t02), [F-017-T03](#f-017-t03) | — | ⏳ | — | — |
+
+💻 **→** Next: F-024-T01 — Plan fpv&#95;preflight: rules, thresholds and the Italian-friendly output shape (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner decision 2026-11-26 in chat: "y" to a pre-flight check (earlier: "pre flight check, ok", and the check must use the owner's real data). NERV is to prepare the owner's flight ("prepara il volo di sabato"): [nerv:F-146](https://github.com/voidbrain/nerv/blob/main/docs/work/records/F-146.md) is a skill that calls one FPVBuddy tool and adds the weather and reminders. FPVBuddy owns the FPV data and rules (nerv:F-101), so the assessment is FPVBuddy's: a deterministic, read-only `fpv_preflight` tool that says which batteries are ready, need a storage charge or have a check due, which drones are flagged after a crash or with a damaged part, and which spares are low. FPVBuddy has no separate repair record; the plan treats a damaged installed part or an unresolved crash as an open repair (F-024-T01 states it). Field names and descriptions come in Italian and English because the owner works in Italian. |
+| **Reproduce** | List FPVBuddy's planned MCP tools (F-009, F-011, F-012, F-013): none answers "is the fleet ready to fly". |
+| **Check** | `fpv_preflight` returns, from the F-005 and F-010 cores, the verdict per battery, drone and spare category with a reason, read-only, with Italian and English labels; specs on invented data cover each verdict and an empty fleet; the owner confirms the verdicts against the real fleet after the import (T01 … T05). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
+|---|---|---|---|---|---|---|---|:---:|
+| 🟢 Small | <a id="f-024-t01"></a>F-024-T01 — Plan fpv&#95;preflight: rules, thresholds and the Italian-friendly output shape | 1 h | 0 h | 1 h | Planned | [F-010-T03](#f-010-t03), [F-013-T01](#f-013-t01) | [F-024-T02](#f-024-t02) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-024-t02"></a>F-024-T02 — Pre-flight assessment in the core | 2 h | 0 h | 2 h | Planned | [F-024-T01](#f-024-t01), [F-010-T02](#f-010-t02), [F-013-T02](#f-013-t02) | [F-024-T03](#f-024-t03) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-024-t03"></a>F-024-T03 — MCP tool fpv&#95;preflight, read-only | 1.5 h | 0 h | 1.5 h | Planned | [F-024-T02](#f-024-t02), [F-009-T02](#f-009-t02) | [F-024-T04](#f-024-t04), [F-024-T05](#f-024-t05) | ⏳ 🤖 |
+| 🟢 Small | <a id="f-024-t04"></a>F-024-T04 — Document fpv&#95;preflight and add its Gauntlet case | 1 h | 0 h | 1 h | Planned | [F-024-T03](#f-024-t03) | — | ⏳ 🤖 |
+| 🟢 Small | <a id="f-024-t05"></a>F-024-T05 — Owner: check fpv&#95;preflight against the real fleet after the import | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-024-T03](#f-024-t03), [F-017-T03](#f-017-t03) | — | ⏳ 🧑‍🔧 |
+| 🔴 Large | **Total** | 5.5 h | 0 h (0 of 5 steps recorded) | 5.5 h agent + 0.25 h owner | 0 of 5 completed | | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-024.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Plan: pending; [#36](https://github.com/voidbrain/FPVBuddy/pull/36) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |

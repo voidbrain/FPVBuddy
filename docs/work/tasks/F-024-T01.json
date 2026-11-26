@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "id": "F-024-T01",
+  "parent": "F-024",
+  "title": "Plan fpv_preflight: rules, thresholds and the Italian-friendly output shape",
+  "goal": "The rules and the output are written down before any code, so the core and the tool agree",
+  "status": "planned",
+  "acceptance": [
+    "Owner decision 2026-11-26 in chat: \"y\" to the pre-flight check plan (earlier: \"pre flight check, ok\" and \"real\" data).",
+    "A page docs/decisions/fpv-preflight.md fixes, from NERV's battery health and storage rules (nerv src/battery-health.ts, src/battery-storage-reminders.ts) and the F-005, F-010 and F-013 cores: when a battery is ready (charged, not damaged), needs a storage charge, or has a check due (resistance or cycle thresholds taken from NERV's rules, not invented); when a drone is flagged (a crash since its last flight, or an installed part marked damaged: FPVBuddy has no separate repair record, so an open repair means a damaged part or an unresolved crash, and the page says so); when a spare is low (the thresholds F-010-T02 already holds)",
+    "The page fixes the output: one read-only result with sections batteries, droni, ricambi and a verdict per item (ok, attenzione, bloccante) plus a short reason; every field has an English key and an Italian label and description (the MCP tool description is written in both languages), so a model answers in the owner's language without translating field names",
+    "A failing test (committed first) calls the not-yet-existing assessment on an invented fleet and expects the verdicts the page lists"
+  ],
+  "dependsOn": [
+    "F-005-T02",
+    "F-010-T03",
+    "F-013-T01"
+  ],
+  "resources": [
+    "docs/decisions/**",
+    "test/**",
+    "src/**",
+    "docs/work/records/F-024.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "regression-design"
+  ],
+  "privacy": "Invented data only (neutral drone, battery and spare names); no owner data, secrets or export files in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h",
+    "basis": "Estimated 2026-11-26: a decision page plus one failing test on rules that already exist in NERV and in F-010 and F-013. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1,
+    "ownerHours": 0,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  }
+}

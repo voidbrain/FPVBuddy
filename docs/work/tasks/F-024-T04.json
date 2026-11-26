@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "id": "F-024-T04",
+  "parent": "F-024",
+  "title": "Document fpv_preflight and add its Gauntlet case",
+  "goal": "Consumers can read the tool contract and a model change is measured on it",
+  "status": "planned",
+  "acceptance": [
+    "Owner decision 2026-11-26 in chat: \"y\" to the pre-flight check plan (earlier: \"pre flight check, ok\" and \"real\" data).",
+    "The tool table in docs (F-009-T02's) lists fpv_preflight with its input, result and an Italian and an English example",
+    "A Gauntlet case for the tool (a request such as \"posso volare sabato?\" / \"am I ready to fly Saturday?\" over an invented fleet, in Italian and English) is added to FPVBuddy's Gauntlet pack, or the record names the skip and its reason (coordinator DOMAINS.md, \"Recorded skips\"); no real-model run without the owner",
+    "The contract is linked from the coordinator's DOMAINS.md \"Distributed contracts\" row (coordinator change in the same plan)"
+  ],
+  "dependsOn": [
+    "F-024-T03"
+  ],
+  "resources": [
+    "docs/**",
+    "evals/**",
+    "docs/work/records/F-024.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Invented data only (neutral drone, battery and spare names); no owner data, secrets or export files in Git.",
+  "validation": [
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h",
+    "basis": "Estimated 2026-11-26: documentation and one case. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1,
+    "ownerHours": 0,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  }
+}

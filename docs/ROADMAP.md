@@ -13,7 +13,7 @@ Milestones this repository owns. Work inside a milestone is planned as backlog r
 
 **M2 context.** NERV's F-101-T04 expects the core to cover batteries, fleet, spares, crashes and the crash-to-battery-damage link; M1 covers batteries only. The owner asked for M2 on 2026-11-25. NERV reaches FPVBuddy over MCP (owner decision 2026-11-26, nerv:F-101-T05 cancelled); NERV keeps its own version until its data and tools have moved (nerv:F-101-T07 … F-101-T11, NERV's backlog).
 
-**NERV move (owner decision 2026-11-26).** What FPVBuddy adds so NERV's FPV data and tools can move here: battery and spares write tools (F-012, for nerv:F-101-T10), storage reminders as alerts in NERV's alert contract (F-013, for nerv:F-101-T09), a blackbox-report tool (F-014, for nerv:F-101-T10), builds, manufacturer docs and wiring answers (F-015, scope pending owner confirmation, for nerv:F-101-T10 and F-101-T08), backup of the server data (F-016, for nerv:F-101-T08) and the import of NERV's one-time export (F-017, for nerv:F-101-T08). The moves themselves are NERV's steps.
+**NERV move (owner decision 2026-11-26).** What FPVBuddy adds so NERV's FPV data and tools can move here: battery and spares write tools (F-012, for nerv:F-101-T10), storage reminders as alerts in NERV's alert contract (F-013, for nerv:F-101-T09), a blackbox-report tool (F-014, for nerv:F-101-T10), builds, manufacturer docs and wiring answers (F-015, scope pending owner confirmation, for nerv:F-101-T10 and F-101-T08), backup of the server data (F-016, for nerv:F-101-T08) and the import of NERV's one-time export (F-017, for nerv:F-101-T08). F-024 adds the read-only `fpv_preflight` tool for NERV's pre-flight skill (nerv:F-146). The moves themselves are NERV's steps.
 
 ## Done
 
