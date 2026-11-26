@@ -693,3 +693,80 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 </details>
 
 ---
+### <a id="f-020"></a>[✨ F-020](#top)
+
+**Axe accessibility pass per main route in the browser suite**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 3.5 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-020-T01 — Axe pass per main route with a seeded-violation fixture (Planned).
+
+| | |
+|---|---|
+| **Issue** | NERV, bricks and openbando run axe in browser tests; FPVBuddy has no accessibility check beyond contrast, so a missing label, a keyboard trap or a bad ARIA role would pass CI. There is no browser suite at all (tests run with `ng test`), so this step also adds the runner. Evidence: [NERV practices transfer report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md), inventory 13; class A item A10; missing practice M12. Owner decision 2026-11-26 in chat: "NERV practices inventory accept all" (all 22 proposals of the [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); this record is proposal 17). |
+| **Reproduce** | Read the CI workflow and the test scripts of FPVBuddy: no axe run. Main routes: `/` and `batteries`. |
+| **Check** | One axe pass per main route (`/` and `batteries`) fails on serious and critical violations and reports moderate ones, proved by a seeded-violation fixture that fails first (F-020-T01); CI runs it on every PR (F-020-T02). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-020-t01"></a>F-020-T01 — Axe pass per main route with a seeded-violation fixture | 2.5 h | 0 h | 2.5 h | Planned | — | [F-020-T02](#f-020-t02) | [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan |
+| 🟢 Small | <a id="f-020-t02"></a>F-020-T02 — Run the axe pass in CI | 1 h | 0 h | 1 h | Planned | [F-020-T01](#f-020-t01) | — | [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan |
+| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 2 steps recorded) | 3.5 h | 0 of 2 completed | | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-020.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-020-T01: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan · F-020-T02: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan. [#26](https://github.com/voidbrain/FPVBuddy/pull/26) (plan); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-021"></a>[✨ F-021](#top)
+
+**Roadmap status check**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟢 Small | 1 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-021-T01 — Roadmap status tool and CI check (Planned).
+
+| | |
+|---|---|
+| **Issue** | FPVBuddy keeps `docs/ROADMAP.md` by hand; nerv generates milestone status from the records (`tools/roadmap-status.mjs`, BACKLOG-RULES "Roadmap"), so a milestone cannot say "done" while its steps are open. Evidence: [NERV practices transfer report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md), inventory 15; class B item B3. Owner decision 2026-11-26 in chat: "NERV practices inventory accept all" (all 22 proposals of the [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); this record is proposal 21). |
+| **Reproduce** | Read `docs/ROADMAP.md` of FPVBuddy and compare each milestone's status with its records: nothing checks them. |
+| **Check** | A roadmap status tool generates milestone status from the records and `--check` in `check:fast` and CI fails when `docs/ROADMAP.md` is stale (F-021-T01). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | PRs |
+|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-021-t01"></a>F-021-T01 — Roadmap status tool and CI check | 1 h | 0 h | 1 h | Planned | [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan |
+| 🟢 Small | **Total** | 1 h | 0 h (0 of 1 steps recorded) | 1 h | 0 of 1 completed | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-021.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-021-T01: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan. [#26](https://github.com/voidbrain/FPVBuddy/pull/26) (plan); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
