@@ -41,6 +41,10 @@
     {
       "pr": 31,
       "note": "plan"
+    },
+    {
+      "pr": 33,
+      "note": "decision A and removal plan"
     }
   ],
   "ownerLink": "docs/decisions/on-device-assistant.md"
