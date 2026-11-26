@@ -32,10 +32,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 **Steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status |
-|---|---|---|---|---|---|
-| 🟢 Small | <a id="b-007-t01"></a>B-007-T01 — Type-check app and core specs | 0.5 h | 0 h | 0 h | Implemented; verification pending |
-| 🟢 Small | **Total** | 0.5 h | 0 h (0 of 1 steps recorded) | 0 h | 0 of 1 completed |
+| Effort | Step | Estimate | Actual | Remaining | Status | PRs |
+|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="b-007-t01"></a>B-007-T01 — Type-check app and core specs | 0.5 h | 0 h | 0 h | Implemented; verification pending | [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) |
+| 🟢 Small | **Total** | 0.5 h | 0 h (0 of 1 steps recorded) | 0 h | 0 of 1 completed | |
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -44,7 +44,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Pending; [#25](https://github.com/voidbrain/FPVBuddy/pull/25) |
+| PR / evidence | Steps: B-007-T01: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25). [#25](https://github.com/voidbrain/FPVBuddy/pull/25) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
@@ -671,12 +671,12 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status |
-|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-019-t01"></a>F-019-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings | 0.25 h | 0 h | 0 h | Implemented; verification pending |
-| 🟢 Small | <a id="f-019-t02"></a>F-019-T02 — First architecture review with outside-landscape comparison | 0.5 h | 0 h | 0 h | Implemented; verification pending |
-| 🟢 Small | <a id="f-019-t03"></a>F-019-T03 — First token and skills reviews | 1 h | 0 h | 1 h | Planned |
-| 🟢 Small | **Total** | 1.75 h | 0 h (0 of 3 steps recorded) | 1 h | 0 of 3 completed |
+| Effort | Step | Estimate | Actual | Remaining | Status | PRs |
+|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-019-t01"></a>F-019-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings | 0.25 h | 0 h | 0 h | Implemented; verification pending | [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) |
+| 🟢 Small | <a id="f-019-t02"></a>F-019-T02 — First architecture review with outside-landscape comparison | 0.5 h | 0 h | 0 h | Implemented; verification pending | [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) |
+| 🟢 Small | <a id="f-019-t03"></a>F-019-T03 — First token and skills reviews | 1 h | 0 h | 1 h | Planned | — |
+| 🟢 Small | **Total** | 1.75 h | 0 h (0 of 3 steps recorded) | 1 h | 0 of 3 completed | |
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -685,7 +685,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Pending; [#25](https://github.com/voidbrain/FPVBuddy/pull/25) |
+| PR / evidence | Steps: F-019-T01: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) · F-019-T02: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25). [#25](https://github.com/voidbrain/FPVBuddy/pull/25) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
