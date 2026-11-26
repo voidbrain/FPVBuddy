@@ -846,7 +846,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Plan: pending |
+| PR / evidence | Plan: pending; [#36](https://github.com/voidbrain/FPVBuddy/pull/36) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
