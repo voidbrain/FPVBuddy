@@ -52,54 +52,6 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 </details>
 
 ---
-### <a id="f-005"></a>[✨ F-005](#top)
-
-**M1 — FPV battery core package**
-
-| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
-|---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟢 Small | 0 h | — | [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03), [F-010-T05](#f-010-t05), [F-012-T01](#f-012-t01), [F-013-T01](#f-013-t01), [F-014-T01](#f-014-t01), [F-015-T02](#f-015-t02), [F-017-T01](#f-017-t01) | 🤖 | — | — |
-
-💻 **→** Next: F-005-T02 — Bring the battery core and its tests into the package (Implemented; verification pending).
-
-| | |
-|---|---|
-| **Issue** | Roadmap milestone M1, agreed by the owner 2026-11-24 (F-004-T03, option A): FPVBuddy hosts the FPV battery-manager core (logging charge state and internal resistance) as a plain TypeScript package with its own tests, so other projects consume it instead of keeping their own copy. NERV is not one of them: NERV reaches FPVBuddy over MCP (owner decision 2026-11-26, nerv:F-101-T05 cancelled). |
-| **Reproduce** | Run `npm run core:build && npm run core:test && npm run core:pack-check` to build, test, pack, and install `@fpvbuddy/fpv-core` (`src/fpv-core/`) into an isolated throwaway consumer; the public API is in [docs/architecture/fpv-core.md](architecture/fpv-core.md). |
-| **Check** | The core builds and is tested in this repository's CI; its public API is documented; a consumer can install it without the FPVBuddy app ([roadmap M1](ROADMAP.md#milestones)). |
-
-**Feature steps**
-
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
-|---|---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 0 h | Implemented; verification pending | — | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04), [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03), [F-012-T01](#f-012-t01), [F-013-T01](#f-013-t01), [F-014-T01](#f-014-t01), [F-015-T02](#f-015-t02), [F-017-T01](#f-017-t01) | [PR #17](https://github.com/voidbrain/FPVBuddy/pull/17) battery registry, portable storage adapter, resistance health evaluation and unit tests |
-| 🟢 Small | <a id="f-005-t03"></a>F-005-T03 — Document the core's public API | 0.5 h | 0 h | 0 h | Implemented; verification pending | [F-005-T02](#f-005-t02) | [F-010-T05](#f-010-t05) | [PR #20](https://github.com/voidbrain/FPVBuddy/pull/20) public API reference in docs/architecture/fpv-core.md and README link |
-| 🟢 Small | <a id="f-005-t04"></a>F-005-T04 — Install check without the FPVBuddy app | 1 h | 0 h | 0 h | Implemented; verification pending | [F-005-T02](#f-005-t02) | — | [PR #21](https://github.com/voidbrain/FPVBuddy/pull/21) standalone npm pack + throwaway consumer install check and Angular/app leak guard in CI |
-| 🟢 Small | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 0 h | 1 of 4 completed | | | |
-
-<details><summary>Done steps (1)</summary>
-
-| Effort | Step | Estimate | Actual | Status | PRs |
-|---|---|---|---|---|---|
-| — | <a id="f-005-t01"></a>F-005-T01 — Package boundary for the FPV core | 1 h | 0 h | Completed | [PR #10](https://github.com/voidbrain/FPVBuddy/pull/10) package boundary |
-
-</details>
-
-<details>
-<summary>Next action, estimates and evidence</summary>
-
-[Full notes & evidence](work/records/F-005.md)
-
-| Field | Value |
-|---|---|
-| PR / evidence | Steps: F-005-T01: [PR #10](https://github.com/voidbrain/FPVBuddy/pull/10) package boundary · F-005-T02: [PR #17](https://github.com/voidbrain/FPVBuddy/pull/17) battery registry, portable storage adapter, resistance health evaluation and unit tests · F-005-T03: [PR #20](https://github.com/voidbrain/FPVBuddy/pull/20) public API reference in docs/architecture/fpv-core.md and README link · F-005-T04: [PR #21](https://github.com/voidbrain/FPVBuddy/pull/21) standalone npm pack + throwaway consumer install check and Angular/app leak guard in CI. [#10](https://github.com/voidbrain/FPVBuddy/pull/10); [#11](https://github.com/voidbrain/FPVBuddy/pull/11); [#17](https://github.com/voidbrain/FPVBuddy/pull/17) (F-005-T02); Test: `src/fpv-core/batteries.spec.ts`, `src/fpv-core/battery-health.spec.ts` (`2296425`), `scripts/check-core-pack.test.mjs` (`22170b3`); [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (NERV reaches FPVBuddy over MCP); [#21](https://github.com/voidbrain/FPVBuddy/pull/21) (F-005-T04); Review: fresh-context research subagent on PR #21 diff, no blockers, 4 minors fixed (`9e26f8a`) |
-| Opened | 2026-11-24 |
-| Verification | F-005-T01: green CI on PR #10 (2026-11-25). Pending: F-005-T02 ([#17](https://github.com/voidbrain/FPVBuddy/pull/17)), F-005-T03 ([#20](https://github.com/voidbrain/FPVBuddy/pull/20)) and F-005-T04 CI ([#21](https://github.com/voidbrain/FPVBuddy/pull/21)) |
-| Reviewed | 2026-11-26 |
-
-</details>
-
----
 ### <a id="f-006"></a>[✨ F-006](#top)
 
 **Reconcile project-harness v10.9.0 → v10.20.0**
@@ -244,7 +196,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h agent + 0.5 h owner | [F-005-T02](#f-005-t02), [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T01](#f-016-t01), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02) | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h agent + 0.5 h owner | [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T01](#f-016-t01), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02) | 🤖 | — | — |
 
 💻 **→** Next: F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools (Planned).
 
@@ -258,7 +210,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
 |---|---|---|---|---|---|---|---|:---:|
-| 🟢 Small | <a id="f-009-t01"></a>F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | [F-009-T02](#f-009-t02), [F-016-T01](#f-016-t01) | ⏳ 🤖 |
+| 🟢 Small | <a id="f-009-t01"></a>F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools | 1 h | 0 h | 1 h | Planned | — | [F-009-T02](#f-009-t02), [F-016-T01](#f-016-t01) | 🤖 |
 | 🟡 Medium | <a id="f-009-t02"></a>F-009-T02 — MCP server with read-only battery tools | 3 h | 0 h | 3 h | Planned | [F-009-T01](#f-009-t01) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T01](#f-011-t01), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-009-t03"></a>F-009-T03 — Battery tools return surface-typed data for bricks surface cards | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T02](#f-008-t02) | [F-009-T05](#f-009-t05), [F-011-T03](#f-011-t03) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-009-t04"></a>F-009-T04 — Full battery screen for NERV: MCP Apps page or link | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T05](#f-008-t05) | [F-009-T05](#f-009-t05), [F-011-T05](#f-011-t05) | ⏳ 🤖 |
@@ -286,7 +238,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟣 Very large | 9.5 h | [F-005-T02](#f-005-t02), [F-005-T03](#f-005-t03) | [F-011-T01](#f-011-t01), [F-011-T02](#f-011-t02), [F-011-T04](#f-011-t04), [F-011-T06](#f-011-t06), [F-012-T03](#f-012-t03), [F-017-T01](#f-017-t01) | ⏳ | — | — |
+| 🔴 Open | 🔶 P2 | 🟣 Very large | 9.5 h | — | [F-011-T01](#f-011-t01), [F-011-T02](#f-011-t02), [F-011-T04](#f-011-t04), [F-011-T06](#f-011-t06), [F-012-T03](#f-012-t03), [F-017-T01](#f-017-t01) | 🤖 | — | — |
 
 💻 **→** Next: F-010-T01 — Fleet and parts in the core (Planned).
 
@@ -300,11 +252,11 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-010-t01"></a>F-010-T01 — Fleet and parts in the core | 2.5 h | 0 h | 2.5 h | Planned | [F-005-T02](#f-005-t02) | [F-010-T02](#f-010-t02), [F-010-T04](#f-010-t04), [F-011-T01](#f-011-t01) |
+| 🟡 Medium | <a id="f-010-t01"></a>F-010-T01 — Fleet and parts in the core | 2.5 h | 0 h | 2.5 h | Planned | — | [F-010-T02](#f-010-t02), [F-010-T04](#f-010-t04), [F-011-T01](#f-011-t01) |
 | 🟡 Medium | <a id="f-010-t02"></a>F-010-T02 — Spares and warehouse in the core | 2 h | 0 h | 2 h | Planned | [F-010-T01](#f-010-t01) | [F-010-T03](#f-010-t03), [F-010-T04](#f-010-t04), [F-011-T02](#f-011-t02), [F-012-T03](#f-012-t03) |
-| 🟡 Medium | <a id="f-010-t03"></a>F-010-T03 — Crashes and the crash-to-battery-damage link in the core | 2.5 h | 0 h | 2.5 h | Planned | [F-010-T02](#f-010-t02), [F-005-T02](#f-005-t02) | [F-010-T05](#f-010-t05), [F-011-T02](#f-011-t02), [F-011-T04](#f-011-t04), [F-011-T06](#f-011-t06) |
+| 🟡 Medium | <a id="f-010-t03"></a>F-010-T03 — Crashes and the crash-to-battery-damage link in the core | 2.5 h | 0 h | 2.5 h | Planned | [F-010-T02](#f-010-t02) | [F-010-T05](#f-010-t05), [F-011-T02](#f-011-t02), [F-011-T04](#f-011-t04), [F-011-T06](#f-011-t06) |
 | 🟡 Medium | <a id="f-010-t04"></a>F-010-T04 — Fleet import in the core | 2 h | 0 h | 2 h | Planned | [F-010-T01](#f-010-t01), [F-010-T02](#f-010-t02) | [F-010-T05](#f-010-t05), [F-017-T01](#f-017-t01) |
-| 🟢 Small | <a id="f-010-t05"></a>F-010-T05 — Document the fleet, spares and crash API | 0.5 h | 0 h | 0.5 h | Planned | [F-010-T03](#f-010-t03), [F-010-T04](#f-010-t04), [F-005-T03](#f-005-t03) | — |
+| 🟢 Small | <a id="f-010-t05"></a>F-010-T05 — Document the fleet, spares and crash API | 0.5 h | 0 h | 0.5 h | Planned | [F-010-T03](#f-010-t03), [F-010-T04](#f-010-t04) | — |
 | 🟣 Very large | **Total** | 9.5 h | 0 h (0 of 5 steps recorded) | 9.5 h | 0 of 5 completed | | |
 
 <details>
@@ -372,7 +324,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 5 h | [F-009-T02](#f-009-t02), [F-005-T02](#f-005-t02), [F-010-T02](#f-010-t02) | [F-015-T05](#f-015-t05) | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 5 h | [F-009-T02](#f-009-t02), [F-010-T02](#f-010-t02) | [F-015-T05](#f-015-t05) | ⏳ | — | — |
 
 💻 **→** Next: F-012-T01 — Write-tool base and charge-state write over MCP (Planned).
 
@@ -386,7 +338,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-012-t01"></a>F-012-T01 — Write-tool base and charge-state write over MCP | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-005-T02](#f-005-t02) | [F-012-T02](#f-012-t02), [F-012-T03](#f-012-t03), [F-015-T05](#f-015-t05) |
+| 🟡 Medium | <a id="f-012-t01"></a>F-012-T01 — Write-tool base and charge-state write over MCP | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02) | [F-012-T02](#f-012-t02), [F-012-T03](#f-012-t03), [F-015-T05](#f-015-t05) |
 | 🟡 Medium | <a id="f-012-t02"></a>F-012-T02 — Write tools: internal resistance and charge cycles | 1.5 h | 0 h | 1.5 h | Planned | [F-012-T01](#f-012-t01) | — |
 | 🟡 Medium | <a id="f-012-t03"></a>F-012-T03 — Write tools: spares in and out | 1.5 h | 0 h | 1.5 h | Planned | [F-012-T01](#f-012-t01), [F-010-T02](#f-010-t02) | — |
 | 🔴 Large | **Total** | 5 h | 0 h (0 of 3 steps recorded) | 5 h | 0 of 3 completed | | |
@@ -412,7 +364,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 4.5 h | [F-005-T02](#f-005-t02), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 4.5 h | [F-009-T02](#f-009-t02) | — | 🤖 | — | — |
 
 💻 **→** Next: F-013-T01 — Plan storage alerts against NERV's alert contract (Planned).
 
@@ -426,7 +378,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-013-t01"></a>F-013-T01 — Plan storage alerts against NERV's alert contract | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | [F-013-T02](#f-013-t02) |
+| 🟢 Small | <a id="f-013-t01"></a>F-013-T01 — Plan storage alerts against NERV's alert contract | 1 h | 0 h | 1 h | Planned | — | [F-013-T02](#f-013-t02) |
 | 🟡 Medium | <a id="f-013-t02"></a>F-013-T02 — Storage alert rules in the core | 2 h | 0 h | 2 h | Planned | [F-013-T01](#f-013-t01) | [F-013-T03](#f-013-t03) |
 | 🟡 Medium | <a id="f-013-t03"></a>F-013-T03 — MCP alerts tool for storage alerts | 1.5 h | 0 h | 1.5 h | Planned | [F-013-T02](#f-013-t02), [F-009-T02](#f-009-t02) | — |
 | 🔴 Large | **Total** | 4.5 h | 0 h (0 of 3 steps recorded) | 4.5 h | 0 of 3 completed | | |
@@ -452,7 +404,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟡 Medium | 3 h | [F-005-T02](#f-005-t02), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 3 h | [F-009-T02](#f-009-t02) | — | 🤖 | — | — |
 
 💻 **→** Next: F-014-T01 — Blackbox vibration analyzer in the core (Planned).
 
@@ -466,7 +418,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-014-t01"></a>F-014-T01 — Blackbox vibration analyzer in the core | 2 h | 0 h | 2 h | Planned | [F-005-T02](#f-005-t02) | [F-014-T02](#f-014-t02) |
+| 🟡 Medium | <a id="f-014-t01"></a>F-014-T01 — Blackbox vibration analyzer in the core | 2 h | 0 h | 2 h | Planned | — | [F-014-T02](#f-014-t02) |
 | 🟢 Small | <a id="f-014-t02"></a>F-014-T02 — MCP tool: blackbox report | 1 h | 0 h | 1 h | Planned | [F-014-T01](#f-014-t01), [F-009-T02](#f-009-t02) | — |
 | 🟡 Medium | **Total** | 3 h | 0 h (0 of 2 steps recorded) | 3 h | 0 of 2 completed | | |
 
@@ -491,7 +443,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 7 h | [F-005-T02](#f-005-t02), [F-012-T01](#f-012-t01) | — | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 7 h | [F-012-T01](#f-012-t01) | — | 🤖 | — | — |
 
 💻 **→** Next: F-015-T02 — Builds, components and wiring in the core (Planned).
 
@@ -505,7 +457,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
 |---|---|---|---|---|---|---|---|:---:|---|
-| 🟡 Medium | <a id="f-015-t02"></a>F-015-T02 — Builds, components and wiring in the core | 2 h | 0 h | 2 h | Planned | [F-005-T02](#f-005-t02) | [F-015-T03](#f-015-t03), [F-015-T04](#f-015-t04) | ⏳ 🤖 | — |
+| 🟡 Medium | <a id="f-015-t02"></a>F-015-T02 — Builds, components and wiring in the core | 2 h | 0 h | 2 h | Planned | — | [F-015-T03](#f-015-t03), [F-015-T04](#f-015-t04) | 🤖 | — |
 | 🟡 Medium | <a id="f-015-t03"></a>F-015-T03 — Manufacturer docs and wiring answers in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-015-T02](#f-015-t02) | [F-015-T05](#f-015-t05) | ⏳ 🤖 | — |
 | 🟡 Medium | <a id="f-015-t04"></a>F-015-T04 — DIYFPV build import in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-015-T02](#f-015-t02) | [F-015-T05](#f-015-t05) | ⏳ 🤖 | — |
 | 🟡 Medium | <a id="f-015-t05"></a>F-015-T05 — MCP tools: import build, add doc, wiring answer | 2 h | 0 h | 2 h | Planned | [F-015-T03](#f-015-t03), [F-015-T04](#f-015-t04), [F-012-T01](#f-012-t01) | — | ⏳ 🤖 | — |
@@ -581,7 +533,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🔴 Large | 6.5 h | [F-005-T02](#f-005-t02), [F-010-T04](#f-010-t04), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
+| 🔴 Open | 🔶 P2 | 🔴 Large | 6.5 h | [F-010-T04](#f-010-t04), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
 
 💻 **→** Next: F-017-T01 — NERV export format and mapping into FPVBuddy (Planned).
 
@@ -595,7 +547,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-017-t01"></a>F-017-T01 — NERV export format and mapping into FPVBuddy | 2 h | 0 h | 2 h | Planned | [F-005-T02](#f-005-t02), [F-010-T04](#f-010-t04) | [F-017-T02](#f-017-t02) |
+| 🟡 Medium | <a id="f-017-t01"></a>F-017-T01 — NERV export format and mapping into FPVBuddy | 2 h | 0 h | 2 h | Planned | [F-010-T04](#f-010-t04) | [F-017-T02](#f-017-t02) |
 | 🟡 Medium | <a id="f-017-t02"></a>F-017-T02 — Import command with dry run, run-once guard and ID map | 3 h | 0 h | 3 h | Planned | [F-017-T01](#f-017-t01), [F-009-T02](#f-009-t02) | [F-017-T03](#f-017-t03) |
 | 🟡 Medium | <a id="f-017-t03"></a>F-017-T03 — Import report: counts and a field-by-field sample | 1.5 h | 0 h | 1.5 h | Planned | [F-017-T02](#f-017-t02) | — |
 | 🔴 Large | **Total** | 6.5 h | 0 h (0 of 3 steps recorded) | 6.5 h | 0 of 3 completed | | |
