@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "id": "F-023-T05",
+  "parent": "F-023",
+  "title": "Remove the inert scaffold controls: actions-bar and batteries-filters",
+  "goal": "No control in the app does nothing: the footer Scan QR and camera buttons and the header battery-filter checkboxes are gone",
+  "status": "planned",
+  "acceptance": [
+    "Owner decision 2026-11-26 in chat on the hidden-code sweep (coordinator docs/reviews/2026-11-26-hidden-code.md): \"1 remove\".",
+    "src/app/shared/UI/actions-bar/ (Scan QR and camera buttons, no handler) and src/app/shared/UI/batteries-filters/ (Charged, Stored, Discharged and Hide Dismissed checkboxes, no binding), both added in commit 6b75548, are deleted with their templates, state and any tests; footer.ts/footer.html and header.ts/header.html no longer import or render them",
+    "No other component, route or doc references them: docs/agents/coverage.md and the F-008-T05 bricks inventory drop their rows; no dead styles, tokens or exports remain (check:conventions passes)",
+    "If a later feature needs QR scanning or battery filters it gets its own record: nothing is kept as a placeholder"
+  ],
+  "dependsOn": [
+    "F-023-T01"
+  ],
+  "resources": [
+    "src/app/shared/UI/actions-bar/**",
+    "src/app/shared/UI/batteries-filters/**",
+    "src/app/shared/UI/footer/**",
+    "src/app/shared/UI/header/**",
+    "docs/agents/coverage.md",
+    "docs/work/records/F-023.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "bounded-edit",
+    "regression-design"
+  ],
+  "privacy": "Neutral invented data only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm test",
+    "npm run build",
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "Material scope growth or effort increase goes to the owner before adoption",
+    "A control that turns out to have a handler or a record goes to the owner, not removed silently"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h agent",
+    "basis": "Two empty-class components (14 and 78 template lines), two parent edits and one coverage row. Estimated 2026-11-26 at agent speed. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0.5,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5
+  },
+  "prs": [
+    {
+      "pr": 34,
+      "note": "plan"
+    }
+  ]
+}
