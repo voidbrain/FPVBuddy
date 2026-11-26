@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "id": "F-022-T01",
+  "parent": "F-022",
+  "title": "Pin gauntlet-protocol, validate in CI and record the skips",
+  "goal": "The pack's frame exists",
+  "status": "planned",
+  "acceptance": [
+    "Owner decision 2026-11-26 in chat: \"ok to all\" (accepts proposals 1 to 3 of the shared-asset review, solution:F-016-T05); same message: \"nerv and all modules will need to work with Italian\".",
+    "@voidbrain/gauntlet-protocol is a pinned devDependency and `gauntlet validate` runs in CI",
+    "The skips are recorded: battery storage reminders (F-013), Blackbox report (F-014), import of NERV's export (F-017)"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "package.json",
+    "docs/**",
+    ".github/workflows/**",
+    "evals/gauntlet/**",
+    "docs/work/records/F-022.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "bounded-edit",
+    "regression-design"
+  ],
+  "privacy": "Neutral invented data only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast; final applicable CI"
+  ],
+  "escalation": [
+    "Material scope growth or effort increase goes to the owner before adoption"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h agent",
+    "basis": "A pin, a CI step and a documented skip list. Estimated 2026-11-26 at agent speed from the solution:F-016 shared-asset review. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0.5,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5
+  },
+  "prs": [
+    {
+      "pr": 31,
+      "note": "plan"
+    }
+  ]
+}
