@@ -245,12 +245,7 @@
     "pauseGapMinutes": 15
   },
   "conventions": {
-    "pureDirs": [
-      [
-        "src/fpv-core/",
-        []
-      ]
-    ]
+    "pureDirs": [["src/fpv-core/", []]]
   },
   "coverage": {
     "summary": "coverage/FPVBuddy/coverage-summary.json",
