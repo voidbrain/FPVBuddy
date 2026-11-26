@@ -7,3 +7,7 @@ Header moved to main `a315ba8` (PRs #11 to #21 merged on green CI). Harness reco
 ## 2026-11-26 — main `8816987`
 
 PRs #22 to #26 merged on green CI. #22: F-102 harness v10.21.4; #23: F-102 close (no other record); #24: F-009, F-014, F-018; #25: B-007, F-019; #26: F-020, F-021. F-005 closed in #30 (#10, #17, #20, #21 green).
+
+## 2026-11-26 — main `e669f73`
+
+PR #32 reconciles the harness to v10.24.1 (from 10.21.4); the owner authorised it in chat on 2026-11-26 ("ok to all") although the template backlog is not empty. CI pending at this entry.
