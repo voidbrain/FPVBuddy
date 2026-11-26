@@ -58,9 +58,21 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
+## FPV core package (`@fpvbuddy/fpv-core`)
+
+`src/fpv-core/` hosts the framework-free FPV battery-manager core (charge-state cycles, per-cell internal-resistance logs, due checks, and health evaluation):
+
+```bash
+npm run core:build
+npm run core:test
+```
+
+See the [FPV core public API reference](docs/architecture/fpv-core.md) for exported types, `BatteryRegistry` methods, storage adapter invariants, and usage examples.
+
 ## Working on it
 
 - Agent instructions and workflows: [AGENTS.md](AGENTS.md)
+- Roadmap and milestones: [docs/ROADMAP.md](docs/ROADMAP.md)
 - Backlog and open issues: [docs/BACKLOG.md](docs/BACKLOG.md)
 - Visual tokens and typography: [docs/STYLE-GUIDE.md](docs/STYLE-GUIDE.md)
 - Build VLM worker bundle: `npm run build:worker`
