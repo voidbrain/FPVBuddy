@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import {
-  BATTERY_SCHEMA,
   BatteryRegistry,
   RESISTANCE_CHECK_INTERVAL_CYCLES,
   RESISTANCE_CHECK_INTERVAL_DAYS,
@@ -14,8 +13,7 @@ import {
 } from './index.js';
 
 describe('fpv-core battery registry and logs (F-005-T02)', () => {
-  it('exposes SQLite schema constants, check intervals and per-cell resistance parsing', () => {
-    expect(BATTERY_SCHEMA).toContain('CREATE TABLE IF NOT EXISTS batteries');
+  it('exposes check intervals and per-cell resistance parsing', () => {
     expect(RESISTANCE_CHECK_INTERVAL_DAYS).toBe(90);
     expect(RESISTANCE_CHECK_INTERVAL_CYCLES).toBe(30);
     expect(parseResistanceValues('3.1, 3.25mΩ; 3.0 mO', 3)).toEqual([3.1, 3.25, 3]);
@@ -59,7 +57,7 @@ describe('fpv-core battery registry and logs (F-005-T02)', () => {
     expect(bat7.currentState).toBe('stored');
     expect(bat7.cycles).toBe(0);
 
-    // Duplicate packNumber + series + seriesColor is rejected just like SQLite unique index
+    // Duplicate packNumber + series + seriesColor is rejected just like a unique index
     expect(() =>
       registry.register({
         packNumber: 7,

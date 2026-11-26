@@ -23,7 +23,7 @@
     "npm run check:fast"
   ],
   "escalation": [
-    "A package layout or publishing choice that changes how NERV consumes the core goes to the owner first"
+    "A package layout or publishing choice that changes how consumers install the core goes to the owner first"
   ],
   "effort": {
     "size": "small",

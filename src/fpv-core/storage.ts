@@ -1,50 +1,5 @@
 export type BatteryChargeState = 'charged' | 'stored' | 'discharged';
 
-/** Canonical SQLite DDL for consumers that back `BatteryStorage` with SQLite. */
-export const BATTERY_SCHEMA = `
-CREATE TABLE IF NOT EXISTS batteries(
-  id TEXT PRIMARY KEY,
-  pack_number INTEGER NOT NULL,
-  series TEXT,
-  series_color TEXT,
-  label TEXT NOT NULL,
-  brand TEXT NOT NULL,
-  battery_type TEXT NOT NULL,
-  cell_count INTEGER NOT NULL,
-  capacity_mah INTEGER NOT NULL,
-  purchase_date TEXT NOT NULL,
-  current_state TEXT NOT NULL DEFAULT 'stored',
-  cycles INTEGER NOT NULL DEFAULT 0,
-  retired_at TEXT,
-  resistance_prompted_record_id TEXT,
-  created_at TEXT NOT NULL
-);
-CREATE UNIQUE INDEX IF NOT EXISTS batteries_number_series_idx
-  ON batteries(pack_number, COALESCE(lower(series), ''), COALESCE(lower(series_color), ''));
-CREATE TABLE IF NOT EXISTS battery_usage_records(
-  id TEXT PRIMARY KEY,
-  battery_id TEXT NOT NULL REFERENCES batteries(id) ON DELETE CASCADE,
-  state TEXT NOT NULL,
-  recorded_at TEXT NOT NULL
-);
-CREATE INDEX IF NOT EXISTS battery_usage_battery_idx ON battery_usage_records(battery_id, recorded_at);
-CREATE TABLE IF NOT EXISTS battery_resistance_records(
-  id TEXT PRIMARY KEY,
-  battery_id TEXT NOT NULL REFERENCES batteries(id) ON DELETE CASCADE,
-  values_mohm_json TEXT NOT NULL,
-  cycles_at_record INTEGER NOT NULL DEFAULT 0,
-  recorded_at TEXT NOT NULL
-);
-CREATE INDEX IF NOT EXISTS battery_resistance_battery_idx ON battery_resistance_records(battery_id, recorded_at);
-CREATE TABLE IF NOT EXISTS battery_notes(
-  id TEXT PRIMARY KEY,
-  battery_id TEXT NOT NULL REFERENCES batteries(id) ON DELETE CASCADE,
-  note TEXT NOT NULL,
-  recorded_at TEXT NOT NULL
-);
-CREATE INDEX IF NOT EXISTS battery_notes_battery_idx ON battery_notes(battery_id, recorded_at);
-`;
-
 export interface BatteryRecord {
   id: string;
   packNumber: number;
@@ -136,7 +91,7 @@ function cloneBattery(b: StoredBattery): StoredBattery {
   };
 }
 
-/** Reference in-memory `BatteryStorage` enforcing the same unique and ordering invariants as `BATTERY_SCHEMA`. */
+/** Reference in-memory `BatteryStorage` enforcing the unique and ordering invariants of `BatteryStorage`. */
 export function createInMemoryBatteryStorage(): BatteryStorage {
   const batteries = new Map<string, StoredBattery>();
   const numberSeriesKeys = new Set<string>();
