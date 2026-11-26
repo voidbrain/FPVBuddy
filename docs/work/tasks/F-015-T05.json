@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "id": "F-015-T05",
+  "parent": "F-015",
+  "title": "MCP tools: import build, add doc, wiring answer",
+  "goal": "NERV's fpv.import_build, fpv.add_doc and fpv.wiring_answer have a path through FPVBuddy",
+  "status": "planned",
+  "acceptance": [
+    "MCP tools import a build and add a manufacturer doc (writes, with the F-012-T01 annotation so NERV gates them with approval) and answer a wiring question (read-only); specs cover each; the consumer tool table lists them"
+  ],
+  "dependsOn": [
+    "F-015-T03",
+    "F-015-T04",
+    "F-012-T01"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-26: three tools on the F-015 core and the existing write pattern. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

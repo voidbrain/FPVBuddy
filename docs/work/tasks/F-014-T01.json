@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "id": "F-014-T01",
+  "parent": "F-014",
+  "title": "Blackbox vibration analyzer in the core",
+  "goal": "The core analyzes a blackbox log without storing it",
+  "status": "planned",
+  "acceptance": [
+    "The F-005 core parses a blackbox CSV and returns the vibration report (axis spectra, motor summary, candidates) with behaviour identical to NERV's src/blackbox.ts; it stores nothing; specs carried over from NERV's test/blackbox.test.ts with invented logs"
+  ],
+  "dependsOn": [
+    "F-005-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h",
+    "basis": "Estimated 2026-11-26: a 325-line pure module and its test, moved as is. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}

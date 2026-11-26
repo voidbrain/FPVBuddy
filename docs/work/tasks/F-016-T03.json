@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-016-T03",
+  "parent": "F-016",
+  "title": "Nightly snapshot and off-host copy of FPVBuddy's data",
+  "goal": "FPVBuddy's server data survives a lost disk as well as NERV's does",
+  "status": "planned",
+  "acceptance": [
+    "The server takes a consistent nightly snapshot that passes an integrity check before it replaces the previous file, keeps the agreed number, and copies it off the host as F-016-T01 names; a failure is logged once with its reason and retried; specs on a temporary store cover snapshot, integrity failure and retention"
+  ],
+  "dependsOn": [
+    "F-016-T02",
+    "F-009-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "3 h",
+    "basis": "Estimated 2026-11-26: snapshot and retention as NERV's src/snapshots.ts; the off-host copy depends on the host and carries the uncertainty. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 3,
+    "ownerHours": 0,
+    "baselineAgentHours": 3,
+    "estimateAgentHours": 3
+  }
+}

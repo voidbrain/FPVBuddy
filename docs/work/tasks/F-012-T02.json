@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "id": "F-012-T02",
+  "parent": "F-012",
+  "title": "Write tools: internal resistance and charge cycles",
+  "goal": "NERV can log per-cell resistance and a charge cycle through FPVBuddy",
+  "status": "planned",
+  "acceptance": [
+    "Write tools log per-cell internal resistance and a charge cycle through the F-005 core, with the F-012-T01 annotation and retry-once request id; specs cover each and a refused input"
+  ],
+  "dependsOn": [
+    "F-012-T01"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h",
+    "basis": "Estimated 2026-11-26: two tools on the pattern of F-012-T01 and existing core operations. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "id": "F-012-T01",
+  "parent": "F-012",
+  "title": "Write-tool base and charge-state write over MCP",
+  "goal": "NERV can change a battery's charge state through FPVBuddy, as a write it gates with the owner's approval",
+  "status": "planned",
+  "acceptance": [
+    "FPVBuddy's MCP server (F-009-T02) gains a write tool that sets a battery's charge state through the F-005 core; it is annotated as a write (readOnlyHint false, not idempotent) so NERV gates it as an action needing the owner's approval (nerv:F-101-T10); invalid input is refused with the core's errors",
+    "A caller-supplied request id makes a retried call apply once; specs cover the annotation, a write, a retry and a refused input; the consumer tool table marks it as a write"
+  ],
+  "dependsOn": [
+    "F-009-T02",
+    "F-005-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-26: the first write tool sets the shared annotation and retry-once pattern the other writes reuse; the request-id ledger carries the uncertainty. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

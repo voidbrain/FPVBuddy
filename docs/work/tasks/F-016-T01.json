@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "id": "F-016-T01",
+  "parent": "F-016",
+  "title": "Plan FPVBuddy's data backup against NERV's",
+  "goal": "The backup or replication of FPVBuddy's server data is chosen before any owner data arrives",
+  "status": "planned",
+  "acceptance": [
+    "From where F-009-T01 puts the server and its data, the record compares FPVBuddy's plan with NERV's store (a nightly integrity-checked snapshot, 7 kept, and a replicated standby store on a second machine, NERV-01 to NERV-02): a matching or better plan, or the exact gap (what can be lost, for how long) for the owner to accept"
+  ],
+  "dependsOn": [
+    "F-009-T01"
+  ],
+  "resources": [
+    "docs/**"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h",
+    "basis": "Estimated 2026-11-26: a read of NERV's snapshot and standby docs and the F-009-T01 choice, then a short write-up. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1,
+    "ownerHours": 0,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  }
+}

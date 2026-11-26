@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "id": "F-016-T02",
+  "parent": "F-016",
+  "title": "Owner: accept the backup plan or the recorded gap",
+  "goal": "The owner accepts FPVBuddy's durability before the import",
+  "status": "planned",
+  "acceptance": [
+    "The owner accepts the F-016-T01 plan, or accepts the named gap with its date; with a gap accepted, F-016-T03 and F-016-T04 are cancelled with that reason"
+  ],
+  "dependsOn": [
+    "F-016-T01"
+  ],
+  "resources": [
+    "docs/**"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.25 h owner",
+    "basis": "Estimated 2026-11-26: one decision; its page is the record section F-016-T01 writes. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0,
+    "ownerHours": 0.25,
+    "baselineAgentHours": 0,
+    "estimateAgentHours": 0,
+    "ownerKind": "decision"
+  }
+}

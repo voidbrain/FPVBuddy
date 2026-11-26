@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "id": "F-015-T04",
+  "parent": "F-015",
+  "title": "DIYFPV build import in the core",
+  "goal": "A DIYFPV builder link becomes a stored build in FPVBuddy",
+  "status": "planned",
+  "acceptance": [
+    "The core checks a DIYFPV builder link and parses its page tables into a build as NERV's src/diyfpv-build.ts does; how the server reads the page (NERV uses a browser read) is named in the record; specs carried over from test/diyfpv-build.test.ts"
+  ],
+  "dependsOn": [
+    "F-015-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h",
+    "basis": "Estimated 2026-11-26: a 113-line parser and its test; reading the page server-side carries the uncertainty. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}

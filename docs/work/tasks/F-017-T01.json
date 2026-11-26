@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-017-T01",
+  "parent": "F-017",
+  "title": "NERV export format and mapping into FPVBuddy",
+  "goal": "The file FPVBuddy accepts from NERV's one-time export is defined and validated",
+  "status": "planned",
+  "acceptance": [
+    "A versioned format (documented, with a validator) covers batteries with resistance readings, cycles and notes, fleet and parts, drone models, spares, crashes with their battery-damage links, and builds and manufacturer docs if F-015-T01 keeps them; photos are carried as NERV photo ids mapped to FPVBuddy ids, or moved as files, as the record names; an invented fixture covers every table"
+  ],
+  "dependsOn": [
+    "F-005-T02",
+    "F-010-T04"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-26: NERV's tables are known from F-010's inventory; the photo choice carries the uncertainty. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

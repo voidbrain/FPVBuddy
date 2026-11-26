@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "id": "F-016-T04",
+  "parent": "F-016",
+  "title": "Owner: restore drill",
+  "goal": "A snapshot is shown to restore",
+  "status": "planned",
+  "acceptance": [
+    "The owner restores the newest snapshot into a scratch location following the copy-paste procedure F-016-T03 writes, and the record counts match the live store"
+  ],
+  "dependsOn": [
+    "F-016-T03"
+  ],
+  "resources": [
+    "docs/**"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h owner",
+    "basis": "Estimated 2026-11-26: one procedure; its page is written by F-016-T03. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0,
+    "ownerHours": 0.5,
+    "baselineAgentHours": 0,
+    "estimateAgentHours": 0,
+    "ownerKind": "procedure"
+  }
+}
