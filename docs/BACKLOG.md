@@ -44,7 +44,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Pending |
+| PR / evidence | Pending; [#25](https://github.com/voidbrain/FPVBuddy/pull/25) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
@@ -685,7 +685,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Pending |
+| PR / evidence | Pending; [#25](https://github.com/voidbrain/FPVBuddy/pull/25) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
