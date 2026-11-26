@@ -4,11 +4,11 @@
   "parent": "F-005",
   "title": "Bring the battery core and its tests into the package",
   "goal": "The battery-manager core (charge state and internal resistance logs) lives in the package with its tests passing",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "Core source and its unit tests are in the package; tests pass in CI",
     "Invented test data only",
-    "Text dependency recorded: waits on nerv:F-101-T04 (NERV's side of the move)"
+    "FPVBuddy side of nerv:F-101-T04; waits on nothing in NERV (owner decision 2026-11-26: NERV reaches FPVBuddy over MCP only)"
   ],
   "dependsOn": [
     "F-005-T01"
@@ -25,14 +25,20 @@
     "npm test -- --watch=false"
   ],
   "escalation": [
-    "A package layout or publishing choice that changes how NERV consumes the core goes to the owner first"
+    "A package layout or publishing choice that changes how consumers install the core goes to the owner first"
+  ],
+  "prs": [
+    {
+      "pr": 17,
+      "note": "battery registry, portable storage adapter, resistance health evaluation and unit tests"
+    }
   ],
   "effort": {
     "size": "small",
-    "estimate": "1.5 h remaining",
-    "basis": "Estimated 2026-11-24; uncertain until nerv:F-101-T04 names the core's files and size.",
-    "reviewed": "2026-11-24",
-    "agentHours": 1.5,
+    "estimate": "0 h remaining",
+    "basis": "Implemented 2026-11-26 in PR #17; verification is green CI on PR #17 and merge.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0,
     "baselineAgentHours": 1.5,
     "estimateAgentHours": 1.5
   }
