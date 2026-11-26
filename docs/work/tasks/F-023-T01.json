@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "id": "F-023-T01",
+  "parent": "F-023",
+  "title": "Owner decides: retire, make real, or keep as experiments",
+  "goal": "The prototypes are no longer undecided",
+  "status": "planned",
+  "acceptance": [
+    "Owner decision 2026-11-26 in chat: \"ok to all\" (accepts proposals 1 to 3 of the shared-asset review, solution:F-016-T05); same message: \"nerv and all modules will need to work with Italian\".",
+    "Human action: the owner decides in chat (docs/decisions/on-device-assistant.md); the answer is recorded in F-023 with its date",
+    "Human action: the owner decides in chat; the agent records the answer"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "docs/work/records/F-023.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "evidence-review"
+  ],
+  "privacy": "Neutral invented data only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast; final applicable CI"
+  ],
+  "escalation": [
+    "The decision is the owner's; the agent does not pick"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.25 h owner",
+    "basis": "A decision and its recording. Estimated 2026-11-26 at agent speed from the solution:F-016 shared-asset review. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0,
+    "baselineAgentHours": 0,
+    "estimateAgentHours": 0,
+    "ownerHours": 0.25,
+    "ownerKind": "decision"
+  },
+  "prs": [
+    {
+      "pr": 31,
+      "note": "plan"
+    }
+  ],
+  "ownerLink": "docs/decisions/on-device-assistant.md"
+}

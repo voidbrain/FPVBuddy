@@ -196,7 +196,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h agent + 0.5 h owner | [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T01](#f-016-t01), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02) | 🤖 | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h agent + 0.5 h owner | [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T01](#f-016-t01), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02) | 🤖 | — | — |
 
 💻 **→** Next: F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools (Planned).
 
@@ -211,7 +211,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
 |---|---|---|---|---|---|---|---|:---:|
 | 🟢 Small | <a id="f-009-t01"></a>F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools | 1 h | 0 h | 1 h | Planned | — | [F-009-T02](#f-009-t02), [F-016-T01](#f-016-t01) | 🤖 |
-| 🟡 Medium | <a id="f-009-t02"></a>F-009-T02 — MCP server with read-only battery tools | 3 h | 0 h | 3 h | Planned | [F-009-T01](#f-009-t01) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T01](#f-011-t01), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-009-t02"></a>F-009-T02 — MCP server with read-only battery tools | 3 h | 0 h | 3 h | Planned | [F-009-T01](#f-009-t01) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T01](#f-011-t01), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-009-t03"></a>F-009-T03 — Battery tools return surface-typed data for bricks surface cards | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T02](#f-008-t02) | [F-009-T05](#f-009-t05), [F-011-T03](#f-011-t03) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-009-t04"></a>F-009-T04 — Full battery screen for NERV: MCP Apps page or link | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T05](#f-008-t05) | [F-009-T05](#f-009-t05), [F-011-T05](#f-011-t05) | ⏳ 🤖 |
 | 🟢 Small | <a id="f-009-t05"></a>F-009-T05 — Owner: see FPVBuddy's battery card and full screen in NERV | 0 h | 0 h | 0 h agent + 0.5 h owner | Planned | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04) | — | ⏳ 🧑‍🔧 |
@@ -280,7 +280,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟣 Very large | 12 h agent + 0.5 h owner | [F-009-T02](#f-009-t02), [F-010-T01](#f-010-t01), [F-010-T02](#f-010-t02), [F-010-T03](#f-010-t03), [F-009-T03](#f-009-t03), [F-008-T05](#f-008-t05), [F-009-T04](#f-009-t04) | — | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🟣 Very large | 12 h agent + 0.5 h owner | [F-009-T02](#f-009-t02), [F-010-T01](#f-010-t01), [F-010-T02](#f-010-t02), [F-010-T03](#f-010-t03), [F-009-T03](#f-009-t03), [F-008-T05](#f-008-t05), [F-009-T04](#f-009-t04) | [F-022-T03](#f-022-t03) | ⏳ | — | — |
 
 💻 **→** Next: F-011-T01 — Read-only MCP tools: list drones and drone detail (Planned).
 
@@ -294,12 +294,12 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
 |---|---|---|---|---|---|---|---|:---:|
-| 🟡 Medium | <a id="f-011-t01"></a>F-011-T01 — Read-only MCP tools: list drones and drone detail | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-010-T01](#f-010-t01) | [F-011-T02](#f-011-t02) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-011-t01"></a>F-011-T01 — Read-only MCP tools: list drones and drone detail | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-010-T01](#f-010-t01) | [F-011-T02](#f-011-t02), [F-022-T03](#f-022-t03) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-011-t02"></a>F-011-T02 — Read-only MCP tools: spares by category and recent crashes | 1.5 h | 0 h | 1.5 h | Planned | [F-011-T01](#f-011-t01), [F-010-T02](#f-010-t02), [F-010-T03](#f-010-t03) | [F-011-T03](#f-011-t03), [F-011-T06](#f-011-t06) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-011-t03"></a>F-011-T03 — Fleet tools return surface-typed data for bricks surface cards | 2 h | 0 h | 2 h | Planned | [F-011-T02](#f-011-t02), [F-009-T03](#f-009-t03) | [F-011-T07](#f-011-t07) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-011-t04"></a>F-011-T04 — Drones and warehouse screens in FPVBuddy, built with bricks | 3 h | 0 h | 3 h | Planned | [F-010-T03](#f-010-t03), [F-008-T05](#f-008-t05) | [F-011-T05](#f-011-t05) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-011-t05"></a>F-011-T05 — Full drones and warehouse screens for NERV: MCP Apps page or link | 1.5 h | 0 h | 1.5 h | Planned | [F-011-T04](#f-011-t04), [F-009-T04](#f-009-t04) | [F-011-T07](#f-011-t07) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-011-t06"></a>F-011-T06 — Write tool: log a crash, gated as an action needing approval | 2 h | 0 h | 2 h | Planned | [F-011-T02](#f-011-t02), [F-010-T03](#f-010-t03) | [F-011-T07](#f-011-t07) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-011-t06"></a>F-011-T06 — Write tool: log a crash, gated as an action needing approval | 2 h | 0 h | 2 h | Planned | [F-011-T02](#f-011-t02), [F-010-T03](#f-010-t03) | [F-011-T07](#f-011-t07), [F-022-T03](#f-022-t03) | ⏳ 🤖 |
 | 🟢 Small | <a id="f-011-t07"></a>F-011-T07 — Owner: see drones, warehouse and a logged crash in NERV | 0 h | 0 h | 0 h agent + 0.5 h owner | Planned | [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-011-T06](#f-011-t06) | — | ⏳ 🧑‍🔧 |
 | 🟣 Very large | **Total** | 12 h | 0 h (0 of 7 steps recorded) | 12 h agent + 0.5 h owner | 0 of 7 completed | | | |
 
@@ -324,7 +324,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 5 h | [F-009-T02](#f-009-t02), [F-010-T02](#f-010-t02) | [F-015-T05](#f-015-t05) | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 5 h | [F-009-T02](#f-009-t02), [F-010-T02](#f-010-t02) | [F-015-T05](#f-015-t05), [F-022-T02](#f-022-t02), [F-022-T03](#f-022-t03) | ⏳ | — | — |
 
 💻 **→** Next: F-012-T01 — Write-tool base and charge-state write over MCP (Planned).
 
@@ -338,9 +338,9 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-012-t01"></a>F-012-T01 — Write-tool base and charge-state write over MCP | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02) | [F-012-T02](#f-012-t02), [F-012-T03](#f-012-t03), [F-015-T05](#f-015-t05) |
+| 🟡 Medium | <a id="f-012-t01"></a>F-012-T01 — Write-tool base and charge-state write over MCP | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02) | [F-012-T02](#f-012-t02), [F-012-T03](#f-012-t03), [F-015-T05](#f-015-t05), [F-022-T02](#f-022-t02) |
 | 🟡 Medium | <a id="f-012-t02"></a>F-012-T02 — Write tools: internal resistance and charge cycles | 1.5 h | 0 h | 1.5 h | Planned | [F-012-T01](#f-012-t01) | — |
-| 🟡 Medium | <a id="f-012-t03"></a>F-012-T03 — Write tools: spares in and out | 1.5 h | 0 h | 1.5 h | Planned | [F-012-T01](#f-012-t01), [F-010-T02](#f-010-t02) | — |
+| 🟡 Medium | <a id="f-012-t03"></a>F-012-T03 — Write tools: spares in and out | 1.5 h | 0 h | 1.5 h | Planned | [F-012-T01](#f-012-t01), [F-010-T02](#f-010-t02) | [F-022-T03](#f-022-t03) |
 | 🔴 Large | **Total** | 5 h | 0 h (0 of 3 steps recorded) | 5 h | 0 of 3 completed | | |
 
 <details>
@@ -443,7 +443,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 7 h | [F-012-T01](#f-012-t01) | — | 🤖 | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h | [F-012-T01](#f-012-t01), [F-022-T01](#f-022-t01) | — | 🤖 | — | — |
 
 💻 **→** Next: F-015-T02 — Builds, components and wiring in the core (Planned).
 
@@ -458,10 +458,11 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
 |---|---|---|---|---|---|---|---|:---:|---|
 | 🟡 Medium | <a id="f-015-t02"></a>F-015-T02 — Builds, components and wiring in the core | 2 h | 0 h | 2 h | Planned | — | [F-015-T03](#f-015-t03), [F-015-T04](#f-015-t04) | 🤖 | — |
-| 🟡 Medium | <a id="f-015-t03"></a>F-015-T03 — Manufacturer docs and wiring answers in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-015-T02](#f-015-t02) | [F-015-T05](#f-015-t05) | ⏳ 🤖 | — |
+| 🟡 Medium | <a id="f-015-t03"></a>F-015-T03 — Manufacturer docs and wiring answers in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-015-T02](#f-015-t02) | [F-015-T05](#f-015-t05), [F-015-T06](#f-015-t06) | ⏳ 🤖 | — |
 | 🟡 Medium | <a id="f-015-t04"></a>F-015-T04 — DIYFPV build import in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-015-T02](#f-015-t02) | [F-015-T05](#f-015-t05) | ⏳ 🤖 | — |
 | 🟡 Medium | <a id="f-015-t05"></a>F-015-T05 — MCP tools: import build, add doc, wiring answer | 2 h | 0 h | 2 h | Planned | [F-015-T03](#f-015-t03), [F-015-T04](#f-015-t04), [F-012-T01](#f-012-t01) | — | ⏳ 🤖 | — |
-| 🔴 Large | **Total** | 7 h | 0 h (0 of 5 steps recorded) | 7 h | 1 of 5 completed | | | | |
+| 🟢 Small | <a id="f-015-t06"></a>F-015-T06 — Wiring-answer cases from cited sources, Italian and English | 1 h | 0 h | 1 h | Planned | [F-015-T03](#f-015-t03), [F-022-T01](#f-022-t01) | — | ⏳ 🤖 | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan |
+| 🔴 Large | **Total** | 8 h | 0 h (0 of 6 steps recorded) | 8 h | 1 of 6 completed | | | | |
 
 <details><summary>Done steps (1)</summary>
 
@@ -478,7 +479,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-015-T01: [PR #19](https://github.com/voidbrain/FPVBuddy/pull/19). [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (record) |
+| PR / evidence | Steps: F-015-T01: [PR #19](https://github.com/voidbrain/FPVBuddy/pull/19) · F-015-T06: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan. [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (record); [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (F-015-T06) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
@@ -715,6 +716,85 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 | Field | Value |
 |---|---|
 | PR / evidence | Steps: F-021-T01: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan. [#26](https://github.com/voidbrain/FPVBuddy/pull/26) (plan); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-022"></a>[✨ F-022](#top)
+
+**Gauntlet pack for FPVBuddy's MCP tools (fpvbuddy-v1), Italian and English**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔶 P2 | 🟡 Medium | 3 h | [F-009-T02](#f-009-t02), [F-012-T01](#f-012-t01), [F-011-T01](#f-011-t01), [F-011-T06](#f-011-t06), [F-012-T03](#f-012-t03) | [F-015-T06](#f-015-t06) | 🤖 | — | — |
+
+💻 **→** Next: F-022-T01 — Pin gauntlet-protocol, validate in CI and record the skips (Planned).
+
+| | |
+|---|---|
+| **Issue** | Once NERV's FPV tools move here, NERV's models call FPVBuddy's battery, fleet, spares and crash tools, several of them writes, and no case checks the tool, its arguments or the approval. The owner phrases are Italian ("carica le batterie 7 e 8 blu", nerv:F-008; "ho crashato Smoke, motore sinistro inferiore rotto … quanti ne sono rimasti di scorta (nuovi/usati)?", nerv:F-098); a spare count changes only when the phrase says a spare was used. Owner decision 2026-11-26 in chat: "ok to all" (accepts proposals 1 to 3 of the shared-asset review, solution:F-016-T05); same message: "nerv and all modules will need to work with Italian". |
+| **Reproduce** | `ls evals/gauntlet` finds nothing; `grep gauntlet package.json` finds no pin. |
+| **Check** | `evals/gauntlet/fpvbuddy-v1.json`, model layer, regression and holdout splits, Italian and English phrases, exact-json, invented batteries and drones; `gauntlet validate` in CI from a pinned devDependency; a test that every tool a case names is registered; the skips are recorded (storage reminders: deterministic; Blackbox report: deterministic analyzer; import of NERV's export F-017: no model); NERV runs the pack (nerv:F-120-T11). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-022-t01"></a>F-022-T01 — Pin gauntlet-protocol, validate in CI and record the skips | 0.5 h | 0 h | 0.5 h | Planned | — | [F-015-T06](#f-015-t06), [F-022-T02](#f-022-t02) | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan |
+| 🟡 Medium | <a id="f-022-t02"></a>F-022-T02 — Battery cases, Italian and English | 1.25 h | 0 h | 1.25 h | Planned | [F-022-T01](#f-022-t01), [F-009-T02](#f-009-t02), [F-012-T01](#f-012-t01) | [F-022-T03](#f-022-t03) | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan |
+| 🟡 Medium | <a id="f-022-t03"></a>F-022-T03 — Fleet, spares and crash cases, Italian and English | 1.25 h | 0 h | 1.25 h | Planned | [F-022-T02](#f-022-t02), [F-011-T01](#f-011-t01), [F-011-T06](#f-011-t06), [F-012-T03](#f-012-t03) | — | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan |
+| 🟡 Medium | **Total** | 3 h | 0 h (0 of 3 steps recorded) | 3 h | 0 of 3 completed | | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-022.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-022-T01: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan · F-022-T02: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan · F-022-T03: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan. [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (plan); [review page](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-shared-assets/gauntlet-fpvbuddy.md); owner decision 2026-11-26 |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-023"></a>[✨ F-023](#top)
+
+**Decide the on-device assistant and vision demo**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔶 P2 | 🟢 Small | 0.5 h agent + 0.25 h owner | — | — | ⏳ | — | 🤔 |
+
+🧑 **→** F-023-T01: pick A, B or C for the footer assistant and vision demo ([options](https://github.com/voidbrain/FPVBuddy/blob/main/docs/decisions/on-device-assistant.md)).
+
+| | |
+|---|---|
+| **Issue** | `src/app/shared/UI/llm-ui/llm-ui.ts` and `vision-ui/vision-ui.ts` put a 450M model (`lfm2-vl-450m-q4_0`) in the app footer on `main` with no record: an assistant that calls `chargeBattery`, `dischargeBattery` and `storeBattery` whose handlers only log, gated by an English-only keyword list (an Italian phrase such as "carica la batteria" is not let through), and a camera-frame description demo (`src/workers/vlm-worker.ts`). Neither has a Gauntlet case or a recorded skip. Options in plain words: [decision page](https://github.com/voidbrain/FPVBuddy/blob/main/docs/decisions/on-device-assistant.md). Owner decision 2026-11-26 in chat: "ok to all" (accepts proposals 1 to 3 of the shared-asset review, solution:F-016-T05); same message: "nerv and all modules will need to work with Italian". |
+| **Reproduce** | Open the app, the footer assistant answers "carica la batteria" with nothing (keyword gate) and "charge the battery" with a logged call only. |
+| **Check** | The owner's decision (A, B or C) is recorded with its date; A removes the prototypes and their services and worker; B opens a record with Italian and English cases; C records the skip. In every case the Italian behaviour is stated (owner 2026-11-26: all modules work with Italian). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
+|---|---|---|---|---|---|---|---|:---:|---|
+| 🟢 Small | <a id="f-023-t01"></a>F-023-T01 — Owner decides: retire, make real, or keep as experiments | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | — | [F-023-T02](#f-023-t02) | [🤔](decisions/on-device-assistant.md) | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan |
+| 🟢 Small | <a id="f-023-t02"></a>F-023-T02 — Apply the decision | 0.5 h | 0 h | 0.5 h | Planned | [F-023-T01](#f-023-t01) | — | ⏳ 🤖 | [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan |
+| 🟢 Small | **Total** | 0.5 h | 0 h (0 of 2 steps recorded) | 0.5 h agent + 0.25 h owner | 0 of 2 completed | | | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-023.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-023-T01: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan · F-023-T02: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan. [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (plan); [review page](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-shared-assets/gauntlet-fpvbuddy.md); owner decision 2026-11-26 |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |

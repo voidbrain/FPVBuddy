@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "id": "F-022-T03",
+  "parent": "F-022",
+  "title": "Fleet, spares and crash cases, Italian and English",
+  "goal": "A model's fleet, spares and crash tool use is measured",
+  "status": "planned",
+  "acceptance": [
+    "Owner decision 2026-11-26 in chat: \"ok to all\" (accepts proposals 1 to 3 of the shared-asset review, solution:F-016-T05); same message: \"nerv and all modules will need to work with Italian\".",
+    "Cases (when F-011 registers its tools) cover drone detail, spares by category, a crash log and spares in and out, Italian first: \"ho crashato Smoke, motore sinistro inferiore rotto … quanti ne sono rimasti di scorta (nuovi/usati)?\"; a spare count changes only when the phrase says a spare was used; English equivalents",
+    "The pack is tagged so NERV can run it (nerv:F-120-T11)"
+  ],
+  "dependsOn": [
+    "F-022-T02",
+    "F-011-T01",
+    "F-011-T06",
+    "F-012-T03"
+  ],
+  "resources": [
+    "evals/gauntlet/fpvbuddy-v1.json",
+    "test/**",
+    "docs/work/records/F-022.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "bounded-edit",
+    "regression-design"
+  ],
+  "privacy": "Neutral invented data only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast; final applicable CI"
+  ],
+  "escalation": [
+    "Material scope growth or effort increase goes to the owner before adoption"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.25 h agent",
+    "basis": "About 10 to 14 cases, half Italian. Estimated 2026-11-26 at agent speed from the solution:F-016 shared-asset review. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.25,
+    "baselineAgentHours": 1.25,
+    "estimateAgentHours": 1.25
+  },
+  "prs": [
+    {
+      "pr": 31,
+      "note": "plan"
+    }
+  ]
+}

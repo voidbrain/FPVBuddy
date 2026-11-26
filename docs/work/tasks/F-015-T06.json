@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "id": "F-015-T06",
+  "parent": "F-015",
+  "title": "Wiring-answer cases from cited sources, Italian and English",
+  "goal": "Wiring answers are checked against the build and the manufacturer's documents",
+  "status": "planned",
+  "acceptance": [
+    "Owner decision 2026-11-26 in chat: \"ok to all\" (accepts proposals 1 to 3 of the shared-asset review, solution:F-016-T05); same message: \"nerv and all modules will need to work with Italian\".",
+    "Cases in fpvbuddy-v1 give a build and manufacturer excerpts in the prompt and expect the answer with the cited source ids, and a decline when the sources do not say; Italian first (\"come collego il motore 2 all'ESC?\") and English; graded like research-v1 (gauntlet-protocol:F-025-T02; cited ids as a set, json-match once released)"
+  ],
+  "dependsOn": [
+    "F-015-T03",
+    "F-022-T01"
+  ],
+  "resources": [
+    "evals/gauntlet/fpvbuddy-v1.json",
+    "docs/work/records/F-015.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "bounded-edit",
+    "regression-design"
+  ],
+  "privacy": "Neutral invented data only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast; final applicable CI"
+  ],
+  "escalation": [
+    "Material scope growth or effort increase goes to the owner before adoption"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1.0 h agent",
+    "basis": "About 8 cases from invented builds; waits on gauntlet-protocol:F-025-T02. Estimated 2026-11-26 at agent speed from the solution:F-016 shared-asset review. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.0,
+    "baselineAgentHours": 1.0,
+    "estimateAgentHours": 1.0
+  },
+  "prs": [
+    {
+      "pr": 31,
+      "note": "plan"
+    }
+  ]
+}
