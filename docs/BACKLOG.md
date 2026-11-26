@@ -14,6 +14,44 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 ---
 
+### <a id="b-007"></a>[🐞 B-007](#top)
+
+**Spec files are type-checked**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔶 P2 | 🟢 Small | 0 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: B-007-T01 — Type-check app and core specs (Implemented; verification pending).
+
+| | |
+|---|---|
+| **Issue** | `typecheck` (and CI's Type check) ran `tsconfig.app.json`, which excludes `*.spec.ts`, and the FPV core's own `tsconfig` excludes its specs, which Vitest runs without checking types: a wrong call in a spec ran unchecked. Found by the coordinator's dormant-checks sweep, 2026-11-26 (T5, proposal 9). |
+| **Reproduce** | On `main` `6043323`: `package.json` `typecheck` names only `tsconfig.app.json`; `src/fpv-core/tsconfig.json` excludes `**/*.spec.ts`. |
+| **Check** | `npm run typecheck` (now CI's Type check step) also runs `tsc -p tsconfig.spec.json --noEmit` (all `src/**/*.spec.ts`, core specs included) and `tsc -p src/fpv-core/tsconfig.spec.json` (the core and its specs under the core's stricter options); both pass. They found no error when added, so no test changed. |
+
+**Steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status |
+|---|---|---|---|---|---|
+| 🟢 Small | <a id="b-007-t01"></a>B-007-T01 — Type-check app and core specs | 0.5 h | 0 h | 0 h | Implemented; verification pending |
+| 🟢 Small | **Total** | 0.5 h | 0 h (0 of 1 steps recorded) | 0 h | 0 of 1 completed |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/B-007.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Pending |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
 ### <a id="f-005"></a>[✨ F-005](#top)
 
 **M1 — FPV battery core package**
@@ -608,6 +646,46 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 | Field | Value |
 |---|---|
 | PR / evidence | Steps: F-018-T01: [PR #24](https://github.com/voidbrain/FPVBuddy/pull/24) audit.enforce true. [#24](https://github.com/voidbrain/FPVBuddy/pull/24) |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-019"></a>[✨ F-019](#top)
+
+**Turn on the dormant procedure settings: reviews, coverage enforcement, work usage, behaviour runner**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟢 Small | 1 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-019-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings (Implemented; verification pending).
+
+| | |
+|---|---|
+| **Issue** | The 2026-11-26 dormant-checks sweep (coordinator `docs/audits/2026-11-26-dormant-checks.md`, rows S1, S2, S3, S5) found no periodic reviews (`reviews` unset), coverage regressions that only warn (`coverage.enforce` unset), work-usage measurement off and no `behaviour.runner`. |
+| **Reproduce** | `.harness.json` on `main` `6043323`: no `reviews`, no `coverage.enforce`, `workUsage.enabled: false`, `behaviour` `{times: 3}`. |
+| **Check** | `.harness.json` sets `reviews` (token, architecture, skills at 30 days), `coverage.enforce: true`, `workUsage.enabled: true` and `behaviour.runner`; the first architecture review with its outside-landscape comparison is `docs/reviews/architecture/2026-11-26.md`; CI passes with enforcement on (or a real drop is fixed or recorded). First token and skills reviews: F-019-T03. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status |
+|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-019-t01"></a>F-019-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings | 0.25 h | 0 h | 0 h | Implemented; verification pending |
+| 🟢 Small | <a id="f-019-t02"></a>F-019-T02 — First architecture review with outside-landscape comparison | 0.5 h | 0 h | 0 h | Implemented; verification pending |
+| 🟢 Small | <a id="f-019-t03"></a>F-019-T03 — First token and skills reviews | 1 h | 0 h | 1 h | Planned |
+| 🟢 Small | **Total** | 1.75 h | 0 h (0 of 3 steps recorded) | 1 h | 0 of 3 completed |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-019.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Pending |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |

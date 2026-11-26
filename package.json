@@ -50,7 +50,7 @@
     "core:build": "npm --prefix src/fpv-core run build",
     "core:test": "npm --prefix src/fpv-core test",
     "core:pack-check": "node scripts/check-core-pack.mjs && node --test scripts/check-core-pack.test.mjs",
-    "typecheck": "npx tsc -p tsconfig.app.json --noEmit --noUnusedLocals --noUnusedParameters"
+    "typecheck": "npx tsc -p tsconfig.app.json --noEmit --noUnusedLocals --noUnusedParameters && npx tsc -p tsconfig.spec.json --noEmit && npx tsc -p src/fpv-core/tsconfig.spec.json"
   },
   "private": true,
   "packageManager": "npm@11.6.4",
