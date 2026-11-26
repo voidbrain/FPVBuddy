@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-013-T02",
+  "parent": "F-013",
+  "title": "Storage alert rules in the core",
+  "goal": "The core computes which storage alerts are open at a given time, with NERV's timing",
+  "status": "planned",
+  "acceptance": [
+    "The F-005 core computes open storage alerts for each battery not stored or retired: 21:00 local the same day (the next day once 21:00 has passed), then after 5 days at 21:00, then daily at 21:00, cleared once the battery is stored or retired; timezone-aware; the schedule state persists through the core's storage",
+    "Specs carried over or rewritten from NERV's test/battery-storage-reminders.test.ts with invented data cover each stage, the past-21:00 case, a DST change and the clear"
+  ],
+  "dependsOn": [
+    "F-013-T01"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-26: a 136-line NERV module and its test, moved from reminder rows to computed alerts. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}

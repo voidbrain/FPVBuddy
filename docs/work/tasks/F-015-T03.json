@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "id": "F-015-T03",
+  "parent": "F-015",
+  "title": "Manufacturer docs and wiring answers in the core",
+  "goal": "The core keeps manufacturer docs and answers wiring questions from them",
+  "status": "planned",
+  "acceptance": [
+    "The core stores manufacturer docs and answers a wiring question (pinout entries, sources) as NERV's wiring answer does; specs with invented docs"
+  ],
+  "dependsOn": [
+    "F-015-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h",
+    "basis": "Estimated 2026-11-26: the docs and answer half of src/fpv-builds.ts. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}

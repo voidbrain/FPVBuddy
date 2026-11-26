@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-013-T03",
+  "parent": "F-013",
+  "title": "MCP alerts tool for storage alerts",
+  "goal": "NERV can poll FPVBuddy's open alerts the way it polls Grover's",
+  "status": "planned",
+  "acceptance": [
+    "A read-only MCP tool lists the open storage alerts in the shape F-013-T01 names (nerv:F-122's contract), newest first; a re-poll in the same stage returns the same key and since; specs cover a raised, a repeated-daily and a cleared alert; the consumer tool table lists it"
+  ],
+  "dependsOn": [
+    "F-013-T02",
+    "F-009-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h",
+    "basis": "Estimated 2026-11-26: one read-only tool over F-013-T02 on an existing server. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}

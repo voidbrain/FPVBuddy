@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "id": "F-017-T02",
+  "parent": "F-017",
+  "title": "Import command with dry run, run-once guard and ID map",
+  "goal": "NERV's export can be imported into FPVBuddy once, safely",
+  "status": "planned",
+  "acceptance": [
+    "An import on the server host (a command, or an MCP write tool gated with approval if F-009-T01 leaves no host access; the record names which) validates the file, reports per-table counts in a dry run without writing, imports in one transaction, refuses a second run over the same export, and writes the NERV-to-FPVBuddy ID map to a path outside the repository",
+    "Specs on the invented fixture cover dry run, import, a refused second run and a malformed file"
+  ],
+  "dependsOn": [
+    "F-017-T01",
+    "F-009-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "3 h",
+    "basis": "Estimated 2026-11-26: one transactional import over the core operations of F-005 and F-010. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 3,
+    "ownerHours": 0,
+    "baselineAgentHours": 3,
+    "estimateAgentHours": 3
+  }
+}

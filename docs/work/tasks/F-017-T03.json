@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "id": "F-017-T03",
+  "parent": "F-017",
+  "title": "Import report: counts and a field-by-field sample",
+  "goal": "The import can be checked against NERV's side by counts and a sample",
+  "status": "planned",
+  "acceptance": [
+    "After an import, a read-only report gives per-table counts and a chosen sample of records field by field, keyed by both ids, so nerv:F-101-T08 can compare them with NERV's; specs on the fixture; the report holds owner data and is never written into the repository"
+  ],
+  "dependsOn": [
+    "F-017-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h",
+    "basis": "Estimated 2026-11-26: a read-only report over the import's ID map. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}

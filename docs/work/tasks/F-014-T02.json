@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-014-T02",
+  "parent": "F-014",
+  "title": "MCP tool: blackbox report",
+  "goal": "NERV's fpv.blackbox_report has a path through FPVBuddy",
+  "status": "planned",
+  "acceptance": [
+    "A read-only MCP tool takes a blackbox log (inline text with a stated size cap, refused above it) and returns the F-014-T01 report; nothing is written or kept; specs cover a report, an oversize log and a malformed one; the consumer tool table lists it"
+  ],
+  "dependsOn": [
+    "F-014-T01",
+    "F-009-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h",
+    "basis": "Estimated 2026-11-26: one stateless tool; how a large log reaches the server carries the uncertainty. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1,
+    "ownerHours": 0,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  }
+}

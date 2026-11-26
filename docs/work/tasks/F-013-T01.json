@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "id": "F-013-T01",
+  "parent": "F-013",
+  "title": "Plan storage alerts against NERV's alert contract",
+  "goal": "How FPVBuddy raises storage reminders as alerts NERV delivers once is settled before code",
+  "status": "planned",
+  "acceptance": [
+    "The record names the alert shape (nerv:F-122's contract: key, level warn|bad, message, numeric since; what replaces Grover's roomId/potId for FPV), the key and since of each stage so 21:00 the same day, after 5 days and then daily each reach the owner once, how a stored or retired battery clears it, the Italian and English wording carried over from NERV's src/battery-storage-reminders.ts, and where the schedule state lives; a contract change NERV must make is named as NERV's, never done here"
+  ],
+  "dependsOn": [
+    "F-005-T02"
+  ],
+  "resources": [
+    "docs/**"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h",
+    "basis": "Estimated 2026-11-26: a read of NERV's reminder code, its test and the F-122 design, then a short write-up. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1,
+    "ownerHours": 0,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  }
+}

@@ -20,13 +20,13 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟡 Medium | 1.5 h | — | [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03), [F-010-T05](#f-010-t05) | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟡 Medium | 1.5 h | — | [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03), [F-010-T05](#f-010-t05), [F-012-T01](#f-012-t01), [F-013-T01](#f-013-t01), [F-014-T01](#f-014-t01), [F-015-T02](#f-015-t02), [F-017-T01](#f-017-t01) | 🤖 | — | — |
 
 💻 **→** Next: F-005-T02 — Bring the battery core and its tests into the package (Implemented; verification pending).
 
 | | |
 |---|---|
-| **Issue** | Roadmap milestone M1, agreed by the owner 2026-11-24 (F-004-T03, option A): FPVBuddy hosts the FPV battery-manager core (logging charge state and internal resistance) as a plain TypeScript package with its own tests, so other projects consume it instead of keeping their own copy. |
+| **Issue** | Roadmap milestone M1, agreed by the owner 2026-11-24 (F-004-T03, option A): FPVBuddy hosts the FPV battery-manager core (logging charge state and internal resistance) as a plain TypeScript package with its own tests, so other projects consume it instead of keeping their own copy. NERV is not one of them: NERV reaches FPVBuddy over MCP (owner decision 2026-11-26, nerv:F-101-T05 cancelled). |
 | **Reproduce** | Run `npm run core:build && npm run core:test` to build and test `@fpvbuddy/fpv-core` (`src/fpv-core/`); public API documentation (F-005-T03) and standalone consumer install check (F-005-T04) remain. |
 | **Check** | The core builds and is tested in this repository's CI; its public API is documented; a consumer can install it without the FPVBuddy app ([roadmap M1](ROADMAP.md#milestones)). |
 
@@ -34,7 +34,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
 |---|---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 0 h | Implemented; verification pending | — | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04), [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03) | [PR #17](https://github.com/voidbrain/FPVBuddy/pull/17) battery registry, portable storage adapter, resistance health evaluation and unit tests |
+| 🟢 Small | <a id="f-005-t02"></a>F-005-T02 — Bring the battery core and its tests into the package | 1.5 h | 0 h | 0 h | Implemented; verification pending | — | [F-005-T03](#f-005-t03), [F-005-T04](#f-005-t04), [F-009-T01](#f-009-t01), [F-010-T01](#f-010-t01), [F-010-T03](#f-010-t03), [F-012-T01](#f-012-t01), [F-013-T01](#f-013-t01), [F-014-T01](#f-014-t01), [F-015-T02](#f-015-t02), [F-017-T01](#f-017-t01) | [PR #17](https://github.com/voidbrain/FPVBuddy/pull/17) battery registry, portable storage adapter, resistance health evaluation and unit tests |
 | 🟢 Small | <a id="f-005-t03"></a>F-005-T03 — Document the core's public API | 0.5 h | 0 h | 0.5 h | Planned | [F-005-T02](#f-005-t02) | [F-010-T05](#f-010-t05) | — |
 | 🟢 Small | <a id="f-005-t04"></a>F-005-T04 — Install check without the FPVBuddy app | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | — | — |
 | 🟡 Medium | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 1.5 h | 1 of 4 completed | | | |
@@ -160,7 +160,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | | |
 |---|---|
-| **Issue** | FPVBuddy styles every screen with Tailwind utilities over its own Material-3-like palette in `src/styles.css` `@theme`. The solution's shared Angular UI library 🧱 bricks (`voidbrain/bricks`, package `@voidbrain/bricks`: tokens primitive → semantic → component, themes base, plain and eva, foundations, components, patterns, genUI surfaces, a live-view helper) is being built (coordinator [solution:F-012](https://github.com/voidbrain/coordinator/blob/main/docs/BACKLOG.md#f-012)). Owner request 2026-11-25. Rules: FPVBuddy restyles by theme, never by overriding a bricks component; a component joins bricks only once a project needs it; one-offs stay here. The battery views (and a fleet view, which FPVBuddy does not have yet) are shared with NERV's FPV pack ([nerv:F-101](https://github.com/voidbrain/nerv/blob/main/docs/BACKLOG.md#f-101), whose battery core moves here in F-005), so they were candidates for a bricks pattern or a later shared domain package; the owner decided on 2026-11-25 (F-008-T07) that they live in FPVBuddy and NERV's FPV pack views retire once the core moves (nerv:F-101-T04); NERV shows them over MCP (F-009). |
+| **Issue** | FPVBuddy styles every screen with Tailwind utilities over its own Material-3-like palette in `src/styles.css` `@theme`. The solution's shared Angular UI library 🧱 bricks (`voidbrain/bricks`, package `@voidbrain/bricks`: tokens primitive → semantic → component, themes base, plain and eva, foundations, components, patterns, genUI surfaces, a live-view helper) is being built (coordinator [solution:F-012](https://github.com/voidbrain/coordinator/blob/main/docs/BACKLOG.md#f-012)). Owner request 2026-11-25. Rules: FPVBuddy restyles by theme, never by overriding a bricks component; a component joins bricks only once a project needs it; one-offs stay here. The battery views (and a fleet view, which FPVBuddy does not have yet) are shared with NERV's FPV pack ([nerv:F-101](https://github.com/voidbrain/nerv/blob/main/docs/BACKLOG.md#f-101), whose battery core moves here in F-005; NERV reaches FPVBuddy over MCP (owner decision 2026-11-26, nerv:F-101-T05 cancelled)), so they were candidates for a bricks pattern or a later shared domain package; the owner decided on 2026-11-25 (F-008-T07) that they live in FPVBuddy and NERV's FPV pack views retire once the core moves (nerv:F-101-T04); NERV shows them over MCP (F-009). |
 | **Reproduce** | `src/styles.css` defines `--color-*`, fonts and radii in a Tailwind `@theme`; `package.json` has no `@voidbrain/bricks`. |
 | **Check** | Runs on Angular 22 (F-007); pins one `@voidbrain/bricks` release and takes its tokens with an FPVBuddy theme (today's dark palette, local fonts, offline PWA); each piece mapped below uses its bricks token, component or pattern with no local override; Tailwind utilities read bricks tokens; FPVBuddy-only pieces are listed in `docs/STYLE-GUIDE.md`; each generic piece bricks lacked is a merged bricks PR the app then uses; the owner's decision on the battery and fleet views is recorded; specs, build and CI pass; the owner's look on the phone. |
 
@@ -206,7 +206,7 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h agent + 0.5 h owner | [F-005-T02](#f-005-t02), [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05) | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h agent + 0.5 h owner | [F-005-T02](#f-005-t02), [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T01](#f-016-t01), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02) | ⏳ | — | — |
 
 💻 **→** Next: F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools (Planned).
 
@@ -220,8 +220,8 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
 |---|---|---|---|---|---|---|---|:---:|
-| 🟢 Small | <a id="f-009-t01"></a>F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | [F-009-T02](#f-009-t02) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-009-t02"></a>F-009-T02 — MCP server with read-only battery tools | 3 h | 0 h | 3 h | Planned | [F-009-T01](#f-009-t01) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T01](#f-011-t01) | ⏳ 🤖 |
+| 🟢 Small | <a id="f-009-t01"></a>F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | [F-009-T02](#f-009-t02), [F-016-T01](#f-016-t01) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-009-t02"></a>F-009-T02 — MCP server with read-only battery tools | 3 h | 0 h | 3 h | Planned | [F-009-T01](#f-009-t01) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T01](#f-011-t01), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-009-t03"></a>F-009-T03 — Battery tools return surface-typed data for bricks surface cards | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T02](#f-008-t02) | [F-009-T05](#f-009-t05), [F-011-T03](#f-011-t03) | ⏳ 🤖 |
 | 🟡 Medium | <a id="f-009-t04"></a>F-009-T04 — Full battery screen for NERV: MCP Apps page or link | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T05](#f-008-t05) | [F-009-T05](#f-009-t05), [F-011-T05](#f-011-t05) | ⏳ 🤖 |
 | 🟢 Small | <a id="f-009-t05"></a>F-009-T05 — Owner: see FPVBuddy's battery card and full screen in NERV | 0 h | 0 h | 0 h agent + 0.5 h owner | Planned | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04) | — | ⏳ 🧑‍🔧 |
@@ -248,13 +248,13 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟣 Very large | 9.5 h | [F-005-T02](#f-005-t02), [F-005-T03](#f-005-t03) | [F-011-T01](#f-011-t01), [F-011-T02](#f-011-t02), [F-011-T04](#f-011-t04), [F-011-T06](#f-011-t06) | ⏳ | — | — |
+| 🔴 Open | 🔶 P2 | 🟣 Very large | 9.5 h | [F-005-T02](#f-005-t02), [F-005-T03](#f-005-t03) | [F-011-T01](#f-011-t01), [F-011-T02](#f-011-t02), [F-011-T04](#f-011-t04), [F-011-T06](#f-011-t06), [F-012-T03](#f-012-t03), [F-017-T01](#f-017-t01) | ⏳ | — | — |
 
 💻 **→** Next: F-010-T01 — Fleet and parts in the core (Planned).
 
 | | |
 |---|---|
-| **Issue** | Owner request 2026-11-25. NERV's [nerv:F-101](https://github.com/voidbrain/nerv/blob/main/docs/BACKLOG.md#f-101) step F-101-T04 expects the FPV core that moves into this repository to cover batteries, fleet, spares, crashes and the crash-to-battery-damage link; FPVBuddy planned only batteries (F-005, and F-009 for its MCP tools). This record moves the rest of NERV's FPV pack core (fleet and parts, spares, crashes and the damage link, fleet import) into `@fpvbuddy/fpv-core` (`src/fpv-core`), with its tests, keeping behaviour identical. NERV keeps its own version until FPVBuddy's is live (nerv:F-101-T07 retires it, in NERV's backlog), so the owner loses nothing in between. |
+| **Issue** | Owner request 2026-11-25. NERV's [nerv:F-101](https://github.com/voidbrain/nerv/blob/main/docs/BACKLOG.md#f-101) step F-101-T04 expects the FPV core that moves into this repository to cover batteries, fleet, spares, crashes and the crash-to-battery-damage link; FPVBuddy planned only batteries (F-005, and F-009 for its MCP tools). This record moves the rest of NERV's FPV pack core (fleet and parts, spares, crashes and the damage link, fleet import) into `@fpvbuddy/fpv-core` (`src/fpv-core`), with its tests, keeping behaviour identical. NERV reaches FPVBuddy over MCP (owner decision 2026-11-26, nerv:F-101-T05 cancelled): it never imports this core, and keeps its own version until its data and tools have moved (nerv:F-101-T07 … F-101-T11, in NERV's backlog), so the owner loses nothing in between. |
 | **Reproduce** | `src/fpv-core` holds no drone, part, spare or crash code; in NERV it lives in `src/fleet.ts` (tables `drones`, `drone_parts`, `drone_models`, `drone_model_links`, `spares`, `drone_crashes`) and the battery-damage branch of `handleFleetChat`. |
 | **Check** | The core's fleet, parts, drone models, spares, crashes, damage link and fleet import pass tests carried over or rewritten from NERV's, with invented data and no NERV imports; the public API document covers them; core build, tests and CI pass ([roadmap M2](ROADMAP.md#milestones)). |
 
@@ -263,9 +263,9 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
 | 🟡 Medium | <a id="f-010-t01"></a>F-010-T01 — Fleet and parts in the core | 2.5 h | 0 h | 2.5 h | Planned | [F-005-T02](#f-005-t02) | [F-010-T02](#f-010-t02), [F-010-T04](#f-010-t04), [F-011-T01](#f-011-t01) |
-| 🟡 Medium | <a id="f-010-t02"></a>F-010-T02 — Spares and warehouse in the core | 2 h | 0 h | 2 h | Planned | [F-010-T01](#f-010-t01) | [F-010-T03](#f-010-t03), [F-010-T04](#f-010-t04), [F-011-T02](#f-011-t02) |
+| 🟡 Medium | <a id="f-010-t02"></a>F-010-T02 — Spares and warehouse in the core | 2 h | 0 h | 2 h | Planned | [F-010-T01](#f-010-t01) | [F-010-T03](#f-010-t03), [F-010-T04](#f-010-t04), [F-011-T02](#f-011-t02), [F-012-T03](#f-012-t03) |
 | 🟡 Medium | <a id="f-010-t03"></a>F-010-T03 — Crashes and the crash-to-battery-damage link in the core | 2.5 h | 0 h | 2.5 h | Planned | [F-010-T02](#f-010-t02), [F-005-T02](#f-005-t02) | [F-010-T05](#f-010-t05), [F-011-T02](#f-011-t02), [F-011-T04](#f-011-t04), [F-011-T06](#f-011-t06) |
-| 🟡 Medium | <a id="f-010-t04"></a>F-010-T04 — Fleet import in the core | 2 h | 0 h | 2 h | Planned | [F-010-T01](#f-010-t01), [F-010-T02](#f-010-t02) | [F-010-T05](#f-010-t05) |
+| 🟡 Medium | <a id="f-010-t04"></a>F-010-T04 — Fleet import in the core | 2 h | 0 h | 2 h | Planned | [F-010-T01](#f-010-t01), [F-010-T02](#f-010-t02) | [F-010-T05](#f-010-t05), [F-017-T01](#f-017-t01) |
 | 🟢 Small | <a id="f-010-t05"></a>F-010-T05 — Document the fleet, spares and crash API | 0.5 h | 0 h | 0.5 h | Planned | [F-010-T03](#f-010-t03), [F-010-T04](#f-010-t04), [F-005-T03](#f-005-t03) | — |
 | 🟣 Very large | **Total** | 9.5 h | 0 h (0 of 5 steps recorded) | 9.5 h | 0 of 5 completed | | |
 
@@ -324,6 +324,248 @@ Current work ledger, reviewed 25 November 2026 against main `e15d5f7` ([PR #10](
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
+
+</details>
+
+---
+### <a id="f-012"></a>[✨ F-012](#top)
+
+**MCP write tools for batteries and spares**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🔴 Large | 5 h | [F-009-T02](#f-009-t02), [F-005-T02](#f-005-t02), [F-010-T02](#f-010-t02) | [F-015-T05](#f-015-t05) | ⏳ | — | — |
+
+💻 **→** Next: F-012-T01 — Write-tool base and charge-state write over MCP (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner decision 2026-11-26 (nerv:F-101, [nerv#792](https://github.com/voidbrain/nerv/pull/792)): NERV never imports `@fpvbuddy/fpv-core`; NERV reaches FPVBuddy over MCP (nerv:F-101-T05 cancelled), and its FPV data and tools move to FPVBuddy behind FPVBuddy's MCP server. NERV's chat writes battery charge state, internal resistance, charge cycles and spares today; once its FPV code goes (nerv:F-101-T11) those writes need FPVBuddy MCP tools, each one gated in NERV as an action needing the owner's approval. Read-only tools are F-009 and F-011; the crash write is F-011-T06. This record is the FPVBuddy side of nerv:F-101-T10 ("writes (charge state, resistance, crashes) go through FPVBuddy write tools gated as actions needing approval"). F-009 and F-011 carry adopted upfront plans, so the new tools are a record of their own. |
+| **Reproduce** | List FPVBuddy's planned MCP tools (F-009, F-011): only F-011-T06 writes; nothing sets charge state, resistance, cycles or spares. |
+| **Check** | FPVBuddy's MCP server exposes write tools for charge state, per-cell resistance, a charge cycle, spares in and spares out, each annotated as a write so NERV gates it with approval, each applying once under a retried request id; specs, build and CI pass. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
+|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-012-t01"></a>F-012-T01 — Write-tool base and charge-state write over MCP | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-005-T02](#f-005-t02) | [F-012-T02](#f-012-t02), [F-012-T03](#f-012-t03), [F-015-T05](#f-015-t05) |
+| 🟡 Medium | <a id="f-012-t02"></a>F-012-T02 — Write tools: internal resistance and charge cycles | 1.5 h | 0 h | 1.5 h | Planned | [F-012-T01](#f-012-t01) | — |
+| 🟡 Medium | <a id="f-012-t03"></a>F-012-T03 — Write tools: spares in and out | 1.5 h | 0 h | 1.5 h | Planned | [F-012-T01](#f-012-t01), [F-010-T02](#f-010-t02) | — |
+| 🔴 Large | **Total** | 5 h | 0 h (0 of 3 steps recorded) | 5 h | 0 of 3 completed | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-012.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | — |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-013"></a>[✨ F-013](#top)
+
+**Battery storage reminders as FPVBuddy alerts**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🔴 Large | 4.5 h | [F-005-T02](#f-005-t02), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
+
+💻 **→** Next: F-013-T01 — Plan storage alerts against NERV's alert contract (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner decision 2026-11-26 (nerv:F-101, [nerv#792](https://github.com/voidbrain/nerv/pull/792)): NERV never imports `@fpvbuddy/fpv-core`; NERV reaches FPVBuddy over MCP (nerv:F-101-T05 cancelled), and its FPV data and tools move to FPVBuddy behind FPVBuddy's MCP server. NERV reminds the owner to put a charged battery into storage (`src/battery-storage-reminders.ts`: 21:00 the same day, then after 5 days, then daily at 21:00 until stored or retired). Once NERV's FPV code goes, FPVBuddy raises these as alerts and NERV delivers them through the alert contract it built for Grover ([nerv:F-122](https://github.com/voidbrain/nerv/blob/main/docs/BACKLOG.md#f-122): an MCP tool listing open alerts with `key`, `level`, `message` and `since`; NERV delivers each `(key, since)` episode once and a clear once). This record is the FPVBuddy side of nerv:F-101-T09. |
+| **Reproduce** | FPVBuddy has no schedule for storage reminders and no alerts tool. |
+| **Check** | The core computes open storage alerts with NERV's timing and wording; a read-only MCP tool lists them in nerv:F-122's shape, so each stage reaches the owner once and storing the battery clears it; specs, build and CI pass. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
+|---|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-013-t01"></a>F-013-T01 — Plan storage alerts against NERV's alert contract | 1 h | 0 h | 1 h | Planned | [F-005-T02](#f-005-t02) | [F-013-T02](#f-013-t02) |
+| 🟡 Medium | <a id="f-013-t02"></a>F-013-T02 — Storage alert rules in the core | 2 h | 0 h | 2 h | Planned | [F-013-T01](#f-013-t01) | [F-013-T03](#f-013-t03) |
+| 🟡 Medium | <a id="f-013-t03"></a>F-013-T03 — MCP alerts tool for storage alerts | 1.5 h | 0 h | 1.5 h | Planned | [F-013-T02](#f-013-t02), [F-009-T02](#f-009-t02) | — |
+| 🔴 Large | **Total** | 4.5 h | 0 h (0 of 3 steps recorded) | 4.5 h | 0 of 3 completed | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-013.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | — |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-014"></a>[✨ F-014](#top)
+
+**Blackbox report over MCP**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 2.5 h | [F-005-T02](#f-005-t02), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
+
+💻 **→** Next: F-014-T01 — Blackbox vibration analyzer in the core (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner decision 2026-11-26 (nerv:F-101, [nerv#792](https://github.com/voidbrain/nerv/pull/792)): NERV never imports `@fpvbuddy/fpv-core`; NERV reaches FPVBuddy over MCP (nerv:F-101-T05 cancelled), and its FPV data and tools move to FPVBuddy behind FPVBuddy's MCP server. NERV's `fpv.blackbox_report` analyzes a blackbox log for vibration (`src/blackbox.ts`, a pure analyzer that stores nothing). It moves to FPVBuddy as a stateless MCP tool. This record is the FPVBuddy side of nerv:F-101-T10 for that tool. |
+| **Reproduce** | FPVBuddy has no blackbox analyzer and no tool for it. |
+| **Check** | The core's analyzer matches NERV's on carried-over specs; a read-only MCP tool returns the report for a log under a stated size cap and keeps nothing; specs, build and CI pass. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
+|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-014-t01"></a>F-014-T01 — Blackbox vibration analyzer in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-005-T02](#f-005-t02) | [F-014-T02](#f-014-t02) |
+| 🟢 Small | <a id="f-014-t02"></a>F-014-T02 — MCP tool: blackbox report | 1 h | 0 h | 1 h | Planned | [F-014-T01](#f-014-t01), [F-009-T02](#f-009-t02) | — |
+| 🟡 Medium | **Total** | 2.5 h | 0 h (0 of 2 steps recorded) | 2.5 h | 0 of 2 completed | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-014.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | — |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-015"></a>[✨ F-015](#top)
+
+**Builds, manufacturer docs and wiring answers**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🔴 Large | 7 h agent + 0.25 h owner | [F-005-T02](#f-005-t02), [F-012-T01](#f-012-t01) | — | ⏳ | — | 🤔 |
+
+🧑 **→** Next: [🤔](#f-015) F-015-T01 — Owner: confirm builds, manufacturer docs and wiring answers move to FPVBuddy (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner decision 2026-11-26 (nerv:F-101, [nerv#792](https://github.com/voidbrain/nerv/pull/792)): NERV never imports `@fpvbuddy/fpv-core`; NERV reaches FPVBuddy over MCP (nerv:F-101-T05 cancelled), and its FPV data and tools move to FPVBuddy behind FPVBuddy's MCP server. NERV's `fpv.import_build`, `fpv.add_doc` and `fpv.wiring_answer` keep FPV builds, their components and wiring, manufacturer docs and answer wiring questions (`src/fpv-builds.ts`, `src/diyfpv-build.ts`). nerv:F-101-T10 moves them to FPVBuddy. **Scope pending owner confirmation (2026-11-26):** this goes beyond batteries, fleet, spares and crashes (roadmap M1/M2), so F-015-T01 asks the owner first. |
+| **Reproduce** | FPVBuddy has no builds, manufacturer docs or wiring answers. |
+| **Check** | The owner's scope decision is recorded; within it, the core stores builds, components, wiring and manufacturer docs, imports a DIYFPV builder link and answers wiring questions with NERV's behaviour; MCP tools expose them, the writes gated as approvals in NERV; specs, build and CI pass. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
+|---|---|---|---|---|---|---|---|:---:|
+| 🟢 Small | <a id="f-015-t01"></a>F-015-T01 — Owner: confirm builds, manufacturer docs and wiring answers move to FPVBuddy | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | — | [F-015-T02](#f-015-t02) | [🤔](#f-015) |
+| 🟡 Medium | <a id="f-015-t02"></a>F-015-T02 — Builds, components and wiring in the core | 2 h | 0 h | 2 h | Planned | [F-015-T01](#f-015-t01), [F-005-T02](#f-005-t02) | [F-015-T03](#f-015-t03), [F-015-T04](#f-015-t04) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-015-t03"></a>F-015-T03 — Manufacturer docs and wiring answers in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-015-T02](#f-015-t02) | [F-015-T05](#f-015-t05) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-015-t04"></a>F-015-T04 — DIYFPV build import in the core | 1.5 h | 0 h | 1.5 h | Planned | [F-015-T02](#f-015-t02) | [F-015-T05](#f-015-t05) | ⏳ 🤖 |
+| 🟡 Medium | <a id="f-015-t05"></a>F-015-T05 — MCP tools: import build, add doc, wiring answer | 2 h | 0 h | 2 h | Planned | [F-015-T03](#f-015-t03), [F-015-T04](#f-015-t04), [F-012-T01](#f-012-t01) | — | ⏳ 🤖 |
+| 🔴 Large | **Total** | 7 h | 0 h (0 of 5 steps recorded) | 7 h agent + 0.25 h owner | 0 of 5 completed | | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-015.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | — |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-016"></a>[✨ F-016](#top)
+
+**Backup of FPVBuddy's server data**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔶 P2 | 🟡 Medium | 4 h agent + 0.75 h owner | [F-009-T01](#f-009-t01), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
+
+💻 **→** Next: F-016-T01 — Plan FPVBuddy's data backup against NERV's (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner decision 2026-11-26 (nerv:F-101, [nerv#792](https://github.com/voidbrain/nerv/pull/792)): NERV never imports `@fpvbuddy/fpv-core`; NERV reaches FPVBuddy over MCP (nerv:F-101-T05 cancelled), and its FPV data and tools move to FPVBuddy behind FPVBuddy's MCP server. NERV's FPV data moves into FPVBuddy (nerv:F-101-T08), whose acceptance needs FPVBuddy's data to be at least as durable as NERV's store: a nightly integrity-checked snapshot (7 kept) and a replicated standby store on a second machine (NERV-01 to NERV-02), or a gap the owner accepts before the import. FPVBuddy is an offline PWA today; where its server and data live is F-009-T01. |
+| **Reproduce** | FPVBuddy has no server-side store, snapshot or off-host copy. |
+| **Check** | A backup plan as good as NERV's, or a recorded owner-accepted gap; with a plan, nightly snapshots pass an integrity check, are retained and copied off the host, and the owner restores one in a drill; specs, build and CI pass. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
+|---|---|---|---|---|---|---|---|:---:|
+| 🟢 Small | <a id="f-016-t01"></a>F-016-T01 — Plan FPVBuddy's data backup against NERV's | 1 h | 0 h | 1 h | Planned | [F-009-T01](#f-009-t01) | [F-016-T02](#f-016-t02) | ⏳ 🤖 |
+| 🟢 Small | <a id="f-016-t02"></a>F-016-T02 — Owner: accept the backup plan or the recorded gap | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-016-T01](#f-016-t01) | [F-016-T03](#f-016-t03) | ⏳ 🤔 |
+| 🟡 Medium | <a id="f-016-t03"></a>F-016-T03 — Nightly snapshot and off-host copy of FPVBuddy's data | 3 h | 0 h | 3 h | Planned | [F-016-T02](#f-016-t02), [F-009-T02](#f-009-t02) | [F-016-T04](#f-016-t04) | ⏳ 🤖 |
+| 🟢 Small | <a id="f-016-t04"></a>F-016-T04 — Owner: restore drill | 0 h | 0 h | 0 h agent + 0.5 h owner | Planned | [F-016-T03](#f-016-t03) | — | ⏳ 🧑‍🔧 |
+| 🟡 Medium | **Total** | 4 h | 0 h (0 of 4 steps recorded) | 4 h agent + 0.75 h owner | 0 of 4 completed | | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-016.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | — |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-017"></a>[✨ F-017](#top)
+
+**Import NERV's FPV export**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔶 P2 | 🔴 Large | 6.5 h | [F-005-T02](#f-005-t02), [F-010-T04](#f-010-t04), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
+
+💻 **→** Next: F-017-T01 — NERV export format and mapping into FPVBuddy (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner decision 2026-11-26 (nerv:F-101, [nerv#792](https://github.com/voidbrain/nerv/pull/792)): NERV never imports `@fpvbuddy/fpv-core`; NERV reaches FPVBuddy over MCP (nerv:F-101-T05 cancelled), and its FPV data and tools move to FPVBuddy behind FPVBuddy's MCP server. nerv:F-101-T08 moves batteries, resistance readings, cycles, fleet, spares, crashes with their battery-damage links, builds, manufacturer docs and photo links from NERV into FPVBuddy once, checked by per-table counts on both sides and a field-by-field sample. FPVBuddy needs the receiving end: a defined format, an import that runs once, and a report to compare. Owner data, the export file and the ID map never enter Git. |
+| **Reproduce** | FPVBuddy has no import for NERV's data (the core's `one-more-battery` import covers batteries from that app only). |
+| **Check** | A documented, validated export format; an import with a dry run, one transaction, a run-once guard and an ID map written outside the repository; a report of counts and a sample keyed by both ids; specs on invented data, build and CI pass. The real run and the comparison with NERV's counts are nerv:F-101-T08's. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
+|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-017-t01"></a>F-017-T01 — NERV export format and mapping into FPVBuddy | 2 h | 0 h | 2 h | Planned | [F-005-T02](#f-005-t02), [F-010-T04](#f-010-t04) | [F-017-T02](#f-017-t02) |
+| 🟡 Medium | <a id="f-017-t02"></a>F-017-T02 — Import command with dry run, run-once guard and ID map | 3 h | 0 h | 3 h | Planned | [F-017-T01](#f-017-t01), [F-009-T02](#f-009-t02) | [F-017-T03](#f-017-t03) |
+| 🟡 Medium | <a id="f-017-t03"></a>F-017-T03 — Import report: counts and a field-by-field sample | 1.5 h | 0 h | 1.5 h | Planned | [F-017-T02](#f-017-t02) | — |
+| 🔴 Large | **Total** | 6.5 h | 0 h (0 of 3 steps recorded) | 6.5 h | 0 of 3 completed | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-017.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | — |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
 
 </details>
 

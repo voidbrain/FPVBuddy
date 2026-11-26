@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-012-T03",
+  "parent": "F-012",
+  "title": "Write tools: spares in and out",
+  "goal": "NERV can add spares and take one out of the warehouse through FPVBuddy",
+  "status": "planned",
+  "acceptance": [
+    "Write tools add spares by category and take one new or used spare out, through the F-010 core, with the F-012-T01 annotation and request id; a crash still goes through F-011-T06; specs cover each and a refused input (no spare left)"
+  ],
+  "dependsOn": [
+    "F-012-T01",
+    "F-010-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h",
+    "basis": "Estimated 2026-11-26: two tools on the F-010 spares core, same pattern. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.5,
+    "ownerHours": 0,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  }
+}

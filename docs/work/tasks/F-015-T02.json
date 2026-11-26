@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-015-T02",
+  "parent": "F-015",
+  "title": "Builds, components and wiring in the core",
+  "goal": "The core stores FPV builds with their components and wiring",
+  "status": "planned",
+  "acceptance": [
+    "The F-005 core stores builds, their components and wiring with behaviour identical to NERV's FpvBuildStore (src/fpv-builds.ts); specs carried over from test/fpv-builds.test.ts with invented data"
+  ],
+  "dependsOn": [
+    "F-015-T01",
+    "F-005-T02"
+  ],
+  "resources": [
+    "src/**",
+    "docs/**"
+  ],
+  "capabilities": [
+    "typescript"
+  ],
+  "privacy": "Neutral content only; no secrets, tokens or personal data in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test -- --watch=false",
+    "npm run build"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner",
+    "Owner data, export files and ID maps never enter Git"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h",
+    "basis": "Estimated 2026-11-26: the store half of a 347-line module and its test. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2
+  }
+}
