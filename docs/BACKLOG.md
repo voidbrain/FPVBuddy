@@ -144,7 +144,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟣 Very large | 12.5 h agent + 0.5 h owner | [F-007-T03](#f-007-t03) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T04](#f-011-t04) | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🟣 Very large | 12.5 h agent + 0.5 h owner | [F-007-T03](#f-007-t03) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T04](#f-011-t04), [F-025-T01](#f-025-t01) | ⏳ | — | — |
 
 💻 **→** Next: F-008-T01 — Check the bricks mapping against its first release (Planned).
 
@@ -159,7 +159,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
 |---|---|---|---|---|---|---|---|:---:|---|
 | 🟢 Small | <a id="f-008-t01"></a>F-008-T01 — Check the bricks mapping against its first release | 1 h | 0 h | 1 h | Planned | [F-007-T03](#f-007-t03) | [F-008-T02](#f-008-t02) | ⏳ 🤖 | — |
-| 🟡 Medium | <a id="f-008-t02"></a>F-008-T02 — Pin @voidbrain/bricks and adopt its tokens with an FPVBuddy theme | 2.5 h | 0 h | 2.5 h | Planned | [F-008-T01](#f-008-t01) | [F-008-T03](#f-008-t03), [F-009-T03](#f-009-t03) | ⏳ 🤖 | — |
+| 🟡 Medium | <a id="f-008-t02"></a>F-008-T02 — Pin @voidbrain/bricks and adopt its tokens with an FPVBuddy theme | 2.5 h | 0 h | 2.5 h | Planned | [F-008-T01](#f-008-t01) | [F-008-T03](#f-008-t03), [F-009-T03](#f-009-t03), [F-025-T01](#f-025-t01) | ⏳ 🤖 | — |
 | 🟡 Medium | <a id="f-008-t03"></a>F-008-T03 — Primitives: buttons, input, filter toggles and badges | 2 h | 0 h | 2 h | Planned | [F-008-T02](#f-008-t02) | [F-008-T04](#f-008-t04) | ⏳ 🤖 | — |
 | 🟡 Medium | <a id="f-008-t04"></a>F-008-T04 — Shell: header, panels and bottom navigation | 2 h | 0 h | 2 h | Planned | [F-008-T03](#f-008-t03) | [F-008-T05](#f-008-t05) | ⏳ 🤖 | — |
 | 🟡 Medium | <a id="f-008-t05"></a>F-008-T05 — Batteries page: status rows, filters and empty state | 2 h | 0 h | 2 h | Planned | [F-008-T04](#f-008-t04) | [F-008-T06](#f-008-t06), [F-009-T04](#f-009-t04), [F-011-T04](#f-011-t04) | ⏳ 🤖 | — |
@@ -847,6 +847,45 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 | Field | Value |
 |---|---|
 | PR / evidence | Plan: pending; [#36](https://github.com/voidbrain/FPVBuddy/pull/36) |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-025"></a>[✨ F-025](#top)
+
+**Use the 🧱 bricks charts: battery resistance and cycles, flights**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 2.5 h | [F-008-T02](#f-008-t02) | — | ⏳ | — | — |
+
+💻 **→** Next: F-025-T01 — Per-cell internal resistance over cycles as a bricks line chart (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner request 2026-11-26 (late evening): bricks plans shared chart components (line, bar, stacked bar, donut) in 🧱 bricks:F-014; FPVBuddy is a consumer and owns its adoption here. FPVBuddy keeps per-cell internal resistance history and charge cycles (`src/fpv-core/battery-health.ts`, `batteries.ts`) but shows them as numbers only. Waits on the bricks release with the charts (bricks:F-014-T07) and on FPVBuddy adopting bricks (F-008-T02). |
+| **Reproduce** | The batteries page lists status and values; no chart shows resistance or cycles over time. |
+| **Check** | A battery's per-cell internal resistance over its cycles is a bricks line chart on its detail view, with the retirement threshold as a band (F-025-T01); cycles per week (and flights per week once FPVBuddy records flights) show as a bricks bar chart (F-025-T02); both pass their tests and axe in light and dark. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-025-t01"></a>F-025-T01 — Per-cell internal resistance over cycles as a bricks line chart | 1.5 h | 0 h | 1.5 h | Planned | [F-008-T02](#f-008-t02) | [F-025-T02](#f-025-t02) | [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan |
+| 🟢 Small | <a id="f-025-t02"></a>F-025-T02 — Cycles per week (and flights, once recorded) as a bricks bar chart | 1 h | 0 h | 1 h | Planned | [F-025-T01](#f-025-t01) | — | [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan |
+| 🟡 Medium | **Total** | 2.5 h | 0 h (0 of 2 steps recorded) | 2.5 h | 0 of 2 completed | | | |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-025.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-025-T01: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan · F-025-T02: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan. Plan: [#37](https://github.com/voidbrain/FPVBuddy/pull/37) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
