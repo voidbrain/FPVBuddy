@@ -711,11 +711,11 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
-|---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-020-t01"></a>F-020-T01 — Axe pass per main route with a seeded-violation fixture | 2.5 h | 0 h | 2.5 h | Planned | — | [F-020-T02](#f-020-t02) |
-| 🟢 Small | <a id="f-020-t02"></a>F-020-T02 — Run the axe pass in CI | 1 h | 0 h | 1 h | Planned | [F-020-T01](#f-020-t01) | — |
-| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 2 steps recorded) | 3.5 h | 0 of 2 completed | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-020-t01"></a>F-020-T01 — Axe pass per main route with a seeded-violation fixture | 2.5 h | 0 h | 2.5 h | Planned | — | [F-020-T02](#f-020-t02) | [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan |
+| 🟢 Small | <a id="f-020-t02"></a>F-020-T02 — Run the axe pass in CI | 1 h | 0 h | 1 h | Planned | [F-020-T01](#f-020-t01) | — | [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan |
+| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 2 steps recorded) | 3.5 h | 0 of 2 completed | | | |
 
 <details>
 <summary>Next action, estimates and evidence</summary>
@@ -724,7 +724,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
+| PR / evidence | Steps: F-020-T01: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan · F-020-T02: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan. [#26](https://github.com/voidbrain/FPVBuddy/pull/26) (plan); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
@@ -750,10 +750,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status |
-|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-021-t01"></a>F-021-T01 — Roadmap status tool and CI check | 1 h | 0 h | 1 h | Planned |
-| 🟢 Small | **Total** | 1 h | 0 h (0 of 1 steps recorded) | 1 h | 0 of 1 completed |
+| Effort | Step | Estimate | Actual | Remaining | Status | PRs |
+|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-021-t01"></a>F-021-T01 — Roadmap status tool and CI check | 1 h | 0 h | 1 h | Planned | [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan |
+| 🟢 Small | **Total** | 1 h | 0 h (0 of 1 steps recorded) | 1 h | 0 of 1 completed | |
 
 <details>
 <summary>Next action, estimates and evidence</summary>
@@ -762,7 +762,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
+| PR / evidence | Steps: F-021-T01: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan. [#26](https://github.com/voidbrain/FPVBuddy/pull/26) (plan); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
