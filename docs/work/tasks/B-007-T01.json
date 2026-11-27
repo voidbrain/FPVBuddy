@@ -4,7 +4,7 @@
   "parent": "B-007",
   "title": "Type-check app and core specs",
   "goal": "typecheck covers every spec",
-  "status": "implemented",
+  "status": "closed",
   "acceptance": [
     "`typecheck` runs `tsconfig.spec.json` and `src/fpv-core/tsconfig.spec.json`",
     "CI's Type check runs `npm run typecheck`"
@@ -31,8 +31,8 @@
   "effort": {
     "size": "small",
     "estimate": "0 remaining",
-    "basis": "Done 2026-11-26 in one PR; no error found. Not timed.",
-    "reviewed": "2026-11-26",
+    "basis": "Done 2026-11-26 in #25 (CI 45798003125 green); no error found. No actual: reconciled in a later session without job timing. Closed 2026-11-27.",
+    "reviewed": "2026-11-27",
     "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 0.5,

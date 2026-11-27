@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](https://github.com/voidbrain/FPVBuddy/pull/21) merged on green CI; harness v10.21.4 reconciled, F-102). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
+Current work ledger, reviewed 27 November 2026 against main `d481ed1` ([PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) merged on green CI, run 45906439831). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
 
 ## Lifecycle
 
@@ -14,91 +14,15 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 ---
 
-### <a id="b-007"></a>[🐞 B-007](#top)
-
-**Spec files are type-checked**
-
-| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
-|---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟢 Small | 0 h | — | — | 🤖 | — | — |
-
-💻 **→** Next: B-007-T01 — Type-check app and core specs (Implemented; verification pending).
-
-| | |
-|---|---|
-| **Issue** | `typecheck` (and CI's Type check) ran `tsconfig.app.json`, which excludes `*.spec.ts`, and the FPV core's own `tsconfig` excludes its specs, which Vitest runs without checking types: a wrong call in a spec ran unchecked. Found by the coordinator's dormant-checks sweep, 2026-11-26 (T5, proposal 9). |
-| **Reproduce** | On `main` `6043323`: `package.json` `typecheck` names only `tsconfig.app.json`; `src/fpv-core/tsconfig.json` excludes `**/*.spec.ts`. |
-| **Check** | `npm run typecheck` (now CI's Type check step) also runs `tsc -p tsconfig.spec.json --noEmit` (all `src/**/*.spec.ts`, core specs included) and `tsc -p src/fpv-core/tsconfig.spec.json` (the core and its specs under the core's stricter options); both pass. They found no error when added, so no test changed. |
-
-**Steps**
-
-| Effort | Step | Estimate | Actual | Remaining | Status | PRs |
-|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="b-007-t01"></a>B-007-T01 — Type-check app and core specs | 0.5 h | 0 h | 0 h | Implemented; verification pending | [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) |
-| 🟢 Small | **Total** | 0.5 h | 0 h (0 of 1 steps recorded) | 0 h | 0 of 1 completed | |
-
-<details>
-<summary>Next action, estimates and PR history</summary>
-
-[Full notes & evidence](work/records/B-007.md)
-
-| Field | Value |
-|---|---|
-| PR / evidence | Steps: B-007-T01: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25). [#25](https://github.com/voidbrain/FPVBuddy/pull/25) |
-| Opened | 2026-11-26 |
-| Verification | Pending |
-| Reviewed | 2026-11-26 |
-
-</details>
-
----
-### <a id="f-006"></a>[✨ F-006](#top)
-
-**Reconcile project-harness v10.9.0 → v10.20.0**
-
-| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
-|---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟢 Small | 0 h | — | — | 🤖 | — | — |
-
-💻 **→** Next: F-006-T01 — Reconcile harness files v10.9.0 -&gt; v10.20.0 (Implemented; verification pending).
-
-| | |
-|---|---|
-| **Issue** | `.harness.json` named v10.9.0 while the template released v10.10.0–v10.20.0 (`check:freshness` listed 17 copied files to update and 6 adapted files to reconcile). Owner approved the reconcile on 2026-11-25. |
-| **Reproduce** | Run `npm run check:freshness` on `main` at `e15d5f7`: it reports the harness template v10.20.0 and the files above. |
-| **Check** | `check:freshness` reports no harness update; `check:fast`, tests and build pass; CI on the PR is green. |
-
-**Feature steps**
-
-| Effort | Step | Estimate | Actual | Remaining | Status |
-|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-006-t01"></a>F-006-T01 — Reconcile harness files v10.9.0 -&gt; v10.20.0 | 1 h | 0 h | 0 h | Implemented; verification pending |
-| 🟢 Small | **Total** | 1 h | 0 h (0 of 1 steps recorded) | 0 h | 0 of 1 completed |
-
-<details>
-<summary>Next action, estimates and evidence</summary>
-
-[Full notes & evidence](work/records/F-006.md)
-
-| Field | Value |
-|---|---|
-| PR / evidence | Pending PR; [#11](https://github.com/voidbrain/FPVBuddy/pull/11) |
-| Opened | 2026-11-25 |
-| Verification | Pending: CI on the PR |
-| Reviewed | 2026-11-25 |
-
-</details>
-
----
 ### <a id="f-007"></a>[✨ F-007](#top)
 
 **Upgrade Angular 21 → 22**
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🟡 Implemented | 🔹 P3 | 🟢 Small | 0.25 h agent + 0.25 h owner | — | [F-008-T01](#f-008-t01) | 🤖 | — | — |
+| 🟡 Implemented | 🔹 P3 | 🟢 Small | 0.25 h owner | — | — | — | 🧑‍🔧 | — |
 
-💻 **→** Next: F-007-T02 — Run ng update to 22 and apply its migrations (Implemented; verification pending).
+🧑 **→** Next: [🧑‍🔧](acceptance/f-007-t04-phone-check.md) F-007-T04 — Owner: open the upgraded app on the phone (Planned).
 
 | | |
 |---|---|
@@ -108,18 +32,18 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
-|---|---|---|---|---|---|---|---|:---:|---|
-| 🟢 Small | <a id="f-007-t02"></a>F-007-T02 — Run ng update to 22 and apply its migrations | 0.5 h | 0 h | 0 h | Implemented; verification pending | — | [F-007-T03](#f-007-t03) | 🤖 | [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) Angular 22 upgrade and migrations |
-| 🟢 Small | <a id="f-007-t03"></a>F-007-T03 — CI and offline build check on 22 | 0.5 h | 0 h | 0.25 h | Implemented; verification pending | [F-007-T02](#f-007-t02) | [F-007-T04](#f-007-t04), [F-008-T01](#f-008-t01) | 🤖 | [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) headless PWA/font verification, Angular 22 docs and T04 procedure |
-| 🟢 Small | <a id="f-007-t04"></a>F-007-T04 — Owner: open the upgraded app on the phone | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-007-T03](#f-007-t03) | — | ⏳ 🧑‍🔧 | — |
-| 🟢 Small | **Total** | 1.25 h | 0 h (0 of 4 steps recorded) | 0.25 h agent + 0.25 h owner | 1 of 4 completed | | | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Who | PRs |
+|---|---|---|---|---|---|:---:|---|
+| 🟢 Small | <a id="f-007-t04"></a>F-007-T04 — Owner: open the upgraded app on the phone | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [🧑‍🔧](acceptance/f-007-t04-phone-check.md) | — |
+| 🟢 Small | **Total** | 1.25 h | 0 h (0 of 4 steps recorded) | 0.25 h owner | 3 of 4 completed | | |
 
-<details><summary>Done steps (1)</summary>
+<details><summary>Done steps (3)</summary>
 
 | Effort | Step | Estimate | Actual | Status | PRs |
 |---|---|---|---|---|---|
-| 🟢 Small | <a id="f-007-t01"></a>F-007-T01 — Check every dependency against Angular 22 | 0.25 h | 0 h | Verified | [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) dependency compatibility matrix |
+| — | <a id="f-007-t01"></a>F-007-T01 — Check every dependency against Angular 22 | 0.25 h | 0 h | Completed | [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) dependency compatibility matrix |
+| — | <a id="f-007-t02"></a>F-007-T02 — Run ng update to 22 and apply its migrations | 0.5 h | 0 h | Completed | [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) Angular 22 upgrade and migrations |
+| — | <a id="f-007-t03"></a>F-007-T03 — CI and offline build check on 22 | 0.5 h | 0 h | Completed | [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) headless PWA/font verification, Angular 22 docs and T04 procedure |
 
 </details>
 
@@ -130,10 +54,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-007-T01: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) dependency compatibility matrix · F-007-T02: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) Angular 22 upgrade and migrations · F-007-T03: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) headless PWA/font verification, Angular 22 docs and T04 procedure. [#12](https://github.com/voidbrain/FPVBuddy/pull/12) (record); [#15](https://github.com/voidbrain/FPVBuddy/pull/15) (F-007-T01..T03); Test: `src/app/app.spec.ts` (`5fa9116`, failed on Angular 21 before upgrade); Review: independent review on PR #15 2026-11-25 (Claude Opus 5.5): migrations, versions, deprecated APIs and the Eager→OnPush switch checked; every template binding reads a signal; the phone check (F-007-T04) still covers it |
+| PR / evidence | Steps: F-007-T01: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) dependency compatibility matrix · F-007-T02: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) Angular 22 upgrade and migrations · F-007-T03: [PR #15](https://github.com/voidbrain/FPVBuddy/pull/15) headless PWA/font verification, Angular 22 docs and T04 procedure. [#12](https://github.com/voidbrain/FPVBuddy/pull/12) (record); [#15](https://github.com/voidbrain/FPVBuddy/pull/15) (F-007-T01..T03, CI 45717571105 green); Test: `src/app/app.spec.ts` (`5fa9116`, failed on Angular 21 before upgrade); Review: independent review on PR #15 2026-11-25 (Claude Opus 5.5): migrations, versions, deprecated APIs and the Eager→OnPush switch checked; every template binding reads a signal; the phone check (F-007-T04) still covers it |
 | Opened | 2026-11-25 |
-| Verification | Pending CI on PR #15, merge, and owner phone check (F-007-T04) |
-| Reviewed | 2026-11-25 |
+| Verification | Unit/integration · 2026-11-27 · #15 CI 45717571105 (`check` job) and post-merge `main` runs green; Browser/accessibility · 2026-11-25 · headless Chromium `/batteries`, `/sw.js`, local woff2 fonts; Real-device · Pending (F-007-T04 owner phone check) |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -144,7 +68,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟣 Very large | 12.5 h agent + 0.5 h owner | [F-007-T03](#f-007-t03) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T04](#f-011-t04), [F-025-T01](#f-025-t01) | ⏳ | — | — |
+| 🔴 Open | 🔹 P3 | 🟣 Very large | 12.5 h agent + 0.5 h owner | — | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T04](#f-011-t04), [F-025-T01](#f-025-t01) | 🤖 | — | — |
 
 💻 **→** Next: F-008-T01 — Check the bricks mapping against its first release (Planned).
 
@@ -158,7 +82,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
 |---|---|---|---|---|---|---|---|:---:|---|
-| 🟢 Small | <a id="f-008-t01"></a>F-008-T01 — Check the bricks mapping against its first release | 1 h | 0 h | 1 h | Planned | [F-007-T03](#f-007-t03) | [F-008-T02](#f-008-t02) | ⏳ 🤖 | — |
+| 🟢 Small | <a id="f-008-t01"></a>F-008-T01 — Check the bricks mapping against its first release | 1 h | 0 h | 1 h | Planned | — | [F-008-T02](#f-008-t02) | 🤖 | — |
 | 🟡 Medium | <a id="f-008-t02"></a>F-008-T02 — Pin @voidbrain/bricks and adopt its tokens with an FPVBuddy theme | 2.5 h | 0 h | 2.5 h | Planned | [F-008-T01](#f-008-t01) | [F-008-T03](#f-008-t03), [F-009-T03](#f-009-t03), [F-025-T01](#f-025-t01) | ⏳ 🤖 | — |
 | 🟡 Medium | <a id="f-008-t03"></a>F-008-T03 — Primitives: buttons, input, filter toggles and badges | 2 h | 0 h | 2 h | Planned | [F-008-T02](#f-008-t02) | [F-008-T04](#f-008-t04) | ⏳ 🤖 | — |
 | 🟡 Medium | <a id="f-008-t04"></a>F-008-T04 — Shell: header, panels and bottom navigation | 2 h | 0 h | 2 h | Planned | [F-008-T03](#f-008-t03) | [F-008-T05](#f-008-t05) | ⏳ 🤖 | — |
@@ -224,10 +148,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | [#13](https://github.com/voidbrain/FPVBuddy/pull/13) (record) |
+| PR / evidence | [#13](https://github.com/voidbrain/FPVBuddy/pull/13) (record); [#24](https://github.com/voidbrain/FPVBuddy/pull/24) (CI 45791229262 green) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
-| Reviewed | 2026-11-25 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -429,10 +353,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (record) |
+| PR / evidence | [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (record); [#24](https://github.com/voidbrain/FPVBuddy/pull/24) (CI 45791229262 green) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -479,10 +403,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-015-T01: [PR #19](https://github.com/voidbrain/FPVBuddy/pull/19) · F-015-T06: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan. [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (record); [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (F-015-T06) |
+| PR / evidence | Steps: F-015-T01: [PR #19](https://github.com/voidbrain/FPVBuddy/pull/19) · F-015-T06: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan. [#18](https://github.com/voidbrain/FPVBuddy/pull/18) (record); [#19](https://github.com/voidbrain/FPVBuddy/pull/19) (F-015-T01); [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (F-015-T06, green CI) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -568,44 +492,6 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 </details>
 
 ---
-### <a id="f-018"></a>[✨ F-018](#top)
-
-**Turn audit enforcement on**
-
-| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
-|---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟢 Small | 0 h | — | — | 🤖 | — | — |
-
-💻 **→** Next: F-018-T01 — Turn audit.enforce on (Implemented; verification pending).
-
-| | |
-|---|---|
-| **Issue** | A full audit baseline exists (docs/audits/2026-11-20-full.md; 2026-11-22-baseline.md has manifest kind full) but `audit.enforce` was off, so a due audit only warned. The 2026-11-26 cross-project audit (coordinator, docs/audits/2026-11-26-cross-project.md, proposal 17) proposes turning it on. |
-| **Reproduce** | `.harness.json` had `"audit": {"days": 7, "enforce": false}`. |
-| **Check** | `audit.enforce` is true and `npm run check:audits` and `npm run check:freshness` pass. |
-
-**Feature steps**
-
-| Effort | Step | Estimate | Actual | Remaining | Status | PRs |
-|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-018-t01"></a>F-018-T01 — Turn audit.enforce on | 0.25 h | 0 h | 0 h | Implemented; verification pending | [PR #24](https://github.com/voidbrain/FPVBuddy/pull/24) audit.enforce true |
-| 🟢 Small | **Total** | 0.25 h | 0 h (0 of 1 steps recorded) | 0 h | 0 of 1 completed | |
-
-<details>
-<summary>Next action, estimates and PR history</summary>
-
-[Full notes & evidence](work/records/F-018.md)
-
-| Field | Value |
-|---|---|
-| PR / evidence | Steps: F-018-T01: [PR #24](https://github.com/voidbrain/FPVBuddy/pull/24) audit.enforce true. [#24](https://github.com/voidbrain/FPVBuddy/pull/24) |
-| Opened | 2026-11-26 |
-| Verification | Pending |
-| Reviewed | 2026-11-26 |
-
-</details>
-
----
 ### <a id="f-019"></a>[✨ F-019](#top)
 
 **Turn on the dormant procedure settings: reviews, coverage enforcement, work usage, behaviour runner**
@@ -614,7 +500,7 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 |---|---|---|---|---|---|:---:|:---:|:---:|
 | 🔴 Open | 🔹 P3 | 🟢 Small | 1 h | — | — | 🤖 | — | — |
 
-💻 **→** Next: F-019-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings (Implemented; verification pending).
+💻 **→** Next: F-019-T03 — First token and skills reviews (Planned).
 
 | | |
 |---|---|
@@ -626,10 +512,17 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Effort | Step | Estimate | Actual | Remaining | Status | PRs |
 |---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-019-t01"></a>F-019-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings | 0.25 h | 0 h | 0 h | Implemented; verification pending | [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) |
-| 🟢 Small | <a id="f-019-t02"></a>F-019-T02 — First architecture review with outside-landscape comparison | 0.5 h | 0 h | 0 h | Implemented; verification pending | [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) |
 | 🟢 Small | <a id="f-019-t03"></a>F-019-T03 — First token and skills reviews | 1 h | 0 h | 1 h | Planned | — |
-| 🟢 Small | **Total** | 1.75 h | 0 h (0 of 3 steps recorded) | 1 h | 0 of 3 completed | |
+| 🟢 Small | **Total** | 1.75 h | 0 h (0 of 3 steps recorded) | 1 h | 2 of 3 completed | |
+
+<details><summary>Done steps (2)</summary>
+
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| — | <a id="f-019-t01"></a>F-019-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings | 0.25 h | 0 h | Completed | [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) |
+| — | <a id="f-019-t02"></a>F-019-T02 — First architecture review with outside-landscape comparison | 0.5 h | 0 h | Completed | [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) |
+
+</details>
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -638,10 +531,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-019-T01: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) · F-019-T02: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25). [#25](https://github.com/voidbrain/FPVBuddy/pull/25) |
+| PR / evidence | Steps: F-019-T01: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) · F-019-T02: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25). [#25](https://github.com/voidbrain/FPVBuddy/pull/25) (CI 45798003125 green) |
 | Opened | 2026-11-26 |
-| Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Verification | Unit/integration · 2026-11-27 · F-019-T01 and F-019-T02 verified in #25 CI 45798003125 (coverage enforced, architecture review current); Documentation · Pending (F-019-T03) |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -677,10 +570,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-020-T01: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan · F-020-T02: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan. [#26](https://github.com/voidbrain/FPVBuddy/pull/26) (plan); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
+| PR / evidence | Steps: F-020-T01: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan · F-020-T02: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan. [#26](https://github.com/voidbrain/FPVBuddy/pull/26) (plan, green CI); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -715,10 +608,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-021-T01: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan. [#26](https://github.com/voidbrain/FPVBuddy/pull/26) (plan); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
+| PR / evidence | Steps: F-021-T01: [PR #26](https://github.com/voidbrain/FPVBuddy/pull/26) plan. [#26](https://github.com/voidbrain/FPVBuddy/pull/26) (plan, green CI); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -755,10 +648,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-022-T01: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan · F-022-T02: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan · F-022-T03: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan. [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (plan); [review page](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-shared-assets/gauntlet-fpvbuddy.md); owner decision 2026-11-26 |
+| PR / evidence | Steps: F-022-T01: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan · F-022-T02: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan · F-022-T03: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan. [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (plan, green CI); [review page](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-shared-assets/gauntlet-fpvbuddy.md); owner decision 2026-11-26 |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -804,10 +697,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-023-T01: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan; [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T02: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T03: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T04: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T05: [PR #34](https://github.com/voidbrain/FPVBuddy/pull/34) plan. [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (plan); decision A and removal plan: [#33](https://github.com/voidbrain/FPVBuddy/pull/33); scaffold removal plan (T05): [#34](https://github.com/voidbrain/FPVBuddy/pull/34); [review page](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-shared-assets/gauntlet-fpvbuddy.md); owner decision 2026-11-26 |
+| PR / evidence | Steps: F-023-T01: [PR #31](https://github.com/voidbrain/FPVBuddy/pull/31) plan; [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T02: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T03: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T04: [PR #33](https://github.com/voidbrain/FPVBuddy/pull/33) decision A and removal plan · F-023-T05: [PR #34](https://github.com/voidbrain/FPVBuddy/pull/34) plan. [#31](https://github.com/voidbrain/FPVBuddy/pull/31) (plan, green CI); decision A and removal plan: [#33](https://github.com/voidbrain/FPVBuddy/pull/33) (green CI); scaffold removal plan (T05): [#34](https://github.com/voidbrain/FPVBuddy/pull/34) (green CI); [review page](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-shared-assets/gauntlet-fpvbuddy.md); owner decision 2026-11-26 |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -846,10 +739,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Plan: pending; [#36](https://github.com/voidbrain/FPVBuddy/pull/36) |
+| PR / evidence | Plan: [#36](https://github.com/voidbrain/FPVBuddy/pull/36) (green CI) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -885,10 +778,10 @@ Current work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-025-T01: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan · F-025-T02: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan. Plan: [#37](https://github.com/voidbrain/FPVBuddy/pull/37) |
+| PR / evidence | Steps: F-025-T01: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan · F-025-T02: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan. Plan: [#37](https://github.com/voidbrain/FPVBuddy/pull/37) (CI 45906439831 green) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 

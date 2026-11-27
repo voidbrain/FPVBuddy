@@ -15,3 +15,7 @@ PR #32 reconciles the harness to v10.24.1 (from 10.21.4); the owner authorised i
 ## 2026-11-26 — harness v10.24.2
 
 PR #35 reconciles the harness to v10.24.2 (from 10.24.1; project-harness B-129). The owner approved on 2026-11-26 ("yep") that coordinator-only harness files are not copied into ordinary projects: the copies of the solution dashboard, refresh and gaps pages are deleted and dropped from `.harness.json` `copied`; the procedures table and `solution-profile.md` name them as coordinator paths; AGENTS.md's solution-profile row no longer says "(refresh inside)". CI pending at this entry.
+
+## 2026-11-27 — main `d481ed1`
+
+PRs #22–#37 merged on green CI. Closed B-007 (#25), F-006 (#11) and F-018 (#24), plus steps F-007-T01–T03 (#15) and F-019-T01/T02 (#25); F-005 closed (#30), F-102 closed (#22, #23); #27–#29 Dependabot and #32, #35 harness reconciles (no record).

@@ -2,7 +2,7 @@
   "version": 1,
   "segments": [
     {
-      "text": "# FPVBuddy Backlog\n\nCurrent work ledger, reviewed 26 November 2026 against main `a315ba8` ([PR #21](https://github.com/voidbrain/FPVBuddy/pull/21) merged on green CI; harness v10.21.4 reconciled, F-102). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).\n\n## Lifecycle\n\n| Signal | Status | Meaning |\n|:---:|---|---|\n| 🟡 | **Implemented** | Code & tests exist; awaiting CI or owner confirmation |\n| 🔵 | **Closed** | Verified and closed |\n| 🔴 | **Open** | Accepted work not yet started |\n\n## Open & active items\n\n---\n\n"
+      "text": "# FPVBuddy Backlog\n\nCurrent work ledger, reviewed 27 November 2026 against main `d481ed1` ([PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) merged on green CI, run 45906439831). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).\n\n## Lifecycle\n\n| Signal | Status | Meaning |\n|:---:|---|---|\n| 🟡 | **Implemented** | Code & tests exist; awaiting CI or owner confirmation |\n| 🔵 | **Closed** | Verified and closed |\n| 🔴 | **Open** | Accepted work not yet started |\n\n## Open & active items\n\n---\n\n"
     },
     {
       "records": "B"
