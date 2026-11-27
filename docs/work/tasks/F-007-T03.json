@@ -4,7 +4,7 @@
   "parent": "F-007",
   "title": "CI and offline build check on 22",
   "goal": "CI is green on Angular 22 and the PWA still builds and works offline",
-  "status": "implemented",
+  "status": "closed",
   "acceptance": [
     "CI green on the PR and on main after merge, with the jobs that ran named",
     "The production build serves the batteries page and the service worker in a headless browser, fonts local",
@@ -43,10 +43,10 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "0.25 h",
-    "basis": "Implemented 2026-11-25 in PR #15: headless Chromium verified batteries page, /sw.js and local woff2 fonts; 0.25 h agent remaining for CI on PR #15 and post-merge CI check.",
-    "reviewed": "2026-11-25",
-    "agentHours": 0.25,
+    "estimate": "0 remaining",
+    "basis": "Implemented 2026-11-25 in PR #15 (CI 45717571105 check job green, and post-merge main runs green): headless Chromium verified batteries page, /sw.js and local woff2 fonts. No actual: reconciled in a later session without job timing. Closed 2026-11-27.",
+    "reviewed": "2026-11-27",
+    "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 1,
     "estimateAgentHours": 0.5

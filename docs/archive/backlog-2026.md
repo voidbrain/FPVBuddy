@@ -4,6 +4,17 @@ Closed records moved from [docs/BACKLOG.md](../BACKLOG.md).
 
 ---
 
+<!-- archive-recap:start -->
+## Weekly closure recaps
+
+Closed records in this archive, grouped by closing date (Monday–Sunday). Links open the first section for that week; current status stays in the active backlog.
+
+| Closing week | Features closed | Bugs closed |
+|---|---:|---:|
+| [2026-11-23 – 2026-11-29](#archive-week-2026-11-23) | 8 | 7 |
+<!-- archive-recap:end -->
+
+<a id="archive-week-2026-11-23"></a>
 ### F-001
 
 **Adopt project-harness v10.2.0 (`core` + `angular`)**
@@ -402,6 +413,110 @@ Closed records moved from [docs/BACKLOG.md](../BACKLOG.md).
 | Opened | 2026-11-24 |
 | Verification | Check met 2026-11-26: core builds and is tested in CI; public API documented; standalone pack and install into a throwaway consumer passes |
 | Reviewed | 2026-11-26 |
+
+</details>
+
+---
+
+## Closed 2026-11-27
+
+### B-007
+
+**Spec files are type-checked**
+
+| Signal | Priority | Status | Effort |
+|:---:|---|---|---|
+| 🔵 | ◻️ P2 | Closed | 🟢 Small |
+
+💻 **→ Human action required: No**<br />Closed 2026-11-27: #25 merged at 8088945, CI 45798003125 green.
+
+| | |
+|---|---|
+| **Issue** | `typecheck` (and CI's Type check) ran `tsconfig.app.json`, which excludes `*.spec.ts`, and the FPV core's own `tsconfig` excludes its specs, which Vitest runs without checking types: a wrong call in a spec ran unchecked. Found by the coordinator's dormant-checks sweep, 2026-11-26 (T5, proposal 9). |
+| **Reproduce** | On `main` `6043323`: `package.json` `typecheck` names only `tsconfig.app.json`; `src/fpv-core/tsconfig.json` excludes `**/*.spec.ts`. |
+| **Check** | `npm run typecheck` (now CI's Type check step) also runs `tsc -p tsconfig.spec.json --noEmit` (all `src/**/*.spec.ts`, core specs included) and `tsc -p src/fpv-core/tsconfig.spec.json` (the core and its specs under the core's stricter options); both pass. They found no error when added, so no test changed. |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+**Next action / closure evidence:** Closed 2026-11-27: #25 merged at 8088945, CI 45798003125 green. 2026-11-26: owner accepted every fix of the dormant-checks sweep in chat ("Accept all fixes"). B-007-T01 implemented; both configurations passed with no error on first run. Closes when the PR merges on green CI.
+
+**Estimates:** No remaining effort.
+
+| Field | Value |
+|---|---|
+| PR / evidence | [#25](https://github.com/voidbrain/FPVBuddy/pull/25) |
+| Opened | 2026-11-26 |
+| Verification | Unit/integration · 2026-11-27 · No test: CI type-check configuration gap, verified by Type check step in #25 CI 45798003125 |
+| Reviewed | 2026-11-27 |
+
+</details>
+
+---
+
+### F-006
+
+**Reconcile project-harness v10.9.0 → v10.20.0**
+
+| Signal | Priority | Status | Effort |
+|:---:|---|---|---|
+| 🔵 | ◻️ P3 | Closed | 🟢 Small |
+
+💻 **→ Human action required: No**<br />Closed 2026-11-27: #11 merged at 9ba5e86, CI 45603700589 green.
+
+| | |
+|---|---|
+| **Issue** | `.harness.json` named v10.9.0 while the template released v10.10.0–v10.20.0 (`check:freshness` listed 17 copied files to update and 6 adapted files to reconcile). Owner approved the reconcile on 2026-11-25. |
+| **Reproduce** | Run `npm run check:freshness` on `main` at `e15d5f7`: it reports the harness template v10.20.0 and the files above. |
+| **Check** | `check:freshness` reports no harness update; `check:fast`, tests and build pass; CI on the PR is green. |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+**Next action / closure evidence:** Closed 2026-11-27: #11 merged at 9ba5e86, CI 45603700589 green. 2026-11-25: copied the 17 updated files from v10.20.0, plus `docs/agents/solution-dashboard.md` and `solution-gaps.md` (new pages the copied procedure index and solution profile link; listed under `copied`). Reconciled by hand: `docs/backlog/ordering.md` (cross-repository `repo:STEP-ID` prerequisites), `review.md` step 1, `docs/agents/pull-requests.md` (`work:pr` trailers, built-views note), `angular.md` (`conventions.sourceDirs`), and CI: `check:work` now runs before every step that reads the ledger, with the inert "Which backlog views" and artifact steps. Skipped: built backlog views stay off (owner instruction; committed `docs/BACKLOG.md` kept), so the README `<!-- harness -->` note and `backlog-views.yml` are not taken; `reviews.skills.days` not adopted. No test: copied tools and documentation, no app code. Review: fresh-context mechanical-reviewer (Sonnet) on the diff: copied files byte-identical (check-harness --strict), adapted additions match the template, CI order right, views unset; one minor fixed (`conventions.pureDirs` reformat reverted).
+
+**Estimates:** No remaining effort.
+
+| Field | Value |
+|---|---|
+| PR / evidence | [#11](https://github.com/voidbrain/FPVBuddy/pull/11) |
+| Opened | 2026-11-25 |
+| Verification | Unit/integration · 2026-11-27 · #11 CI 45603700589 green; check-harness --strict passed |
+| Reviewed | 2026-11-27 |
+
+</details>
+
+---
+
+### F-018
+
+**Turn audit enforcement on**
+
+| Signal | Priority | Status | Effort |
+|:---:|---|---|---|
+| 🔵 | ◻️ P3 | Closed | 🟢 Small |
+
+💻 **→ Human action required: No**<br />Closed 2026-11-27: #24 merged at 6043323, CI 45791229262 green.
+
+| | |
+|---|---|
+| **Issue** | A full audit baseline exists (docs/audits/2026-11-20-full.md; 2026-11-22-baseline.md has manifest kind full) but `audit.enforce` was off, so a due audit only warned. The 2026-11-26 cross-project audit (coordinator, docs/audits/2026-11-26-cross-project.md, proposal 17) proposes turning it on. |
+| **Reproduce** | `.harness.json` had `"audit": {"days": 7, "enforce": false}`. |
+| **Check** | `audit.enforce` is true and `npm run check:audits` and `npm run check:freshness` pass. |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+**Next action / closure evidence:** Closed 2026-11-27: #24 merged at 6043323, CI 45791229262 green. 2026-11-26: step plan adopted with the record. The owner accepted all 17 cross-project audit proposals in chat on 2026-11-26 ("accept all 17 proposals"); this is proposal 17: F-018-T01, implemented in PR [#24](https://github.com/voidbrain/FPVBuddy/pull/24), verification is its CI.
+
+**Estimates:** No remaining effort.
+
+| Field | Value |
+|---|---|
+| PR / evidence | [#24](https://github.com/voidbrain/FPVBuddy/pull/24) |
+| Opened | 2026-11-26 |
+| Verification | Unit/integration · 2026-11-27 · #24 CI 45791229262 green; check:audits enforced and passing |
+| Reviewed | 2026-11-27 |
 
 </details>
 

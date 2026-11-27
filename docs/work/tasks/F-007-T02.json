@@ -4,7 +4,7 @@
   "parent": "F-007",
   "title": "Run ng update to 22 and apply its migrations",
   "goal": "Every @angular/* package and angular-eslint is on 22",
-  "status": "implemented",
+  "status": "closed",
   "acceptance": [
     "`npx ng update @angular/core@22 @angular/cli@22` and `angular-eslint@22` run, their migrations committed apart from manual fixes",
     "TypeScript and the other dependencies moved to the versions F-007-T01 found",
@@ -43,9 +43,9 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "0 h",
-    "basis": "Implemented 2026-11-25 in PR #15: Angular 22.3.0, angular-eslint 22.8.0, TypeScript 6.0.2, Vitest 5.1.2, jsdom 31.0.0; schematic migrations committed at 019a067, default OnPush adopted at a0199d4.",
-    "reviewed": "2026-11-25",
+    "estimate": "0 remaining",
+    "basis": "Implemented 2026-11-25 in PR #15 (CI 45717571105 green): Angular 22.3.0, angular-eslint 22.8.0, TypeScript 6.0.2, Vitest 5.1.2, jsdom 31.0.0; schematic migrations committed at 019a067, default OnPush adopted at a0199d4. No actual: reconciled in a later session without job timing. Closed 2026-11-27.",
+    "reviewed": "2026-11-27",
     "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 1.5,

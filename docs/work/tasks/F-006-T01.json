@@ -4,7 +4,7 @@
   "parent": "F-006",
   "title": "Reconcile harness files v10.9.0 -> v10.20.0",
   "goal": "FPVBuddy carries every harness change released in v10.10.0-v10.20.0 (core and angular), committed backlog views kept",
-  "status": "implemented",
+  "status": "closed",
   "acceptance": [
     "Copied files byte-identical to v10.20.0 (check-harness --strict)",
     "Adapted files reconciled from the template diff, project lines kept",
@@ -33,9 +33,9 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "0 h remaining",
-    "basis": "Estimated and implemented 2026-11-25 at agent speed. Verification pending: CI on the PR.",
-    "reviewed": "2026-11-25",
+    "estimate": "0 remaining",
+    "basis": "Implemented 2026-11-25 in #11 (CI 45603700589 green). No actual: reconciled in a later session without job timing. Closed 2026-11-27.",
+    "reviewed": "2026-11-27",
     "agentHours": 0,
     "baselineAgentHours": 1,
     "estimateAgentHours": 1

@@ -96,9 +96,9 @@
   "outcomes": [
     {
       "kind": "tool",
-      "disposition": "backlog",
-      "target": "F-006",
-      "evidence": "Reconcile to project-harness v10.21.4 (2026-11-26, F-102): changed inputs (work-items.mjs, solution-profile.md) copied byte for byte from the tag; pull-requests.md adapted from the template diff; check-harness --strict matches v10.21.4; built views stay off."
+      "disposition": "implemented",
+      "target": "tools/work-items.mjs",
+      "evidence": "Reconcile to project-harness v10.21.4 (2026-11-26, F-102; F-006 v10.20.0 closed 2026-11-27): changed inputs (work-items.mjs, solution-profile.md) copied byte for byte from the tag; pull-requests.md adapted from the template diff; check-harness --strict matches v10.21.4; built views stay off."
     },
     {
       "kind": "none",
