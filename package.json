@@ -50,7 +50,9 @@
     "core:build": "npm --prefix src/fpv-core run build",
     "core:test": "npm --prefix src/fpv-core test",
     "core:pack-check": "node scripts/check-core-pack.mjs && node --test scripts/check-core-pack.test.mjs",
-    "typecheck": "npx tsc -p tsconfig.app.json --noEmit --noUnusedLocals --noUnusedParameters && npx tsc -p tsconfig.spec.json --noEmit && npx tsc -p src/fpv-core/tsconfig.spec.json"
+    "typecheck": "npx tsc -p tsconfig.app.json --noEmit --noUnusedLocals --noUnusedParameters && npx tsc -p tsconfig.spec.json --noEmit && npx tsc -p src/fpv-core/tsconfig.spec.json",
+    "mcp:build": "tsc -p tsconfig.mcp.json",
+    "mcp:test": "npm run mcp:build && node --test tools/fpvbuddy-mcp.test.ts"
   },
   "private": true,
   "packageManager": "npm@11.6.4",
@@ -61,19 +63,24 @@
     "@angular/forms": "^22.3.0",
     "@angular/platform-browser": "^22.3.0",
     "@angular/router": "^22.3.0",
+    "@modelcontextprotocol/node": "2.1.2",
+    "@modelcontextprotocol/server": "2.4.0",
     "@runanywhere/web": "^0.1.0-beta.10",
     "@runanywhere/web-llamacpp": "^0.1.0-beta.10",
     "@runanywhere/web-onnx": "^0.1.0-beta.10",
     "rxjs": "~7.8.0",
     "tailwind": "^4.0.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@angular/build": "^22.3.0",
     "@angular/cli": "^22.3.0",
     "@angular/compiler-cli": "^22.3.0",
     "@eslint/js": "^10.0.1",
+    "@modelcontextprotocol/client": "2.4.0",
     "@tailwindcss/postcss": "^4.1.12",
+    "@types/node": "^24.10.1",
     "@vitest/coverage-v8": "^5.1.2",
     "angular-eslint": "^22.8.0",
     "eslint": "^10.15.0",
