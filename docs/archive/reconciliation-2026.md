@@ -27,3 +27,7 @@ PRs #38 and #39 merged on green CI. #38 reconciled #22–#37 and added fresh-con
 ## 2026-11-27 — main `d3b1e44`
 
 PR #40 merged on green CI (46007127894). #40 documents F-009-T01's host/data/tool plan and completes F-019-T03's token and skills reviews.
+
+## 2026-11-27 — main `82addc8`
+
+PR #41 merged on green CI (46012379732); F-009-T02 provides the tailnet Streamable HTTP MCP service and F-009-T01 and F-019-T03 are verified.

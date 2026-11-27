@@ -4,19 +4,61 @@ The MCP endpoint exposes read-only battery data through Streamable HTTP. It list
 
 ## Install on the Mac
 
-Run these commands in the FPVBuddy checkout on the Mac that currently sits beside NERV-01. Replace the host with the Mac's MagicDNS name shown by `tailscale status` (for example, `fpv-mac.example-tailnet.ts.net`).
+Run these commands in the FPVBuddy checkout on the Mac that currently sits beside NERV-01. The checkout must include merged PR #41; a checkout from before it has no `mcp:build` script. Check it out on `main` and fast-forward before installing dependencies. Stop if the worktree has local changes rather than switching or pulling over them.
 
 ```sh
 cd ~/Projects/FPVBuddy/FPVBuddy
-npm ci
-npm run mcp:build
-FPVBUDDY_MCP_HOST=fpv-mac.example-tailnet.ts.net node tools/install-mcp-service.mjs
-launchctl bootstrap "gui/$(id -u)" "$HOME/Library/LaunchAgents/com.voidbrain.fpvbuddy-mcp.plist"
-launchctl kickstart -k "gui/$(id -u)/com.voidbrain.fpvbuddy-mcp"
-tailscale serve --bg --https=443 --set-path=/fpvbuddy 127.0.0.1:8787
+git status --short --branch
 ```
 
-Expected results: the installer prints the LaunchAgent plist path; `launchctl list | grep com.voidbrain.fpvbuddy-mcp` shows the service; `tailscale serve status` shows HTTPS for `/fpvbuddy` proxying to `127.0.0.1:8787`; and `curl -i https://fpv-mac.example-tailnet.ts.net/fpvbuddy/mcp` returns an MCP method response (a GET without an MCP session may return `405`, which confirms the HTTPS route reached the MCP endpoint). `tailscale serve --bg` persists the Serve configuration across reboot. Tailscale Serve terminates HTTPS and restricts access to the tailnet; tailnet ACL policy still governs which devices can connect.
+Expected: the status is clean. If there are changes, stop and preserve them before proceeding. Then update the checkout:
+
+```sh
+git switch main
+git pull --ff-only origin main
+git log -1 --oneline
+```
+
+Expected: the log includes PR #41 or a later main commit. Confirm the Node version separately:
+
+```sh
+node --version
+```
+
+Expected: version 24. Use Node 24 for this project. If `nvm` is installed and Node 24 is available, run `nvm use 24` before continuing. Confirm the checkout has the MCP scripts:
+
+```sh
+npm run | grep -E 'mcp:(build|test)'
+```
+
+Expected: `mcp:build` and `mcp:test` are listed. If they are absent, stop; the checkout is stale or this is not the FPVBuddy repository.
+
+Tailscale must be running and this Mac must already be signed into the intended tailnet. Check the CLI before continuing:
+
+```sh
+TS_CLI="$(command -v tailscale || true)"
+if [ -z "$TS_CLI" ]; then
+  TS_CLI="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+fi
+test -x "$TS_CLI"
+"$TS_CLI" status
+```
+
+Expected: status shows this Mac's MagicDNS name. For the standalone macOS app, enable CLI integration in Tailscale Settings if `test -x` fails. The App Store app uses the bundled CLI path shown above; if neither CLI path exists, install and sign in to Tailscale before continuing.
+
+Set `FPV_HOST` to the exact MagicDNS hostname shown by `tailscale status`; replace the example value itself and do not type angle-bracket placeholders. Then build and install:
+
+```sh
+export FPV_HOST="fpv-mac.example-tailnet.ts.net"
+npm ci
+npm run mcp:build
+FPVBUDDY_MCP_HOST="$FPV_HOST" node tools/install-mcp-service.mjs
+launchctl bootstrap "gui/$(id -u)" "$HOME/Library/LaunchAgents/com.voidbrain.fpvbuddy-mcp.plist"
+launchctl kickstart -k "gui/$(id -u)/com.voidbrain.fpvbuddy-mcp"
+"$TS_CLI" serve --bg --https=443 --set-path=/fpvbuddy 127.0.0.1:8787
+```
+
+Expected results: `npm ci` completes (it may print existing dependency warnings); `npm run mcp:build` exits successfully; the installer prints the LaunchAgent plist path; `launchctl list | grep com.voidbrain.fpvbuddy-mcp` shows the service; `"$TS_CLI" serve status` shows HTTPS for `/fpvbuddy` proxying to `127.0.0.1:8787`; and `curl -i "https://${FPV_HOST}/fpvbuddy/mcp"` returns an MCP method response (a GET without an MCP session may return `405`, which confirms the HTTPS route reached the MCP endpoint). If `mcp:build` is missing, or neither Tailscale CLI path is available, stop and fix that prerequisite before running launchctl or Serve commands. `serve --bg` persists the Serve configuration across reboot. Tailscale Serve terminates HTTPS and restricts access to the tailnet; tailnet ACL policy still governs which devices can connect.
 
 The Node service is a LaunchAgent with `RunAtLoad` and `KeepAlive`, so it restarts for the logged-in user. Logs are written to `~/Library/Logs/fpvbuddy-mcp.log` and `~/Library/Logs/fpvbuddy-mcp-error.log`. After rebuilding, restart it with:
 
@@ -28,10 +70,11 @@ To move the service to another base later, install the same checkout there, set 
 
 ## NERV client setup and owner check
 
-On the NERV Mac, add the tailnet URL (use the actual host printed by `tailscale status`):
+On the NERV Mac, set `FPV_HOST` to the same exact MagicDNS hostname and add the tailnet URL:
 
 ```sh
-nerv tools add fpvbuddy https://fpv-mac.example-tailnet.ts.net/fpvbuddy/mcp
+export FPV_HOST="fpv-mac.example-tailnet.ts.net"
+nerv tools add fpvbuddy "https://${FPV_HOST}/fpvbuddy/mcp"
 nerv tools grant fpvbuddy list_batteries
 nerv tools grant fpvbuddy get_battery
 nerv tools list fpvbuddy
