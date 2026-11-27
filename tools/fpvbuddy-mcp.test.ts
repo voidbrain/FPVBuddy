@@ -87,4 +87,15 @@ describe('FPVBuddy MCP HTTP server', () => {
     const response = await fetch(endpoint, { headers: { origin: 'https://attacker.example' } });
     assert.equal(response.status, 403);
   });
+
+  it('accepts the Tailscale Serve mount path forwarded to the local service', async () => {
+    const handler = createFpvBuddyMcpHandler({ registry: new BatteryRegistry(), allowedHost: '127.0.0.1' });
+    server = createServer((request, response) => void handler(request, response));
+    await new Promise<void>((resolve) => server!.listen(0, '127.0.0.1', resolve));
+    const address = server.address();
+    if (!address || typeof address === 'string') throw new Error('Test server did not bind a TCP port.');
+
+    const response = await fetch(`http://127.0.0.1:${address.port}/mcp`);
+    assert.equal(response.status, 405);
+  });
 });
