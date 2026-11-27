@@ -35,3 +35,7 @@ PR #41 merged on green CI (46012379732); F-009-T02 provides the tailnet Streamab
 ## 2026-11-27 — main `e90b934`
 
 PR #42 merged on green CI (46014008511); F-009 setup instructions now require an updated checkout, Node 24 and a working Tailscale CLI.
+
+## 2026-11-27 — main `84cdc12`
+
+PR #43 merged on green CI (46016470279); F-009 records the corrected NERV grant syntax and CLI listing command.

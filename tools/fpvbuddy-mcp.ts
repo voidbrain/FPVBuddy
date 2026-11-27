@@ -98,7 +98,7 @@ export function createFpvBuddyMcpHandler(options: FpvBuddyMcpOptions) {
   const handler = toNodeHandler(createMcpHandler(() => createServerInstance(), { legacy: 'stateless' }));
 
   return (request: IncomingMessage, response: ServerResponse): Promise<void> => {
-    if (request.url !== '/fpvbuddy/mcp') {
+    if (request.url !== '/fpvbuddy/mcp' && request.url !== '/mcp') {
       reject(response, 404, 'Not found');
       return Promise.resolve();
     }
