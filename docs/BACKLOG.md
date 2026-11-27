@@ -148,7 +148,7 @@ Current work ledger, reviewed 27 November 2026 against main `4341407` (PRs #38 a
 
 | Field | Value |
 |---|---|
-| PR / evidence | [#13](https://github.com/voidbrain/FPVBuddy/pull/13) (record); [#24](https://github.com/voidbrain/FPVBuddy/pull/24) (CI 45791229262 green); [#38](https://github.com/voidbrain/FPVBuddy/pull/38) (reconciled #22–#37 and added #24 review evidence); this PR (F-009-T01 plan) |
+| PR / evidence | [#13](https://github.com/voidbrain/FPVBuddy/pull/13) (record); [#24](https://github.com/voidbrain/FPVBuddy/pull/24) (CI 45791229262 green); [#38](https://github.com/voidbrain/FPVBuddy/pull/38) (reconciled #22–#37 and added #24 review evidence); [#40](https://github.com/voidbrain/FPVBuddy/pull/40) (F-009-T01 plan) |
 | Opened | 2026-11-25 |
 | Verification | Documentation · Pending (F-009-T01 plan) |
 | Reviewed | 2026-11-27 |
@@ -531,7 +531,7 @@ Current work ledger, reviewed 27 November 2026 against main `4341407` (PRs #38 a
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-019-T01: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) · F-019-T02: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25). [#25](https://github.com/voidbrain/FPVBuddy/pull/25) (CI 45798003125 green); this PR (F-019-T03 reviews) |
+| PR / evidence | Steps: F-019-T01: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) · F-019-T02: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25). [#25](https://github.com/voidbrain/FPVBuddy/pull/25) (CI 45798003125 green); [#40](https://github.com/voidbrain/FPVBuddy/pull/40) (F-019-T03 reviews) |
 | Opened | 2026-11-26 |
 | Verification | Unit/integration · 2026-11-27 · F-019-T01 and F-019-T02 verified in #25 CI 45798003125 (coverage enforced, architecture review current); Documentation · Pending (F-019-T03) |
 | Reviewed | 2026-11-27 |
