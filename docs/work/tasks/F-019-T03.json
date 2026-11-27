@@ -4,7 +4,7 @@
   "parent": "F-019",
   "title": "First token and skills reviews",
   "goal": "docs/reviews/token/<date>.md and docs/reviews/skills/<date>.md",
-  "status": "implemented",
+  "status": "verified",
   "acceptance": [
     "Token review per rule-review \"Periodic token review\"",
     "Skills review per skills \"Skill discovery review\""
@@ -25,14 +25,19 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "1 h agent",
-    "basis": "Two short reviews like those of nerv and gauntlet-protocol. Estimate, not a measurement.",
-    "reviewed": "2026-11-26",
-    "agentHours": 1,
+    "estimate": "0 remaining",
+    "basis": "Token and skills reviews documented in #40 (CI 46007127894 green); freshness evidence reconciled 2026-11-27. Actual time unavailable.",
+    "reviewed": "2026-11-27",
+    "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 1,
     "estimateAgentHours": 1,
     "days": 0,
     "baselineDays": 0
-  }
+  },
+  "prs": [
+    {
+      "pr": 40
+    }
+  ]
 }

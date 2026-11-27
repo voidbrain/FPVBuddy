@@ -23,3 +23,7 @@ PRs #22–#37 merged on green CI. Closed B-007 (#25), F-006 (#11) and F-018 (#24
 ## 2026-11-27 — main `4341407`
 
 PRs #38 and #39 merged on green CI. #38 reconciled #22–#37 and added fresh-context review evidence to F-009; #39 updated F-025.
+
+## 2026-11-27 — main `d3b1e44`
+
+PR #40 merged on green CI (46007127894). #40 documents F-009-T01's host/data/tool plan and completes F-019-T03's token and skills reviews.
