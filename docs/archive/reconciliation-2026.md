@@ -31,3 +31,7 @@ PR #40 merged on green CI (46007127894). #40 documents F-009-T01's host/data/too
 ## 2026-11-27 — main `82addc8`
 
 PR #41 merged on green CI (46012379732); F-009-T02 provides the tailnet Streamable HTTP MCP service and F-009-T01 and F-019-T03 are verified.
+
+## 2026-11-27 — main `e90b934`
+
+PR #42 merged on green CI (46014008511); F-009 setup instructions now require an updated checkout, Node 24 and a working Tailscale CLI.
