@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "target": "ES2022",
     "rootDir": ".",
     "outDir": "./dist/mcp",
@@ -10,6 +10,6 @@
     "declaration": false,
     "sourceMap": true
   },
-  "include": ["tools/fpvbuddy-mcp.ts", "src/fpv-core/**/*.ts"],
+  "include": ["tools/fpvbuddy-mcp.ts", "tools/fpvbuddy-mcp.test.ts", "src/fpv-core/**/*.ts"],
   "exclude": ["src/fpv-core/**/*.spec.ts", "src/fpv-core/dist/**"]
 }

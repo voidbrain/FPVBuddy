@@ -4,10 +4,11 @@
   "parent": "F-009",
   "title": "MCP server with read-only battery tools",
   "goal": "NERV can list FPVBuddy's MCP tools and read battery data",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
-    "An MCP server in this repository exposes read-only battery tools on the F-005 core (fleet tools once FPVBuddy has a fleet), with specs",
-    "Its tool table is documented for consumers"
+    "A Streamable HTTP MCP endpoint over the F-005 BatteryRegistry exposes only read-only list_batteries and get_battery tools, with Italian phrasing in the model-facing tool descriptions and specs",
+    "The HTTP service binds to loopback, checks configured Host and Origin values, and documents macOS LaunchAgent installation and tailnet HTTPS through Tailscale Serve",
+    "The consumer tool table and exact NERV owner-check commands are documented; durable owner battery data remains explicitly dependent on F-016"
   ],
   "dependsOn": [
     "F-009-T01"
@@ -15,8 +16,11 @@
   "resources": [
     "package.json",
     "package-lock.json",
-    "src/**",
-    "docs/**"
+    "tools/**",
+    "tsconfig.mcp.json",
+    "src/fpv-core/**",
+    "docs/mcp-tools.md",
+    "docs/work/records/F-009.md"
   ],
   "capabilities": [
     "typescript"
@@ -25,6 +29,7 @@
   "validation": [
     "npm run check:fast",
     "npm test -- --watch=false",
+    "npm run mcp:test",
     "npm run build"
   ],
   "escalation": [
@@ -35,7 +40,7 @@
     "size": "medium",
     "estimate": "3 h",
     "basis": "Estimated 2026-11-25: a small server on an existing core; the host chosen in F-009-T01 carries the uncertainty. Not a measurement.",
-    "reviewed": "2026-11-25",
+    "reviewed": "2026-11-27",
     "agentHours": 3,
     "ownerHours": 0,
     "baselineAgentHours": 3,

@@ -69,6 +69,8 @@ npm run core:test
 
 See the [FPV core public API reference](docs/architecture/fpv-core.md) for exported types, `BatteryRegistry` methods, storage adapter invariants, and usage examples.
 
+The [FPVBuddy MCP service](docs/mcp-tools.md) provides read-only battery tools over tailnet HTTPS.
+
 ## Working on it
 
 - Agent instructions and workflows: [AGENTS.md](AGENTS.md)

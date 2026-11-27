@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-Current work ledger, reviewed 27 November 2026 against main `4341407` (PRs #38 and #39 merged on green CI). Rules: [docs/BACKLOG-RULES.md](BACKLOG-RULES.md).
+Current work ledger, reviewed 27 November 2026 against main `d3b1e44`. PR #40 merged on green CI (46007127894). #40 documents F-009-T01's host/data/tool plan and completes F-019-T03's token and skills reviews.
 
 ## Lifecycle
 
@@ -120,9 +120,9 @@ Current work ledger, reviewed 27 November 2026 against main `4341407` (PRs #38 a
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h agent + 0.5 h owner | [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T01](#f-016-t01), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02), [F-024-T03](#f-024-t03) | 🤖 | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 7 h agent + 0.5 h owner | [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02), [F-024-T03](#f-024-t03) | 🤖 | — | — |
 
-💻 **→** Next: F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools (Implemented; verification pending).
+💻 **→** Next: F-009-T02 — MCP server with read-only battery tools (Implemented; verification pending).
 
 | | |
 |---|---|
@@ -132,14 +132,21 @@ Current work ledger, reviewed 27 November 2026 against main `4341407` (PRs #38 a
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
-|---|---|---|---|---|---|---|---|:---:|
-| 🟢 Small | <a id="f-009-t01"></a>F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools | 1 h | 0 h | 1 h | Implemented; verification pending | — | [F-009-T02](#f-009-t02), [F-016-T01](#f-016-t01) | 🤖 |
-| 🟡 Medium | <a id="f-009-t02"></a>F-009-T02 — MCP server with read-only battery tools | 3 h | 0 h | 3 h | Planned | [F-009-T01](#f-009-t01) | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T01](#f-011-t01), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02), [F-024-T03](#f-024-t03) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-009-t03"></a>F-009-T03 — Battery tools return surface-typed data for bricks surface cards | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T02](#f-008-t02) | [F-009-T05](#f-009-t05), [F-011-T03](#f-011-t03) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-009-t04"></a>F-009-T04 — Full battery screen for NERV: MCP Apps page or link | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T05](#f-008-t05) | [F-009-T05](#f-009-t05), [F-011-T05](#f-011-t05) | ⏳ 🤖 |
-| 🟢 Small | <a id="f-009-t05"></a>F-009-T05 — Owner: see FPVBuddy's battery card and full screen in NERV | 0 h | 0 h | 0 h agent + 0.5 h owner | Planned | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04) | — | ⏳ 🧑‍🔧 |
-| 🔴 Large | **Total** | 8 h | 0 h (0 of 5 steps recorded) | 8 h agent + 0.5 h owner | 0 of 5 completed | | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
+|---|---|---|---|---|---|---|---|:---:|---|
+| 🟡 Medium | <a id="f-009-t02"></a>F-009-T02 — MCP server with read-only battery tools | 3 h | 0 h | 3 h | Implemented; verification pending | — | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04), [F-011-T01](#f-011-t01), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02), [F-024-T03](#f-024-t03) | 🤖 | — |
+| 🟡 Medium | <a id="f-009-t03"></a>F-009-T03 — Battery tools return surface-typed data for bricks surface cards | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T02](#f-008-t02) | [F-009-T05](#f-009-t05), [F-011-T03](#f-011-t03) | ⏳ 🤖 | — |
+| 🟡 Medium | <a id="f-009-t04"></a>F-009-T04 — Full battery screen for NERV: MCP Apps page or link | 2 h | 0 h | 2 h | Planned | [F-009-T02](#f-009-t02), [F-008-T05](#f-008-t05) | [F-009-T05](#f-009-t05), [F-011-T05](#f-011-t05) | ⏳ 🤖 | — |
+| 🟢 Small | <a id="f-009-t05"></a>F-009-T05 — Owner: see FPVBuddy's battery card and full screen in NERV | 0 h | 0 h | 0 h agent + 0.5 h owner | Planned | [F-009-T03](#f-009-t03), [F-009-T04](#f-009-t04) | — | ⏳ 🧑‍🔧 | — |
+| 🔴 Large | **Total** | 8 h | 0 h (0 of 5 steps recorded) | 7 h agent + 0.5 h owner | 1 of 5 completed | | | | |
+
+<details><summary>Done steps (1)</summary>
+
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-009-t01"></a>F-009-T01 — Plan FPVBuddy's MCP server: where it runs, its data and tools | 1 h | 0 h | Verified | [PR #40](https://github.com/voidbrain/FPVBuddy/pull/40) |
+
+</details>
 
 <details>
 <summary>Next action, estimates and evidence</summary>
@@ -148,9 +155,9 @@ Current work ledger, reviewed 27 November 2026 against main `4341407` (PRs #38 a
 
 | Field | Value |
 |---|---|
-| PR / evidence | [#13](https://github.com/voidbrain/FPVBuddy/pull/13) (record); [#24](https://github.com/voidbrain/FPVBuddy/pull/24) (CI 45791229262 green); [#38](https://github.com/voidbrain/FPVBuddy/pull/38) (reconciled #22–#37 and added #24 review evidence); [#40](https://github.com/voidbrain/FPVBuddy/pull/40) (F-009-T01 plan) |
+| PR / evidence | Steps: F-009-T01: [PR #40](https://github.com/voidbrain/FPVBuddy/pull/40). [#13](https://github.com/voidbrain/FPVBuddy/pull/13) (record); [#24](https://github.com/voidbrain/FPVBuddy/pull/24) (CI 45791229262 green); [#38](https://github.com/voidbrain/FPVBuddy/pull/38) (reconciled #22–#37 and added #24 review evidence); [#40](https://github.com/voidbrain/FPVBuddy/pull/40) (T01 plan; CI 46007127894 green); T02 implementation in this PR |
 | Opened | 2026-11-25 |
-| Verification | Documentation · Pending (F-009-T01 plan) |
+| Verification | Documentation · 2026-11-27 · #40 documents the T01 plan; T02 tools and tailnet service setup documented in this PR · Owner Mac and NERV client check pending |
 | Reviewed | 2026-11-27 |
 
 </details>
@@ -417,7 +424,7 @@ Current work ledger, reviewed 27 November 2026 against main `4341407` (PRs #38 a
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟡 Medium | 4 h agent + 0.75 h owner | [F-009-T01](#f-009-t01), [F-009-T02](#f-009-t02) | — | ⏳ | — | — |
+| 🔴 Open | 🔶 P2 | 🟡 Medium | 4 h agent + 0.75 h owner | [F-009-T02](#f-009-t02) | — | 🤖 | — | — |
 
 💻 **→** Next: F-016-T01 — Plan FPVBuddy's data backup against NERV's (Planned).
 
@@ -431,7 +438,7 @@ Current work ledger, reviewed 27 November 2026 against main `4341407` (PRs #38 a
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
 |---|---|---|---|---|---|---|---|:---:|
-| 🟢 Small | <a id="f-016-t01"></a>F-016-T01 — Plan FPVBuddy's data backup against NERV's | 1 h | 0 h | 1 h | Planned | [F-009-T01](#f-009-t01) | [F-016-T02](#f-016-t02) | ⏳ 🤖 |
+| 🟢 Small | <a id="f-016-t01"></a>F-016-T01 — Plan FPVBuddy's data backup against NERV's | 1 h | 0 h | 1 h | Planned | — | [F-016-T02](#f-016-t02) | 🤖 |
 | 🟢 Small | <a id="f-016-t02"></a>F-016-T02 — Owner: accept the backup plan or the recorded gap | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-016-T01](#f-016-t01) | [F-016-T03](#f-016-t03) | ⏳ 🤔 |
 | 🟡 Medium | <a id="f-016-t03"></a>F-016-T03 — Nightly snapshot and off-host copy of FPVBuddy's data | 3 h | 0 h | 3 h | Planned | [F-016-T02](#f-016-t02), [F-009-T02](#f-009-t02) | [F-016-T04](#f-016-t04) | ⏳ 🤖 |
 | 🟢 Small | <a id="f-016-t04"></a>F-016-T04 — Owner: restore drill | 0 h | 0 h | 0 h agent + 0.5 h owner | Planned | [F-016-T03](#f-016-t03) | — | ⏳ 🧑‍🔧 |
@@ -498,9 +505,9 @@ Current work ledger, reviewed 27 November 2026 against main `4341407` (PRs #38 a
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟢 Small | 1 h | — | — | 🤖 | — | — |
+| 🔴 Open | 🔹 P3 | 🟢 Small | 0 h | — | — | — | — | — |
 
-💻 **→** Next: F-019-T03 — First token and skills reviews (Implemented; verification pending).
+💻 **→** Next: all steps closed; verify and close the record.
 
 | | |
 |---|---|
@@ -512,15 +519,15 @@ Current work ledger, reviewed 27 November 2026 against main `4341407` (PRs #38 a
 
 | Effort | Step | Estimate | Actual | Remaining | Status | PRs |
 |---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-019-t03"></a>F-019-T03 — First token and skills reviews | 1 h | 0 h | 1 h | Implemented; verification pending | — |
-| 🟢 Small | **Total** | 1.75 h | 0 h (0 of 3 steps recorded) | 1 h | 2 of 3 completed | |
+| 🟢 Small | **Total** | 1.75 h | 0 h (0 of 3 steps recorded) | 0 h | 3 of 3 completed | |
 
-<details><summary>Done steps (2)</summary>
+<details><summary>Done steps (3)</summary>
 
 | Effort | Step | Estimate | Actual | Status | PRs |
 |---|---|---|---|---|---|
 | — | <a id="f-019-t01"></a>F-019-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings | 0.25 h | 0 h | Completed | [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) |
 | — | <a id="f-019-t02"></a>F-019-T02 — First architecture review with outside-landscape comparison | 0.5 h | 0 h | Completed | [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) |
+| 🟢 Small | <a id="f-019-t03"></a>F-019-T03 — First token and skills reviews | 1 h | 0 h | Verified | [PR #40](https://github.com/voidbrain/FPVBuddy/pull/40) |
 
 </details>
 
@@ -531,9 +538,9 @@ Current work ledger, reviewed 27 November 2026 against main `4341407` (PRs #38 a
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-019-T01: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) · F-019-T02: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25). [#25](https://github.com/voidbrain/FPVBuddy/pull/25) (CI 45798003125 green); [#40](https://github.com/voidbrain/FPVBuddy/pull/40) (F-019-T03 reviews) |
+| PR / evidence | Steps: F-019-T01: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) · F-019-T02: [PR #25](https://github.com/voidbrain/FPVBuddy/pull/25) · F-019-T03: [PR #40](https://github.com/voidbrain/FPVBuddy/pull/40). [#25](https://github.com/voidbrain/FPVBuddy/pull/25) (CI 45798003125 green); [#40](https://github.com/voidbrain/FPVBuddy/pull/40) (F-019-T03 reviews; CI 46007127894 green) |
 | Opened | 2026-11-26 |
-| Verification | Unit/integration · 2026-11-27 · F-019-T01 and F-019-T02 verified in #25 CI 45798003125 (coverage enforced, architecture review current); Documentation · Pending (F-019-T03) |
+| Verification | Unit/integration · 2026-11-27 · F-019-T01 and F-019-T02 verified in #25 CI 45798003125 (coverage enforced, architecture review current); Documentation · 2026-11-27 · F-019-T03 review documents and #40 CI 46007127894 |
 | Reviewed | 2026-11-27 |
 
 </details>

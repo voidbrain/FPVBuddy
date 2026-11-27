@@ -4,7 +4,7 @@
   "parent": "F-009",
   "title": "Plan FPVBuddy's MCP server: where it runs, its data and tools",
   "goal": "Where the MCP server runs and what it reads are known before code",
-  "status": "implemented",
+  "status": "verified",
   "acceptance": [
     "The record names the owner-approved host (Mac beside NERV-01), how the server reads BatteryRegistry through BatteryStorage (F-005), and the read-only battery tools it exposes; no new host or owner hardware is assumed"
   ],
@@ -27,12 +27,19 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "1 h",
-    "basis": "Estimated 2026-11-25: a read of the core and NERV's MCP client, then a short write-up. Not a measurement.",
-    "reviewed": "2026-11-25",
-    "agentHours": 1,
+    "estimate": "0 remaining",
+    "basis": "Acceptance documented in #40 (CI 46007127894 green); reconciled 2026-11-27. Actual time unavailable.",
+    "reviewed": "2026-11-27",
+    "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 1,
-    "estimateAgentHours": 1
-  }
+    "estimateAgentHours": 1,
+    "days": 0,
+    "baselineDays": 0
+  },
+  "prs": [
+    {
+      "pr": 40
+    }
+  ]
 }
