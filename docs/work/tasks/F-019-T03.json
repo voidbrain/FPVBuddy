@@ -4,7 +4,7 @@
   "parent": "F-019",
   "title": "First token and skills reviews",
   "goal": "docs/reviews/token/<date>.md and docs/reviews/skills/<date>.md",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "Token review per rule-review \"Periodic token review\"",
     "Skills review per skills \"Skill discovery review\""

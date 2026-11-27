@@ -4,9 +4,9 @@
   "parent": "F-009",
   "title": "Plan FPVBuddy's MCP server: where it runs, its data and tools",
   "goal": "Where the MCP server runs and what it reads are known before code",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
-    "The record names where the server runs (FPVBuddy is an offline PWA today), how it reads the battery core (F-005) and data, and the read-only tools it exposes; a choice that needs a new host or the owner's hardware goes to the owner first"
+    "The record names the owner-approved host (Mac beside NERV-01), how the server reads BatteryRegistry through BatteryStorage (F-005), and the read-only battery tools it exposes; no new host or owner hardware is assumed"
   ],
   "dependsOn": [
     "F-005-T02"

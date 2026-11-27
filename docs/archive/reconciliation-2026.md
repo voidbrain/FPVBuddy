@@ -19,3 +19,7 @@ PR #35 reconciles the harness to v10.24.2 (from 10.24.1; project-harness B-129).
 ## 2026-11-27 — main `d481ed1`
 
 PRs #22–#37 merged on green CI. Closed B-007 (#25), F-006 (#11) and F-018 (#24), plus steps F-007-T01–T03 (#15) and F-019-T01/T02 (#25); F-005 closed (#30), F-102 closed (#22, #23); #27–#29 Dependabot and #32, #35 harness reconciles (no record).
+
+## 2026-11-27 — main `4341407`
+
+PRs #38 and #39 merged on green CI. #38 reconciled #22–#37 and added fresh-context review evidence to F-009; #39 updated F-025.
