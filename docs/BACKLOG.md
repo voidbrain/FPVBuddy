@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-Current work ledger, reviewed 27 November 2026 against main `e90b934`. PR #42 merged on green CI (46014008511); F-009 setup instructions now require an updated checkout, Node 24 and a working Tailscale CLI.
+Current work ledger, reviewed 27 November 2026 against main `84cdc12`. PR #43 merged on green CI (46016470279); F-009 records the corrected NERV grant syntax and CLI listing command.
 
 ## Lifecycle
 
@@ -120,14 +120,14 @@ Current work ledger, reviewed 27 November 2026 against main `e90b934`. PR #42 me
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 7 h agent + 0.5 h owner | [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02), [F-024-T03](#f-024-t03) | 🤖 | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 7 h agent + 0.5 h owner | [F-008-T02](#f-008-t02), [F-008-T05](#f-008-t05) | [F-011-T01](#f-011-t01), [F-011-T03](#f-011-t03), [F-011-T05](#f-011-t05), [F-012-T01](#f-012-t01), [F-013-T03](#f-013-t03), [F-014-T02](#f-014-t02), [F-016-T03](#f-016-t03), [F-017-T02](#f-017-t02), [F-022-T02](#f-022-t02), [F-024-T03](#f-024-t03) | 🤖 | 🧑‍🔧 | — |
 
-💻 **→** Next: F-009-T02 — MCP server with read-only battery tools (Implemented; verification pending).
+🧑 **→** Retry NERV discovery and grant checks using [the owner check](mcp-tools.md#nerv-client-setup-and-owner-check).
 
 | | |
 |---|---|
-| **Issue** | Owner decision 2026-11-25 (F-008-T07; coordinator rule in `docs/DOMAINS.md`, "The rule for screens", [coordinator PR #50](https://github.com/voidbrain/coordinator/pull/50)): each project owns its own screens, built with 🧱 bricks, and NERV keeps no copies. NERV shows another project's data as (a) compact genUI surface cards in chat, from the project's MCP tools returning structured data with a surface type, rendered by the matching bricks surface component in NERV's theme, and (b) full screens through MCP Apps (a UI page the project's MCP server provides) or a link to the project's own page. FPVBuddy has no MCP server today. NERV's FPV pack views retire once the battery core moves ([nerv:F-101](https://github.com/voidbrain/nerv/blob/main/docs/BACKLOG.md#f-101), F-101-T04); that retirement and NERV's consumer side stay in NERV's backlog. |
-| **Reproduce** | Search the repository for an MCP server or tool definitions: there are none. |
+| **Issue** | Owner decision 2026-11-25 (F-008-T07; coordinator rule in `docs/DOMAINS.md`, "The rule for screens", [coordinator PR #50](https://github.com/voidbrain/coordinator/pull/50)): each project owns its own screens, built with 🧱 bricks, and NERV keeps no copies. NERV shows another project's data as (a) compact genUI surface cards in chat, from the project's MCP tools returning structured data with a surface type, rendered by the matching bricks surface component in NERV's theme, and (b) full screens through MCP Apps (a UI page the project's MCP server provides) or a link to the project's own page. FPVBuddy now has the read-only battery MCP service; NERV tool discovery must reach it through the tailnet route. NERV's FPV pack views retire once the battery core moves ([nerv:F-101](https://github.com/voidbrain/nerv/blob/main/docs/BACKLOG.md#f-101), F-101-T04); that retirement and NERV's consumer side stay in NERV's backlog. |
+| **Reproduce** | Run the external endpoint probe in [the setup instructions](mcp-tools.md#install-on-the-mac); before the route fix it returned HTTP 404 from the service's `Not found` handler at `/fpvbuddy/mcp`. |
 | **Check** | An MCP server in this repository exposes read-only battery tools on the F-005 core; chat tools return surface-typed data validated against the bricks genUI contract; NERV can open the full battery screen through an MCP Apps page or a link; specs, build and CI pass; the owner sees the card and the full screen in NERV. |
 
 **Feature steps**
@@ -155,9 +155,9 @@ Current work ledger, reviewed 27 November 2026 against main `e90b934`. PR #42 me
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-009-T01: [PR #40](https://github.com/voidbrain/FPVBuddy/pull/40). [#13](https://github.com/voidbrain/FPVBuddy/pull/13) (record); [#24](https://github.com/voidbrain/FPVBuddy/pull/24) (CI 45791229262 green); [#38](https://github.com/voidbrain/FPVBuddy/pull/38) (reconciled #22–#37 and added #24 review evidence); [#40](https://github.com/voidbrain/FPVBuddy/pull/40) (T01 plan; CI 46007127894 green); T02 implementation in [#41](https://github.com/voidbrain/FPVBuddy/pull/41); owner setup documentation correction in [#42](https://github.com/voidbrain/FPVBuddy/pull/42); NERV grant syntax correction in [#43](https://github.com/voidbrain/FPVBuddy/pull/43). Review: fresh-context design review 2026-11-27, findings fixed in #41. |
+| PR / evidence | Steps: F-009-T01: [PR #40](https://github.com/voidbrain/FPVBuddy/pull/40). [#13](https://github.com/voidbrain/FPVBuddy/pull/13) (record); [#24](https://github.com/voidbrain/FPVBuddy/pull/24) (CI 45791229262 green); [#38](https://github.com/voidbrain/FPVBuddy/pull/38) (reconciled #22–#37 and added #24 review evidence); [#40](https://github.com/voidbrain/FPVBuddy/pull/40) (T01 plan; CI 46007127894 green); T02 implementation in [#41](https://github.com/voidbrain/FPVBuddy/pull/41); setup docs in [#42](https://github.com/voidbrain/FPVBuddy/pull/42); NERV grants in [#43](https://github.com/voidbrain/FPVBuddy/pull/43); Tailscale route in [#44](https://github.com/voidbrain/FPVBuddy/pull/44). Review: fresh-context design review 2026-11-27, findings fixed in #41. Test: `tools/fpvbuddy-mcp.test.ts`, forwarded `/mcp` regression (`cef6051`, failed with 404 before fix). Earlier history: [archived F-009 evidence](archive/evidence-2026.md#f-009). |
 | Opened | 2026-11-25 |
-| Verification | Unit/integration · 2026-11-27 · #41 CI 46012379732 green (MCP contract included in CI); Documentation · 2026-11-27 · setup instructions corrected in #42; NERV endpoint added, grants rejected by incorrect syntax, corrected in [#43](https://github.com/voidbrain/FPVBuddy/pull/43) · Mac service, read grants and NERV client check pending |
+| Verification | Unit/integration · Pending (#44); Documentation · 2026-11-27 · setup instructions corrected in #42/#43; Real-device · Pending · external GET returned service 404 before #44 route fix; recheck external route and NERV tool discovery using the owner check |
 | Reviewed | 2026-11-27 |
 
 </details>

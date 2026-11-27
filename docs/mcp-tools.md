@@ -1,6 +1,6 @@
 # FPVBuddy MCP service
 
-The MCP endpoint exposes read-only battery data through Streamable HTTP. It listens only on `127.0.0.1:8787`; Tailscale Serve publishes it over HTTPS to the tailnet. Do not use Tailscale Funnel or bind the Node server to a LAN interface. The service rejects a missing or foreign `Host`, and rejects a present `Origin` unless it is exactly the configured `https://<tailnet-host>` origin. Non-browser MCP clients may omit `Origin`.
+The MCP endpoint exposes read-only battery data through Streamable HTTP. It listens only on `127.0.0.1:8787`; Tailscale Serve publishes it over HTTPS to the tailnet. With the `/fpvbuddy` Serve mount below, Tailscale removes that mount prefix before forwarding, so the service accepts `/mcp` for forwarded requests and `/fpvbuddy/mcp` for direct requests. Do not use Tailscale Funnel or bind the Node server to a LAN interface. The service rejects a missing or foreign `Host`, and rejects a present `Origin` unless it is exactly the configured `https://<tailnet-host>` origin. Non-browser MCP clients may omit `Origin`.
 
 ## Install on the Mac
 
@@ -58,7 +58,7 @@ launchctl kickstart -k "gui/$(id -u)/com.voidbrain.fpvbuddy-mcp"
 "$TS_CLI" serve --bg --https=443 --set-path=/fpvbuddy 127.0.0.1:8787
 ```
 
-Expected results: `npm ci` completes (it may print existing dependency warnings); `npm run mcp:build` exits successfully; the installer prints the LaunchAgent plist path; `launchctl list | grep com.voidbrain.fpvbuddy-mcp` shows the service; `"$TS_CLI" serve status` shows HTTPS for `/fpvbuddy` proxying to `127.0.0.1:8787`; and `curl -i "https://${FPV_HOST}/fpvbuddy/mcp"` returns an MCP method response (a GET without an MCP session may return `405`, which confirms the HTTPS route reached the MCP endpoint). If `mcp:build` is missing, or neither Tailscale CLI path is available, stop and fix that prerequisite before running launchctl or Serve commands. `serve --bg` persists the Serve configuration across reboot. Tailscale Serve terminates HTTPS and restricts access to the tailnet; tailnet ACL policy still governs which devices can connect.
+Expected results: `npm ci` completes (it may print existing dependency warnings); `npm run mcp:build` exits successfully; the installer prints the LaunchAgent plist path; `launchctl list | grep com.voidbrain.fpvbuddy-mcp` shows the service; `"$TS_CLI" serve status` shows HTTPS for `/fpvbuddy` proxying to `127.0.0.1:8787`; and `curl -i "https://${FPV_HOST}/fpvbuddy/mcp"` returns `405 Method Not Allowed` for GET, confirming that the HTTPS route reached the MCP endpoint (a `404` means the route is not reaching its MCP handler). If `mcp:build` is missing, or neither Tailscale CLI path is available, stop and fix that prerequisite before running launchctl or Serve commands. `serve --bg` persists the Serve configuration across reboot. Tailscale Serve terminates HTTPS and restricts access to the tailnet; tailnet ACL policy still governs which devices can connect.
 
 The Node service is a LaunchAgent with `RunAtLoad` and `KeepAlive`, so it restarts for the logged-in user. Logs are written to `~/Library/Logs/fpvbuddy-mcp.log` and `~/Library/Logs/fpvbuddy-mcp-error.log`. After rebuilding, restart it with:
 
