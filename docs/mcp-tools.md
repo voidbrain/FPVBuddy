@@ -75,12 +75,12 @@ On the NERV Mac, set `FPV_HOST` to the same exact MagicDNS hostname and add the 
 ```sh
 export FPV_HOST="fpv-mac.example-tailnet.ts.net"
 nerv tools add fpvbuddy "https://${FPV_HOST}/fpvbuddy/mcp"
-nerv tools grant fpvbuddy list_batteries
-nerv tools grant fpvbuddy get_battery
-nerv tools list fpvbuddy
+nerv tools grant fpvbuddy/list_batteries --effect read
+nerv tools grant fpvbuddy/get_battery --effect read
+nerv tools
 ```
 
-Expected results: the first command confirms the endpoint was added; each grant confirms only the named read tool; the final listing shows `list_batteries` and `get_battery`, with no write tools. Call `list_batteries` and expect an empty battery list until FPVBuddy connects this service to durable storage. For the later owner-data check, expect battery summaries; call `get_battery` with an existing battery ID and expect its record, usage history, resistance history and health advice, with notes omitted.
+Expected results: the first command confirms the endpoint was added; each grant confirms only the named read tool; the final `nerv tools` listing shows `list_batteries` and `get_battery`, with no write tools. Call `list_batteries` and expect an empty battery list until FPVBuddy connects this service to durable storage. For the later owner-data check, expect battery summaries; call `get_battery` with an existing battery ID and expect its record, usage history, resistance history and health advice, with notes omitted.
 
 ## Tools
 
