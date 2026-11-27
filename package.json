@@ -48,7 +48,7 @@
     "rule-load": "node tools/rule-load.mjs",
     "check:rule-load": "node tools/rule-load.mjs --check",
     "core:build": "npm --prefix src/fpv-core run build",
-    "core:test": "npm --prefix src/fpv-core test",
+    "core:test": "npm --prefix src/fpv-core test && npm run mcp:test",
     "core:pack-check": "node scripts/check-core-pack.mjs && node --test scripts/check-core-pack.test.mjs",
     "typecheck": "npx tsc -p tsconfig.app.json --noEmit --noUnusedLocals --noUnusedParameters && npx tsc -p tsconfig.spec.json --noEmit && npx tsc -p src/fpv-core/tsconfig.spec.json",
     "mcp:build": "tsc -p tsconfig.mcp.json && node -e \"require('node:fs').writeFileSync('dist/mcp/package.json', '{\\\"type\\\":\\\"module\\\"}\\n')\"",
