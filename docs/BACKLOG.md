@@ -778,7 +778,7 @@ Current work ledger, reviewed 27 November 2026 against main `d481ed1` ([PR #37](
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-025-T01: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan · F-025-T02: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan. Plan: [#37](https://github.com/voidbrain/FPVBuddy/pull/37) (CI 45906439831 green) |
+| PR / evidence | Steps: F-025-T01: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan · F-025-T02: [PR #37](https://github.com/voidbrain/FPVBuddy/pull/37) plan. Plan: [#37](https://github.com/voidbrain/FPVBuddy/pull/37) (CI 45906439831 green); [#39](https://github.com/voidbrain/FPVBuddy/pull/39) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-27 |
