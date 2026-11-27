@@ -1,6 +1,6 @@
 # FPVBuddy Backlog
 
-Current work ledger, reviewed 27 November 2026 against main `d3b1e44`. PR #40 merged on green CI (46007127894). #40 documents F-009-T01's host/data/tool plan and completes F-019-T03's token and skills reviews.
+Current work ledger, reviewed 27 November 2026 against main `82addc8`. PR #41 merged on green CI (46012379732); F-009-T02 provides the tailnet Streamable HTTP MCP service and F-009-T01 and F-019-T03 are verified.
 
 ## Lifecycle
 
@@ -155,9 +155,9 @@ Current work ledger, reviewed 27 November 2026 against main `d3b1e44`. PR #40 me
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-009-T01: [PR #40](https://github.com/voidbrain/FPVBuddy/pull/40). [#13](https://github.com/voidbrain/FPVBuddy/pull/13) (record); [#24](https://github.com/voidbrain/FPVBuddy/pull/24) (CI 45791229262 green); [#38](https://github.com/voidbrain/FPVBuddy/pull/38) (reconciled #22–#37 and added #24 review evidence); [#40](https://github.com/voidbrain/FPVBuddy/pull/40) (T01 plan; CI 46007127894 green); T02 implementation in [#41](https://github.com/voidbrain/FPVBuddy/pull/41). Review: fresh-context design review 2026-11-27, findings fixed in #41. |
+| PR / evidence | Steps: F-009-T01: [PR #40](https://github.com/voidbrain/FPVBuddy/pull/40). [#13](https://github.com/voidbrain/FPVBuddy/pull/13) (record); [#24](https://github.com/voidbrain/FPVBuddy/pull/24) (CI 45791229262 green); [#38](https://github.com/voidbrain/FPVBuddy/pull/38) (reconciled #22–#37 and added #24 review evidence); [#40](https://github.com/voidbrain/FPVBuddy/pull/40) (T01 plan; CI 46007127894 green); T02 implementation in [#41](https://github.com/voidbrain/FPVBuddy/pull/41); owner setup documentation correction in [#42](https://github.com/voidbrain/FPVBuddy/pull/42). Review: fresh-context design review 2026-11-27, findings fixed in #41. |
 | Opened | 2026-11-25 |
-| Verification | Documentation · 2026-11-27 · #40 documents the T01 plan; T02 tools and tailnet service setup documented in [#41](https://github.com/voidbrain/FPVBuddy/pull/41) · Owner Mac and NERV client check pending |
+| Verification | Unit/integration · 2026-11-27 · #41 CI 46012379732 green (MCP contract included in CI); Documentation · 2026-11-27 · setup attempt failed before start; #42 corrects stale-checkout, hostname and CLI instructions · Mac service and NERV client check pending |
 | Reviewed | 2026-11-27 |
 
 </details>
